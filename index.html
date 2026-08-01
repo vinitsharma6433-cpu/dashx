@@ -57,6 +57,23 @@
   .hero h1{font-size:clamp(42px,9vw,90px);margin-top:6px;text-transform:uppercase;color:#fff}
   .hero h1 span{color:var(--gold)}
   .hero p.sub{max-width:620px;margin:16px auto 0;color:var(--muted);font-size:17px}
+  
+  /* VIDEO CONTAINER STYLING */
+  .hero-video-box{
+    max-width:680px;
+    margin:24px auto 0;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--panel);
+    box-shadow:0 12px 40px rgba(244,180,0,.15);
+  }
+  .hero-video-box video{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:28px}
   .btn{font-family:'Teko';font-size:24px;letter-spacing:.5px;padding:12px 30px;border-radius:6px;display:inline-flex;align-items:center;gap:10px;transition:.2s;border:2px solid transparent}
   .btn-flip{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#000}
@@ -153,6 +170,15 @@
   <div class="tag">Made for Champions</div>
   <h1>Heavy <span>Cricket</span> Tennis Ball</h1>
   <p class="sub">Meerut mein bane, 20+ saal ke experience ke saath. Street, gully aur turf cricket ke liye perfect bounce aur control. Ek baar khelo — farak khud pata chalega.</p>
+  
+  <!-- PROMOTIONAL ACTION VIDEO -->
+  <div class="hero-video-box">
+    <video autoplay loop muted playsinline poster="gallery-1.jpg">
+      <source src="promo-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
   <div class="cta-row">
     <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart</a>
     <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon</a>
