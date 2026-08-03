@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vinitsharma6433-cpu.github.io/dashx/sitemap.xml
