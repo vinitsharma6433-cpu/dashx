@@ -121,6 +121,23 @@
   .dx-title{position:absolute;top:350px;width:100%;text-align:center;font-family:'Teko',sans-serif;font-size:58px;font-weight:700;letter-spacing:8px;color:#fff;line-height:1}
   .dx-title .x{color:var(--gold)}
 
+
+  /* TRADEMARK */
+  .brand-logo{height:46px;width:auto;border-radius:8px;border:1px solid var(--line);animation:tmGlowSm 3s ease-in-out infinite}
+  @keyframes tmGlowSm{0%,100%{box-shadow:0 0 0 rgba(244,180,0,0)}50%{box-shadow:0 0 14px rgba(244,180,0,.55)}}
+  .tm{position:relative;z-index:1;text-align:center;padding:60px 0 70px}
+  .tm-frame{position:relative;display:inline-block;width:min(92%,520px);margin-top:34px;border-radius:18px;overflow:hidden;
+    border:2px solid rgba(244,180,0,.45);animation:tmFloat 5s ease-in-out infinite,tmGlow 2.6s ease-in-out infinite}
+  .tm-frame img{display:block;width:100%;height:auto}
+  .tm-frame::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);animation:tmShine 3.8s ease-in-out infinite}
+  @keyframes tmFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @keyframes tmGlow{0%,100%{box-shadow:0 10px 40px rgba(244,180,0,.15)}50%{box-shadow:0 10px 60px rgba(244,180,0,.45)}}
+  @keyframes tmShine{0%,55%{left:-60%}85%,100%{left:130%}}
+  .tm-reveal{opacity:0;transform:scale(.85) translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+  .tm-reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.tm-reveal{opacity:1;transform:none}.tm-frame::after{display:none}}
+
   /* badges strip */
   .strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:34px 0 10px}
   .chip{border:1px solid var(--line);border-radius:40px;padding:8px 20px;font-family:'Teko';font-size:19px;letter-spacing:1px;color:var(--gold);background:var(--panel)}
@@ -189,12 +206,12 @@
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
-<body>
+<body id="top">
 <div class="streaks"></div>
 
 <header>
   <div class="wrap nav">
-    <div class="brand">DASH<b>X</b></div>
+    <a class="brand" href="#top"><img class="brand-logo" src="dashx-logo-sm.jpg" alt="DASH X trademark logo" width="37" height="46">DASH<b>X</b></a>
     <div style="display:flex;align-items:center;gap:18px">
       <a href="#gallery" style="font-family:'Teko';font-size:20px;color:var(--gold)">Gallery</a>
       <a class="nav-cta" href="#order">Order Now</a>
@@ -420,6 +437,20 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB
     </a>
   </div>
 </section>
+
+<!-- TRADEMARK -->
+<section class="tm wrap" id="trademark">
+  <div class="eyebrow">Our Trademark</div>
+  <h2 class="h2">DASH X — Made for Champions</h2>
+  <div class="tm-reveal" id="tmReveal">
+    <div class="tm-frame"><img src="dashx-logo.jpg" alt="DASH X Cricket Tennis Ball — Nav Durga Sports, Meerut trademark" width="800" height="992" loading="lazy"></div>
+  </div>
+</section>
+<script>
+(function(){var el=document.getElementById('tmReveal');
+  if(!('IntersectionObserver' in window)){el.classList.add('in');return;}
+  new IntersectionObserver(function(e,o){if(e[0].isIntersecting){el.classList.add('in');o.disconnect();}},{threshold:.2}).observe(el);})();
+</script>
 
 <footer>
   <div class="brand" style="justify-content:center;margin-bottom:10px">DASH<b>X</b></div>
