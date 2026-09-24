@@ -69,6 +69,40 @@
   .btn-meesho{background:transparent;border-color:#9F1C5C;color:#F065A6}
   .btn-meesho:hover{background:#9F1C5C;color:#fff;transform:translateY(-2px)}
 
+
+  /* ANIMATED BALL (hero) */
+  .dx-scene{position:relative;width:min(430px,100%);height:420px;margin:0 auto;overflow:hidden;border-radius:16px;border:1px solid var(--line);
+    background:radial-gradient(120% 90% at 50% 28%,#1c1a0e 0%,#0a0a0a 72%);animation:pop .8s ease}
+  .dx-glow{position:absolute;top:-30px;left:50%;width:300px;height:300px;margin-left:-150px;border-radius:50%;
+    background:radial-gradient(circle,rgba(217,242,75,.25) 0%,transparent 68%);animation:dxGlow 1.3s ease-in-out infinite}
+  @keyframes dxGlow{0%,100%{opacity:.45;transform:scale(1)}52%{opacity:.85;transform:scale(1.1)}}
+  .dx-ball{position:absolute;top:10px;left:50%;width:160px;height:160px;margin-left:-80px;z-index:3;animation:dxBounce 1.3s infinite}
+  @keyframes dxBounce{
+    0%{transform:translateY(0) scale(1,1);animation-timing-function:cubic-bezier(.5,.05,.85,.4)}
+    47%{transform:translateY(154px) scale(.97,1.05)}
+    52%{transform:translateY(160px) scale(1.26,.7);animation-timing-function:cubic-bezier(.2,.6,.4,1)}
+    57%{transform:translateY(150px) scale(.93,1.1)}
+    100%{transform:translateY(0) scale(1,1)}}
+  .dx-rotor{transform-origin:120px 120px;animation:dxSpin 2.6s linear infinite}
+  @keyframes dxSpin{to{transform:rotate(360deg)}}
+  .dx-logo{font-weight:800;fill:#10130a;font-family:system-ui,'Segoe UI',sans-serif}
+  .dx-floor{position:absolute;top:330px;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,#4a4430 22%,#4a4430 78%,transparent)}
+  .dx-refl{position:absolute;top:334px;left:50%;width:160px;height:160px;margin-left:-80px;opacity:.2;
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 62%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 62%);
+    animation:dxRefl 1.3s ease-in-out infinite}
+  .dx-refl svg{display:block;width:100%;height:100%}
+  @keyframes dxRefl{0%,100%{transform:scale(.9,-.42);opacity:.12}52%{transform:scale(1.06,-.58);opacity:.34}}
+  .dx-puffs{position:absolute;top:322px;left:50%;z-index:2}
+  .dx-puffs i{position:absolute;left:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:#b8b08a;opacity:0;animation:dxPuff 1.3s infinite}
+  .dx-puffs i:nth-child(1){--px:-32px;--py:-4px}
+  .dx-puffs i:nth-child(2){--px:0px;--py:-20px;animation-delay:.02s}
+  .dx-puffs i:nth-child(3){--px:32px;--py:-4px;animation-delay:.04s}
+  @keyframes dxPuff{0%,46%{transform:translate(0,0) scale(.4);opacity:0}50%{opacity:.9}64%{transform:translate(var(--px),var(--py)) scale(1.1);opacity:0}100%{opacity:0}}
+  .dx-wave{position:absolute;top:322px;left:50%;width:120px;height:16px;margin-left:-60px;border:2px solid #e8dfb8;border-radius:50%;opacity:0;z-index:2;animation:dxWave 1.3s infinite}
+  @keyframes dxWave{0%,46%{transform:scale(.25);opacity:0}52%{opacity:.55}72%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+  .dx-title{position:absolute;top:350px;width:100%;text-align:center;font-family:'Teko',sans-serif;font-size:58px;font-weight:700;letter-spacing:8px;color:#fff;line-height:1}
+  .dx-title .x{color:var(--gold)}
+
   /* badges strip */
   .strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:34px 0 10px}
   .chip{border:1px solid var(--line);border-radius:40px;padding:8px 20px;font-family:'Teko';font-size:19px;letter-spacing:1px;color:var(--gold);background:var(--panel)}
@@ -152,7 +186,60 @@
 
 <!-- HERO -->
 <div class="hero wrap">
-  <img class="logo" src="gallery-3.jpg" alt="DASH X Power Heavy &amp; Light Cricket Tennis Ball — Pack of 6">
+  <div class="dx-scene" role="img" aria-label="DASH X cricket tennis ball bouncing">
+    <div class="dx-glow"></div>
+    <div class="dx-ball">
+      <svg id="dxBallSvg" viewBox="0 0 240 240" width="100%" height="100%" aria-hidden="true">
+        <defs>
+          <radialGradient id="dxBall" cx="34%" cy="28%" r="82%">
+            <stop offset="0%" stop-color="#f6ff9e"/>
+            <stop offset="38%" stop-color="#d9f24b"/>
+            <stop offset="72%" stop-color="#a8c41e"/>
+            <stop offset="100%" stop-color="#66790d"/>
+          </radialGradient>
+          <radialGradient id="dxShade" cx="50%" cy="50%" r="50%">
+            <stop offset="70%" stop-color="rgba(15,20,0,0)"/>
+            <stop offset="95%" stop-color="rgba(15,20,0,.38)"/>
+            <stop offset="100%" stop-color="rgba(15,20,0,.55)"/>
+          </radialGradient>
+          <linearGradient id="dxWrap" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(18,24,0,.6)"/>
+            <stop offset="20%" stop-color="rgba(18,24,0,0)"/>
+            <stop offset="80%" stop-color="rgba(18,24,0,0)"/>
+            <stop offset="100%" stop-color="rgba(18,24,0,.6)"/>
+          </linearGradient>
+          <clipPath id="dxClip"><circle cx="120" cy="120" r="90"/></clipPath>
+          <path id="dxOrbit" d="M120,120 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/>
+          <filter id="dxFelt" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0.7 0.7 -0.55" result="a"/>
+            <feComposite in="a" in2="SourceGraphic" operator="in"/>
+          </filter>
+        </defs>
+        <circle cx="120" cy="120" r="90" fill="url(#dxBall)"/>
+        <g clip-path="url(#dxClip)">
+          <rect x="0" y="0" width="240" height="240" fill="#141a00" filter="url(#dxFelt)" opacity=".5"/>
+          <g class="dx-rotor">
+            <path d="M 38 16 Q 120 120 38 224" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".95"/>
+            <path d="M 202 16 Q 120 120 202 224" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round" opacity=".95"/>
+            <text class="dx-logo" font-size="30" letter-spacing="4">
+              <textPath href="#dxOrbit" textLength="350" lengthAdjust="spacingAndGlyphs">DASHX • DASHX •</textPath>
+            </text>
+          </g>
+          <rect x="0" y="0" width="240" height="240" fill="url(#dxWrap)"/>
+          <rect x="0" y="0" width="240" height="240" fill="url(#dxWrap)" transform="rotate(90 120 120)" opacity=".45"/>
+        </g>
+        <circle cx="120" cy="120" r="90" fill="url(#dxShade)"/>
+        <ellipse cx="86" cy="74" rx="32" ry="20" fill="#ffffff" opacity=".4" transform="rotate(-26 86 74)"/>
+        <circle cx="70" cy="56" r="8" fill="#ffffff" opacity=".65"/>
+      </svg>
+    </div>
+    <div class="dx-refl"><svg viewBox="0 0 240 240" aria-hidden="true"><use href="#dxBallSvg"/></svg></div>
+    <div class="dx-floor"></div>
+    <div class="dx-puffs"><i></i><i></i><i></i></div>
+    <div class="dx-wave"></div>
+    <div class="dx-title">DASH<span class="x">X</span></div>
+  </div>
   <div class="tag">Made for Champions</div>
   <h1>Heavy <span>Cricket</span> Tennis Ball</h1>
   <p class="sub">Meerut mein bane, 20+ saal ke experience ke saath. Street, gully aur turf cricket ke liye perfect bounce aur control. Ek baar khelo — farak khud pata chalega.</p>
