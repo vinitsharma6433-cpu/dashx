@@ -143,7 +143,7 @@
   .chip{border:1px solid var(--line);border-radius:40px;padding:8px 20px;font-family:'Teko';font-size:19px;letter-spacing:1px;color:var(--gold);background:var(--panel)}
 
   /* SECTION */
-  section.block{position:relative;z-index:1;padding:60px 0}
+  section.block{position:relative;z-index:1;padding:60px 22px}
   .eyebrow{font-family:'Teko';font-size:20px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;text-align:center}
   .h2{font-size:clamp(34px,6vw,56px);text-transform:uppercase;text-align:center;color:#fff;margin-top:4px}
   .center-sub{text-align:center;color:var(--muted);max-width:620px;margin:12px auto 0}
@@ -198,10 +198,53 @@
   .fab{position:fixed;right:18px;bottom:18px;z-index:80;background:#25D366;color:#000;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 6px 20px rgba(37,211,102,.45);animation:bob 2.4s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
+  /* HERO BG (gully night) */
+  .hero-bg{position:relative;z-index:1;overflow:hidden}
+  .hero-bg::before{content:"";position:absolute;inset:0;background:url(gully-night.jpg) center/cover no-repeat;opacity:.45}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.4),rgba(10,10,10,.72) 55%,var(--black))}
+  .hero-bg>*{position:relative;z-index:1}
+  .btn-lab{background:transparent;border-color:var(--gold);color:var(--gold)}
+  .btn-lab:hover{background:var(--gold);color:#000;transform:translateY(-2px)}
+
+  /* LANG TOGGLE */
+  .lang-btn{font-family:'Teko';font-size:20px;min-width:40px;height:36px;padding:0 8px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer}
+  .lang-btn:hover{color:#fff;border-color:var(--gold)}
+
+  /* BOUNCE LAB */
+  .lab-box{margin-top:32px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .lab-canvas-wrap{position:relative;touch-action:none}
+  .lab-canvas-wrap canvas{display:block;width:100%;cursor:crosshair}
+  .lab-hint{position:absolute;left:0;right:0;top:14px;text-align:center;font-family:'Teko';font-size:20px;letter-spacing:.5px;color:rgba(244,180,0,.85);pointer-events:none;padding:0 12px}
+  .lab-stats{display:none;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line)}
+  .lab-stats.show{display:grid}
+  .lab-stat{background:var(--panel);padding:12px 16px}
+  .lab-stat .k{font-family:'Teko';font-size:16px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+  .lab-stat .v{font-family:'Teko';font-size:30px;color:#fff;line-height:1.1}
+  .lab-stat .v small{font-size:16px;color:var(--muted)}
+  .lab-stat .m{font-size:12px;color:var(--muted)}
+  .lab-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+  .pill{font-family:'Teko';font-size:19px;letter-spacing:.5px;text-transform:uppercase;height:40px;padding:0 16px;border-radius:40px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer;transition:.15s}
+  .pill:hover{color:#fff}
+  .pill.on{background:var(--gold);border-color:var(--gold);color:#000}
+  .pill.act{border-color:var(--gold);color:var(--gold)}
+  .pill.act:hover,.pill.act.on{background:var(--gold);color:#000}
+
+  /* STORY */
+  .story{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
+  .story img{width:100%;height:100%;min-height:240px;object-fit:cover;display:block}
+  .story .txt{padding:30px 30px 30px 0}
+  .story .eyebrow,.story .h2{text-align:left}
+  .story p{color:var(--muted);margin-top:14px}
+
   @media(max-width:720px){
+    .story{grid-template-columns:1fr}
+    .story .txt{padding:0 22px 28px}
     .product{grid-template-columns:1fr}
     .hero{padding-top:30px}
     .nav-cta{display:none}
+  }
+  @media(max-width:480px){
+    .nav-gal{display:none}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
@@ -213,13 +256,16 @@
   <div class="wrap nav">
     <a class="brand" href="#top"><img class="brand-logo" src="dashx-logo-sm.jpg" alt="DASH X trademark logo" width="37" height="46">DASH<b>X</b></a>
     <div style="display:flex;align-items:center;gap:18px">
-      <a href="#gallery" style="font-family:'Teko';font-size:20px;color:var(--gold)">Gallery</a>
-      <a class="nav-cta" href="#order">Order Now</a>
+      <a href="#lab" style="font-family:'Teko';font-size:20px;color:var(--gold)" data-i18n="navLab">Bounce Lab</a>
+      <a class="nav-gal" href="#gallery" style="font-family:'Teko';font-size:20px;color:var(--gold)" data-i18n="navGallery">Gallery</a>
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+      <a class="nav-cta" href="#order" data-i18n="navOrder">Order Now</a>
     </div>
   </div>
 </header>
 
 <!-- HERO -->
+<div class="hero-bg">
 <div class="hero wrap">
   <div class="dx-scene" role="img" aria-label="DASH X cricket tennis ball bouncing">
     <div class="dx-glow"></div>
@@ -275,14 +321,15 @@
     <div class="dx-wave"></div>
     <div class="dx-title">DASH<span class="x">X</span></div>
   </div>
-  <div class="tag">Made for Champions</div>
+  <div class="tag" data-i18n="tag">Made for Champions</div>
   <h1>Heavy <span>Cricket</span> Tennis Ball</h1>
-  <p class="sub">Meerut mein bane, 20+ saal ke experience ke saath. Street, gully aur turf cricket ke liye perfect bounce aur control. Ek baar khelo — farak khud pata chalega.</p>
+  <p class="sub" data-i18n="heroSub">Meerut mein bane, 20+ saal ke experience ke saath. Street, gully aur turf cricket ke liye perfect bounce aur control. Ek baar khelo — farak khud pata chalega.</p>
   <video controls playsinline preload="metadata" poster="gallery-3.jpg">
     <source src="promo-video.mp4?v=3" type="video/mp4">
     Aapka browser video tag support nahi karta.
   </video>
   <div class="cta-row">
+    <a class="btn btn-lab" href="#lab">🎮 <span data-i18n="enterLab">Bounce Lab kholo</span></a>
     <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart</a>
     <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon</a>
     <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy on Meesho</a>
@@ -296,32 +343,65 @@
   <span class="chip">🏆 Made for Champions</span>
   <span class="chip">🇮🇳 Meerut Made</span>
 </div>
+</div>
+
+<!-- BOUNCE LAB (game) -->
+<section class="block wrap" id="lab">
+  <div class="eyebrow" data-i18n="labEyebrow">World-first</div>
+  <h2 class="h2" data-i18n="labTitle">Bounce Lab</h2>
+  <p class="center-sub" data-i18n="labSub">DASH X ko khud pitch par phenko. Heavy vs regular tennis — bounce, punch aur hang time live dekho.</p>
+  <div class="lab-box">
+    <div class="lab-canvas-wrap" id="labWrap">
+      <canvas id="labCanvas"></canvas>
+      <p class="lab-hint" id="labHint" data-i18n="throwHint">Kheench ke chhodo — ya Drop Test dabao</p>
+    </div>
+    <div class="lab-stats" id="labStats"></div>
+  </div>
+  <div class="lab-row" id="pitchRow">
+    <button type="button" class="pill on" data-pitch="cement" data-i18n="pitchCement">Cement</button>
+    <button type="button" class="pill" data-pitch="gully" data-i18n="pitchGully">Gully</button>
+    <button type="button" class="pill" data-pitch="turf" data-i18n="pitchTurf">Turf</button>
+    <button type="button" class="pill" data-pitch="box" data-i18n="pitchBox">Box</button>
+  </div>
+  <div class="lab-row" id="kindRow">
+    <button type="button" class="pill on" data-kind="heavy" data-i18n="ballHeavy">DASH X Heavy</button>
+    <button type="button" class="pill" data-kind="light" data-i18n="ballLight">DASH X Light</button>
+    <button type="button" class="pill" data-kind="regular" data-i18n="ballRegular">Regular tennis</button>
+  </div>
+  <div class="lab-row">
+    <button type="button" class="pill on" id="labDrop" data-i18n="dropTest">Drop Test</button>
+    <button type="button" class="pill act" id="labBowl" data-i18n="bowl">Bowl</button>
+    <button type="button" class="pill act" id="labCompare" data-i18n="compare">Compare</button>
+    <button type="button" class="pill" id="labReset" data-i18n="reset">Reset</button>
+    <button type="button" class="pill" id="labMute" aria-pressed="false">🔊 <span data-i18n="mute">Sound</span></button>
+  </div>
+</section>
 
 <!-- WHY -->
 <section class="block wrap" id="why">
   <div class="eyebrow">Why DASH X</div>
   <h2 class="h2">Built to Perform</h2>
-  <p class="center-sub">Har ball professional standard par banti hai — taaki aapka khel rok na sake.</p>
+  <p class="center-sub" data-i18n="whySub">Har ball professional standard par banti hai — taaki aapka khel rok na sake.</p>
   <div class="feat-grid">
     <div class="feat">
       <div class="ic">🎯</div>
       <h3>Perfect Bounce</h3>
-      <p>Heavy-weight design se consistent aur controlled bounce — har pitch par.</p>
+      <p data-i18n="feat1d">Heavy-weight design se consistent aur controlled bounce — har pitch par.</p>
     </div>
     <div class="feat">
       <div class="ic">💪</div>
       <h3>Tough & Durable</h3>
-      <p>Premium rubber core aur strong felt cover — lambi pitch par bhi shape kayam.</p>
+      <p data-i18n="feat2d">Premium rubber core aur strong felt cover — lambi innings ke baad bhi shape kayam.</p>
     </div>
     <div class="feat">
       <div class="ic">🏏</div>
       <h3>All Grounds</h3>
-      <p>Street, gully, turf aur box cricket — har jagah ke liye taiyaar.</p>
+      <p data-i18n="feat3d">Street, gully, turf aur box cricket — har jagah ke liye taiyaar.</p>
     </div>
     <div class="feat">
       <div class="ic">🏆</div>
       <h3>Champion Grade</h3>
-      <p>20+ saal ka manufacturing experience — quality par seedha bharosa.</p>
+      <p data-i18n="feat4d">20+ saal ka manufacturing experience — quality par seedha bharosa.</p>
     </div>
   </div>
 </section>
@@ -332,17 +412,17 @@
   <h2 class="h2">DASH X Heavy — Pack of 6</h2>
   <div class="product">
     <div class="card">
-      <img src="gallery-3.jpg" alt="DASH X Power Heavy &amp; Light — Pack of 6 balls">
+      <img src="pack-studio.jpg" alt="DASH X Power Heavy &amp; Light — Pack of 6 balls" style="width:100%;border-radius:10px">
     </div>
     <div>
       <ul class="plist">
         <li><b>Type:</b>&nbsp;Heavy cricket tennis ball</li>
-        <li><b>Pack:</b>&nbsp;6 balls — pure season ka intezaam</li>
+        <li><b>Pack:</b>&nbsp;<span data-i18n="packVal">6 balls — pure season ka intezaam</span></li>
         <li><b>Best for:</b>&nbsp;Street, gully, turf &amp; box cricket</li>
         <li><b>Build:</b>&nbsp;Rubber core + premium felt cover</li>
         <li><b>Made by:</b>&nbsp;Nav Durga Sports, Meerut</li>
       </ul>
-      <div class="price-line">₹242 on Amazon <small>— fast delivery all India</small></div>
+      <div class="price-line">₹242 <small data-i18n="priceNote">on Amazon — fast delivery all India</small></div>
       <div class="cta-row" style="justify-content:flex-start">
         <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy Now</a>
         <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy Now</a>
@@ -356,12 +436,13 @@
 <section class="block wrap" id="gallery">
   <div class="eyebrow">Product Gallery</div>
   <h2 class="h2">DASH X — In Detail</h2>
-  <p class="center-sub">Heavy &amp; Light range, packaging aur action shots — sab ek jagah.</p>
+  <p class="center-sub" data-i18n="galSub">Heavy &amp; Light range, packaging aur action shots — sab ek jagah.</p>
   <div class="gal-grid">
     <div class="gal-item" onclick="openLB('gallery-1.jpg')"><img src="gallery-1.jpg" alt="DASH X Power Extra Duty — Green Cover, Pack of 3"></div>
     <div class="gal-item" onclick="openLB('gallery-2.jpg')"><img src="gallery-2.jpg" alt="DASH X Power — Pack of 6 in carry pouch"></div>
     <div class="gal-item" onclick="openLB('gallery-3.jpg')"><img src="gallery-3.jpg" alt="DASH X Power Heavy & Light — Pack of 6 (3 Heavy + 3 Light)"></div>
     <div class="gal-item" onclick="openLB('gallery-4.jpg')"><img src="gallery-4.jpg" alt="DASH X Power in action — Smash them all over the park"></div>
+    <div class="gal-item" onclick="openLB('hero-ball.jpg')"><img src="hero-ball.jpg" alt="DASH X heavy maroon cricket tennis ball" loading="lazy"></div>
     <div class="gal-item" onclick="openLB('gallery-5.jpg')"><img src="gallery-5.jpg" alt="DASH X Light — Red Cover, Pack of 12"></div>
     <div class="gal-item" onclick="openLB('gallery-6.jpg')"><img src="gallery-6.jpg" alt="DASH X Light — Green Cover, Pack of 12"></div>
     <div class="gal-item" onclick="openLB('gallery-7.jpg')"><img src="gallery-7.jpg" alt="DASH X Light — Green Cover, Pack of 12"></div>
@@ -391,12 +472,24 @@ function closeLB(){
 document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB(); });
 </script>
 
+<!-- STORY (Meerut) -->
+<section class="block wrap" id="meerut">
+  <div class="story">
+    <img src="meerut-workshop.jpg" alt="Nav Durga Sports workshop, Meerut" loading="lazy">
+    <div class="txt">
+      <div class="eyebrow">Meerut</div>
+      <h2 class="h2" data-i18n="storyTitle">20+ saal, ek trademark</h2>
+      <p data-i18n="storyBody">DASH X Nav Durga Sports, Meerut ki pehchaan hai. Rubber core se felt cover tak har ball champion grade par banti hai — gully cricket ke liye, champions ke haath ke liye.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ORDER BAND -->
 <div class="order" id="order">
   <div class="wrap">
     <div class="eyebrow">Get Yours</div>
     <h2 class="h2">Order DASH X Today</h2>
-    <p class="center-sub">Retail order Flipkart ya Amazon se — safe &amp; fast. Bulk ya dealer order? Seedha WhatsApp par baat karo.</p>
+    <p class="center-sub" data-i18n="orderSub">Retail order Flipkart ya Amazon se — safe &amp; fast. Bulk ya dealer order? Seedha WhatsApp par baat karo.</p>
     <div class="cta-row">
       <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart</a>
       <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon</a>
@@ -460,6 +553,237 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB
 </footer>
 
 <a class="fab" href="https://wa.me/919837821341?text=Hi%20DASH%20X" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script>
+/* ===== LANGUAGE (Hinglish / English) ===== */
+var EN={navLab:"Bounce Lab",navGallery:"Gallery",navOrder:"Order Now",tag:"Made for Champions",
+heroSub:"Built in Meerut with 20+ years of manufacturing. Street, gully, turf and box — weight, bounce and control on every pitch.",
+enterLab:"Open Bounce Lab",labEyebrow:"World-first",labTitle:"Bounce Lab",
+labSub:"Throw DASH X on a real Indian pitch. Heavy vs a regular tennis ball — bounce, punch and hang time, live.",
+pitchCement:"Cement",pitchGully:"Gully",pitchTurf:"Turf",pitchBox:"Box",ballHeavy:"DASH X Heavy",ballLight:"DASH X Light",ballRegular:"Regular tennis",
+throwHint:"Pull back and release — or run a Drop Test",dropTest:"Drop Test",bowl:"Bowl",compare:"Compare",reset:"Reset",mute:"Sound",
+whySub:"Every ball is built to a professional standard so the game never stops.",
+feat1d:"Heavy-weight design for consistent, controlled bounce on any pitch.",
+feat2d:"Premium rubber core and strong felt cover — holds shape through long innings.",
+feat3d:"Street, gully, turf and box cricket. One ball, every ground.",
+feat4d:"20+ years of manufacturing. Quality you can feel off the first delivery.",
+packVal:"6 balls — a full season ready",priceNote:"on Amazon — fast delivery all India",
+galSub:"Heavy & Light range, packaging and action — in one place.",
+storyTitle:"20+ years, one trademark",
+storyBody:"DASH X is the mark of Nav Durga Sports, Meerut. From rubber core to felt cover, every ball is champion grade — built for gully cricket, built for champions.",
+orderSub:"Retail on Flipkart, Amazon or Meesho — safe & fast. Bulk or dealer order? WhatsApp us directly.",
+statPunch:"Punch",statHang:"Hang",stumpHit:"Stumps gone"};
+var HI={statPunch:"Punch",statHang:"Hang",stumpHit:"Stumps udd gaye"};
+var LANG="hi";
+(function(){
+  var els=document.querySelectorAll('[data-i18n]');
+  for(var i=0;i<els.length;i++){var k=els[i].getAttribute('data-i18n');if(!(k in HI))HI[k]=els[i].textContent;}
+  try{var s=localStorage.getItem('dashx-lang');if(s==='en'||s==='hi')LANG=s;}catch(e){}
+  applyLang();
+  document.getElementById('langBtn').addEventListener('click',function(){
+    LANG=LANG==='hi'?'en':'hi';try{localStorage.setItem('dashx-lang',LANG);}catch(e){}applyLang();
+  });
+})();
+function T(k){return (LANG==='en'?EN:HI)[k];}
+function applyLang(){
+  var els=document.querySelectorAll('[data-i18n]');
+  for(var i=0;i<els.length;i++){var v=T(els[i].getAttribute('data-i18n'));if(v!=null)els[i].textContent=v;}
+  document.getElementById('langBtn').textContent=LANG==='hi'?'EN':'हि';
+  document.documentElement.lang=LANG==='hi'?'hi-Latn':'en';
+  if(window.labRenderStats)window.labRenderStats();
+}
+
+/* ===== SOUND ===== */
+var SFX=(function(){
+  var ac=null,muted=false;
+  function audio(){if(!ac){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;ac=new C();}if(ac.state==='suspended')ac.resume();return ac;}
+  return{
+    unlock:function(){audio();},
+    setMuted:function(m){muted=m;},
+    bounce:function(intensity){
+      if(muted)return;var a=audio();if(!a)return;var t=a.currentTime,i=Math.max(.15,Math.min(1.4,intensity));
+      var len=Math.floor(a.sampleRate*.09),buf=a.createBuffer(1,len,a.sampleRate),d=buf.getChannelData(0);
+      for(var n=0;n<len;n++)d[n]=(Math.random()*2-1)*Math.exp(-n/(len*.22));
+      var src=a.createBufferSource();src.buffer=buf;var bp=a.createBiquadFilter();bp.type='bandpass';bp.frequency.value=900+i*400;
+      var ng=a.createGain();ng.gain.setValueAtTime(.0001,t);ng.gain.exponentialRampToValueAtTime(.22*i,t+.004);ng.gain.exponentialRampToValueAtTime(.0001,t+.09);
+      src.connect(bp);bp.connect(ng);ng.connect(a.destination);src.start(t);src.stop(t+.1);
+      var o=a.createOscillator();o.type='sine';o.frequency.setValueAtTime(90+i*50,t);o.frequency.exponentialRampToValueAtTime(42,t+.14);
+      var og=a.createGain();og.gain.setValueAtTime(.0001,t);og.gain.exponentialRampToValueAtTime(.28*i,t+.006);og.gain.exponentialRampToValueAtTime(.0001,t+.14);
+      o.connect(og);og.connect(a.destination);o.start(t);o.stop(t+.15);
+    },
+    wood:function(){
+      if(muted)return;var a=audio();if(!a)return;var t=a.currentTime,o=a.createOscillator();o.type='triangle';
+      o.frequency.setValueAtTime(220,t);o.frequency.exponentialRampToValueAtTime(70,t+.18);
+      var g=a.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.22,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+.2);
+      o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+.22);
+    }
+  };
+})();
+
+/* ===== BOUNCE LAB GAME ===== */
+(function(){
+  var PITCH={
+    cement:{rest:.74,friction:.12,sky:['#141210','#070707'],ground:'#5a584e',dust:'#c8c0a8'},
+    gully:{rest:.54,friction:.28,sky:['#1a120c','#070707'],ground:'#6a4a28',dust:'#c4a070'},
+    turf:{rest:.66,friction:.18,sky:['#101610','#070707'],ground:'#2f5a32',dust:'#8fbf7a'},
+    box:{rest:.82,friction:.08,sky:['#10141c','#070707'],ground:'#2a4a78',dust:'#9ab8e0'}};
+  var BALL={
+    heavy:{mass:1.45,restMul:.92,punch:1.7,fill:['#e0707a','#a3202f','#3e0710'],key:'ballHeavy'},
+    light:{mass:.95,restMul:1.06,punch:1.05,fill:['#f6ff6a','#c8dc1a','#6a7a08'],key:'ballLight'},
+    regular:{mass:.58,restMul:1.2,punch:.55,fill:['#e8ff4a','#cce000','#8aa000'],key:'ballRegular'}};
+  var STEP=1/120,G=1850,CM_PER_PX=.55;
+  var canvas=document.getElementById('labCanvas'),root=document.getElementById('labWrap'),hintEl=document.getElementById('labHint'),statsEl=document.getElementById('labStats');
+  var W={balls:[],stumps:[],puffs:[],ground:0,w:800,h:420,drag:null,shake:0,pitch:'cement',kind:'heavy',compare:false,
+    reduced:window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches};
+  var stats=[];
+
+  function makeBall(kind,x,y){return{x:x,y:y,px:x,py:y,vx:0,vy:0,r:kind==='regular'?16:18,spin:0,squash:1,kind:kind,peak:y,airborne:0,lastImpact:0,bounces:0,lastBounce:0,lastHang:0,apexLogged:false};}
+  function dpr(){return Math.min(2,window.devicePixelRatio||1);}
+  function hideHint(){hintEl.style.display='none';}
+
+  function renderStats(){
+    if(!stats.length){statsEl.classList.remove('show');statsEl.innerHTML='';return;}
+    statsEl.classList.add('show');
+    statsEl.innerHTML=stats.map(function(s){
+      return '<div class="lab-stat"><div class="k">'+T(BALL[s.kind].key)+'</div><div class="v">'+(s.bounceCm>0?s.bounceCm:'—')+
+        '<small> cm</small></div><div class="m">'+T('statPunch')+' '+s.punch+' · '+T('statHang')+' '+s.hang+'s'+(s.stumps?' · '+T('stumpHit'):'')+'</div></div>';
+    }).join('');
+  }
+  window.labRenderStats=renderStats;
+  function report(){
+    stats=W.balls.map(function(b){return{bounceCm:b.lastBounce,punch:Math.round(b.lastImpact*BALL[b.kind].punch*.08),hang:b.lastHang,kind:b.kind,stumps:W.stumps.some(function(s){return !s.up;})};});
+    renderStats();
+  }
+
+  function layout(){
+    var w=Math.max(280,Math.floor(root.getBoundingClientRect().width));
+    var h=Math.max(260,Math.min(460,Math.floor(w*.48)));
+    canvas.width=w*dpr();canvas.height=h*dpr();canvas.style.height=h+'px';
+    W.w=w;W.h=h;W.ground=h-42;
+    if(!W.balls.length)resetBalls();else resetStumps();
+  }
+  function resetStumps(){var base=W.w-70;W.stumps=[0,14,28].map(function(d){return{x:base+d,angle:0,angVel:0,up:true};});}
+  function resetBalls(){
+    var y=W.ground-18;W.balls=[makeBall(W.kind,86,y)];
+    if(W.compare)W.balls.push(makeBall('regular',128,y));
+    resetStumps();W.puffs=[];W.drag=null;
+  }
+  function spawnPuffs(x,y,n,c){for(var i=0;i<n;i++)W.puffs.push({x:x,y:y,vx:(Math.random()-.5)*220,vy:-40-Math.random()*120,life:.35+Math.random()*.25,c:c});}
+  function hitStumps(b){
+    for(var i=0;i<W.stumps.length;i++){var s=W.stumps[i];if(!s.up)continue;var dx=b.x-s.x;
+      if(Math.abs(dx)<b.r+5&&b.y+b.r>W.ground-78){s.up=false;s.angVel=(dx>0?1:-1)*(4+Math.abs(b.vx)*.02);b.vx*=-.35;b.vy*=.4;SFX.wood();if(!W.reduced)W.shake=10;}}
+  }
+  function step(dt){
+    var p=PITCH[W.pitch];
+    W.balls.forEach(function(b){
+      b.px=b.x;b.py=b.y;b.vy+=G*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;b.spin+=(b.vx/b.r)*dt;b.squash+=(1-b.squash)*12*dt;
+      if(b.y<b.peak)b.peak=b.y;
+      if(b.y+b.r<W.ground-2)b.airborne+=dt;
+      if(b.bounces>=1&&b.vy>0&&!b.apexLogged){
+        b.lastBounce=Math.max(0,Math.round((W.ground-b.r-b.peak)*CM_PER_PX));b.lastHang=Math.round(b.airborne*100)/100;b.apexLogged=true;report();}
+      if(b.x-b.r<8){b.x=8+b.r;b.vx=Math.abs(b.vx)*.4;}
+      if(b.x+b.r>W.w-8){b.x=W.w-8-b.r;b.vx=-Math.abs(b.vx)*.45;}
+      if(b.y+b.r>=W.ground){
+        b.y=W.ground-b.r;var impact=Math.abs(b.vy);
+        if(impact>40){
+          var rest=p.rest*BALL[b.kind].restMul;
+          b.vy=-impact*rest;b.vx*=1-p.friction;b.squash=Math.min(1.35,1+impact/1400);b.bounces++;b.lastImpact=impact;
+          b.peak=b.y;b.airborne=0;b.apexLogged=false;
+          spawnPuffs(b.x,W.ground,5+Math.floor(impact/250),p.dust);
+          SFX.bounce((impact/900)*BALL[b.kind].mass);
+          if(!W.reduced)W.shake=Math.min(14,impact/180);
+          report();
+        }else{b.vy=0;b.vx*=1-p.friction*2.4*dt;if(Math.abs(b.vx)<8)b.vx=0;}
+      }
+      hitStumps(b);
+    });
+    W.stumps.forEach(function(s){if(s.up)return;s.angVel+=8*dt*(s.angVel<0?-1:1);s.angle+=s.angVel*dt;if(Math.abs(s.angle)>1.35){s.angle=1.35*(s.angle<0?-1:1);s.angVel=0;}});
+    W.puffs.forEach(function(q){q.life-=dt;q.x+=q.vx*dt;q.y+=q.vy*dt;q.vy+=420*dt;});
+    W.puffs=W.puffs.filter(function(q){return q.life>0;});
+    W.shake*=.86;
+  }
+  function drawBall(ctx,b,alpha){
+    var x=b.px+(b.x-b.px)*alpha,y=b.py+(b.y-b.py)*alpha,f=BALL[b.kind].fill,r=b.r;
+    ctx.save();ctx.translate(x,y);ctx.scale(1/Math.max(.55,b.squash),b.squash);ctx.rotate(b.spin);
+    var g=ctx.createRadialGradient(-r*.35,-r*.4,r*.1,0,0,r);g.addColorStop(0,f[0]);g.addColorStop(.45,f[1]);g.addColorStop(1,f[2]);
+    ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,.92)';ctx.lineWidth=2.4;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(-r*.72,-r*.55);ctx.quadraticCurveTo(0,0,-r*.72,r*.55);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(r*.72,-r*.55);ctx.quadraticCurveTo(0,0,r*.72,r*.55);ctx.stroke();
+    ctx.fillStyle='rgba(255,255,255,.38)';ctx.beginPath();ctx.ellipse(-r*.32,-r*.38,r*.28,r*.16,-.5,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+  function render(alpha){
+    var ctx=canvas.getContext('2d');if(!ctx)return;var p=PITCH[W.pitch];
+    var sx=W.reduced?0:(Math.random()-.5)*W.shake,sy=W.reduced?0:(Math.random()-.5)*W.shake;
+    ctx.setTransform(dpr(),0,0,dpr(),0,0);ctx.save();ctx.translate(sx,sy);
+    var sky=ctx.createLinearGradient(0,0,0,W.h);sky.addColorStop(0,p.sky[0]);sky.addColorStop(1,p.sky[1]);
+    ctx.fillStyle=sky;ctx.fillRect(-20,-20,W.w+40,W.h+40);
+    ctx.fillStyle=p.ground;ctx.fillRect(-20,W.ground,W.w+40,W.h-W.ground+20);
+    ctx.fillStyle='rgba(0,0,0,.25)';for(var i=0;i<W.w;i+=18)ctx.fillRect(i,W.ground+8,10,2);
+    ctx.strokeStyle='rgba(244,180,0,.35)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(W.w-92,W.ground);ctx.lineTo(W.w-92,W.ground-6);ctx.stroke();
+    var stumpH=78;ctx.strokeStyle='#e8d7a0';ctx.lineWidth=4;ctx.lineCap='round';
+    W.stumps.forEach(function(s){ctx.save();ctx.translate(s.x,W.ground);ctx.rotate(s.angle);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-stumpH);ctx.stroke();ctx.restore();});
+    if(W.stumps.every(function(s){return s.up;})){ctx.beginPath();ctx.moveTo(W.stumps[0].x,W.ground-stumpH);ctx.lineTo(W.stumps[2].x,W.ground-stumpH);ctx.stroke();}
+    W.puffs.forEach(function(q){ctx.globalAlpha=Math.max(0,q.life*2);ctx.fillStyle=q.c;ctx.beginPath();ctx.arc(q.x,q.y,3,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;});
+    if(W.drag){ctx.strokeStyle='rgba(244,180,0,.7)';ctx.setLineDash([6,6]);ctx.beginPath();ctx.moveTo(W.drag.fromX,W.drag.fromY);ctx.lineTo(W.drag.x,W.drag.y);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='#f4b400';ctx.beginPath();ctx.arc(W.drag.x,W.drag.y,5,0,Math.PI*2);ctx.fill();}
+    W.balls.forEach(function(b){
+      var x=b.px+(b.x-b.px)*alpha,y=b.py+(b.y-b.py)*alpha,lift=Math.max(0,W.ground-y),sw=b.r*(1.15-Math.min(.7,lift/280));
+      ctx.fillStyle='rgba(0,0,0,.28)';ctx.beginPath();ctx.ellipse(x,W.ground-1,Math.max(6,sw),4.5,0,0,Math.PI*2);ctx.fill();
+      drawBall(ctx,b,alpha);
+    });
+    ctx.restore();
+  }
+  var acc=0,last=performance.now(),visible=true;
+  function loop(now){
+    var raw=Math.min(.05,(now-last)/1000);last=now;
+    if(visible){acc+=raw;while(acc>=STEP){step(STEP);acc-=STEP;}render(acc/STEP);}
+    requestAnimationFrame(loop);
+  }
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;}).observe(root);
+
+  function local(e){var r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+  function resetShot(b){b.peak=b.y;b.bounces=0;b.lastBounce=0;b.lastHang=0;b.apexLogged=false;b.lastImpact=0;}
+  canvas.addEventListener('pointerdown',function(e){
+    SFX.unlock();hideHint();var pt=local(e),b=W.balls[0];if(!b)return;
+    W.drag={x:pt.x,y:pt.y,fromX:b.x,fromY:b.y};try{canvas.setPointerCapture(e.pointerId);}catch(_){}
+  });
+  canvas.addEventListener('pointermove',function(e){if(!W.drag)return;var pt=local(e);W.drag.x=pt.x;W.drag.y=pt.y;});
+  function onUp(){
+    if(!W.drag)return;var b=W.balls[0];
+    if(b){b.vx=(W.drag.fromX-W.drag.x)*4.2;b.vy=(W.drag.fromY-W.drag.y)*4.2;resetShot(b);}
+    if(W.compare&&W.balls[1]&&b){var c=W.balls[1];c.vx=b.vx*1.08;c.vy=b.vy*1.05;resetShot(c);}
+    W.drag=null;
+  }
+  canvas.addEventListener('pointerup',onUp);canvas.addEventListener('pointercancel',onUp);
+
+  function reset(){resetBalls();stats=[];renderStats();}
+  function setOn(row,attr,val){var bs=document.querySelectorAll('#'+row+' .pill');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].getAttribute(attr)===val);}
+  document.getElementById('pitchRow').addEventListener('click',function(e){var b=e.target.closest('[data-pitch]');if(!b)return;W.pitch=b.getAttribute('data-pitch');setOn('pitchRow','data-pitch',W.pitch);SFX.unlock();});
+  document.getElementById('kindRow').addEventListener('click',function(e){var b=e.target.closest('[data-kind]');if(!b)return;W.kind=b.getAttribute('data-kind');setOn('kindRow','data-kind',W.kind);reset();});
+  document.getElementById('labDrop').addEventListener('click',function(){
+    SFX.unlock();hideHint();var kinds=W.compare?[W.kind,'regular']:[W.kind];
+    W.balls=kinds.map(function(k,i){var b=makeBall(k,120+i*70,28);b.vy=20;return b;});resetStumps();
+  });
+  document.getElementById('labBowl').addEventListener('click',function(){
+    SFX.unlock();hideHint();resetBalls();
+    W.balls.forEach(function(b){b.x=70;b.y=W.ground-110;b.px=b.x;b.py=b.y;b.vx=420+Math.random()*80;b.vy=-280-Math.random()*60;resetShot(b);});
+    if(W.balls[1])W.balls[1].vx*=.92;
+  });
+  var cmpBtn=document.getElementById('labCompare');
+  cmpBtn.addEventListener('click',function(){W.compare=!W.compare;cmpBtn.classList.toggle('on',W.compare);reset();});
+  document.getElementById('labReset').addEventListener('click',reset);
+  var muteBtn=document.getElementById('labMute'),muted=false;
+  muteBtn.addEventListener('click',function(){
+    muted=!muted;SFX.setMuted(muted);muteBtn.setAttribute('aria-pressed',muted);muteBtn.firstChild.nodeValue=muted?'🔇 ':'🔊 ';if(!muted)SFX.unlock();
+  });
+
+  layout();
+  if('ResizeObserver' in window)new ResizeObserver(layout).observe(root);else window.addEventListener('resize',layout);
+  requestAnimationFrame(loop);
+})();
+</script>
 
 </body>
 </html>
