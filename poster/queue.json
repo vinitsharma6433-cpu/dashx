@@ -12,7 +12,13 @@
       "captions": {
         "youtube": "Last ball, 6 run chahiye. Aaj to DASHX hi bachayegi!\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts"
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "results": {
+        "youtube": {
+          "ok": false,
+          "error": "400 Client Error: Bad Request for url: https://oauth2.googleapis.com/token"
+        }
+      }
     },
     {
       "title": "Padosi Aunty ki Khidki",
