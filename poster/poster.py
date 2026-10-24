@@ -21,7 +21,11 @@ def post_youtube(p):
     if not s: return None
     t = requests.post("https://oauth2.googleapis.com/token", data={
         "client_id": s[0], "client_secret": s[1], "refresh_token": s[2], "grant_type": "refresh_token"}, timeout=60)
-    t.raise_for_status(); tok = t.json()["access_token"]
+    if not t.ok:
+        try: e = t.json()
+        except Exception: e = {}
+        raise RuntimeError("google token error: %s - %s | id_len=%d secret_len=%d token_len=%d" % (e.get("error"), e.get("error_description"), len(s[0]), len(s[1]), len(s[2])))
+    tok = t.json()["access_token"]
     title = (p.get("yt_title") or p["title"])[:95]
     meta = {"snippet": {"title": title, "description": p.get("captions", {}).get("youtube") or p["caption"],
                         "tags": ["DASHX", "gully cricket", "Meerut"], "categoryId": "24"},
