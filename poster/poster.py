@@ -38,7 +38,16 @@ def post_youtube(p):
     i.raise_for_status()
     u = requests.put(i.headers["Location"], data=data, headers={"Content-Type": "video/mp4"}, timeout=600)
     u.raise_for_status()
-    return "https://www.youtube.com/shorts/" + u.json()["id"]
+    vid = u.json()["id"]
+    if p.get("comment"):
+        try:
+            cr = requests.post("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet",
+                headers={"Authorization": "Bearer " + tok},
+                json={"snippet": {"videoId": vid, "topLevelComment": {"snippet": {"textOriginal": p["comment"]}}}}, timeout=60)
+            p.setdefault("notes", {})["yt_comment"] = "ok" if cr.ok else ("comment failed %s (token needs youtube.force-ssl scope)" % cr.status_code)
+        except Exception as e:
+            p.setdefault("notes", {})["yt_comment"] = "comment error: " + str(e)[:120]
+    return "https://www.youtube.com/shorts/" + vid
 
 # ---------- Facebook Page Reel ----------
 def post_facebook(p):
