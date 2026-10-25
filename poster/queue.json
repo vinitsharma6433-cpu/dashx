@@ -12,7 +12,14 @@
       "captions": {
         "youtube": "Diwali ki safai shuru! Ghar to baad me... pehle apna channel chamkao.\nArre wah, DASHX to chamak gaya!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #Diwali #DiwaliCleaning #Shorts"
       },
-      "status": "scheduled"
+      "status": "done",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/7Kn1vjWk1GE",
+          "at": "2026-10-25T09:25:16.241347+05:30"
+        }
+      }
     },
     {
       "title": "Meerut Boys Entry",
