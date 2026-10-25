@@ -39,14 +39,23 @@ def post_youtube(p):
     u = requests.put(i.headers["Location"], data=data, headers={"Content-Type": "video/mp4"}, timeout=600)
     u.raise_for_status()
     vid = u.json()["id"]
-    if p.get("comment"):
+    notes = p.setdefault("notes", {})
+    hdr = {"Authorization": "Bearer " + tok}
+    cl = p.get("comments") or ([p["comment"]] if p.get("comment") else [])
+    res = []
+    for ctext in cl:
         try:
-            cr = requests.post("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet",
-                headers={"Authorization": "Bearer " + tok},
-                json={"snippet": {"videoId": vid, "topLevelComment": {"snippet": {"textOriginal": p["comment"]}}}}, timeout=60)
-            p.setdefault("notes", {})["yt_comment"] = "ok" if cr.ok else ("comment failed %s (token needs youtube.force-ssl scope)" % cr.status_code)
+            cr = requests.post("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet", headers=hdr,
+                json={"snippet": {"videoId": vid, "topLevelComment": {"snippet": {"textOriginal": ctext}}}}, timeout=60)
+            res.append("ok" if cr.ok else "failed %s (needs youtube.force-ssl scope)" % cr.status_code)
         except Exception as e:
-            p.setdefault("notes", {})["yt_comment"] = "comment error: " + str(e)[:120]
+            res.append("error " + str(e)[:80])
+    if res: notes["yt_comment"] = res
+    try:
+        rr = requests.post("https://www.googleapis.com/youtube/v3/videos/rate?id=%s&rating=like" % vid, headers=hdr, timeout=60)
+        notes["yt_like"] = "ok" if rr.status_code in (200, 204) else "failed %s" % rr.status_code
+    except Exception as e:
+        notes["yt_like"] = "error " + str(e)[:80]
     return "https://www.youtube.com/shorts/" + vid
 
 # ---------- Facebook Page Reel ----------
