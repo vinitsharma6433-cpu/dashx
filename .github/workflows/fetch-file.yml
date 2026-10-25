@@ -1,0 +1,24 @@
+name: fetch-file
+on:
+  workflow_dispatch:
+    inputs:
+      url: {required: true}
+      path: {required: true}
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        env: {URL: "${{ inputs.url }}", P: "${{ inputs.path }}"}
+        run: |
+          case "$P" in assets/*) ;; *) echo "path must be under assets/"; exit 1;; esac
+          mkdir -p "$(dirname "$P")"
+          curl -fsSL -o "$P" "$URL"
+          ls -la "$P"
+      - name: Commit
+        run: |
+          git config user.name "dashx-bot"; git config user.email "bot@users.noreply.github.com"
+          git add assets && git commit -m "fetch ${{ inputs.path }}" && git push
