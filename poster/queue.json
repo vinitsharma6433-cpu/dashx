@@ -77,12 +77,27 @@
       "captions": {
         "youtube": "Gali Cricket Ke Kirdaar, Episode 3: Gali Ka Umpire\nUmpire ka faisla final... ball DASHX ki hai, wahi chalegi!\n\nTumhari gali ka umpire kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
       },
-      "status": "scheduled",
+      "status": "done",
       "comments": [
         "Tumhari gali ka umpire kaun hai? Comment me batao!",
         "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
         "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ]
+      ],
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/iJUEvLw_y_k",
+          "at": "2026-10-26T14:10:09.864411+05:30"
+        }
+      },
+      "notes": {
+        "yt_comment": [
+          "failed 403 (needs youtube.force-ssl scope)",
+          "failed 403 (needs youtube.force-ssl scope)",
+          "failed 403 (needs youtube.force-ssl scope)"
+        ],
+        "yt_like": "failed 403"
+      }
     },
     {
       "title": "Series EP2 Trial Ball",
