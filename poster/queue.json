@@ -1,299 +1,319 @@
 {
-  "posts": [
-    {
-      "title": "Series EP4 Chhakke Wala",
-      "yt_title": "Gali Cricket Ke Kirdaar EP4: Chhakke Wala! #DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep4-chhakke-wala.mp4",
-      "when": "2026-10-26T15:07:44.192354+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "comment": "Tumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!",
-      "caption": "Gali Cricket Ke Kirdaar, Episode 4: Chhakke Wala\nTension mat le, ball DASHX ki hai, wapas aa hi jayegi!\n\nTumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
-      "captions": {
-        "youtube": "Gali Cricket Ke Kirdaar, Episode 4: Chhakke Wala\nTension mat le, ball DASHX ki hai, wapas aa hi jayegi!\n\nTumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
-      },
-      "status": "done",
-      "comments": [
-        "Tumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!",
-        "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
-        "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ],
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/FBGboSDkALY",
-          "at": "2026-10-26T15:09:56.630899+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": [
-          "ok",
-          "ok",
-          "ok"
-        ],
-        "yt_like": "ok"
-      }
-    },
-    {
-      "title": "New DASHX 2 Dozen Pack v2",
-      "yt_title": "Naya DASHX Pack Aa Gaya! Green + Red Balls #DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/pack-2doz-launch2.mp4",
-      "when": "2026-10-26T13:58:44.873549+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall",
-      "captions": {
-        "youtube": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall"
-      },
-      "status": "done",
-      "comments": [
-        "Tumhe green ball pasand hai ya red? Comment me batao!",
-        "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ],
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/76irQr-OzeM",
-          "at": "2026-10-26T14:00:03.518248+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": [
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)"
-        ],
-        "yt_like": "failed 403"
-      }
-    },
-    {
-      "title": "New DASHX 2 Dozen Pack",
-      "yt_title": "Naya DASHX Pack Aa Gaya! Green + Red Balls #DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/pack-2doz-launch.mp4",
-      "when": "2026-10-26T13:55:04.787839+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall",
-      "captions": {
-        "youtube": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall"
-      },
-      "status": "done",
-      "comments": [
-        "Tumhe green ball pasand hai ya red? Comment me batao!",
-        "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ],
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/PjK8fV4DF6U",
-          "at": "2026-10-26T14:00:03.518248+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": [
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)"
-        ],
-        "yt_like": "failed 403"
-      }
-    },
-    {
-      "title": "Series EP3 Gali Ka Umpire",
-      "yt_title": "Gali Cricket Ke Kirdaar EP3: Gali Ka Umpire! #DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep3-gali-ka-umpire.mp4",
-      "when": "2026-10-26T14:09:47.292503+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "comment": "Tumhari gali ka umpire kaun hai? Comment me batao!",
-      "caption": "Gali Cricket Ke Kirdaar, Episode 3: Gali Ka Umpire\nUmpire ka faisla final... ball DASHX ki hai, wahi chalegi!\n\nTumhari gali ka umpire kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
-      "captions": {
-        "youtube": "Gali Cricket Ke Kirdaar, Episode 3: Gali Ka Umpire\nUmpire ka faisla final... ball DASHX ki hai, wahi chalegi!\n\nTumhari gali ka umpire kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
-      },
-      "status": "done",
-      "comments": [
-        "Tumhari gali ka umpire kaun hai? Comment me batao!",
-        "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
-        "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ],
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/iJUEvLw_y_k",
-          "at": "2026-10-26T14:10:09.864411+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": [
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)"
-        ],
-        "yt_like": "failed 403"
-      }
-    },
-    {
-      "title": "Series EP2 Trial Ball",
-      "yt_title": "Gali Cricket Ke Kirdaar EP2: Trial Ball! #DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep2-trial-ball.mp4",
-      "when": "2026-10-26T12:00:00+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "comment": "Tumhari gali ka trial ball wala kaun hai? Comment me batao!",
-      "caption": "Gali Cricket Ke Kirdaar, Episode 2: Trial Ball\nPehli ball trial thi, doosri bhi trial... bahane hazaar, ball ek: DASHX!\n\nTumhari gali ka trial ball wala kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
-      "captions": {
-        "youtube": "Gali Cricket Ke Kirdaar, Episode 2: Trial Ball\nPehli ball trial thi, doosri bhi trial... bahane hazaar, ball ek: DASHX!\n\nTumhari gali ka trial ball wala kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
-      },
-      "status": "done",
-      "comments": [
-        "Tumhari gali ka trial ball wala kaun hai? Comment me batao!",
-        "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
-        "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
-      ],
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/4uSIoHI_-AE",
-          "at": "2026-10-26T13:55:04.575490+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": [
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)",
-          "failed 403 (needs youtube.force-ssl scope)"
-        ],
-        "yt_like": "failed 403"
-      }
-    },
-    {
-      "title": "Series EP1 Bat Wala Boss",
-      "yt_title": "Bat Wala Boss | Gali Cricket Ke Kirdaar EP1 | DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep1-bat-wala-boss.mp4",
-      "when": "2026-10-25T19:01:14+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "comment": "Tumhari gali ka bat wala boss kaun hai? Comment me batao!",
-      "caption": "Gali Cricket Ke Kirdaar, Episode 1: Bat Wala Boss\nBat mera hai, to batting bhi pehle meri!\n\nTumhari gali ka bat wala boss kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
-      "captions": {
-        "youtube": "Gali Cricket Ke Kirdaar, Episode 1: Bat Wala Boss\nBat mera hai, to batting bhi pehle meri!\n\nTumhari gali ka bat wala boss kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #GullyCricket #Shorts #GaliCricketKeKirdaar"
-      },
-      "status": "done",
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/ca0bAgzqOqE",
-          "at": "2026-10-25T19:04:04.913038+05:30"
-        }
-      },
-      "notes": {
-        "yt_comment": "comment failed 403 (token needs youtube.force-ssl scope)"
-      }
-    },
-    {
-      "title": "Diwali ki Safai",
-      "yt_title": "Diwali Ki Safai! Pehle Channel Chamkao | DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/diwali-safai.mp4",
-      "when": "2026-10-25T09:22:23+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Diwali ki safai shuru! Ghar to baad me... pehle apna channel chamkao.\nArre wah, DASHX to chamak gaya!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #DiwaliCleaning #Diwali #GullyCricket",
-      "captions": {
-        "youtube": "Diwali ki safai shuru! Ghar to baad me... pehle apna channel chamkao.\nArre wah, DASHX to chamak gaya!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #Diwali #DiwaliCleaning #Shorts"
-      },
-      "status": "done",
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/7Kn1vjWk1GE",
-          "at": "2026-10-25T09:25:16.241347+05:30"
-        }
-      }
-    },
-    {
-      "title": "Meerut Boys Entry",
-      "yt_title": "Meerut Boys Entry! Ball ka naam? DASHX | #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-5-voice.mp4",
-      "when": "2026-10-25T08:22:28+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Gali me entry... Meerut ke ladkon ki!\nTeam ka naam? Kuch nahi. Ball ka naam? DASHX!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606 for daily DASHX reels.\n#DASHX #GullyCricket #FunnyReels #CricketReels",
-      "captions": {
-        "youtube": "Gali me entry... Meerut ke ladkon ki!\nTeam ka naam? Kuch nahi. Ball ka naam? DASHX!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #GullyCricket #Shorts"
-      },
-      "status": "done",
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/aOGAqMqZav8",
-          "at": "2026-10-25T08:25:21.221881+05:30"
-        }
-      }
-    },
-    {
-      "title": "Ball Kho Gayi",
-      "yt_title": "Ball Kho Gayi! Tune Maari Thi | DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-4-voice.mp4",
-      "when": "2026-10-24T19:44:41+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Ball kho gayi! Tune maari thi... nahi, tune!\nDhundhne wale ko DASHX mil hi jaati hai.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
-      "captions": {
-        "youtube": "Ball kho gayi! Tune maari thi... nahi, tune!\nDhundhne wale ko DASHX mil hi jaati hai.\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts"
-      },
-      "status": "done",
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/JaRlAFM5Kg0",
-          "at": "2026-10-24T19:47:30.692678+05:30"
-        }
-      }
-    },
-    {
-      "title": "Last Ball 6 Run",
-      "yt_title": "Last Ball, 6 Run Chahiye | DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-3-voice.mp4",
-      "when": "2026-10-24T09:53:08+05:30",
-      "networks": [
-        "youtube"
-      ],
-      "caption": "Last ball, 6 run chahiye. Aaj to DASHX hi bachayegi!\nFollow karo daily DASHX reels.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
-      "captions": {
-        "youtube": "Last ball, 6 run chahiye. Aaj to DASHX hi bachayegi!\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts"
-      },
-      "status": "done",
-      "results": {
-        "youtube": {
-          "ok": true,
-          "link": "https://www.youtube.com/shorts/EOAgPaWOLDA",
-          "at": "2026-10-24T10:10:51.715756+05:30"
-        }
-      }
-    },
-    {
-      "title": "Padosi Aunty ki Khidki",
-      "yt_title": "Padosi Aunty ki Khidki | DASHX #Shorts",
-      "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-2-voice.mp4",
-      "when": "2026-10-24T19:00:00+05:30",
-      "networks": [
-        "youtube",
-        "facebook",
-        "instagram"
-      ],
-      "caption": "Padosi Aunty ki Khidki. Ball gayi aunty ke paas, aunty bolin: rakh lo, gali ki jaan hai!\nFollow karo daily DASHX reels.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
-      "captions": {
-        "youtube": "Padosi Aunty ki Khidki. Rakh lo, gali ki jaan hai!\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts",
-        "instagram": "Padosi Aunty ki Khidki. Rakh lo, gali ki jaan hai!\nFollow karo daily DASHX reels @vinitsharma606\nDASHX ball - Meerut se. COD aur UPI.\nAmazon, Flipkart, Meesho links: bio me\n\n#DASHX #GullyCricket #CricketReels #FunnyReels #Meerut"
-      },
-      "status": "done"
+ "posts": [
+  {
+   "title": "Series EP5 Shisha Toota",
+   "yt_title": "SHISHA TOOTA! Chhakka Maara Aur... Gali Cricket EP5 #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep5-shisha-toota.mp4",
+   "when": "2026-10-27T09:05:12.449139+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "comment": "Tumhari gali me shisha kisne toda? Comment me batao!",
+   "caption": "SHISHA TOOTA! Gali Cricket Ke Kirdaar, Episode 5\nChhakka maara, aur shisha toot gaya! Bhaago, ball DASHX ki thi!\n\nTumhari gali me shisha kisne toda? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
+   "captions": {
+    "youtube": "SHISHA TOOTA! Gali Cricket Ke Kirdaar, Episode 5\nChhakka maara, aur shisha toot gaya! Bhaago, ball DASHX ki thi!\n\nTumhari gali me shisha kisne toda? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
+   },
+   "status": "scheduled",
+   "comments": [
+    "Tumhari gali me shisha kisne toda? Comment me batao!",
+    "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ]
+  },
+  {
+   "title": "Series EP4 Chhakke Wala",
+   "yt_title": "Gali Cricket Ke Kirdaar EP4: Chhakke Wala! #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep4-chhakke-wala.mp4",
+   "when": "2026-10-26T15:07:44.192354+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "comment": "Tumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!",
+   "caption": "Gali Cricket Ke Kirdaar, Episode 4: Chhakke Wala\nTension mat le, ball DASHX ki hai, wapas aa hi jayegi!\n\nTumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
+   "captions": {
+    "youtube": "Gali Cricket Ke Kirdaar, Episode 4: Chhakke Wala\nTension mat le, ball DASHX ki hai, wapas aa hi jayegi!\n\nTumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
+   },
+   "status": "done",
+   "comments": [
+    "Tumhari gali me chhakka maaro to ball kiski chhat par jaati hai? Comment me batao!",
+    "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ],
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/FBGboSDkALY",
+     "at": "2026-10-26T15:09:56.630899+05:30"
     }
-  ]
+   },
+   "notes": {
+    "yt_comment": [
+     "ok",
+     "ok",
+     "ok"
+    ],
+    "yt_like": "ok"
+   }
+  },
+  {
+   "title": "New DASHX 2 Dozen Pack v2",
+   "yt_title": "Naya DASHX Pack Aa Gaya! Green + Red Balls #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/pack-2doz-launch2.mp4",
+   "when": "2026-10-26T13:58:44.873549+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall",
+   "captions": {
+    "youtube": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall"
+   },
+   "status": "done",
+   "comments": [
+    "Tumhe green ball pasand hai ya red? Comment me batao!",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ],
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/76irQr-OzeM",
+     "at": "2026-10-26T14:00:03.518248+05:30"
+    }
+   },
+   "notes": {
+    "yt_comment": [
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)"
+    ],
+    "yt_like": "failed 403"
+   }
+  },
+  {
+   "title": "New DASHX 2 Dozen Pack",
+   "yt_title": "Naya DASHX Pack Aa Gaya! Green + Red Balls #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/pack-2doz-launch.mp4",
+   "when": "2026-10-26T13:55:04.787839+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall",
+   "captions": {
+    "youtube": "Naya DASHX 2 Dozen Pack aa gaya! Green ball bhi, red ball bhi. Gali cricket ka maza double!\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket #CricketTennisBall"
+   },
+   "status": "done",
+   "comments": [
+    "Tumhe green ball pasand hai ya red? Comment me batao!",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ],
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/PjK8fV4DF6U",
+     "at": "2026-10-26T14:00:03.518248+05:30"
+    }
+   },
+   "notes": {
+    "yt_comment": [
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)"
+    ],
+    "yt_like": "failed 403"
+   }
+  },
+  {
+   "title": "Series EP3 Gali Ka Umpire",
+   "yt_title": "Gali Cricket Ke Kirdaar EP3: Gali Ka Umpire! #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep3-gali-ka-umpire.mp4",
+   "when": "2026-10-26T14:09:47.292503+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "comment": "Tumhari gali ka umpire kaun hai? Comment me batao!",
+   "caption": "Gali Cricket Ke Kirdaar, Episode 3: Gali Ka Umpire\nUmpire ka faisla final... ball DASHX ki hai, wahi chalegi!\n\nTumhari gali ka umpire kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
+   "captions": {
+    "youtube": "Gali Cricket Ke Kirdaar, Episode 3: Gali Ka Umpire\nUmpire ka faisla final... ball DASHX ki hai, wahi chalegi!\n\nTumhari gali ka umpire kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
+   },
+   "status": "done",
+   "comments": [
+    "Tumhari gali ka umpire kaun hai? Comment me batao!",
+    "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ],
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/iJUEvLw_y_k",
+     "at": "2026-10-26T14:10:09.864411+05:30"
+    }
+   },
+   "notes": {
+    "yt_comment": [
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)"
+    ],
+    "yt_like": "failed 403"
+   }
+  },
+  {
+   "title": "Series EP2 Trial Ball",
+   "yt_title": "Gali Cricket Ke Kirdaar EP2: Trial Ball! #DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep2-trial-ball.mp4",
+   "when": "2026-10-26T12:00:00+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "comment": "Tumhari gali ka trial ball wala kaun hai? Comment me batao!",
+   "caption": "Gali Cricket Ke Kirdaar, Episode 2: Trial Ball\nPehli ball trial thi, doosri bhi trial... bahane hazaar, ball ek: DASHX!\n\nTumhari gali ka trial ball wala kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
+   "captions": {
+    "youtube": "Gali Cricket Ke Kirdaar, Episode 2: Trial Ball\nPehli ball trial thi, doosri bhi trial... bahane hazaar, ball ek: DASHX!\n\nTumhari gali ka trial ball wala kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket"
+   },
+   "status": "done",
+   "comments": [
+    "Tumhari gali ka trial ball wala kaun hai? Comment me batao!",
+    "Buy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG",
+    "Hamara DASHX portal: https://dashx-store-api.onrender.com/"
+   ],
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/4uSIoHI_-AE",
+     "at": "2026-10-26T13:55:04.575490+05:30"
+    }
+   },
+   "notes": {
+    "yt_comment": [
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)",
+     "failed 403 (needs youtube.force-ssl scope)"
+    ],
+    "yt_like": "failed 403"
+   }
+  },
+  {
+   "title": "Series EP1 Bat Wala Boss",
+   "yt_title": "Bat Wala Boss | Gali Cricket Ke Kirdaar EP1 | DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/series-ep1-bat-wala-boss.mp4",
+   "when": "2026-10-25T19:01:14+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "comment": "Tumhari gali ka bat wala boss kaun hai? Comment me batao!",
+   "caption": "Gali Cricket Ke Kirdaar, Episode 1: Bat Wala Boss\nBat mera hai, to batting bhi pehle meri!\n\nTumhari gali ka bat wala boss kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #GalliCricket #GullyCricket",
+   "captions": {
+    "youtube": "Gali Cricket Ke Kirdaar, Episode 1: Bat Wala Boss\nBat mera hai, to batting bhi pehle meri!\n\nTumhari gali ka bat wala boss kaun hai? Comment me batao!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #GullyCricket #Shorts #GaliCricketKeKirdaar"
+   },
+   "status": "done",
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/ca0bAgzqOqE",
+     "at": "2026-10-25T19:04:04.913038+05:30"
+    }
+   },
+   "notes": {
+    "yt_comment": "comment failed 403 (token needs youtube.force-ssl scope)"
+   }
+  },
+  {
+   "title": "Diwali ki Safai",
+   "yt_title": "Diwali Ki Safai! Pehle Channel Chamkao | DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/diwali-safai.mp4",
+   "when": "2026-10-25T09:22:23+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Diwali ki safai shuru! Ghar to baad me... pehle apna channel chamkao.\nArre wah, DASHX to chamak gaya!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #DiwaliCleaning #Diwali #GullyCricket",
+   "captions": {
+    "youtube": "Diwali ki safai shuru! Ghar to baad me... pehle apna channel chamkao.\nArre wah, DASHX to chamak gaya!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #Diwali #DiwaliCleaning #Shorts"
+   },
+   "status": "done",
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/7Kn1vjWk1GE",
+     "at": "2026-10-25T09:25:16.241347+05:30"
+    }
+   }
+  },
+  {
+   "title": "Meerut Boys Entry",
+   "yt_title": "Meerut Boys Entry! Ball ka naam? DASHX | #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-5-voice.mp4",
+   "when": "2026-10-25T08:22:28+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Gali me entry... Meerut ke ladkon ki!\nTeam ka naam? Kuch nahi. Ball ka naam? DASHX!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606 for daily DASHX reels.\n#DASHX #GullyCricket #FunnyReels #CricketReels",
+   "captions": {
+    "youtube": "Gali me entry... Meerut ke ladkon ki!\nTeam ka naam? Kuch nahi. Ball ka naam? DASHX!\n\nBuy DASHX ball:\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\n\n#DASHX #GullyCricket #Shorts"
+   },
+   "status": "done",
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/aOGAqMqZav8",
+     "at": "2026-10-25T08:25:21.221881+05:30"
+    }
+   }
+  },
+  {
+   "title": "Ball Kho Gayi",
+   "yt_title": "Ball Kho Gayi! Tune Maari Thi | DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-4-voice.mp4",
+   "when": "2026-10-24T19:44:41+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Ball kho gayi! Tune maari thi... nahi, tune!\nDhundhne wale ko DASHX mil hi jaati hai.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
+   "captions": {
+    "youtube": "Ball kho gayi! Tune maari thi... nahi, tune!\nDhundhne wale ko DASHX mil hi jaati hai.\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts"
+   },
+   "status": "done",
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/JaRlAFM5Kg0",
+     "at": "2026-10-24T19:47:30.692678+05:30"
+    }
+   }
+  },
+  {
+   "title": "Last Ball 6 Run",
+   "yt_title": "Last Ball, 6 Run Chahiye | DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-3-voice.mp4",
+   "when": "2026-10-24T09:53:08+05:30",
+   "networks": [
+    "youtube"
+   ],
+   "caption": "Last ball, 6 run chahiye. Aaj to DASHX hi bachayegi!\nFollow karo daily DASHX reels.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
+   "captions": {
+    "youtube": "Last ball, 6 run chahiye. Aaj to DASHX hi bachayegi!\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts"
+   },
+   "status": "done",
+   "results": {
+    "youtube": {
+     "ok": true,
+     "link": "https://www.youtube.com/shorts/EOAgPaWOLDA",
+     "at": "2026-10-24T10:10:51.715756+05:30"
+    }
+   }
+  },
+  {
+   "title": "Padosi Aunty ki Khidki",
+   "yt_title": "Padosi Aunty ki Khidki | DASHX #Shorts",
+   "media": "https://vinitsharma6433-cpu.github.io/dashx/social/funny-2-voice.mp4",
+   "when": "2026-10-24T19:00:00+05:30",
+   "networks": [
+    "youtube",
+    "facebook",
+    "instagram"
+   ],
+   "caption": "Padosi Aunty ki Khidki. Ball gayi aunty ke paas, aunty bolin: rakh lo, gali ki jaan hai!\nFollow karo daily DASHX reels.\nDASHX by Nav Durga Sports. DASHX ball - Meerut se. COD aur UPI.\n\n#DASHX #GullyCricket #FunnyReels #Meerut",
+   "captions": {
+    "youtube": "Padosi Aunty ki Khidki. Rakh lo, gali ki jaan hai!\nDASHX ball - Meerut se. COD aur UPI.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\n\n#DASHX #GullyCricket #Shorts",
+    "instagram": "Padosi Aunty ki Khidki. Rakh lo, gali ki jaan hai!\nFollow karo daily DASHX reels @vinitsharma606\nDASHX ball - Meerut se. COD aur UPI.\nAmazon, Flipkart, Meesho links: bio me\n\n#DASHX #GullyCricket #CricketReels #FunnyReels #Meerut"
+   },
+   "status": "done"
+  }
+ ]
 }
