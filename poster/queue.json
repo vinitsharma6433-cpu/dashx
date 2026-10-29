@@ -531,7 +531,17 @@
       "captions": {
         "youtube": "Last ball, score tie! Sachin ne shot maara, par Dadaji ne catch pakad liya. Gali cricket ka asli drama!\nDASHX by Nav Durga Sports, Meerut.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\nMystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3\n\n#DASHX #CricketTennisBall #GaliCricket #Meerut #CricketReels #LastBall #Shorts"
       },
-      "status": "scheduled"
+      "status": "done",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/-LTXiMX8EME",
+          "at": "2026-10-29T20:31:27.272914+05:30"
+        }
+      },
+      "notes": {
+        "yt_like": "ok"
+      }
     }
   ]
 }
