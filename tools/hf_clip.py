@@ -28,8 +28,17 @@ def pick_path(res):
     return None
 
 
+def make_client(space):
+    if not TOKEN:
+        return Client(space)
+    try:
+        return Client(space, token=TOKEN)
+    except TypeError:
+        return Client(space, hf_token=TOKEN)
+
+
 def call(space, want, **kw):
-    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+    c = make_client(space)
     eps = c.view_api(return_format="dict")["named_endpoints"]
     name = next(iter(eps))
     names = {p["parameter_name"] for p in eps[name]["parameters"]}
