@@ -1,0 +1,41 @@
+Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
+Client.predict() Usage Info
+---------------------------
+Named API endpoints: 1
+
+ - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
+    Parameters:
+     - [Textbox] prompt: str (required)  
+     - [Slider] seed: float (not required, defaults to:   0)  
+     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
+     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
+     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
+     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
+    Returns:
+     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
+     - [Slider] seed: float (numeric value between 0 and 2147483647) 
+
+mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
+image: /tmp/gradio/153801f56fdfd49b6046b6a26aa61d2c320e5587e338bc6062cfac9918261a07/image.webp
+Loaded as API: https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space
+Client.predict() Usage Info
+---------------------------
+Named API endpoints: 1
+
+ - predict(input_image, prompt, steps, negative_prompt, duration_seconds, guidance_scale, guidance_scale_2, seed, randomize_seed, api_name="/generate_video") -> (generated_video, seed)
+    Parameters:
+     - [Image] input_image: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) (required)  (For input, either path or url must be provided. For output, path is always provided.) 
+     - [Textbox] prompt: str (not required, defaults to:   make this image come alive, cinematic motion, smooth animation)  
+     - [Slider] steps: float (not required, defaults to:   6)  
+     - [Textbox] negative_prompt: str (not required, defaults to:   色调艳丽, 过曝, 静态, 细节模糊不清, 字幕, 风格, 作品, 画作, 画面, 静止, 整体发灰, 最差质量, 低质量, JPEG压缩残留, 丑陋的, 残缺的, 多余的手指, 画得不好的手部, 画得不好的脸部, 畸形的, 毁容的, 形态畸形的肢体, 手指融合, 静止不动的画面, 杂乱的背景, 三条腿, 背景人很多, 倒着走)  
+     - [Slider] duration_seconds: float (not required, defaults to:   3.5)  
+     - [Slider] guidance_scale: float (not required, defaults to:   1)  
+     - [Slider] guidance_scale_2: float (not required, defaults to:   1)  
+     - [Slider] seed: float (not required, defaults to:   42)  
+     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
+    Returns:
+     - [Video] generated_video: filepath 
+     - [Slider] seed: float (numeric value between 0 and 2147483647) 
+
+zerogpu-aoti/wan2-2-fp8da-aoti-faster /generate_video params: ['duration_seconds', 'guidance_scale', 'guidance_scale_2', 'input_image', 'negative_prompt', 'prompt', 'randomize_seed', 'seed', 'steps'] using: ['duration_seconds', 'input_image', 'prompt', 'randomize_seed', 'steps']
+video: /tmp/gradio/a59fcc898b80d4ad3af390fa91d1a28a9a3709849fe6204d3aeaf15be8e485f0/tmpo65v4la8.mp4
