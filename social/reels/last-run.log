@@ -1,0 +1,4 @@
+plan failed with Qwen/Qwen2.5-72B-Instruct <HTTPError 402: 'Payment Required'>
+plan failed with meta-llama/Llama-3.3-70B-Instruct <HTTPError 402: 'Payment Required'>
+plan failed with Qwen/Qwen3-32B <HTTPError 402: 'Payment Required'>
+plan failed on all models: <HTTPError 402: 'Payment Required'>
