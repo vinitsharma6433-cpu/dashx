@@ -1,4 +1,18 @@
-plan failed with Qwen/Qwen2.5-72B-Instruct <HTTPError 402: 'Payment Required'>
-plan failed with meta-llama/Llama-3.3-70B-Instruct <HTTPError 402: 'Payment Required'>
-plan failed with Qwen/Qwen3-32B <HTTPError 402: 'Payment Required'>
-plan failed on all models: <HTTPError 402: 'Payment Required'>
+Traceback (most recent call last):
+  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 252, in <module>
+    main()
+  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 242, in main
+    body, norm, starts = join(cps, work)
+                         ^^^^^^^^^^^^^^^
+  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 119, in join
+    sh("ffmpeg", "-y", "-loglevel", "error", "-i", c, "-vf",
+  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 35, in sh
+    subprocess.run([str(x) for x in a], check=True)
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
