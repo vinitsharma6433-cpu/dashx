@@ -1,18 +1,4 @@
-Traceback (most recent call last):
-  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 252, in <module>
-    main()
-  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 242, in main
-    body, norm, starts = join(cps, work)
-                         ^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 119, in join
-    sh("ffmpeg", "-y", "-loglevel", "error", "-i", c, "-vf",
-  File "/home/runner/work/dashx/dashx/tools/reelmaker/reelmaker.py", line 35, in sh
-    subprocess.run([str(x) for x in a], check=True)
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 548, in run
-    with Popen(*popenargs, **kwargs) as process:
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1026, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/subprocess.py", line 1955, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg'
+[0;93m2026-10-29 07:42:59.742168297 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+downloading kokoro-v1.0.onnx
+downloading voices-v1.0.bin
+DONE /home/runner/work/dashx/dashx/social/ground-ad.mp4 21.8s
