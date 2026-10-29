@@ -1,661 +1,151 @@
 === scene 1
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
-Loaded as API: https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(input_image, prompt, steps, negative_prompt, duration_seconds, guidance_scale, guidance_scale_2, seed, randomize_seed, api_name="/generate_video") -> (generated_video, seed)
-    Parameters:
-     - [Image] input_image: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) (required)  (For input, either path or url must be provided. For output, path is always provided.) 
-     - [Textbox] prompt: str (not required, defaults to:   make this image come alive, cinematic motion, smooth animation)  
-     - [Slider] steps: float (not required, defaults to:   6)  
-     - [Textbox] negative_prompt: str (not required, defaults to:   色调艳丽, 过曝, 静态, 细节模糊不清, 字幕, 风格, 作品, 画作, 画面, 静止, 整体发灰, 最差质量, 低质量, JPEG压缩残留, 丑陋的, 残缺的, 多余的手指, 画得不好的手部, 画得不好的脸部, 畸形的, 毁容的, 形态畸形的肢体, 手指融合, 静止不动的画面, 杂乱的背景, 三条腿, 背景人很多, 倒着走)  
-     - [Slider] duration_seconds: float (not required, defaults to:   3.5)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1)  
-     - [Slider] guidance_scale_2: float (not required, defaults to:   1)  
-     - [Slider] seed: float (not required, defaults to:   42)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-    Returns:
-     - [Video] generated_video: filepath 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-zerogpu-aoti/wan2-2-fp8da-aoti-faster /generate_video params: ['duration_seconds', 'guidance_scale', 'guidance_scale_2', 'input_image', 'negative_prompt', 'prompt', 'randomize_seed', 'seed', 'steps'] using: ['duration_seconds', 'input_image', 'prompt', 'randomize_seed', 'steps']
-scene 1 done
+clip exists, skip
 === scene 2
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
-Loaded as API: https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(input_image, prompt, steps, negative_prompt, duration_seconds, guidance_scale, guidance_scale_2, seed, randomize_seed, api_name="/generate_video") -> (generated_video, seed)
-    Parameters:
-     - [Image] input_image: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) (required)  (For input, either path or url must be provided. For output, path is always provided.) 
-     - [Textbox] prompt: str (not required, defaults to:   make this image come alive, cinematic motion, smooth animation)  
-     - [Slider] steps: float (not required, defaults to:   6)  
-     - [Textbox] negative_prompt: str (not required, defaults to:   色调艳丽, 过曝, 静态, 细节模糊不清, 字幕, 风格, 作品, 画作, 画面, 静止, 整体发灰, 最差质量, 低质量, JPEG压缩残留, 丑陋的, 残缺的, 多余的手指, 画得不好的手部, 画得不好的脸部, 畸形的, 毁容的, 形态畸形的肢体, 手指融合, 静止不动的画面, 杂乱的背景, 三条腿, 背景人很多, 倒着走)  
-     - [Slider] duration_seconds: float (not required, defaults to:   3.5)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1)  
-     - [Slider] guidance_scale_2: float (not required, defaults to:   1)  
-     - [Slider] seed: float (not required, defaults to:   42)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-    Returns:
-     - [Video] generated_video: filepath 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-zerogpu-aoti/wan2-2-fp8da-aoti-faster /generate_video params: ['duration_seconds', 'guidance_scale', 'guidance_scale_2', 'input_image', 'negative_prompt', 'prompt', 'randomize_seed', 'seed', 'steps'] using: ['duration_seconds', 'input_image', 'prompt', 'randomize_seed', 'steps']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 35, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 43, in <lambda>
     vid = retry(lambda: call(VID_SPACE, "video", input_image=handle_file(img), prompt=s["motion"],
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 1
-Loaded as API: https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(input_image, prompt, steps, negative_prompt, duration_seconds, guidance_scale, guidance_scale_2, seed, randomize_seed, api_name="/generate_video") -> (generated_video, seed)
-    Parameters:
-     - [Image] input_image: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) (required)  (For input, either path or url must be provided. For output, path is always provided.) 
-     - [Textbox] prompt: str (not required, defaults to:   make this image come alive, cinematic motion, smooth animation)  
-     - [Slider] steps: float (not required, defaults to:   6)  
-     - [Textbox] negative_prompt: str (not required, defaults to:   色调艳丽, 过曝, 静态, 细节模糊不清, 字幕, 风格, 作品, 画作, 画面, 静止, 整体发灰, 最差质量, 低质量, JPEG压缩残留, 丑陋的, 残缺的, 多余的手指, 画得不好的手部, 画得不好的脸部, 畸形的, 毁容的, 形态畸形的肢体, 手指融合, 静止不动的画面, 杂乱的背景, 三条腿, 背景人很多, 倒着走)  
-     - [Slider] duration_seconds: float (not required, defaults to:   3.5)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1)  
-     - [Slider] guidance_scale_2: float (not required, defaults to:   1)  
-     - [Slider] seed: float (not required, defaults to:   42)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-    Returns:
-     - [Video] generated_video: filepath 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-zerogpu-aoti/wan2-2-fp8da-aoti-faster /generate_video params: ['duration_seconds', 'guidance_scale', 'guidance_scale_2', 'input_image', 'negative_prompt', 'prompt', 'randomize_seed', 'seed', 'steps'] using: ['duration_seconds', 'input_image', 'prompt', 'randomize_seed', 'steps']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 35, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 43, in <lambda>
     vid = retry(lambda: call(VID_SPACE, "video", input_image=handle_file(img), prompt=s["motion"],
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 2
-Loaded as API: https://zerogpu-aoti-wan2-2-fp8da-aoti-faster.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(input_image, prompt, steps, negative_prompt, duration_seconds, guidance_scale, guidance_scale_2, seed, randomize_seed, api_name="/generate_video") -> (generated_video, seed)
-    Parameters:
-     - [Image] input_image: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) (required)  (For input, either path or url must be provided. For output, path is always provided.) 
-     - [Textbox] prompt: str (not required, defaults to:   make this image come alive, cinematic motion, smooth animation)  
-     - [Slider] steps: float (not required, defaults to:   6)  
-     - [Textbox] negative_prompt: str (not required, defaults to:   色调艳丽, 过曝, 静态, 细节模糊不清, 字幕, 风格, 作品, 画作, 画面, 静止, 整体发灰, 最差质量, 低质量, JPEG压缩残留, 丑陋的, 残缺的, 多余的手指, 画得不好的手部, 画得不好的脸部, 畸形的, 毁容的, 形态畸形的肢体, 手指融合, 静止不动的画面, 杂乱的背景, 三条腿, 背景人很多, 倒着走)  
-     - [Slider] duration_seconds: float (not required, defaults to:   3.5)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1)  
-     - [Slider] guidance_scale_2: float (not required, defaults to:   1)  
-     - [Slider] seed: float (not required, defaults to:   42)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-    Returns:
-     - [Video] generated_video: filepath 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-zerogpu-aoti/wan2-2-fp8da-aoti-faster /generate_video params: ['duration_seconds', 'guidance_scale', 'guidance_scale_2', 'input_image', 'negative_prompt', 'prompt', 'randomize_seed', 'seed', 'steps'] using: ['duration_seconds', 'input_image', 'prompt', 'randomize_seed', 'steps']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 35, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 43, in <lambda>
     vid = retry(lambda: call(VID_SPACE, "video", input_image=handle_file(img), prompt=s["motion"],
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 3
 === scene 3
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 1
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 2
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 3
 === scene 4
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 1
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 2
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 3
 === scene 5
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 1
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 2
-Loaded as API: https://mcp-tools-qwen-image-fast.hf.space
-Client.predict() Usage Info
----------------------------
-Named API endpoints: 1
-
- - predict(prompt, seed, randomize_seed, aspect_ratio, guidance_scale, num_inference_steps, api_name="/generate_image") -> (result, seed)
-    Parameters:
-     - [Textbox] prompt: str (required)  
-     - [Slider] seed: float (not required, defaults to:   0)  
-     - [Checkbox] randomize_seed: bool (not required, defaults to:   True)  
-     - [Radio] aspect_ratio: Literal['1:1', '16:9', '9:16', '4:3', '3:4', '3:2', '2:3'] (not required, defaults to:   16:9)  
-     - [Slider] guidance_scale: float (not required, defaults to:   1.0)  
-     - [Slider] num_inference_steps: float (not required, defaults to:   8)  
-    Returns:
-     - [Image] result: dict(path: str | None (Path to a local file), url: str | None (Publicly available url or base64 encoded image), size: int | None (Size of image in bytes), orig_name: str | None (Original filename), mime_type: str | None (mime type of image), is_stream: bool (Can always be set to False), meta: dict(str, Any)) 
-     - [Slider] seed: float (numeric value between 0 and 2147483647) 
-
-mcp-tools/Qwen-Image-Fast /generate_image params: ['aspect_ratio', 'guidance_scale', 'num_inference_steps', 'prompt', 'randomize_seed', 'seed'] using: ['aspect_ratio', 'num_inference_steps', 'prompt', 'randomize_seed']
 Traceback (most recent call last):
   File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 14, in retry
     r = fn()
         ^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 30, in <lambda>
+  File "/home/runner/work/dashx/dashx/tools/hf_ad.py", line 38, in <lambda>
     img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 38, in call
-    return pick_path(c.predict(api_name=name, **args))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 606, in predict
-    ).result()
-      ^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1707, in result
-    return super().result(timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 456, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1233, in _inner
-    predictions = _predict(*data, **kwargs)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/gradio_client/client.py", line 1356, in _predict
-    raise AppError(message=message, **result)
-gradio_client.exceptions.AppError: You have exceeded your ZeroGPU runs limit. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens
+  File "/home/runner/work/dashx/dashx/tools/hf_clip.py", line 32, in call
+    c = Client(space, hf_token=TOKEN) if TOKEN else Client(space)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Client.__init__() got an unexpected keyword argument 'hf_token'
 retry 3
 clips ok: 1 of 5
