@@ -504,7 +504,20 @@
       "captions": {
         "youtube": "Gali se ground tak, DASHX! Cricket tennis ball ka naya ad.\nDASHX by Nav Durga Sports, Meerut.\n\nFlipkart par: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nAmazon par: https://www.amazon.in/dp/B0H4QG8FKG\n\nFollow @vinitsharma606\n#DASHX #CricketTennisBall #GaliCricket #Meerut #Shorts"
       },
-      "status": "scheduled"
+      "status": "done",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/cgabaJEef9Q",
+          "at": "2026-10-29T12:59:36.398510+05:30"
+        }
+      },
+      "notes": {
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok"
+      }
     }
   ]
 }
