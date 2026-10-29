@@ -1,0 +1,44 @@
+{
+  "name": "ground-ad",
+  "clips_dir": "social/hf-ad",
+  "title": "Gali Se Ground Tak! DASHX Cricket Tennis Ball",
+  "summary": "Gali se ground tak, DASHX! Cricket tennis ball ka naya ad.",
+  "end_voice": "फ्लिपकार्ट और अमेज़न पर। लिंक नीचे है। फॉलो करो!",
+  "scenes": [
+    {
+      "image": "Wide shot of a sunny Indian cricket ground at golden hour, a 10-year-old Indian boy in a red t-shirt swinging a cricket bat and hitting a red tennis ball high into the sky, friends in green and blue t-shirts cheering in the background",
+      "motion": "the boy swings the bat, the red ball flies up into the sky, the camera follows, dust rises, friends cheer",
+      "caption": "Ground taiyaar hai, bat pakdo!",
+      "voice": "ग्राउंड तैयार है, बैट पकड़ो!",
+      "voice_name": "hm_omega"
+    },
+    {
+      "image": "Extreme close-up of a fuzzy red felt tennis ball with a single white curved seam, bouncing on the green grass of a cricket ground, dust puffs, sunlight, shallow depth of field, it is a soft tennis ball, not a leather ball, no stitching",
+      "motion": "the red ball bounces on the grass in slow motion, dust puffs up, cinematic",
+      "caption": "Ye hai DASHX Cricket Tennis Ball!",
+      "voice": "ये है डैश एक्स क्रिकेट टेनिस बॉल!",
+      "voice_name": "hm_omega"
+    },
+    {
+      "image": "Dramatic low-angle shot of a 10-year-old Indian boy in a green t-shirt hitting a big six with a cricket bat, a red tennis ball flying towards the camera, sunny ground, boys cheering",
+      "motion": "the bat swings, the red ball flies towards the camera, the boys jump and cheer",
+      "caption": "Zordaar bounce, seedha chhakka!",
+      "voice": "ज़ोरदार बाउंस, सीधा छक्का!",
+      "voice_name": "hm_psi"
+    },
+    {
+      "image": "A group of five cheerful 10-year-old Indian kids in colorful t-shirts celebrating on a cricket ground with arms raised, one holding a red tennis ball, cricket stumps behind them, golden evening light",
+      "motion": "the kids jump and cheer, the camera slowly pushes in, golden light shimmers",
+      "caption": "Team ka josh, har ball par!",
+      "voice": "टीम का जोश, हर बॉल पर!",
+      "voice_name": "hm_psi"
+    },
+    {
+      "image": "Two 10-year-old Indian boys in red and green t-shirts sitting on a cricket ground at sunset, each holding a red tennis ball and smiling at the camera, a cricket bat beside them",
+      "motion": "the boys smile and wave, the camera slowly pulls back, warm sunset light",
+      "caption": "Gali se ground tak, DASHX!",
+      "voice": "गली से ग्राउंड तक, डैश एक्स!",
+      "voice_name": "hm_omega"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "brand": {
+    "name": "DASHX",
+    "by": "DASHX by Nav Durga Sports, Meerut.",
+    "logo": "dashx-logo-sm.jpg",
+    "pack_card": "gallery-11.jpg",
+    "follow": "@vinitsharma606",
+    "stores": ["Flipkart", "Amazon"],
+    "end_tagline": "Gali se ground tak!",
+    "end_note": "Link description me.",
+    "hashtags": "#DASHX #CricketTennisBall #GaliCricket #Meerut"
+  },
+  "links": {
+    "Flipkart": "https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4",
+    "Amazon": "https://www.amazon.in/dp/B0H4QG8FKG"
+  },
+  "style": "3D Pixar-style cartoon illustration, warm cinematic lighting, detailed Indian setting, vertical 9:16, no text in image, no logos, no writing on the ball"
+}

@@ -1,9 +1,19 @@
 import sys, math, subprocess, random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 W,H,FPS,DUR,S=1080,1920,24,12,1.5
-FB="/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf"
-FL="/usr/share/fonts/truetype/google-fonts/Poppins-Light.ttf"
-FM="/usr/share/fonts/truetype/google-fonts/Poppins-Medium.ttf"
+import os, urllib.request
+def _font(name):
+    """Poppins font: system copy if present, else download once into tools/.fonts (works on GitHub runners)."""
+    sysp="/usr/share/fonts/truetype/google-fonts/"+name
+    if os.path.exists(sysp): return sysp
+    d=os.path.join(os.path.dirname(os.path.abspath(__file__)),".fonts"); os.makedirs(d,exist_ok=True)
+    lp=os.path.join(d,name)
+    if not os.path.exists(lp):
+        urllib.request.urlretrieve("https://raw.githubusercontent.com/google/fonts/main/ofl/poppins/"+name,lp)
+    return lp
+FB=_font("Poppins-Bold.ttf")
+FL=_font("Poppins-Light.ttf")
+FM=_font("Poppins-Medium.ttf")
 _fc={}
 def F(p,s):
     k=(p,int(s*S))

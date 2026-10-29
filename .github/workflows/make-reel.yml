@@ -1,0 +1,57 @@
+name: Make Reel
+on:
+  workflow_dispatch:
+    inputs:
+      idea:
+        description: "Idea / prompt (e.g. Diwali special DASHX ad). Leave empty to use the config file."
+        default: ""
+      config:
+        description: "Config file (used when idea is empty)"
+        default: "tools/reelmaker/configs/dashx_ground_ad.json"
+      plan_only:
+        description: "Only write the scenes (no video)"
+        type: boolean
+        default: false
+      use_hf:
+        description: "Use Hugging Face GPU for clips (off = reuse saved clips / zoom)"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: make-reel
+  cancel-in-progress: false
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install gradio_client kokoro-onnx soundfile numpy pillow
+      - name: Make reel
+        shell: bash
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          IDEA: ${{ github.event.inputs.idea }}
+          CONFIG: ${{ github.event.inputs.config }}
+          PLAN_ONLY: ${{ github.event.inputs.plan_only }}
+          USE_HF: ${{ github.event.inputs.use_hf }}
+        run: |
+          args=()
+          if [ -n "$IDEA" ]; then args+=(--idea "$IDEA"); else args+=(--config "$CONFIG"); fi
+          if [ "$PLAN_ONLY" = "true" ]; then args+=(--plan-only); fi
+          if [ "$USE_HF" = "false" ]; then args+=(--no-hf); fi
+          mkdir -p social/reels
+          python tools/reelmaker/reelmaker.py "${args[@]}" 2>&1 | tee social/reels/last-run.log
+      - name: Save results
+        if: always()
+        run: |
+          git config user.name "dashx-reelmaker"
+          git config user.email "dashx-reelmaker@users.noreply.github.com"
+          git add social/reels || true
+          git add social/*.mp4 || true
+          git add social/*-clips || true
+          git diff --cached --quiet || (git commit -m "Make Reel result" && git pull --rebase -q && git push)
