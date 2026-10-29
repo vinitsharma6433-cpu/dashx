@@ -27,11 +27,19 @@ def main(cfg, out):
     ok = 0
     for i, s in enumerate(d["scenes"], 1):
         print("=== scene", i, flush=True)
-        img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
-                                 num_inference_steps=8, randomize_seed=True))
-        if not img:
+        if os.path.exists(os.path.join(out, "clip_%d.mp4" % i)):
+            print("clip exists, skip", flush=True)
+            ok += 1
             continue
-        shutil.copy(img, os.path.join(out, "scene_%d.png" % i))
+        keep = os.path.join(out, "scene_%d.png" % i)
+        if os.path.exists(keep):
+            img = keep
+        else:
+            img = retry(lambda: call(IMG_SPACE, "image", prompt=s["image"] + ". " + d["style"], aspect_ratio="9:16",
+                                     num_inference_steps=8, randomize_seed=True))
+            if not img:
+                continue
+            shutil.copy(img, keep)
         vid = retry(lambda: call(VID_SPACE, "video", input_image=handle_file(img), prompt=s["motion"],
                                  duration_seconds=3.5, steps=6, randomize_seed=True))
         if not vid:
