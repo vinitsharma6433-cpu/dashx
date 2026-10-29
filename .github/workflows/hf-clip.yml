@@ -1,0 +1,40 @@
+name: HF Free AI Clip
+on:
+  workflow_dispatch:
+    inputs:
+      image_prompt:
+        description: "Scene image prompt"
+        default: "3D Pixar-style cartoon illustration, warm cinematic lighting, Indian rooftop terrace at night during Karwa Chauth, big glowing full moon, rows of lit diyas, an Indian aunty in a red saree holding a sieve up to the moon, two cute 10-year-old Indian boys in red and green t-shirts holding a red tennis cricket ball and smiling, vertical composition, no text in image"
+      motion_prompt:
+        description: "Motion prompt"
+        default: "gentle cinematic camera push in, diya flames flicker, the moon glows, the aunty lifts the sieve, the boys look up and smile"
+permissions:
+  contents: write
+concurrency:
+  group: hf-clip
+  cancel-in-progress: false
+jobs:
+  clip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install gradio_client
+      - name: Make clip
+        id: mk
+        continue-on-error: true
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          mkdir -p social/hf-demo
+          python tools/hf_clip.py social/hf-demo "${{ github.event.inputs.image_prompt }}" "${{ github.event.inputs.motion_prompt }}" 2>&1 | tee social/hf-demo/log.txt
+      - name: Save results
+        if: always()
+        run: |
+          git config user.name "dashx-poster"
+          git config user.email "dashx-poster@users.noreply.github.com"
+          git add social/hf-demo
+          git diff --cached --quiet || (git commit -m "HF demo clip result" && git pull --rebase -q && git push)
