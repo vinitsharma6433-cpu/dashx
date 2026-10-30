@@ -699,7 +699,17 @@
       "captions": {
         "youtube": "Sachin ne coach ko bola pair me moch hai, phir chhakka maara aur bhaag pada... coach ne poocha: daudte hue moch kahan gayi?\nDASHX by Nav Durga Sports, Meerut.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\nMystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3\n\n#DASHX #CricketTennisBall #GaliCricket #Meerut #CricketReels #Shorts"
       },
-      "status": "scheduled"
+      "status": "done",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/qZ294n2ngn4",
+          "at": "2026-10-30T19:28:18.579506+05:30"
+        }
+      },
+      "notes": {
+        "yt_like": "ok"
+      }
     },
     {
       "title": "sneeze-talk DASHX",
@@ -713,7 +723,17 @@
       "captions": {
         "youtube": "Dadaji ko jukam tha, Surya ne chhakka maara, aur Dadaji ne chheenkte-chheenkte catch pakad liya! Gali cricket ka mazedaar scene.\nDASHX by Nav Durga Sports, Meerut.\n\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\nMystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3\n\n#DASHX #CricketTennisBall #GaliCricket #Meerut #CricketReels #Shorts"
       },
-      "status": "scheduled"
+      "status": "done",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/V3fws_MCkBQ",
+          "at": "2026-10-30T19:28:18.579506+05:30"
+        }
+      },
+      "notes": {
+        "yt_like": "ok"
+      }
     }
   ]
 }
