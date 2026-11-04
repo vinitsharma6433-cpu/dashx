@@ -876,7 +876,25 @@
         "facebook": "Phone par phodo DIGITAL PATAKHE 🎇🪔 Bina dhuan, bina shor, sirf dhamaka!\nApna naam aur photo laga ke doston ko Diwali wish bhejo. Link bio me aur comment me 👆\nHappy Diwali from Nav Durga Sports, Meerut 🏏 DASH X Cricket Tennis Balls\n#HappyDiwali #Diwali2026 #DigitalPatakhe #DiwaliWish #DiwaliReels #Meerut #DASHX #CricketTennisBall #NavDurgaSports",
         "instagram": "Phone par phodo DIGITAL PATAKHE 🎇🪔 Bina dhuan, bina shor, sirf dhamaka!\nApna naam aur photo laga ke doston ko Diwali wish bhejo. Link bio me aur comment me 👆\nHappy Diwali from Nav Durga Sports, Meerut 🏏 DASH X Cricket Tennis Balls\n#HappyDiwali #Diwali2026 #DigitalPatakhe #DiwaliWish #DiwaliReels #Meerut #DASHX #CricketTennisBall #NavDurgaSports"
       },
-      "status": "scheduled"
+      "status": "scheduled",
+      "results": {
+        "youtube": {
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/eqz5a2GM4Jc",
+          "at": "2026-11-04T19:24:33.091555+05:30"
+        },
+        "facebook": {
+          "ok": false,
+          "error": "secrets missing, add them in repo Settings"
+        },
+        "instagram": {
+          "ok": false,
+          "error": "secrets missing, add them in repo Settings"
+        }
+      },
+      "notes": {
+        "yt_like": "ok"
+      }
     }
   ]
 }
