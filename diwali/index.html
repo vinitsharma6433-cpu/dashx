@@ -137,6 +137,10 @@ h1 {
 @media (max-width: 639px) { .ck { min-height: 32px; justify-content: center; } .ck .n { display: none; } }
 .sw { width: 8px; height: 8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); flex: none; }
 .ck[aria-pressed="true"] { border-color: var(--gold); background: rgba(255, 194, 61, 0.14); box-shadow: inset 0 0 0 1px var(--gold); }
+.ck.naam { width: 100%; min-height: 34px; margin-bottom: 6px; align-items: center; justify-content: center; text-align: center; background: linear-gradient(90deg, #ff3d7f, #ff8a2b, #ffc23d); border: 0; color: #1a0f00; }
+.ck.naam .t { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+.ck.naam .n { color: #4a1a00; }
+.ck.naam[aria-pressed="true"] { box-shadow: 0 0 0 2px #fff, 0 0 16px rgba(255, 150, 40, 0.7); }
 .ck.show { background: var(--gold); border-color: var(--gold); color: #1a0f00; }
 .ck.show .n { color: #4a3000; }
 .ck.show.on { background: var(--rose); border-color: var(--rose); color: #fff; }
@@ -233,6 +237,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
 <div class="bottom">
   <div class="dock" role="group" aria-label="Choose a cracker">
+    <button class="ck naam" type="button" data-k="naam" aria-pressed="false"><span class="t">🚀 <span id="naamLbl">HAPPY DIWALI</span>&nbsp;Rocket</span><span class="n">writes the name in the sky</span></button>
     <div class="grid">
       <button class="ck" type="button" data-k="rocket" aria-pressed="true"><span class="t"><i class="sw" style="--c:#ff3d7f"></i>Rocket</span><span class="n">sky burst</span></button>
       <button class="ck" type="button" data-k="anar" aria-pressed="false"><span class="t"><i class="sw" style="--c:#ffc23d"></i>Anar</span><span class="n">fountain</span></button>
@@ -296,6 +301,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   var INCOMING = '';
   try { INCOMING = cleanName(new URLSearchParams(location.search).get('n')); } catch (eN) {}
   var INAME = INCOMING.toUpperCase();
+  var SKY_NAME = INAME || 'HAPPY DIWALI';   /* only the separate Name Rocket writes this in the sky */
 
   /* Paste the full Nav Durga Sports / DASH X website link between the quotes */
   var SHOP_URL = 'https://vinitsharma6433-cpu.github.io/dashx/';
@@ -405,7 +411,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
   /* ---------- particles ---------- */
   var P = [], R = [], E = [], props = [], smoke = [], rings = [], pops = [];
-  var NP = [], nameFlash = [];
+  var NP = [];
   var flash = 0, shake = 0, count = 0;
   var countEl = document.getElementById('count');
   var PAL = [['#ffc23d', '#ff6a2b'], ['#ff3d7f', '#ffd1e3'], ['#4de1ff', '#a7f3ff'], ['#7dff7a', '#eaffd0'], ['#c18bff', '#ffd9ff'], ['#ffffff', '#ffc23d']];
@@ -463,7 +469,6 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     }
     for (i = 0; i < 14; i++) smoke.push({ x: x + rnd(-12, 12), y: y + rnd(-12, 12), vx: rnd(-0.6, 0.6), vy: rnd(-1, -0.2), r: rnd(14, 26), life: 70, max: 70 });
     snd.boom(1);
-    if (INAME) nameFlash.push({ x: x, y: y, life: 60 });
     try { if (navigator.vibrate) navigator.vibrate(50); } catch (e) {}
   }
 
@@ -538,14 +543,13 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     return pts;
   }
   function nameRocket() {
-    if (!INAME) return;
     var ty = H * 0.3, dist = Math.max(H - ty, 140), a = 0.09, v0 = Math.sqrt(2 * a * dist);
     R.push({ x: W / 2, y: H + 4, vx: 0, vy: -v0, a: a, ty: ty, pal: pick(PAL), nameBurst: true });
     snd.whistle(v0 / a / 60);
   }
   function nameExplode(x, y) {
     if (NP.length) return;
-    var pts = namePoints(INAME), cx = W / 2, i;
+    var pts = namePoints(SKY_NAME), cx = W / 2, i;
     for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: y + pts[i][1], t: -rnd(0, 8), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
     for (i = 0; i < 40; i++) { var an = rnd(0, TAU), v = rnd(1, 4); spark(x, y, Math.cos(an) * v, Math.sin(an) * v, pick(NAME_C), rnd(30, 50), 2.4, 0.04, 0.97); }
     flash = Math.max(flash, reduce ? 0.04 : 0.16);
@@ -559,7 +563,9 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     snd.crackle(14);
   }
 
-  var KINDS = { rocket: rocket, anar: anar, bomb: bomb, chakri: chakri, laadi: laadi, shot50: shot50, phul: phul };
+  function naam() { nameRocket(); }
+
+  var KINDS = { naam: naam, rocket: rocket, anar: anar, bomb: bomb, chakri: chakri, laadi: laadi, shot50: shot50, phul: phul };
   function fire(kind, x, y) {
     count++; countEl.textContent = String(count);
     KINDS[kind](x, y);
@@ -598,7 +604,6 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       }
       if (q.t > 215) { NP[i] = NP[NP.length - 1]; NP.pop(); }
     }
-    for (i = nameFlash.length - 1; i >= 0; i--) { nameFlash[i].life -= k; if (nameFlash[i].life <= 0) nameFlash.splice(i, 1); }
     for (i = E.length - 1; i >= 0; i--) {
       e = E[i]; e.t += k;
       if (e.type === 'anar') {
@@ -698,19 +703,12 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(p.left > 0 ? String(p.left) : '50', p.x, by + bh * 0.72);
       } else if (p.type === 'bomb') {
-        r = (INAME ? 24 : 17) * u;
+        r = 17 * u;
         ctx.fillStyle = '#17141f'; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.fill();
         ctx.strokeStyle = '#ffc23d'; ctx.lineWidth = 2; ctx.stroke();
         ctx.fillStyle = 'rgba(255,255,255,0.25)'; ctx.beginPath(); ctx.arc(p.x - r * 0.35, p.y - r * 0.35, r * 0.25, 0, TAU); ctx.fill();
         ctx.strokeStyle = '#c9a36a'; ctx.lineWidth = 3;
         ctx.beginPath(); ctx.moveTo(p.x, p.y - r); ctx.quadraticCurveTo(p.x + 8 * u, p.y - r - 10 * u, p.x + 4 * u, p.y - r - 18 * u); ctx.stroke();
-        if (INAME) {
-          ctx.font = '700 100px Hind, system-ui, sans-serif';
-          var bfs = Math.min(11 * u, (r * 1.7) / (ctx.measureText(INAME).width || 1) * 100);
-          ctx.font = '700 ' + bfs + 'px Hind, system-ui, sans-serif';
-          ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#ffc23d';
-          ctx.fillText(INAME, p.x, p.y + 1);
-        }
       } else {
         for (j = 0; j < p.items.length; j++) {
           it = p.items[j];
@@ -826,16 +824,6 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       ctx.fillRect(0, 0, W, H);
       flash *= Math.pow(0.86, k);
     }
-    for (i = 0; i < nameFlash.length; i++) {
-      var nf = nameFlash[i], fa = nf.life / 60;
-      ctx.font = '700 100px Hind, system-ui, sans-serif';
-      var nfs = Math.min(64 * u, (W * 0.8) / (ctx.measureText(INAME).width || 1) * 100) * (1 + (1 - fa) * 0.35);
-      ctx.font = '700 ' + nfs + 'px Hind, system-ui, sans-serif';
-      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.globalAlpha = fa; ctx.shadowColor = '#ffc23d'; ctx.shadowBlur = 24; ctx.fillStyle = '#fff6d0';
-      ctx.fillText(INAME, clamp(nf.x, nfs, W - nfs), nf.y);
-      ctx.shadowBlur = 0;
-    }
     ctx.globalAlpha = 1;
   }
 
@@ -902,6 +890,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   function loadMyName() { try { return cleanName(localStorage.getItem(MY_KEY)); } catch (eL) { return ''; } }
   function saveMyName(v) { try { localStorage.setItem(MY_KEY, v); } catch (eS) {} }
   var sharedBy = INCOMING;
+  document.getElementById('naamLbl').textContent = SKY_NAME;
   if (INCOMING) {
     var fb = document.getElementById('fromBanner');
     fb.textContent = INCOMING + ' ne tumhare liye ye patakha jalaya 🪔';
@@ -1020,7 +1009,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       var kind = pick(['rocket', 'rocket', 'rocket', 'anar', 'bomb', 'chakri', 'laadi']);
       var x = rnd(W * 0.12, W * 0.88);
       var y = kind === 'rocket' ? rnd(H * 0.12, H * 0.5) : rnd(H * 0.4, H * 0.62);
-      if (INAME && n % 9 === 4) nameRocket(); else fire(kind, x, y);
+      fire(kind, x, y);
       if (kind === 'rocket' && Math.random() < 0.4) fire('rocket', rnd(W * 0.12, W * 0.88), rnd(H * 0.12, H * 0.45));
       n++;
       showTimer = setTimeout(step, rnd(600, 1300));
