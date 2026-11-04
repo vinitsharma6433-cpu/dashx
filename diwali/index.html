@@ -170,35 +170,26 @@ h1 {
   white-space: nowrap;
 }
 .ad a[aria-disabled="true"] { opacity: 0.55; cursor: default; }
-.ad .btns { display: flex; flex-wrap: wrap; gap: 8px; }
-.ad .edit {
-  pointer-events: auto;
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 9px 16px;
-  border-radius: 999px;
-  border: 0;
-  background: linear-gradient(135deg, #ff3d7f, #e8352b);
-  color: #fff;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.ad .name-form { pointer-events: auto; display: flex; gap: 8px; width: 100%; }
-.ad .name-form[hidden] { display: none; }
-.ad .name-form input {
-  flex: 1;
-  min-width: 0;
-  font: inherit;
-  font-size: 16px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--gold);
-  background: rgba(0, 0, 0, 0.35);
-  color: var(--ink);
-}
-.ad .name-form input::placeholder { color: var(--muted); }
-button:focus-visible, .ad a:focus-visible, .ad input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.ad .by { display: block; margin-top: 3px; font-size: 13px; color: var(--ink); }
+.ad .by[hidden] { display: none; }
+.ad .by b { color: #ff7aa8; }
+.sheet { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(5, 4, 16, 0.72); }
+.sheet[hidden] { display: none; }
+.sheet-box { width: 100%; max-width: 400px; padding: 18px; border-radius: 18px; background: #1a1233; border: 1px solid var(--gold); display: flex; flex-direction: column; gap: 12px; }
+.sheet-box h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--gold); }
+.sheet-box p { margin: -6px 0 0; font-size: 13px; color: var(--muted); }
+.sheet-box label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+.sheet-box input[type="text"] { font: inherit; font-size: 16px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0, 0, 0, 0.35); color: var(--ink); }
+.sheet-box input[type="text"]::placeholder { color: var(--muted); font-weight: 400; }
+.photo-pick { flex-direction: row !important; align-items: center; gap: 10px !important; padding: 10px 14px; border-radius: 12px; border: 1px dashed var(--gold); cursor: pointer; }
+.photo-pick input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.photo-pick img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+.photo-pick img[hidden] { display: none; }
+.sheet-row { display: flex; gap: 8px; }
+.sheet-row button { flex: 1; font: inherit; font-size: 15px; font-weight: 600; padding: 11px; border-radius: 999px; border: 1px solid var(--line); cursor: pointer; }
+.sheet-row .ghost { background: transparent; color: var(--ink); }
+.sheet-row .go { background: #25d366; border-color: #25d366; color: #04210f; }
+button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .flame { animation: none; } }
 </style>
 </head>
@@ -241,16 +232,26 @@ button:focus-visible, .ad a:focus-visible, .ad input:focus-visible { outline: 2p
     </div>
   </div>
   <div class="ad">
-    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! &mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span></p>
-    <div class="btns">
-      <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
-      <button class="edit" id="editName" type="button">✏️ Edit name</button>
-    </div>
-    <form class="name-form" id="nameForm" hidden>
-      <input id="nameIn" type="text" maxlength="30" placeholder="Type your name" aria-label="Your name" autocomplete="name">
-      <button class="edit" type="submit">Save</button>
-    </form>
+    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! &mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="by" id="by" hidden>🎁 Shared with love by <b id="byName"></b></span></p>
+    <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
   </div>
+</div>
+
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheetT">
+  <form class="sheet-box" id="shareForm">
+    <h2 id="sheetT">Share Diwali wishes</h2>
+    <p>Add your name and photo. They go only in the message you send.</p>
+    <label>Your name
+      <input id="nameIn" type="text" maxlength="30" placeholder="Type your name" autocomplete="name">
+    </label>
+    <label class="photo-pick"><img id="photoPrev" alt="" hidden><span id="photoTxt">📷 Add your photo (optional)</span>
+      <input id="photoIn" type="file" accept="image/*">
+    </label>
+    <div class="sheet-row">
+      <button type="button" class="ghost" id="sheetClose">Cancel</button>
+      <button type="submit" class="go">Share now</button>
+    </div>
+  </form>
 </div>
 
 <script>
@@ -739,38 +740,89 @@ button:focus-visible, .ad a:focus-visible, .ad input:focus-visible { outline: 2p
 
   var PUBLIC_URL = 'https://vinitsharma6433-cpu.github.io/dashx/diwali/';
 
-  /* ---------- edit name: only the name in the greeting changes ---------- */
-  var DEFAULT_NAME = 'Vineet Sharma';
-  var whoEl = document.getElementById('who');
-  var nameForm = document.getElementById('nameForm'), nameIn = document.getElementById('nameIn');
+  /* ---------- share with your own name + photo (the greeting on the page never changes) ---------- */
+  var DEFAULT_TEXT = 'Happy Diwali 🪔🎇 Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! — Vineet Sharma, Nav Durga Sports, Meerut (DASH X cricket tennis balls). Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: ';
   function cleanName(v) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, 30); }
-  var myName = '';
-  try { myName = cleanName(new URLSearchParams(location.search).get('n')); } catch (e) {}
-  if (!myName) { try { myName = cleanName(localStorage.getItem('diwali-name')); } catch (e) {} }
-  function setName(v) { myName = cleanName(v); whoEl.textContent = myName || DEFAULT_NAME; }
-  setName(myName);
-  document.getElementById('editName').addEventListener('click', function () {
-    nameForm.hidden = !nameForm.hidden;
-    if (!nameForm.hidden) { nameIn.value = myName; nameIn.focus(); }
-  });
-  nameForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    setName(nameIn.value);
-    try { if (myName) localStorage.setItem('diwali-name', myName); else localStorage.removeItem('diwali-name'); } catch (e2) {}
-    nameForm.hidden = true;
+  try { localStorage.removeItem('diwali-name'); } catch (e0) {}
+  var sharedBy = '';
+  try { sharedBy = cleanName(new URLSearchParams(location.search).get('n')); } catch (e1) {}
+  if (sharedBy) { document.getElementById('byName').textContent = sharedBy; document.getElementById('by').hidden = false; }
+
+  var sheet = document.getElementById('sheet'), shareForm = document.getElementById('shareForm');
+  var nameIn = document.getElementById('nameIn'), photoIn = document.getElementById('photoIn');
+  var photoPrev = document.getElementById('photoPrev'), photoTxt = document.getElementById('photoTxt');
+  var photoImg = null;
+
+  photoIn.addEventListener('change', function () {
+    var f = photoIn.files && photoIn.files[0];
+    photoImg = null;
+    if (!f) { photoPrev.hidden = true; photoTxt.textContent = '📷 Add your photo (optional)'; return; }
+    var img = new Image();
+    img.onload = function () { photoImg = img; photoPrev.src = img.src; photoPrev.hidden = false; photoTxt.textContent = 'Photo added ✓ (tap to change)'; };
+    img.src = URL.createObjectURL(f);
   });
 
-  function shareUrl() { return myName ? PUBLIC_URL + '?n=' + encodeURIComponent(myName) : PUBLIC_URL; }
-  function shareText() {
-    var from = myName ? myName : DEFAULT_NAME + ', Nav Durga Sports, Meerut';
-    return 'Happy Diwali 🪔🎇 Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! — ' + from + ' (DASH X cricket tennis balls). Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: ';
+  function makeCard(name, img) {
+    var c = document.createElement('canvas'); c.width = 1080; c.height = 1080;
+    var g = c.getContext('2d');
+    var bg = g.createLinearGradient(0, 0, 0, 1080);
+    bg.addColorStop(0, '#0b0a1f'); bg.addColorStop(0.6, '#1e0d38'); bg.addColorStop(1, '#4a1630');
+    g.fillStyle = bg; g.fillRect(0, 0, 1080, 1080);
+    var bursts = [[170, 170, '#4de1ff'], [910, 150, '#7dff7a'], [130, 640, '#ff3d7f'], [950, 620, '#c18bff'], [540, 80, '#ffc23d']];
+    bursts.forEach(function (b) {
+      g.strokeStyle = b[2]; g.lineWidth = 4; g.lineCap = 'round';
+      for (var i = 0; i < 28; i++) {
+        var a = i / 28 * TAU, r1 = 30 + (i % 3) * 10, r2 = 95 + (i % 4) * 18;
+        g.globalAlpha = 0.75;
+        g.beginPath(); g.moveTo(b[0] + Math.cos(a) * r1, b[1] + Math.sin(a) * r1); g.lineTo(b[0] + Math.cos(a) * r2, b[1] + Math.sin(a) * r2); g.stroke();
+      }
+    });
+    g.globalAlpha = 1;
+    var cx = 540, cy = 400, r = 220;
+    g.save(); g.beginPath(); g.arc(cx, cy, r, 0, TAU); g.clip();
+    var sc = Math.max((2 * r) / img.width, (2 * r) / img.height);
+    g.drawImage(img, cx - img.width * sc / 2, cy - img.height * sc / 2, img.width * sc, img.height * sc);
+    g.restore();
+    g.strokeStyle = '#ffc23d'; g.lineWidth = 10; g.beginPath(); g.arc(cx, cy, r + 6, 0, TAU); g.stroke();
+    g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+    g.fillStyle = '#ffc23d'; g.font = "120px 'Rozha One', Georgia, serif";
+    g.fillText('Happy Diwali', 540, 770);
+    if (name) { g.fillStyle = '#fff6e3'; g.font = "600 56px Hind, system-ui, sans-serif"; g.fillText('— ' + name, 540, 850); }
+    g.fillStyle = '#7dff7a'; g.font = "600 36px Hind, system-ui, sans-serif";
+    g.fillText('Digital crackers: zero pollution, zero cost!', 540, 925);
+    g.fillStyle = '#b9b0d6'; g.font = "30px Hind, system-ui, sans-serif";
+    g.fillText('DASH X Cricket Tennis Balls · Nav Durga Sports, Meerut', 540, 1030);
+    var data = c.toDataURL('image/jpeg', 0.88), bin = atob(data.split(',')[1]), arr = new Uint8Array(bin.length);
+    for (var k = 0; k < bin.length; k++) arr[k] = bin.charCodeAt(k);
+    return new File([arr], 'happy-diwali.jpg', { type: 'image/jpeg' });
   }
-  document.getElementById('share').addEventListener('click', function () {
-    if (navigator.share) {
-      navigator.share({ title: 'Diwali Dhamaka', text: shareText(), url: shareUrl() }).catch(function () {});
+
+  function openWa(text) { window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
+
+  document.getElementById('share').addEventListener('click', function () { sheet.hidden = false; nameIn.focus(); });
+  document.getElementById('sheetClose').addEventListener('click', function () { sheet.hidden = true; });
+  sheet.addEventListener('click', function (e) { if (e.target === sheet) sheet.hidden = true; });
+  shareForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = cleanName(nameIn.value);
+    var url = name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL;
+    var text = name
+      ? 'Happy Diwali 🪔🎇 ' + name + ' ki taraf se aapko aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein! Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: '
+      : DEFAULT_TEXT;
+    sheet.hidden = true;
+    if (photoImg) {
+      var file = makeCard(name, photoImg);
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file], text: text + url }).catch(function () {});
+        return;
+      }
+      var a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = 'happy-diwali.jpg';
+      document.body.appendChild(a); a.click(); a.remove();
+      openWa(text + url);
       return;
     }
-    window.open('https://wa.me/?text=' + encodeURIComponent(shareText() + shareUrl()), '_blank', 'noopener');
+    if (navigator.share) { navigator.share({ title: 'Diwali Dhamaka', text: text, url: url }).catch(function () {}); return; }
+    openWa(text + url);
   });
 
   var sndBtn = document.getElementById('snd');
