@@ -18,10 +18,10 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://vinitsharma6433-cpu.github.io/dashx/diwali/preview.jpg?v=2">
 <meta property="og:title" content="Happy Diwali 🪔🎇 DASH X | Nav Durga Sports">
-<meta property="og:description" content="Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! — Vineet Sharma, Nav Durga Sports, Meerut. Digital crackers: zero pollution, zero cost, all the fun!">
+<meta property="og:description" content="Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! DASH X | Nav Durga Sports, Meerut. Digital crackers: zero pollution, zero cost, all the fun!">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Happy Diwali 🪔🎇 DASH X | Nav Durga Sports">
-<meta name="twitter:description" content="Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! — Vineet Sharma, Nav Durga Sports, Meerut. Digital crackers: zero pollution, zero cost, all the fun!">
+<meta name="twitter:description" content="Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! DASH X | Nav Durga Sports, Meerut. Digital crackers: zero pollution, zero cost, all the fun!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Rozha+One&display=swap">
@@ -170,9 +170,7 @@ h1 {
   white-space: nowrap;
 }
 .ad a[aria-disabled="true"] { opacity: 0.55; cursor: default; }
-.ad .by { display: block; margin-top: 3px; font-size: 13px; color: var(--ink); }
-.ad .by[hidden] { display: none; }
-.ad .by b { color: #ff7aa8; }
+.ad .who { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 28px; line-height: 1.15; color: #fff; text-shadow: 0 0 14px rgba(255, 150, 40, 0.55); overflow-wrap: anywhere; }
 .sheet { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(5, 4, 16, 0.72); }
 .sheet[hidden] { display: none; }
 .sheet-box { width: 100%; max-width: 400px; padding: 18px; border-radius: 18px; background: #1a1233; border: 1px solid var(--gold); display: flex; flex-direction: column; gap: 12px; }
@@ -232,7 +230,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     </div>
   </div>
   <div class="ad">
-    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! &mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="by" id="by" hidden>🎁 Shared with love by <b id="byName"></b></span></p>
+    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who">&mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span></p>
     <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
   </div>
 </div>
@@ -746,7 +744,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   try { localStorage.removeItem('diwali-name'); } catch (e0) {}
   var sharedBy = '';
   try { sharedBy = cleanName(new URLSearchParams(location.search).get('n')); } catch (e1) {}
-  if (sharedBy) { document.getElementById('byName').textContent = sharedBy; document.getElementById('by').hidden = false; }
+  if (sharedBy) document.getElementById('who').textContent = sharedBy;
 
   var sheet = document.getElementById('sheet'), shareForm = document.getElementById('shareForm');
   var nameIn = document.getElementById('nameIn'), photoIn = document.getElementById('photoIn');
