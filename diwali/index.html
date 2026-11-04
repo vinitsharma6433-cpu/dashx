@@ -149,6 +149,7 @@ h1 {
 .ad p { margin: 0; min-width: 0; line-height: 1.3; }
 .ad .hd { display: block; font-family: var(--font-display); font-size: 21px; color: var(--gold); }
 .ad .sp { display: block; font-size: 13px; color: var(--ink); }
+.ad .wish { display: block; margin-top: 3px; font-size: 14px; font-weight: 600; color: var(--gold); }
 .ad a {
   pointer-events: auto;
   display: inline-block;
@@ -204,7 +205,7 @@ button:focus-visible, .ad a:focus-visible { outline: 2px solid #fff; outline-off
     </div>
   </div>
   <div class="ad">
-    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span></p>
+    <p><span class="hd">Happy Diwali!</span><span class="sp">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! &mdash; Vineet Sharma</span></p>
     <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
   </div>
 </div>
@@ -653,7 +654,7 @@ button:focus-visible, .ad a:focus-visible { outline: 2px solid #fff; outline-off
   cv.addEventListener('pointerdown', function (e) { fire(sel, e.clientX, e.clientY); });
 
   var PUBLIC_URL = 'https://vinitsharma6433-cpu.github.io/dashx/diwali/';
-  var SHARE_TEXT = 'Happy Diwali 🪔🎇 Burst digital crackers on your phone! From Nav Durga Sports, Meerut (DASH X cricket tennis balls). ';
+  var SHARE_TEXT = 'Happy Diwali 🪔🎇 Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein! — Vineet Sharma, Nav Durga Sports, Meerut (DASH X cricket tennis balls). Burst digital crackers on your phone: ';
   document.getElementById('share').addEventListener('click', function () {
     if (navigator.share) {
       navigator.share({ title: 'Diwali Dhamaka', text: SHARE_TEXT, url: PUBLIC_URL }).catch(function () {});
