@@ -24,7 +24,9 @@
 <meta name="twitter:description" content="Diwali ki bahut-bahut shubhkamnayein! Tap the sky and burst digital crackers: zero pollution, zero cost, all the fun!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Rozha+One&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Rozha+One&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Rozha+One&display=swap"></noscript>
+<link rel="prefetch" href="https://vinitsharma6433-cpu.github.io/dashx/">
 <style>
 /* Layout: full-bleed night sky canvas, title strip on top, cracker dock and Nav Durga Sports ad at the bottom. Taps on the sky fire the chosen cracker. */
 :root {
@@ -778,7 +780,11 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   var PUBLIC_URL = 'https://vinitsharma6433-cpu.github.io/dashx/diwali/';
 
   /* ---------- share with your own name + photo (the greeting on the page never changes) ---------- */
-  var DEFAULT_TEXT = 'Happy Diwali 🪔🎇 Aapko aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein! Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: ';
+  /* link goes on the first line, so it sits right under the picture / at the top of a Status */
+  function buildMsg(name, url) {
+    var from = name ? name + ' ki taraf se aapko' : 'Aapko';
+    return url + '\nHappy Diwali 🪔🎇 ' + from + ' aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein!\n👆 Link kholo aur digital patakhe phodo: zero pollution, zero cost!';
+  }
   function cleanName(v) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, 30); }
   try { localStorage.removeItem('diwali-name'); } catch (e0) {}
   var sharedBy = '';
@@ -847,25 +853,23 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     e.preventDefault();
     var name = cleanName(nameIn.value);
     var url = name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL;
-    var text = name
-      ? 'Happy Diwali 🪔🎇 ' + name + ' ki taraf se aapko aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein! Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: '
-      : DEFAULT_TEXT;
+    var msg = buildMsg(name, url);
     sheet.hidden = true;
     if (photoImg) {
       var file = makeCard(name, photoImg);
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        navigator.share({ files: [file], text: text + url }).catch(function () {});
+        navigator.share({ files: [file], text: msg }).catch(function () {});
         return;
       }
       var cardUrl = URL.createObjectURL(file);
       document.getElementById('cardImg').src = cardUrl;
       document.getElementById('cardSave').href = cardUrl;
-      pendingMsg = text + url;
+      pendingMsg = msg;
       cardBox.hidden = false;
       return;
     }
-    if (navigator.share) { navigator.share({ title: 'Diwali Dhamaka', text: text, url: url }).catch(function () {}); return; }
-    openWa(text + url);
+    if (navigator.share) { navigator.share({ text: msg }).catch(function () {}); return; }
+    openWa(msg);
   });
 
   var sndBtn = document.getElementById('snd');
