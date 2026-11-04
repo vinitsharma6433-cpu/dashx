@@ -476,7 +476,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
   /* ---------- particles (WORLD-CLASS UPGRADE) ---------- */
   var P = [], R = [], E = [], props = [], smoke = [], rings = [], pops = [], glitter = [];
-  var NP = [];
+  var NP = [], nameShow = null, nameFs = 40;
   var flash = 0, shake = 0, count = 0, bloom = 0;
   var countEl = document.getElementById('count');
   var PAL = [
@@ -663,12 +663,13 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     function font(sz) { return '700 ' + sz + 'px Hind, system-ui, sans-serif'; }
     g.font = font(100);
     var w100 = g.measureText(name).width || 1;
-    var fs = Math.max(18, Math.min(H * 0.16, 120 * u, (W * 0.88) / w100 * 100));
+    var fs = Math.max(18, Math.min(H * 0.1, 80 * u, (W * 0.86) / w100 * 100));
     g.font = font(fs);
     var tw = Math.ceil(g.measureText(name).width) + 8, th = Math.ceil(fs * 1.35);
     c.width = tw; c.height = th;
     g.font = font(fs); g.fillStyle = '#fff'; g.textBaseline = 'middle'; g.fillText(name, 4, th / 2);
-    var d = g.getImageData(0, 0, tw, th).data, step = Math.max(3, Math.round(fs / 16)), pts = [], x, y;
+    nameFs = fs;
+    var d = g.getImageData(0, 0, tw, th).data, step = Math.max(4, Math.round(fs / 11)), pts = [], x, y;
     for (y = 0; y < th; y += step) for (x = 0; x < tw; x += step) if (d[(y * tw + x) * 4 + 3] > 128) pts.push([x - tw / 2, y - th / 2]);
     if (pts.length > NP_MAX) { var out = [], st = pts.length / NP_MAX; for (x = 0; x < NP_MAX; x++) out.push(pts[Math.floor(x * st)]); pts = out; }
     return pts;
@@ -678,15 +679,26 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     props.push({ type: 'nbomb', x: x, y: y, t: 0, fuse: 55 });
     snd.fuse(0.9);
   }
+  /* a cleaner blast than the normal bomb: no smoke or glare over the name */
+  function nameBang(x, y) {
+    var i, a, v;
+    flash = Math.max(flash, reduce ? 0.08 : 0.3);
+    shake = reduce ? 0 : 12;
+    rings.push({ x: x, y: y, r: 8, max: Math.min(W, H) * 0.4 });
+    for (i = 0; i < 60; i++) {
+      a = rnd(0, TAU); v = rnd(2, 10);
+      spark(x, y, Math.cos(a) * v, Math.sin(a) * v, pick(['#fff3c4', '#ffc23d', '#ff6a2b', '#ff3d7f']), rnd(25, 45), 3, 0.11, 0.94);
+    }
+    snd.boom(1.1);
+    haptic([50, 30, 80]);
+  }
   function nameExplode(x, y, ny) {
     if (NP.length) return;
     var pts = namePoints(SKY_NAME), cx = W / 2, i;
     for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: ny + pts[i][1], t: -rnd(0, 10), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
-    for (i = 0; i < 70; i++) { var an = rnd(0, TAU), v = rnd(1.5, 5.5); spark(x, y, Math.cos(an) * v, Math.sin(an) * v, pick(NAME_C), rnd(35, 60), 2.8, 0.035, 0.965, true); }
-    addGlitter(x, y, 25);
-    flash = Math.max(flash, reduce ? 0.05 : 0.22);
-    bloom = Math.max(bloom, reduce ? 0 : 0.3);
-    snd.boom(0.85); snd.crackle(10);
+    /* crisp glowing name drawn on top while the sparks hold, so it is always readable */
+    nameShow = { x: cx, y: ny, t: 0, fs: nameFs };
+    snd.crackle(10);
   }
 
   /* phuljhadi: a sparkler stick that burns down, throwing bright sparks */
@@ -823,6 +835,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       if (Math.random() < 0.35 * k) smoke.push({ x: r.x + rnd(-4, 4), y: r.y + rnd(4, 12), vx: rnd(-0.3, 0.3), vy: rnd(0.2, 0.8), r: rnd(6, 14), life: 40, max: 40 });
       if (r.vy > -0.7 || r.y <= r.ty - 20) { if (r.small) shellBurst(r.x, r.y, r.pal); else explode(r.x, r.y, r.pal, false); R.splice(i, 1); }
     }
+    if (nameShow) { nameShow.t += k; if (nameShow.t > 215) nameShow = null; }
     for (i = NP.length - 1; i >= 0; i--) {
       q = NP[i]; q.t += k;
       if (q.t < 0) continue;
@@ -879,8 +892,8 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
         pr.t += k;
         spark(pr.x + 5 * u, pr.y - 46 * u, rnd(-1.5, 1.5), rnd(-3.5, -0.5), '#ffd36b', rnd(8, 16), 2.4, 0.1, 0.95);
         if (pr.t >= pr.fuse) {
-          bang(pr.x, pr.y);
-          nameExplode(pr.x, pr.y, clamp(pr.y - 140 * u, H * 0.2, H * 0.38));
+          nameBang(pr.x, pr.y);
+          nameExplode(pr.x, pr.y, H * 0.36);
           props.splice(i, 1);
         }
       } else if (pr.type === 'bomb') {
@@ -1123,8 +1136,8 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       var na = q2.t < 160 ? 1 : Math.max(0, 1 - (q2.t - 160) / 55);
       na *= 0.75 + 0.25 * Math.sin(q2.t * 0.3 + i);
       ctx.fillStyle = q2.c;
-      ctx.globalAlpha = na * 0.28; ctx.beginPath(); ctx.arc(q2.x, q2.y, 5.2 * u, 0, TAU); ctx.fill();
-      ctx.globalAlpha = na; ctx.beginPath(); ctx.arc(q2.x, q2.y, 1.9 * u, 0, TAU); ctx.fill();
+      ctx.globalAlpha = na * 0.16; ctx.beginPath(); ctx.arc(q2.x, q2.y, 2.8 * u, 0, TAU); ctx.fill();
+      ctx.globalAlpha = na; ctx.beginPath(); ctx.arc(q2.x, q2.y, 1.4 * u, 0, TAU); ctx.fill();
     }
     for (i = 0; i < E.length; i++) {
       var e = E[i];
@@ -1161,6 +1174,20 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       ctx.fillStyle = '#ffc070';
       ctx.fillRect(0, 0, W, H);
       bloom *= Math.pow(0.9, k);
+    }
+    if (nameShow && nameShow.t > 30) {
+      var nt = nameShow.t, nal = nt < 50 ? (nt - 30) / 20 : nt < 170 ? 1 : Math.max(0, 1 - (nt - 170) / 45);
+      ctx.save();
+      ctx.globalAlpha = nal;
+      ctx.font = '800 ' + nameShow.fs + 'px Hind, system-ui, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.lineJoin = 'round'; ctx.lineWidth = Math.max(3, nameShow.fs / 12);
+      ctx.strokeStyle = 'rgba(90, 20, 0, 0.85)';
+      ctx.strokeText(SKY_NAME, nameShow.x, nameShow.y);
+      ctx.shadowColor = '#ffb020'; ctx.shadowBlur = 18;
+      ctx.fillStyle = '#fff3c4';
+      ctx.fillText(SKY_NAME, nameShow.x, nameShow.y);
+      ctx.restore();
     }
     ctx.globalAlpha = 1;
   }
