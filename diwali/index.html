@@ -237,7 +237,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
 <div class="bottom">
   <div class="dock" role="group" aria-label="Choose a cracker">
-    <button class="ck naam" type="button" data-k="naam" aria-pressed="false"><span class="t"><span id="naamLbl">HAPPY DIWALI</span>&nbsp;💣 Bomb</span><span class="n">blast writes the name in the sky</span></button>
+    <button class="ck naam" type="button" data-k="naam" aria-pressed="false"><span class="t"><span id="naamLbl">VINEET SHARMA</span>&nbsp;💣 Bomb</span><span class="n">blast writes the name in the sky</span></button>
     <div class="grid">
       <button class="ck" type="button" data-k="rocket" aria-pressed="true"><span class="t"><i class="sw" style="--c:#ff3d7f"></i>Rocket</span><span class="n">sky burst</span></button>
       <button class="ck" type="button" data-k="anar" aria-pressed="false"><span class="t"><i class="sw" style="--c:#ffc23d"></i>Anar</span><span class="n">fountain</span></button>
@@ -301,7 +301,8 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   var INCOMING = '';
   try { INCOMING = cleanName(new URLSearchParams(location.search).get('n')); } catch (eN) {}
   var INAME = INCOMING.toUpperCase();
-  var SKY_NAME = INAME || 'HAPPY DIWALI';   /* only the separate Name Bomb writes this in the sky */
+  /* chain: the Name Bomb shows whoever last shared the link; without ?n= it is Vineet Sharma */
+  var SKY_NAME = INAME || 'VINEET SHARMA';
 
   /* Paste the full Nav Durga Sports / DASH X website link between the quotes */
   var SHOP_URL = 'https://vinitsharma6433-cpu.github.io/dashx/';
