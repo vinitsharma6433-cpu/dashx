@@ -232,6 +232,14 @@
   .cta-row .btn:nth-child(3)::after{animation-delay:1s}
   .cta-row .btn:nth-child(4)::after{animation-delay:1.5s}
   .cta-row .btn:nth-child(5)::after{animation-delay:2s}
+  /* spinning DASH X ball on every buy button */
+  .spin-ball{flex:none;width:26px;height:26px;border-radius:50%;margin-left:2px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25' r='75%25'%3E%3Cstop offset='0' stop-color='%23f08a92'/%3E%3Cstop offset='.45' stop-color='%23a3202f'/%3E%3Cstop offset='1' stop-color='%233e0710'/%3E%3C/radialGradient%3E%3CclipPath id='c'%3E%3Ccircle cx='20' cy='20' r='19'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='19' fill='url%28%23g%29'/%3E%3Cg clip-path='url%28%23c%29' fill='none' stroke='%23fff' stroke-width='2.8' stroke-linecap='round'%3E%3Cpath d='M7 2 Q21 20 7 38'/%3E%3Cpath d='M33 2 Q19 20 33 38'/%3E%3C/g%3E%3Cellipse cx='13' cy='11' rx='5' ry='3' fill='%23fff' opacity='.35' transform='rotate%28-25 13 11%29'/%3E%3C/svg%3E") center/100% 100% no-repeat;
+    box-shadow:0 2px 6px rgba(0,0,0,.45);
+    animation:ballSpin 1.1s linear infinite,ballHop 1.6s ease-in-out infinite}
+  .btn:hover .spin-ball{animation-duration:.45s,1.6s}
+  @keyframes ballSpin{to{transform:rotate(360deg)}}
+  @keyframes ballHop{0%,100%{translate:0 0}50%{translate:0 -4px}}
   @keyframes btnFlow{to{background-position:-250% 0}}
   @keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(var(--glow,244,180,0),.65),0 6px 18px rgba(var(--glow,244,180,0),.35)}100%{box-shadow:0 0 0 14px rgba(var(--glow,244,180,0),0),0 6px 18px rgba(var(--glow,244,180,0),.35)}}
   @keyframes btnShine{0%,45%{left:-60%}85%,100%{left:130%}}
@@ -364,10 +372,10 @@
   </video>
   <div class="cta-row">
     <a class="btn btn-lab" href="#lab">🎮 <span data-i18n="enterLab">Bounce Lab kholo</span></a>
-    <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart</a>
-    <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon</a>
-    <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy on Meesho</a>
-    <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASHX%2C%20mujhe%20cricket%20tennis%20ball%20order%20karni%20hai" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+    <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart<span class="spin-ball" aria-hidden="true"></span></a>
+    <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon<span class="spin-ball" aria-hidden="true"></span></a>
+    <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy on Meesho<span class="spin-ball" aria-hidden="true"></span></a>
+    <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASHX%2C%20mujhe%20cricket%20tennis%20ball%20order%20karni%20hai" target="_blank" rel="noopener">💬 Order on WhatsApp<span class="spin-ball" aria-hidden="true"></span></a>
   </div>
 </div>
 
@@ -458,9 +466,9 @@
       </ul>
       <div class="price-line">₹242 <small data-i18n="priceNote">on Amazon — fast delivery all India</small></div>
       <div class="cta-row" style="justify-content:flex-start">
-        <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy Now</a>
-        <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy Now</a>
-        <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy Now</a>
+        <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy Now<span class="spin-ball" aria-hidden="true"></span></a>
+        <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy Now<span class="spin-ball" aria-hidden="true"></span></a>
+        <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy Now<span class="spin-ball" aria-hidden="true"></span></a>
       </div>
     </div>
   </div>
@@ -525,12 +533,12 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB
     <h2 class="h2">Order DASHX Today</h2>
     <p class="center-sub" data-i18n="orderSub">Retail order Flipkart ya Amazon se — safe &amp; fast. Bulk ya dealer order? Seedha WhatsApp par baat karo.</p>
     <div class="cta-row">
-      <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart</a>
-      <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon</a>
-      <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy on Meesho</a>
-      <a class="btn btn-flip" href="https://dashx-store-api.onrender.com/" target="_blank" rel="noopener">🏏 DASHX Official Store</a>
-      <a class="btn btn-meesho" href="https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3" target="_blank" rel="noopener">🏬 Buy on Mystore</a>
-      <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASHX%2C%20mujhe%20cricket%20tennis%20ball%20order%20karni%20hai" target="_blank" rel="noopener">💬 Bulk / Dealer — WhatsApp</a>
+      <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">🛒 Buy on Flipkart<span class="spin-ball" aria-hidden="true"></span></a>
+      <a class="btn btn-amz" href="https://www.amazon.in/gp/product/B0H4QG8FKG/ref=cx_skuctr_share_ls_srb?smid=A2B2XOMNRQ5N5T&tag=ShopReferral_21db2881-81d7-4058-ba86-a7e83d1255ed" target="_blank" rel="noopener">📦 Buy on Amazon<span class="spin-ball" aria-hidden="true"></span></a>
+      <a class="btn btn-meesho" href="https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3" target="_blank" rel="noopener">🛍️ Buy on Meesho<span class="spin-ball" aria-hidden="true"></span></a>
+      <a class="btn btn-flip" href="https://dashx-store-api.onrender.com/" target="_blank" rel="noopener">🏏 DASHX Official Store<span class="spin-ball" aria-hidden="true"></span></a>
+      <a class="btn btn-meesho" href="https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3" target="_blank" rel="noopener">🏬 Buy on Mystore<span class="spin-ball" aria-hidden="true"></span></a>
+      <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASHX%2C%20mujhe%20cricket%20tennis%20ball%20order%20karni%20hai" target="_blank" rel="noopener">💬 Bulk / Dealer — WhatsApp<span class="spin-ball" aria-hidden="true"></span></a>
     </div>
   </div>
 </div>
