@@ -183,9 +183,40 @@ h1 {
 }
 .ad { position: relative; }
 .ad p { margin: 0; min-width: 0; flex: 1 1 100%; line-height: 1.25; }
-.ad #shop { position: absolute; top: 6px; right: 8px; }
-.ad .hd { display: block; min-height: 26px; padding-right: 130px; font-family: var(--font-display); font-size: 16px; color: var(--gold); }
-.ad .sp { display: block; font-size: 11px; color: var(--ink); }
+.ad #shop {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 8px;
+  border-radius: 999px;
+  border: 2px solid #fff6c8;
+  background: linear-gradient(120deg, #ffd36b, #ff8a2b 45%, #ff3d7f 70%, #ffd36b);
+  background-size: 250% 100%;
+  color: #1a0700;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 rgba(255, 194, 61, 0.7), 0 6px 18px rgba(255, 106, 43, 0.45);
+  animation: shopFlow 3s linear infinite, shopPulse 1.6s ease-out infinite, shopNudge 4s ease-in-out infinite;
+}
+.ad #shop::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.75), transparent);
+  transform: skewX(-20deg);
+  animation: shopShine 2.4s ease-in-out infinite;
+}
+.ad #shop .ball { font-size: 18px; line-height: 1; animation: shopSpin 2s linear infinite; display: inline-block; }
+.ad #shop .lbl { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
+.ad #shop .lbl b { font-size: 14px; font-weight: 800; letter-spacing: 0.2px; }
+.ad #shop .lbl small { font-size: 9.5px; font-weight: 600; opacity: 0.85; }
+.ad #shop .arr { font-size: 15px; font-weight: 800; animation: shopArrow 1s ease-in-out infinite; }
+.ad #shop:active { transform: scale(0.95); }
+@keyframes shopFlow { to { background-position: -250% 0; } }
+@keyframes shopPulse { 0% { box-shadow: 0 0 0 0 rgba(255, 194, 61, 0.75), 0 6px 18px rgba(255, 106, 43, 0.45); } 100% { box-shadow: 0 0 0 12px rgba(255, 194, 61, 0), 0 6px 18px rgba(255, 106, 43, 0.45); } }
+@keyframes shopShine { 0%, 40% { left: -60%; } 80%, 100% { left: 130%; } }
+@keyframes shopSpin { to { transform: rotate(360deg); } }
+@keyframes shopArrow { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+@keyframes shopNudge { 0%, 84%, 100% { transform: rotate(0); } 87% { transform: rotate(-4deg) scale(1.06); } 90% { transform: rotate(4deg) scale(1.06); } 93% { transform: rotate(-2deg); } 96% { transform: rotate(0); } }
+@media (prefers-reduced-motion: reduce) { .ad #shop, .ad #shop::after, .ad #shop .ball, .ad #shop .arr { animation: none; } }
+.ad .hd { display: block; min-height: 26px; padding-right: 170px; font-family: var(--font-display); font-size: 16px; color: var(--gold); }
+.ad .sp { display: block; padding-right: 170px; font-size: 11px; color: var(--ink); }
 .ad .wish { display: block; margin-top: 2px; font-size: 12px; font-weight: 600; color: var(--gold); }
 .ad .eco { display: block; margin-top: 2px; font-size: 11px; font-weight: 600; color: #7dff7a; }
 .ad a {
@@ -278,7 +309,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   </div>
   <div class="ad">
     <p><span class="hd">Happy Diwali!</span><span class="sp" id="fromUs">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who">&mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="tip">📤 Want to send these wishes with your own name &amp; photo? Tap <b>Share</b> at the top!</span></p>
-    <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
+    <a id="shop" target="_blank" rel="noopener"><span class="ball" aria-hidden="true">🏏</span><span class="lbl"><b>View Website</b><small>DASH X Cricket Balls</small></span><span class="arr" aria-hidden="true">➜</span></a>
   </div>
 </div>
 
