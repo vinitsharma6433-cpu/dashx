@@ -237,7 +237,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
 <div class="bottom">
   <div class="dock" role="group" aria-label="Choose a cracker">
-    <button class="ck naam" type="button" data-k="naam" aria-pressed="false"><span class="t">🚀 <span id="naamLbl">HAPPY DIWALI</span>&nbsp;Rocket</span><span class="n">writes the name in the sky</span></button>
+    <button class="ck naam" type="button" data-k="naam" aria-pressed="false"><span class="t"><span id="naamLbl">HAPPY DIWALI</span>&nbsp;💣 Bomb</span><span class="n">blast writes the name in the sky</span></button>
     <div class="grid">
       <button class="ck" type="button" data-k="rocket" aria-pressed="true"><span class="t"><i class="sw" style="--c:#ff3d7f"></i>Rocket</span><span class="n">sky burst</span></button>
       <button class="ck" type="button" data-k="anar" aria-pressed="false"><span class="t"><i class="sw" style="--c:#ffc23d"></i>Anar</span><span class="n">fountain</span></button>
@@ -301,7 +301,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   var INCOMING = '';
   try { INCOMING = cleanName(new URLSearchParams(location.search).get('n')); } catch (eN) {}
   var INAME = INCOMING.toUpperCase();
-  var SKY_NAME = INAME || 'HAPPY DIWALI';   /* only the separate Name Rocket writes this in the sky */
+  var SKY_NAME = INAME || 'HAPPY DIWALI';   /* only the separate Name Bomb writes this in the sky */
 
   /* Paste the full Nav Durga Sports / DASH X website link between the quotes */
   var SHOP_URL = 'https://vinitsharma6433-cpu.github.io/dashx/';
@@ -542,15 +542,15 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     if (pts.length > NP_MAX) { var out = [], st = pts.length / NP_MAX; for (x = 0; x < NP_MAX; x++) out.push(pts[Math.floor(x * st)]); pts = out; }
     return pts;
   }
-  function nameRocket() {
-    var ty = H * 0.3, dist = Math.max(H - ty, 140), a = 0.09, v0 = Math.sqrt(2 * a * dist);
-    R.push({ x: W / 2, y: H + 4, vx: 0, vy: -v0, a: a, ty: ty, pal: pick(PAL), nameBurst: true });
-    snd.whistle(v0 / a / 60);
+  /* Name Bomb: a big bomb with the name on it; the blast writes the name in the sky */
+  function nameBomb(x, y) {
+    props.push({ type: 'nbomb', x: x, y: y, t: 0, fuse: 55 });
+    snd.fuse(0.9);
   }
-  function nameExplode(x, y) {
+  function nameExplode(x, y, ny) {
     if (NP.length) return;
     var pts = namePoints(SKY_NAME), cx = W / 2, i;
-    for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: y + pts[i][1], t: -rnd(0, 8), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
+    for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: ny + pts[i][1], t: -rnd(0, 8), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
     for (i = 0; i < 40; i++) { var an = rnd(0, TAU), v = rnd(1, 4); spark(x, y, Math.cos(an) * v, Math.sin(an) * v, pick(NAME_C), rnd(30, 50), 2.4, 0.04, 0.97); }
     flash = Math.max(flash, reduce ? 0.04 : 0.16);
     snd.boom(0.7); snd.crackle(8);
@@ -563,7 +563,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     snd.crackle(14);
   }
 
-  function naam() { nameRocket(); }
+  function naam(x, y) { nameBomb(x, y); }
 
   var KINDS = { naam: naam, rocket: rocket, anar: anar, bomb: bomb, chakri: chakri, laadi: laadi, shot50: shot50, phul: phul };
   function fire(kind, x, y) {
@@ -587,7 +587,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       r = R[i];
       r.x += r.vx * k; r.y += r.vy * k; r.vy += r.a * k;
       spark(r.x, r.y + 6 * u, rnd(-0.4, 0.4), rnd(0.8, 2), '#ffb347', rnd(18, 32), 2.6, 0.02, 0.95);
-      if (r.vy > -0.7 || r.y <= r.ty - 20) { if (r.nameBurst) nameExplode(r.x, r.y); else if (r.small) shellBurst(r.x, r.y, r.pal); else explode(r.x, r.y, r.pal, false); R.splice(i, 1); }
+      if (r.vy > -0.7 || r.y <= r.ty - 20) { if (r.small) shellBurst(r.x, r.y, r.pal); else explode(r.x, r.y, r.pal, false); R.splice(i, 1); }
     }
     for (i = NP.length - 1; i >= 0; i--) {
       q = NP[i]; q.t += k;
@@ -641,6 +641,14 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
           pr.left--; pr.next += rnd(5, 8);
         }
         if (pr.left <= 0 && pr.t > pr.next + 90) props.splice(i, 1);
+      } else if (pr.type === 'nbomb') {
+        pr.t += k;
+        spark(pr.x + 5 * u, pr.y - 46 * u, rnd(-1.5, 1.5), rnd(-3.5, -0.5), '#ffd36b', rnd(8, 16), 2.4, 0.1, 0.95);
+        if (pr.t >= pr.fuse) {
+          bang(pr.x, pr.y);
+          nameExplode(pr.x, pr.y, clamp(pr.y - 140 * u, H * 0.2, H * 0.38));
+          props.splice(i, 1);
+        }
       } else if (pr.type === 'bomb') {
         pr.t += k;
         spark(pr.x + 4 * u, pr.y - 35 * u, rnd(-1.5, 1.5), rnd(-3.5, -0.5), '#ffd36b', rnd(8, 16), 2.4, 0.1, 0.95);
@@ -702,6 +710,18 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
         ctx.fillStyle = '#fff6e3'; ctx.font = '600 ' + Math.round(10 * u) + 'px Hind, system-ui, sans-serif';
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(p.left > 0 ? String(p.left) : '50', p.x, by + bh * 0.72);
+      } else if (p.type === 'nbomb') {
+        r = 26 * u;
+        ctx.fillStyle = '#2a0f18'; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.fill();
+        ctx.strokeStyle = '#ff3d7f'; ctx.lineWidth = 3; ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.22)'; ctx.beginPath(); ctx.arc(p.x - r * 0.4, p.y - r * 0.4, r * 0.22, 0, TAU); ctx.fill();
+        ctx.strokeStyle = '#c9a36a'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(p.x, p.y - r); ctx.quadraticCurveTo(p.x + 9 * u, p.y - r - 10 * u, p.x + 5 * u, p.y - r - 20 * u); ctx.stroke();
+        ctx.font = '700 100px Hind, system-ui, sans-serif';
+        var nbf = Math.min(13 * u, (r * 1.7) / (ctx.measureText(SKY_NAME).width || 1) * 100);
+        ctx.font = '700 ' + nbf + 'px Hind, system-ui, sans-serif';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#ffc23d';
+        ctx.fillText(SKY_NAME, p.x, p.y + 1);
       } else if (p.type === 'bomb') {
         r = 17 * u;
         ctx.fillStyle = '#17141f'; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.fill();
@@ -1018,7 +1038,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   showBtn.addEventListener('click', function () { if (showOn) stopShow(); else startShow(); });
 
   /* opened from a shared link: the sender's name goes up first */
-  if (INAME) setTimeout(nameRocket, 700);
+  if (INAME) setTimeout(function () { nameBomb(W / 2, H * 0.55); }, 600);
 
   /* silent opening: three rockets so the sky is alive before the first tap */
   if (!reduce) {
