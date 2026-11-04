@@ -209,6 +209,36 @@
   .btn-lab{background:transparent;border-color:var(--gold);color:var(--gold)}
   .btn-lab:hover{background:var(--gold);color:#000;transform:translateY(-2px)}
 
+  /* ===== EYE-CATCHING BUY BUTTONS ===== */
+  .btn{position:relative;overflow:hidden;isolation:isolate;font-weight:600;border:2px solid rgba(255,255,255,.55);
+    background-size:250% 100%!important;
+    animation:btnFlow 3.2s linear infinite,btnPulse 1.8s ease-out infinite,btnNudge 5s ease-in-out infinite}
+  .btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:-1;pointer-events:none;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:btnShine 2.6s ease-in-out infinite}
+  .btn:hover{transform:translateY(-3px) scale(1.03)}
+  .btn:active{transform:scale(.96)}
+  .btn-flip{--glow:244,180,0;background:linear-gradient(120deg,#ffd36b,#f4b400 35%,#ff8a2b 65%,#ffd36b);color:#1a0700}
+  .btn-amz{--glow:255,153,0;background:linear-gradient(120deg,#ffb84d,#ff9900 40%,#ff6a00 65%,#ffb84d);color:#140a00;border-color:rgba(255,240,210,.7)}
+  .btn-meesho{--glow:240,101,166;background:linear-gradient(120deg,#f065a6,#9f1c5c 45%,#d63a83 70%,#f065a6);color:#fff}
+  .btn-wa{--glow:37,211,102;background:linear-gradient(120deg,#5cf08f,#25d366 40%,#128c4b 70%,#5cf08f);color:#03210f}
+  .btn-lab{--glow:244,180,0;background:linear-gradient(120deg,#1a1233,#3a1a55 45%,#1a1233);color:var(--gold);border-color:var(--gold)}
+  .btn-flip:hover,.btn-amz:hover,.btn-meesho:hover,.btn-wa:hover,.btn-lab:hover{color:inherit;filter:brightness(1.08)}
+  .btn-amz:hover{color:#140a00}.btn-meesho:hover{color:#fff}.btn-wa:hover{color:#03210f}.btn-flip:hover{color:#1a0700}.btn-lab:hover{color:var(--gold)}
+  .cta-row .btn:nth-child(2){animation-delay:0s,.45s,1.2s}
+  .cta-row .btn:nth-child(3){animation-delay:0s,.9s,2.4s}
+  .cta-row .btn:nth-child(4){animation-delay:0s,1.35s,3.6s}
+  .cta-row .btn:nth-child(5){animation-delay:0s,1.8s,4.4s}
+  .cta-row .btn:nth-child(2)::after{animation-delay:.5s}
+  .cta-row .btn:nth-child(3)::after{animation-delay:1s}
+  .cta-row .btn:nth-child(4)::after{animation-delay:1.5s}
+  .cta-row .btn:nth-child(5)::after{animation-delay:2s}
+  @keyframes btnFlow{to{background-position:-250% 0}}
+  @keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(var(--glow,244,180,0),.65),0 6px 18px rgba(var(--glow,244,180,0),.35)}100%{box-shadow:0 0 0 14px rgba(var(--glow,244,180,0),0),0 6px 18px rgba(var(--glow,244,180,0),.35)}}
+  @keyframes btnShine{0%,45%{left:-60%}85%,100%{left:130%}}
+  @keyframes btnNudge{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-3deg) scale(1.05)}92%{transform:rotate(3deg) scale(1.05)}95%{transform:rotate(-1deg)}}
+  .nav-cta{position:relative;overflow:hidden;background:linear-gradient(120deg,#ffd36b,#f4b400 40%,#ff8a2b 70%,#ffd36b);background-size:250% 100%;animation:btnFlow 3.2s linear infinite,btnPulse 1.8s ease-out infinite}
+  .nav-cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:btnShine 2.6s ease-in-out infinite}
+
   /* LANG TOGGLE */
   .lang-btn{font-family:'Teko';font-size:20px;min-width:40px;height:36px;padding:0 8px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer}
   .lang-btn:hover{color:#fff;border-color:var(--gold)}
