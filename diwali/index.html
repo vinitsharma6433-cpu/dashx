@@ -103,6 +103,20 @@ h1 {
 }
 .snd[aria-pressed="false"] { color: var(--muted); }
 .actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; flex: none; }
+.ram {
+  display: block;
+  align-self: center;
+  width: 66px;
+  height: 99px;
+  margin-top: 2px;
+  object-fit: cover;
+  border-radius: 33px 33px 10px 10px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 14px rgba(255, 194, 61, 0.55), 0 0 30px rgba(255, 106, 43, 0.25);
+  pointer-events: none;
+  animation: ramGlow 3s ease-in-out infinite;
+}
+@keyframes ramGlow { 0%, 100% { box-shadow: 0 0 10px rgba(255, 194, 61, 0.45), 0 0 24px rgba(255, 106, 43, 0.2); } 50% { box-shadow: 0 0 18px rgba(255, 194, 61, 0.8), 0 0 36px rgba(255, 106, 43, 0.35); } }
 .snd.share { background: #25d366; border-color: #25d366; color: #04210f; }
 .dock {
   width: 100%;
@@ -205,7 +219,7 @@ h1 {
 .sheet-row .save-btn { flex: 1; display: block; text-align: center; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold); }
 .sheet-row .go { background: #25d366; border-color: #25d366; color: #04210f; }
 button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { .flame { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .flame, .ram { animation: none; } }
 </style>
 </head>
 <body>
@@ -232,6 +246,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   <div class="actions">
     <button class="snd share" id="share" type="button">Share</button>
     <button class="snd" id="snd" type="button" aria-pressed="true">Sound on</button>
+    <img class="ram" src="shri-ram.jpg" alt="Shri Ram, Lakshman and Sita" width="240" height="360">
   </div>
 </header>
 
