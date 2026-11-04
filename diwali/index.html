@@ -988,6 +988,12 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     var name = cleanName(nameIn.value);
     if (!name) { nameErr.hidden = false; nameIn.focus(); return; }
     saveMyName(name);
+    /* from now on this visitor's own screen shows their name too (chain moves to them) */
+    SKY_NAME = name.toUpperCase();
+    document.getElementById('naamLbl').textContent = SKY_NAME;
+    document.getElementById('who').textContent = name;
+    document.getElementById('fromUs').hidden = true;
+    setTimeout(function () { nameBomb(W / 2, H * 0.55); }, 900);
     var url = PUBLIC_URL + '?n=' + encodeURIComponent(name);
     var msg = name + ' ki taraf se Happy Diwali 🪔🎇 Apna naam laga ke tum bhi bhejo: ' + url;
     sheet.hidden = true;
