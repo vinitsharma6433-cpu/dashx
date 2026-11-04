@@ -184,6 +184,10 @@ h1 {
 .sheet-box { width: 100%; max-width: 400px; padding: 18px; border-radius: 18px; background: #1a1233; border: 1px solid var(--gold); display: flex; flex-direction: column; gap: 12px; }
 .sheet-box h2 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--gold); }
 .sheet-box p { margin: -6px 0 0; font-size: 13px; color: var(--muted); }
+.sheet-box .err { margin: -4px 0 0; font-size: 13px; font-weight: 600; color: #ff7aa8; }
+.sheet-box .err[hidden] { display: none; }
+.from { margin: 6px 0 0; font-size: 15px; font-weight: 600; line-height: 1.3; color: #ffd36b; text-shadow: 0 0 12px rgba(255, 150, 40, 0.6); overflow-wrap: anywhere; }
+.from[hidden] { display: none; }
 .sheet-box label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
 .sheet-box input[type="text"] { font: inherit; font-size: 16px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0, 0, 0, 0.35); color: var(--ink); }
 .sheet-box input[type="text"]::placeholder { color: var(--muted); font-weight: 400; }
@@ -218,6 +222,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     <div>
       <h1>Diwali Dhamaka</h1>
       <p class="sub">Tap the sky to burst a cracker &middot; <b id="count">0</b> bursts</p>
+      <p class="from" id="fromBanner" hidden></p>
     </div>
   </div>
   <div class="actions">
@@ -250,8 +255,9 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     <h2 id="sheetT">Share Diwali wishes</h2>
     <p>Add your name and photo. They go only in the message you send.</p>
     <label>Your name
-      <input id="nameIn" type="text" maxlength="30" placeholder="Type your name" autocomplete="name" required>
+      <input id="nameIn" type="text" maxlength="20" placeholder="Type your name" autocomplete="name">
     </label>
+    <p class="err" id="nameErr" hidden>Pehle apna naam likho</p>
     <label class="photo-pick"><img id="photoPrev" alt="" hidden><span id="photoTxt">📷 Add your photo (optional)</span>
       <input id="photoIn" type="file" accept="image/*">
     </label>
@@ -283,6 +289,13 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* names are untrusted text: trimmed to 20 chars, only ever used via textContent or drawn on canvas */
+  function cleanName(v) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, 20); }
+  /* INCOMING = whoever LAST shared this link (?n=...). Never reused for the visitor's own share. */
+  var INCOMING = '';
+  try { INCOMING = cleanName(new URLSearchParams(location.search).get('n')); } catch (eN) {}
+  var INAME = INCOMING.toUpperCase();
 
   /* Paste the full Nav Durga Sports / DASH X website link between the quotes */
   var SHOP_URL = 'https://vinitsharma6433-cpu.github.io/dashx/';
@@ -392,6 +405,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
 
   /* ---------- particles ---------- */
   var P = [], R = [], E = [], props = [], smoke = [], rings = [], pops = [];
+  var NP = [], nameFlash = [];
   var flash = 0, shake = 0, count = 0;
   var countEl = document.getElementById('count');
   var PAL = [['#ffc23d', '#ff6a2b'], ['#ff3d7f', '#ffd1e3'], ['#4de1ff', '#a7f3ff'], ['#7dff7a', '#eaffd0'], ['#c18bff', '#ffd9ff'], ['#ffffff', '#ffc23d']];
@@ -449,6 +463,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     }
     for (i = 0; i < 14; i++) smoke.push({ x: x + rnd(-12, 12), y: y + rnd(-12, 12), vx: rnd(-0.6, 0.6), vy: rnd(-1, -0.2), r: rnd(14, 26), life: 70, max: 70 });
     snd.boom(1);
+    if (INAME) nameFlash.push({ x: x, y: y, life: 60 });
     try { if (navigator.vibrate) navigator.vibrate(50); } catch (e) {}
   }
 
@@ -504,6 +519,39 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     snd.crackle(2);
   }
 
+  /* ---------- name in the sky: text -> pixel points -> particles fly there and hold ---------- */
+  var NAME_C = ['#ffd36b', '#fff3c4', '#ffc23d', '#ff9ec4'];
+  var NP_MAX = 650;
+  function namePoints(name) {
+    var c = document.createElement('canvas'), g = c.getContext('2d');
+    function font(sz) { return '700 ' + sz + 'px Hind, system-ui, sans-serif'; }
+    g.font = font(100);
+    var w100 = g.measureText(name).width || 1;
+    var fs = Math.max(18, Math.min(H * 0.16, 120 * u, (W * 0.88) / w100 * 100));
+    g.font = font(fs);
+    var tw = Math.ceil(g.measureText(name).width) + 8, th = Math.ceil(fs * 1.35);
+    c.width = tw; c.height = th;
+    g.font = font(fs); g.fillStyle = '#fff'; g.textBaseline = 'middle'; g.fillText(name, 4, th / 2);
+    var d = g.getImageData(0, 0, tw, th).data, step = Math.max(3, Math.round(fs / 16)), pts = [], x, y;
+    for (y = 0; y < th; y += step) for (x = 0; x < tw; x += step) if (d[(y * tw + x) * 4 + 3] > 128) pts.push([x - tw / 2, y - th / 2]);
+    if (pts.length > NP_MAX) { var out = [], st = pts.length / NP_MAX; for (x = 0; x < NP_MAX; x++) out.push(pts[Math.floor(x * st)]); pts = out; }
+    return pts;
+  }
+  function nameRocket() {
+    if (!INAME) return;
+    var ty = H * 0.3, dist = Math.max(H - ty, 140), a = 0.09, v0 = Math.sqrt(2 * a * dist);
+    R.push({ x: W / 2, y: H + 4, vx: 0, vy: -v0, a: a, ty: ty, pal: pick(PAL), nameBurst: true });
+    snd.whistle(v0 / a / 60);
+  }
+  function nameExplode(x, y) {
+    if (NP.length) return;
+    var pts = namePoints(INAME), cx = W / 2, i;
+    for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: y + pts[i][1], t: -rnd(0, 8), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
+    for (i = 0; i < 40; i++) { var an = rnd(0, TAU), v = rnd(1, 4); spark(x, y, Math.cos(an) * v, Math.sin(an) * v, pick(NAME_C), rnd(30, 50), 2.4, 0.04, 0.97); }
+    flash = Math.max(flash, reduce ? 0.04 : 0.16);
+    snd.boom(0.7); snd.crackle(8);
+  }
+
   /* phuljhadi: a sparkler stick that burns down, throwing bright sparks */
   function phul(x, y) {
     E.push({ type: 'phul', x: x, y: y, tx: x, ty: y, bx: x - 26 * u, by: y + 70 * u, t: 0, dur: 260 });
@@ -533,8 +581,24 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       r = R[i];
       r.x += r.vx * k; r.y += r.vy * k; r.vy += r.a * k;
       spark(r.x, r.y + 6 * u, rnd(-0.4, 0.4), rnd(0.8, 2), '#ffb347', rnd(18, 32), 2.6, 0.02, 0.95);
-      if (r.vy > -0.7 || r.y <= r.ty - 20) { if (r.small) shellBurst(r.x, r.y, r.pal); else explode(r.x, r.y, r.pal, false); R.splice(i, 1); }
+      if (r.vy > -0.7 || r.y <= r.ty - 20) { if (r.nameBurst) nameExplode(r.x, r.y); else if (r.small) shellBurst(r.x, r.y, r.pal); else explode(r.x, r.y, r.pal, false); R.splice(i, 1); }
     }
+    for (i = NP.length - 1; i >= 0; i--) {
+      q = NP[i]; q.t += k;
+      if (q.t < 0) continue;
+      if (q.t < 40) {
+        var ez = 1 - Math.pow(1 - q.t / 40, 3);
+        q.x = q.sx + (q.tx - q.sx) * ez; q.y = q.sy + (q.ty - q.sy) * ez;
+      } else if (q.t < 160) {
+        q.x = q.tx; q.y = q.ty;
+        if (Math.random() < 0.003 * k) spark(q.x, q.y, rnd(-1, 1), rnd(-1, 1), '#ffffff', 14, 1.6, 0.03, 0.95);
+      } else {
+        if (!q.fall) { q.fall = true; q.vx = rnd(-0.4, 0.4); q.vy = rnd(-0.2, 0.4); }
+        q.vy += 0.04 * k; q.x += q.vx * k; q.y += q.vy * k;
+      }
+      if (q.t > 215) { NP[i] = NP[NP.length - 1]; NP.pop(); }
+    }
+    for (i = nameFlash.length - 1; i >= 0; i--) { nameFlash[i].life -= k; if (nameFlash[i].life <= 0) nameFlash.splice(i, 1); }
     for (i = E.length - 1; i >= 0; i--) {
       e = E[i]; e.t += k;
       if (e.type === 'anar') {
@@ -634,12 +698,19 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText(p.left > 0 ? String(p.left) : '50', p.x, by + bh * 0.72);
       } else if (p.type === 'bomb') {
-        r = 17 * u;
+        r = (INAME ? 24 : 17) * u;
         ctx.fillStyle = '#17141f'; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.fill();
         ctx.strokeStyle = '#ffc23d'; ctx.lineWidth = 2; ctx.stroke();
         ctx.fillStyle = 'rgba(255,255,255,0.25)'; ctx.beginPath(); ctx.arc(p.x - r * 0.35, p.y - r * 0.35, r * 0.25, 0, TAU); ctx.fill();
         ctx.strokeStyle = '#c9a36a'; ctx.lineWidth = 3;
         ctx.beginPath(); ctx.moveTo(p.x, p.y - r); ctx.quadraticCurveTo(p.x + 8 * u, p.y - r - 10 * u, p.x + 4 * u, p.y - r - 18 * u); ctx.stroke();
+        if (INAME) {
+          ctx.font = '700 100px Hind, system-ui, sans-serif';
+          var bfs = Math.min(11 * u, (r * 1.7) / (ctx.measureText(INAME).width || 1) * 100);
+          ctx.font = '700 ' + bfs + 'px Hind, system-ui, sans-serif';
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#ffc23d';
+          ctx.fillText(INAME, p.x, p.y + 1);
+        }
       } else {
         for (j = 0; j < p.items.length; j++) {
           it = p.items[j];
@@ -717,6 +788,15 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       ctx.globalAlpha = 1; ctx.fillStyle = '#fff3c4';
       ctx.beginPath(); ctx.arc(R[i].x, R[i].y, 2.6 * u, 0, TAU); ctx.fill();
     }
+    for (i = 0; i < NP.length; i++) {
+      var q2 = NP[i];
+      if (q2.t < 0) continue;
+      var na = q2.t < 160 ? 1 : Math.max(0, 1 - (q2.t - 160) / 55);
+      na *= 0.75 + 0.25 * Math.sin(q2.t * 0.3 + i);
+      ctx.fillStyle = q2.c;
+      ctx.globalAlpha = na * 0.22; ctx.beginPath(); ctx.arc(q2.x, q2.y, 4.2 * u, 0, TAU); ctx.fill();
+      ctx.globalAlpha = na; ctx.beginPath(); ctx.arc(q2.x, q2.y, 1.7 * u, 0, TAU); ctx.fill();
+    }
     for (i = 0; i < E.length; i++) {
       var e = E[i];
       if (e.type === 'anar' && e.t < e.delay) continue;
@@ -745,6 +825,16 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       ctx.globalAlpha = flash; ctx.fillStyle = '#fff0d0';
       ctx.fillRect(0, 0, W, H);
       flash *= Math.pow(0.86, k);
+    }
+    for (i = 0; i < nameFlash.length; i++) {
+      var nf = nameFlash[i], fa = nf.life / 60;
+      ctx.font = '700 100px Hind, system-ui, sans-serif';
+      var nfs = Math.min(64 * u, (W * 0.8) / (ctx.measureText(INAME).width || 1) * 100) * (1 + (1 - fa) * 0.35);
+      ctx.font = '700 ' + nfs + 'px Hind, system-ui, sans-serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.globalAlpha = fa; ctx.shadowColor = '#ffc23d'; ctx.shadowBlur = 24; ctx.fillStyle = '#fff6d0';
+      ctx.fillText(INAME, clamp(nf.x, nfs, W - nfs), nf.y);
+      ctx.shadowBlur = 0;
     }
     ctx.globalAlpha = 1;
   }
@@ -775,20 +865,48 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   });
 
   document.addEventListener('pointerdown', function () { armed = true; audio(); }, true);
-  cv.addEventListener('pointerdown', function (e) { fire(sel, e.clientX, e.clientY); });
+  /* tap the sky = fire the chosen cracker; drag a finger = phuljhadi trail of sparks */
+  var drag = null, lastCrackle = 0;
+  cv.addEventListener('pointerdown', function (e) {
+    drag = { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, moved: 0 };
+    try { cv.setPointerCapture(e.pointerId); } catch (eC) {}
+  });
+  cv.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x, dy = e.clientY - drag.y, dist = Math.sqrt(dx * dx + dy * dy);
+    drag.moved += dist;
+    if (drag.moved < 10) return;
+    var n = Math.min(12, Math.ceil(dist / 6)), j, px, py;
+    for (j = 0; j < n; j++) {
+      px = drag.x + dx * (j / n); py = drag.y + dy * (j / n);
+      spark(px, py, rnd(-1.6, 1.6), rnd(-1.6, 0.8), pick(['#ffffff', '#fff3c4', '#ffd36b']), rnd(18, 32), 2, 0.04, 0.94);
+      spark(px, py, rnd(-0.6, 0.6), rnd(-0.6, 0.6), '#ffd36b', rnd(30, 48), 2.6, 0.015, 0.96);
+    }
+    var now = performance.now();
+    if (now - lastCrackle > 150) { lastCrackle = now; snd.crackle(1); }
+    drag.x = e.clientX; drag.y = e.clientY;
+  });
+  function endDrag(e) {
+    if (!drag) return;
+    if (e.type === 'pointerup' && drag.moved < 10) fire(sel, drag.sx, drag.sy);
+    drag = null;
+  }
+  cv.addEventListener('pointerup', endDrag);
+  cv.addEventListener('pointercancel', endDrag);
 
   var PUBLIC_URL = 'https://vinitsharma6433-cpu.github.io/dashx/diwali/';
 
-  /* ---------- share with your own name + photo (the greeting on the page never changes) ---------- */
-  /* link goes on the first line, so it sits right under the picture / at the top of a Status */
-  function buildMsg(name, url) {
-    var from = name ? name + ' ki taraf se aapko' : 'Aapko';
-    return url + '\nHappy Diwali 🪔🎇 ' + from + ' aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein!\n👆 Link kholo aur digital patakhe phodo: zero pollution, zero cost!';
-  }
-  function cleanName(v) { return String(v || '').replace(/\s+/g, ' ').trim().slice(0, 30); }
+  /* ---------- share: always with the CURRENT visitor's own name, never the incoming one ---------- */
+  var MY_KEY = 'diwali-myname';
   try { localStorage.removeItem('diwali-name'); } catch (e0) {}
-  var sharedBy = '';
-  try { sharedBy = cleanName(new URLSearchParams(location.search).get('n')); } catch (e1) {}
+  function loadMyName() { try { return cleanName(localStorage.getItem(MY_KEY)); } catch (eL) { return ''; } }
+  function saveMyName(v) { try { localStorage.setItem(MY_KEY, v); } catch (eS) {} }
+  var sharedBy = INCOMING;
+  if (INCOMING) {
+    var fb = document.getElementById('fromBanner');
+    fb.textContent = INCOMING + ' ne tumhare liye ye patakha jalaya 🪔';
+    fb.hidden = false;
+  }
   if (sharedBy) { document.getElementById('fromUs').hidden = true; document.getElementById('who').textContent = sharedBy; }
 
   var sheet = document.getElementById('sheet'), shareForm = document.getElementById('shareForm');
@@ -846,14 +964,22 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   document.getElementById('cardClose').addEventListener('click', function () { cardBox.hidden = true; });
   function openWa(text) { window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
 
-  document.getElementById('share').addEventListener('click', function () { sheet.hidden = false; nameIn.focus(); });
+  var nameErr = document.getElementById('nameErr');
+  nameIn.addEventListener('input', function () { nameErr.hidden = true; });
+  document.getElementById('share').addEventListener('click', function () {
+    nameIn.value = loadMyName();   /* own saved name, or empty. Never the ?n= name. */
+    nameErr.hidden = true;
+    sheet.hidden = false; nameIn.focus();
+  });
   document.getElementById('sheetClose').addEventListener('click', function () { sheet.hidden = true; });
   sheet.addEventListener('click', function (e) { if (e.target === sheet) sheet.hidden = true; });
   shareForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = cleanName(nameIn.value);
-    var url = name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL;
-    var msg = buildMsg(name, url);
+    if (!name) { nameErr.hidden = false; nameIn.focus(); return; }
+    saveMyName(name);
+    var url = PUBLIC_URL + '?n=' + encodeURIComponent(name);
+    var msg = name + ' ki taraf se Happy Diwali 🪔🎇 Apna naam laga ke tum bhi bhejo: ' + url;
     sheet.hidden = true;
     if (photoImg) {
       var file = makeCard(name, photoImg);
@@ -894,13 +1020,16 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       var kind = pick(['rocket', 'rocket', 'rocket', 'anar', 'bomb', 'chakri', 'laadi']);
       var x = rnd(W * 0.12, W * 0.88);
       var y = kind === 'rocket' ? rnd(H * 0.12, H * 0.5) : rnd(H * 0.4, H * 0.62);
-      fire(kind, x, y);
+      if (INAME && n % 9 === 4) nameRocket(); else fire(kind, x, y);
       if (kind === 'rocket' && Math.random() < 0.4) fire('rocket', rnd(W * 0.12, W * 0.88), rnd(H * 0.12, H * 0.45));
       n++;
       showTimer = setTimeout(step, rnd(600, 1300));
     })();
   }
   showBtn.addEventListener('click', function () { if (showOn) stopShow(); else startShow(); });
+
+  /* opened from a shared link: the sender's name goes up first */
+  if (INAME) setTimeout(nameRocket, 700);
 
   /* silent opening: three rockets so the sky is alive before the first tap */
   if (!reduce) {
