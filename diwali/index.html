@@ -176,7 +176,6 @@ h1 {
 .ad [hidden] { display: none !important; }
 .ad .tip { display: block; margin-top: 2px; font-size: 11px; color: #ffb3cc; }
 .ad .tip b { color: #25d366; }
-.ad .who img { width: 40px; height: 40px; flex: none; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 0 10px rgba(255, 150, 40, 0.5); }
 .ad .who { display: flex; align-items: center; gap: 8px; margin-top: 2px; font-family: var(--font-display); font-size: 21px; line-height: 1.15; color: #fff; text-shadow: 0 0 14px rgba(255, 150, 40, 0.55); overflow-wrap: anywhere; }
 .sheet { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(5, 4, 16, 0.72); }
 .sheet[hidden] { display: none; }
@@ -193,6 +192,7 @@ h1 {
 .sheet-row { display: flex; gap: 8px; }
 .sheet-row button { flex: 1; font: inherit; font-size: 15px; font-weight: 600; padding: 11px; border-radius: 999px; border: 1px solid var(--line); cursor: pointer; }
 .sheet-row .ghost { background: transparent; color: var(--ink); }
+.sheet-row .save-btn { flex: 1; display: block; text-align: center; text-decoration: none; font-size: 15px; font-weight: 600; padding: 11px; border-radius: 999px; border: 1px solid var(--gold); color: var(--gold); }
 .sheet-row .go { background: #25d366; border-color: #25d366; color: #04210f; }
 button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .flame { animation: none; } }
@@ -238,7 +238,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     </div>
   </div>
   <div class="ad">
-    <p><span class="hd">Happy Diwali!</span><span class="sp" id="fromUs">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who"><img id="whoPic" alt="" hidden><span>&mdash; <span id="who">Vineet Sharma</span></span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="tip">📤 Want to send these wishes with your own name &amp; photo? Tap <b>Share</b> at the top!</span></p>
+    <p><span class="hd">Happy Diwali!</span><span class="sp" id="fromUs">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who">&mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="tip">📤 Want to send these wishes with your own name &amp; photo? Tap <b>Share</b> at the top!</span></p>
     <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
   </div>
 </div>
@@ -258,6 +258,19 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
       <button type="submit" class="go">Share now</button>
     </div>
   </form>
+</div>
+
+<div class="sheet" id="cardBox" hidden role="dialog" aria-modal="true" aria-labelledby="cardT">
+  <div class="sheet-box">
+    <h2 id="cardT">Your Diwali card</h2>
+    <p>This browser can't attach photos. Save the card, then send it in WhatsApp with the message.</p>
+    <img id="cardImg" alt="Your Happy Diwali card" style="width:100%;border-radius:12px">
+    <div class="sheet-row">
+      <a class="ghost save-btn" id="cardSave" download="happy-diwali.jpg">Save card</a>
+      <button type="button" class="go" id="cardSend">Send message</button>
+    </div>
+    <div class="sheet-row"><button type="button" class="ghost" id="cardClose">Close</button></div>
+  </div>
 </div>
 
 <script>
@@ -770,39 +783,20 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   try { localStorage.removeItem('diwali-name'); } catch (e0) {}
   var sharedBy = '';
   try { sharedBy = cleanName(new URLSearchParams(location.search).get('n')); } catch (e1) {}
-  /* the sender's small photo travels inside the link itself (#p=...), no upload anywhere */
-  var sharedPic = '';
-  try {
-    var hp = new URLSearchParams(location.hash.slice(1)).get('p') || '';
-    if (/^[wj][A-Za-z0-9_-]{100,6000}$/.test(hp)) {
-      sharedPic = 'data:image/' + (hp[0] === 'w' ? 'webp' : 'jpeg') + ';base64,' + hp.slice(1).replace(/-/g, '+').replace(/_/g, '/');
-    }
-  } catch (e2) {}
-  if (sharedBy || sharedPic) document.getElementById('fromUs').hidden = true;
-  if (sharedBy) document.getElementById('who').textContent = sharedBy;
-  if (sharedPic) { var wp = document.getElementById('whoPic'); wp.onerror = function () { wp.hidden = true; }; wp.src = sharedPic; wp.hidden = false; }
+  if (sharedBy) { document.getElementById('fromUs').hidden = true; document.getElementById('who').textContent = sharedBy; }
 
   var sheet = document.getElementById('sheet'), shareForm = document.getElementById('shareForm');
   var nameIn = document.getElementById('nameIn'), photoIn = document.getElementById('photoIn');
   var photoPrev = document.getElementById('photoPrev'), photoTxt = document.getElementById('photoTxt');
-  var photoImg = null, photoCode = '';
+  var photoImg = null;
 
-  /* shrink the photo to a tiny square so it fits inside the share link */
-  function tinyPhoto(img) {
-    var c = document.createElement('canvas'), S = 64; c.width = S; c.height = S;
-    var g = c.getContext('2d'), m = Math.min(img.width, img.height);
-    g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
-    var d = c.toDataURL('image/webp', 0.5), t = 'w';
-    if (d.indexOf('data:image/webp') !== 0) { d = c.toDataURL('image/jpeg', 0.5); t = 'j'; }
-    return t + d.split(',')[1].replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-  }
 
   photoIn.addEventListener('change', function () {
     var f = photoIn.files && photoIn.files[0];
-    photoImg = null; photoCode = '';
+    photoImg = null;
     if (!f) { photoPrev.hidden = true; photoTxt.textContent = '📷 Add your photo (optional)'; return; }
     var img = new Image();
-    img.onload = function () { photoImg = img; try { photoCode = tinyPhoto(img); } catch (e3) { photoCode = ''; } photoPrev.src = img.src; photoPrev.hidden = false; photoTxt.textContent = 'Photo added ✓ (tap to change)'; };
+    img.onload = function () { photoImg = img; photoPrev.src = img.src; photoPrev.hidden = false; photoTxt.textContent = 'Photo added ✓ (tap to change)'; };
     img.src = URL.createObjectURL(f);
   });
 
@@ -841,6 +835,9 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     return new File([arr], 'happy-diwali.jpg', { type: 'image/jpeg' });
   }
 
+  var cardBox = document.getElementById('cardBox'), pendingMsg = '';
+  document.getElementById('cardSend').addEventListener('click', function () { cardBox.hidden = true; openWa(pendingMsg); });
+  document.getElementById('cardClose').addEventListener('click', function () { cardBox.hidden = true; });
   function openWa(text) { window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener'); }
 
   document.getElementById('share').addEventListener('click', function () { sheet.hidden = false; nameIn.focus(); });
@@ -849,7 +846,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   shareForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = cleanName(nameIn.value);
-    var url = (name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL) + (photoCode ? '#p=' + photoCode : '');
+    var url = name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL;
     var text = name
       ? 'Happy Diwali 🪔🎇 ' + name + ' ki taraf se aapko aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein! Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: '
       : DEFAULT_TEXT;
@@ -860,9 +857,11 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
         navigator.share({ files: [file], text: text + url }).catch(function () {});
         return;
       }
-      var a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = 'happy-diwali.jpg';
-      document.body.appendChild(a); a.click(); a.remove();
-      openWa(text + url);
+      var cardUrl = URL.createObjectURL(file);
+      document.getElementById('cardImg').src = cardUrl;
+      document.getElementById('cardSave').href = cardUrl;
+      pendingMsg = text + url;
+      cardBox.hidden = false;
       return;
     }
     if (navigator.share) { navigator.share({ title: 'Diwali Dhamaka', text: text, url: url }).catch(function () {}); return; }
