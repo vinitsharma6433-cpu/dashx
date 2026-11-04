@@ -173,7 +173,8 @@ h1 {
 .ad [hidden] { display: none !important; }
 .ad .tip { display: block; margin-top: 4px; font-size: 13px; color: #ffb3cc; }
 .ad .tip b { color: #25d366; }
-.ad .who { display: block; margin-top: 4px; font-family: var(--font-display); font-size: 28px; line-height: 1.15; color: #fff; text-shadow: 0 0 14px rgba(255, 150, 40, 0.55); overflow-wrap: anywhere; }
+.ad .who img { width: 64px; height: 64px; flex: none; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); box-shadow: 0 0 14px rgba(255, 150, 40, 0.5); }
+.ad .who { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-family: var(--font-display); font-size: 28px; line-height: 1.15; color: #fff; text-shadow: 0 0 14px rgba(255, 150, 40, 0.55); overflow-wrap: anywhere; }
 .sheet { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(5, 4, 16, 0.72); }
 .sheet[hidden] { display: none; }
 .sheet-box { width: 100%; max-width: 400px; padding: 18px; border-radius: 18px; background: #1a1233; border: 1px solid var(--gold); display: flex; flex-direction: column; gap: 12px; }
@@ -234,7 +235,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     </div>
   </div>
   <div class="ad">
-    <p><span class="hd">Happy Diwali!</span><span class="sp" id="fromUs">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who">&mdash; <span id="who">Vineet Sharma</span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="tip">📤 Want to send these wishes with your own name &amp; photo? Tap <b>Share</b> at the top!</span></p>
+    <p><span class="hd">Happy Diwali!</span><span class="sp" id="fromUs">from Nav Durga Sports, Meerut &middot; DASH X Cricket Tennis Balls</span><span class="wish">Hamari taraf se sab logon ko Diwali ki bahut-bahut shubhkamnayein!</span><span class="who"><img id="whoPic" alt="" hidden><span>&mdash; <span id="who">Vineet Sharma</span></span></span><span class="eco">🌿 Digital crackers: zero pollution, zero cost, all the fun!</span><span class="tip">📤 Want to send these wishes with your own name &amp; photo? Tap <b>Share</b> at the top!</span></p>
     <a id="shop" target="_blank" rel="noopener">Shop DASH X balls</a>
   </div>
 </div>
@@ -766,19 +767,39 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   try { localStorage.removeItem('diwali-name'); } catch (e0) {}
   var sharedBy = '';
   try { sharedBy = cleanName(new URLSearchParams(location.search).get('n')); } catch (e1) {}
-  if (sharedBy) { document.getElementById('who').textContent = sharedBy; document.getElementById('fromUs').hidden = true; }
+  /* the sender's small photo travels inside the link itself (#p=...), no upload anywhere */
+  var sharedPic = '';
+  try {
+    var hp = new URLSearchParams(location.hash.slice(1)).get('p') || '';
+    if (/^[wj][A-Za-z0-9_-]{100,6000}$/.test(hp)) {
+      sharedPic = 'data:image/' + (hp[0] === 'w' ? 'webp' : 'jpeg') + ';base64,' + hp.slice(1).replace(/-/g, '+').replace(/_/g, '/');
+    }
+  } catch (e2) {}
+  if (sharedBy || sharedPic) document.getElementById('fromUs').hidden = true;
+  if (sharedBy) document.getElementById('who').textContent = sharedBy;
+  if (sharedPic) { var wp = document.getElementById('whoPic'); wp.onerror = function () { wp.hidden = true; }; wp.src = sharedPic; wp.hidden = false; }
 
   var sheet = document.getElementById('sheet'), shareForm = document.getElementById('shareForm');
   var nameIn = document.getElementById('nameIn'), photoIn = document.getElementById('photoIn');
   var photoPrev = document.getElementById('photoPrev'), photoTxt = document.getElementById('photoTxt');
-  var photoImg = null;
+  var photoImg = null, photoCode = '';
+
+  /* shrink the photo to a tiny square so it fits inside the share link */
+  function tinyPhoto(img) {
+    var c = document.createElement('canvas'), S = 64; c.width = S; c.height = S;
+    var g = c.getContext('2d'), m = Math.min(img.width, img.height);
+    g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
+    var d = c.toDataURL('image/webp', 0.5), t = 'w';
+    if (d.indexOf('data:image/webp') !== 0) { d = c.toDataURL('image/jpeg', 0.5); t = 'j'; }
+    return t + d.split(',')[1].replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
 
   photoIn.addEventListener('change', function () {
     var f = photoIn.files && photoIn.files[0];
-    photoImg = null;
+    photoImg = null; photoCode = '';
     if (!f) { photoPrev.hidden = true; photoTxt.textContent = '📷 Add your photo (optional)'; return; }
     var img = new Image();
-    img.onload = function () { photoImg = img; photoPrev.src = img.src; photoPrev.hidden = false; photoTxt.textContent = 'Photo added ✓ (tap to change)'; };
+    img.onload = function () { photoImg = img; try { photoCode = tinyPhoto(img); } catch (e3) { photoCode = ''; } photoPrev.src = img.src; photoPrev.hidden = false; photoTxt.textContent = 'Photo added ✓ (tap to change)'; };
     img.src = URL.createObjectURL(f);
   });
 
@@ -825,7 +846,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
   shareForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = cleanName(nameIn.value);
-    var url = name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL;
+    var url = (name ? PUBLIC_URL + '?n=' + encodeURIComponent(name) : PUBLIC_URL) + (photoCode ? '#p=' + photoCode : '');
     var text = name
       ? 'Happy Diwali 🪔🎇 ' + name + ' ki taraf se aapko aur aapke parivaar ko Diwali ki bahut-bahut shubhkamnayein! Digital crackers: zero pollution, zero cost, all the fun! Burst them on your phone: '
       : DEFAULT_TEXT;
