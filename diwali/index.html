@@ -116,6 +116,8 @@ h1 {
   pointer-events: none;
   animation: ramGlow 3s ease-in-out infinite;
 }
+.hits { display: block; align-self: center; height: 20px; width: auto; max-width: 110px; border-radius: 4px; pointer-events: none; }
+.hits[hidden] { display: none; }
 @keyframes ramGlow { 0%, 100% { box-shadow: 0 0 10px rgba(255, 194, 61, 0.45), 0 0 24px rgba(255, 106, 43, 0.2); } 50% { box-shadow: 0 0 18px rgba(255, 194, 61, 0.8), 0 0 36px rgba(255, 106, 43, 0.35); } }
 .snd.share { background: #25d366; border-color: #25d366; color: #04210f; }
 .dock {
@@ -253,6 +255,7 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     <button class="snd share" id="share" type="button">Share</button>
     <button class="snd" id="snd" type="button" aria-pressed="true">Sound on</button>
     <img class="ram" src="shri-ram.jpg" alt="Shri Ram, Lakshman and Sita" width="240" height="360">
+    <img class="hits" src="https://hits.sh/vinitsharma6433-cpu.github.io/dashx/diwali.svg?label=%F0%9F%8E%87%20Visits&style=flat-square&color=ffc23d&labelColor=1a1233" alt="Number of visits" height="20" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true">
   </div>
 </header>
 
