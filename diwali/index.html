@@ -696,7 +696,8 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     function font(sz) { return '700 ' + sz + 'px Hind, system-ui, sans-serif'; }
     g.font = font(100);
     var w100 = g.measureText(name).width || 1;
-    var fs = Math.max(18, Math.min(H * 0.1, 80 * u, (W * 0.86) / w100 * 100));
+    var bd = skyBand(), room = (bd.dockTop - bd.low - 30) / 1.3;
+    var fs = Math.max(26, Math.min(H * 0.1, 80 * u, (W * 0.86) / w100 * 100, room));
     g.font = font(fs);
     var tw = Math.ceil(g.measureText(name).width) + 8, th = Math.ceil(fs * 1.35);
     c.width = tw; c.height = th;
@@ -725,9 +726,26 @@ button:focus-visible, .ad a:focus-visible, .sheet input:focus-visible { outline:
     snd.boom(1.1);
     haptic([50, 30, 80]);
   }
+  /* Where the name is written: just BELOW the Shri Ram picture and visit counter,
+     and above the button panel, so nothing ever hides it. */
+  function skyBand() {
+    var low = 0, els = document.querySelectorAll('.ram, .hits'), i, r;
+    for (i = 0; i < els.length; i++) {
+      r = els[i].getBoundingClientRect();
+      if (r.height > 0 && r.bottom > low) low = r.bottom;
+    }
+    var dock = document.querySelector('.bottom');
+    return { low: Math.max(low, H * 0.2), dockTop: dock ? dock.getBoundingClientRect().top : H * 0.7 };
+  }
+  function skyNameY(fs) {
+    var b = skyBand();
+    var y = b.low + fs * 0.75 + 14;
+    return clamp(y, H * 0.3, Math.max(H * 0.3, b.dockTop - fs * 0.8 - 12));
+  }
   function nameExplode(x, y, ny) {
     if (NP.length) return;
     var pts = namePoints(SKY_NAME), cx = W / 2, i;
+    ny = skyNameY(nameFs);
     for (i = 0; i < pts.length; i++) NP.push({ sx: x, sy: y, x: x, y: y, tx: cx + pts[i][0], ty: ny + pts[i][1], t: -rnd(0, 10), c: pick(NAME_C), vx: 0, vy: 0, fall: false });
     /* crisp glowing name drawn on top while the sparks hold, so it is always readable */
     nameShow = { x: cx, y: ny, t: 0, fs: nameFs };
