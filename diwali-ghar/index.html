@@ -21,7 +21,7 @@
 <style>
 /* Layout: one-screen night scene. Header / pixel canvas stage / block toolbar / sponsor strip. */
 :root{
-  --night:#0b0820; --panel:#17113a; --panel-2:#221a52; --line:#3a2f78;
+  --night:#08061a; --panel:#17113a; --panel-2:#221a52; --line:#3a2f78;
   --ink:#fff4dc; --muted:#bdb2e8; --gold:#ffc83d; --fire:#ff6a2b; --leaf:#3fbf6a;
   --pixel:"Press Start 2P", ui-monospace, "Courier New", monospace;
   --body:"Baloo 2", "Trebuchet MS", system-ui, sans-serif;
@@ -44,8 +44,9 @@ h1{margin:0;font-family:var(--pixel);font-size:13px;letter-spacing:1px;color:var
 
 #stage{position:relative;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:var(--night)}
 #c{display:block;image-rendering:pixelated;image-rendering:crisp-edges;touch-action:none;cursor:crosshair}
-.float{position:absolute;top:10px;right:max(10px,env(safe-area-inset-right,0px));border:0;background:var(--fire);color:#2a0b00;font-family:var(--pixel);font-size:10px;padding:10px 12px;border-radius:4px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.3),0 0 0 2px #8a2a00,0 0 18px rgba(255,106,43,.55)}
-.float:active{transform:translateY(2px)}
+.float{position:absolute;top:10px;right:max(10px,env(safe-area-inset-right,0px));border:0;background:linear-gradient(180deg,#ff9a3c,#ff6a2b);color:#2a0b00;font-family:var(--pixel);font-size:10px;padding:10px 12px;border-radius:6px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.3),0 0 0 2px #8a2a00,0 0 18px rgba(255,140,40,.55);animation:pulseGold 2.4s ease-in-out infinite}
+.float:active{transform:translateY(2px);animation:none}
+@keyframes pulseGold{0%,100%{box-shadow:inset 0 -4px 0 rgba(0,0,0,.3),0 0 0 2px #8a2a00,0 0 14px rgba(255,140,40,.4)}50%{box-shadow:inset 0 -4px 0 rgba(0,0,0,.3),0 0 0 2px #8a2a00,0 0 28px rgba(255,180,60,.7)}}
 .hint,.banner,.toast{position:absolute;left:50%;transform:translateX(-50%);background:rgba(23,17,58,.92);border:2px solid var(--line);border-radius:4px;padding:8px 12px;font-size:13px;text-align:center;max-width:min(88%,360px);pointer-events:none}
 .hint{top:56px}
 .banner{top:10px;left:max(10px,env(safe-area-inset-left,0px));transform:none;text-align:left;max-width:min(62%,300px);border-color:var(--gold);pointer-events:auto}
@@ -55,10 +56,10 @@ h1{margin:0;font-family:var(--pixel);font-size:13px;letter-spacing:1px;color:var
 
 .tools{display:flex;gap:6px;overflow-x:auto;padding-block:8px;padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px));background:var(--panel);border-top:3px solid var(--line);scrollbar-width:none}
 .tools::-webkit-scrollbar{display:none}
-.tool{flex:0 0 auto;width:62px;height:62px;border:0;border-radius:4px;background:var(--panel-2);box-shadow:inset 0 -4px 0 rgba(0,0,0,.35),0 0 0 2px var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0}
+.tool{transition:transform .12s,box-shadow .12s;flex:0 0 auto;width:62px;height:62px;border:0;border-radius:4px;background:var(--panel-2);box-shadow:inset 0 -4px 0 rgba(0,0,0,.35),0 0 0 2px var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0}
 .tool .ic{font-size:24px;line-height:1}
 .tool .lb{font-family:var(--pixel);font-size:7px;letter-spacing:.5px;color:var(--muted)}
-.tool[aria-pressed="true"]{background:#3b2a12;box-shadow:inset 0 -4px 0 rgba(0,0,0,.35),0 0 0 3px var(--gold)}
+.tool[aria-pressed="true"]{transform:translateY(-2px);box-shadow:0 0 14px rgba(255,200,60,.4);background:#3b2a12;box-shadow:inset 0 -4px 0 rgba(0,0,0,.35),0 0 0 3px var(--gold)}
 .tool[aria-pressed="true"] .lb{color:var(--gold)}
 
 .ad{display:flex;align-items:center;gap:10px;padding-block:8px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));background:linear-gradient(90deg,#2a0f05,#3d1a06);border-top:2px solid #7a3b0c;padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
@@ -77,6 +78,7 @@ h1{margin:0;font-family:var(--pixel);font-size:13px;letter-spacing:1px;color:var
 .card .go{flex:1;text-align:center;text-decoration:none;border:0;border-radius:4px;padding:12px;font-weight:700;background:#25d366;color:#05210f;box-shadow:inset 0 -3px 0 rgba(0,0,0,.25)}
 .card .go.more{background:var(--panel-2);color:var(--ink);box-shadow:inset 0 -3px 0 rgba(0,0,0,.3),0 0 0 2px var(--line)}
 .card .x{align-self:flex-end;background:none;border:0;color:var(--muted);font-size:13px;margin-top:-6px}
+.hits{position:absolute;left:max(8px,env(safe-area-inset-left,0px));bottom:6px;height:18px;width:auto;pointer-events:none;opacity:.9}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 
@@ -97,6 +99,7 @@ h1{margin:0;font-family:var(--pixel);font-size:13px;letter-spacing:1px;color:var
   <div class="hint" id="hint">Pick an item below, then tap the floor 👇</div>
   <div class="banner" id="banner" hidden></div>
   <div class="toast" id="toast"></div>
+  <img class="hits" src="https://hits.sh/vinitsharma6433-cpu.github.io/dashx/diwali-ghar.svg?label=Visits&style=flat-square&color=ffc83d&labelColor=17113a" alt="Number of visits" height="18" onerror="if(!this.dataset.r){this.dataset.r=1;this.src='https://hits.sh/vinitsharma6433-cpu.github.io/dashx/diwali-ghar.svg';}else{this.hidden=true;}">
 </main>
 
 <nav class="tools" id="tools" aria-label="Decorations">
@@ -186,7 +189,7 @@ function resize(){
   buildBg();
   stars = [];
   const skyBottom = rowY(ROOF_HI);
-  for (let i=0;i<46;i++) stars.push({x:(Math.random()*LW)|0, y:(Math.random()*Math.max(8,skyBottom-4))|0, p:Math.random()*6.28, s:rand(1.5,4)});
+  for (let i=0;i<72;i++) stars.push({x:(Math.random()*LW)|0, y:(Math.random()*Math.max(8,skyBottom-4))|0, p:Math.random()*6.28, s:rand(1.8,5.5)});
 }
 
 /* ---------- static background (sky, moon, skyline, house, floor) ---------- */
@@ -556,15 +559,22 @@ document.getElementById('shareForm').addEventListener('submit', e => e.preventDe
 
 /* ---------- update + draw ---------- */
 function glow(x,y,r,c,a){
-  ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a; ctx.fillStyle = c;
+  ctx.globalCompositeOperation = 'lighter';
+  // outer soft
+  ctx.globalAlpha = a * 0.42;
+  ctx.fillStyle = c;
+  ctx.beginPath(); ctx.arc(x,y,r*1.75,0,6.283); ctx.fill();
+  // inner strong
+  ctx.globalAlpha = a;
   ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.fill();
-  ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = 'source-over';
 }
 function flame(x,y,seed){
-  const f = Math.sin(time*18 + seed) > 0 ? 1 : 0;
-  const h = Math.sin(time*11 + seed*2) > 0.3 ? 1 : 0;
-  ctx.fillStyle = '#ff6a00'; ctx.fillRect(x, y-2, 2, 2);
-  ctx.fillStyle = '#ffc83d'; ctx.fillRect(x, y-3-h, 2, 1+h);
+  const f = Math.sin(time*16 + seed) > 0 ? 1 : 0;
+  const h = Math.sin(time*12 + seed*2) > 0.25 ? 1 : 0;
+  ctx.fillStyle = '#ff4d00'; ctx.fillRect(x, y-2, 2, 2);
+  ctx.fillStyle = '#ffb020'; ctx.fillRect(x, y-3-h, 2, 1+h);
   ctx.fillStyle = '#fff6c2'; ctx.fillRect(x+f, y-4-h, 1, 1);
 }
 function update(dt){
@@ -606,11 +616,13 @@ function draw(){
   ctx.setTransform(1,0,0,1,0,0);
   if (shake > 0) ctx.translate(Math.round(rand(-2,2)*shake*4), Math.round(rand(-2,2)*shake*4));
   ctx.drawImage(bg,0,0);
+  // soft ambient warm glow around the house
+  glow(LW/2, rowY(8), 52, '#ff9a3c', 0.07);
   // stars
-  for (const s of stars){ const a = 0.4 + 0.6*Math.abs(Math.sin(time/s.s*3 + s.p)); ctx.globalAlpha = a; ctx.fillStyle = '#fff8e0'; ctx.fillRect(s.x,s.y,1,1); }
+  for (const s of stars){ const a = 0.22 + 0.78*Math.abs(Math.sin(time/s.s*2.6 + s.p)); ctx.globalAlpha = a; ctx.fillStyle = '#fff8e0'; ctx.fillRect(s.x,s.y,1,1); }
   ctx.globalAlpha = 1;
   // window glow
-  glow(5*CELL, rowY(9)+8, 11, '#ffb43d', 0.10); glow(11*CELL, rowY(9)+8, 11, '#ffb43d', 0.10);
+  glow(5*CELL, rowY(9)+8, 15, '#ffb43d', 0.18); glow(11*CELL, rowY(9)+8, 15, '#ffb43d', 0.18);
 
   // rangoli first (on the floor)
   items.forEach(it => { if (it.t === 'r') ctx.drawImage(rangoli(it.x,it.yb), it.x*CELL, rowY(it.yb)); });
@@ -640,13 +652,13 @@ function draw(){
     if (it.t === 'h' && it.state === 'burn'){
       const cx = x+4, cy = y+4;
       for (let i=0;i<8;i++){ const a = it.spin + i*0.785; ctx.fillStyle = i%2 ? '#f1c40f' : '#1f9e54'; ctx.fillRect(Math.round(cx+Math.cos(a)*3)-1, Math.round(cy+Math.sin(a)*3)-1, 2, 2); }
-      glow(cx,cy,7,'#9bff6a',0.25);
+      glow(cx,cy,9,'#9bff6a',0.32);
       return;
     }
     ctx.drawImage(SPR[it.t], x, y);
-    if (it.t === 'd'){ flame(x+3, y+4, it.x*3+it.yb); glow(x+4, y+2, 6, '#ffb43d', 0.20); }
-    if (it.t === 'c'){ flame(x+3, y+2, it.x*5+it.yb); glow(x+4, y+1, 5, '#ffcf6a', 0.18); }
-    if (it.t === 'a' && it.state === 'burn') glow(x+4, y, 9, '#ffd23f', 0.28);
+    if (it.t === 'd'){ flame(x+3, y+4, it.x*3+it.yb); glow(x+4, y+2, 8.5, '#ffb43d', 0.34); }
+    if (it.t === 'c'){ flame(x+3, y+2, it.x*5+it.yb); glow(x+4, y+1, 7.5, '#ffcf6a', 0.30); }
+    if (it.t === 'a' && it.state === 'burn') glow(x+4, y, 11, '#ffd23f', 0.36);
   });
 
   // rockets
