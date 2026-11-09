@@ -26,6 +26,7 @@ FFPROBE = find_tool("ffprobe")
 LEAD = 0.25
 W, H = 1080, 1920
 SAFE_TOP, SAFE_BOTTOM_UI, SAFE_SIDE = 150, 380, 40  # px kept clear of Reels/Shorts interface
+SUB_Y, SUB_Y_END = 470, 400  # subtitle box centre (px below the frame centre); the end card's subtitle sits higher (src/reel/reelScene.tsx)
 
 
 @dataclass
@@ -185,7 +186,8 @@ def inspect(name: str, thumbnail: Path | None = None, measure=None) -> dict:
         for (s, _t, w), m in zip(items, measured):
             width = w + 80
             height = len(m["lines"]) * 88 + 44
-            top, bottom = 960 + 470 - height / 2, 960 + 470 + height / 2
+            cy = 960 + (SUB_Y_END if s["template"] == "end-card" else SUB_Y)
+            top, bottom = cy - height / 2, cy + height / 2
             left = (W - width) / 2
             if left < SAFE_SIDE or top < SAFE_TOP or bottom > H - SAFE_BOTTOM_UI:
                 bad.append(f"scene {s['id']}: box x={left:.0f} y={top:.0f}-{bottom:.0f}")

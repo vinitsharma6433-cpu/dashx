@@ -29,6 +29,7 @@ const H = 1920;
 const FADE = 0.3; // crossfade between scenes (seconds)
 const END_CARD = 2.5; // end card length at the end of the last scene (seconds)
 const SUB_Y = 470; // centre of the subtitle box
+const SUB_Y_END = 400; // the end card's call to action is long (up to 3 lines), so its subtitle sits higher: it must stay above the Reels/Shorts bottom UI (factory/qc.py SUB_Y_END)
 const LINE_H = 88; // subtitle line height (px)
 
 // The coloured name tag above each speaker's subtitle: one colour per character, every colour has a contrast of at least 5:1 with the white text.
@@ -194,7 +195,7 @@ export default makeScene2D('reel', function* (view) {
       view.add(
         <Rect
           ref={sub}
-          y={SUB_Y}
+          y={sc.template === 'end-card' ? SUB_Y_END : SUB_Y}
           fill={'#000000b8'}
           radius={36}
           padding={[22, 40]}

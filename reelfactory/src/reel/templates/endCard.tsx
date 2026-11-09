@@ -22,7 +22,7 @@ export const endCard: Template = function* (world, d, _params, ctx): ThreadGener
   world.add(
     <>
       <Rect size={[1080, 1920]} fill={'#000000'} />
-      <Img ref={logo} src={ctx.endLogo ?? ctx.logo} width={760} y={-290} scale={0.9} />
+      <Img ref={logo} src={ctx.endLogo ?? ctx.logo} width={760} y={-340} scale={0.9} />
       <Node ref={cta} opacity={0}>
         <Txt
           text={CTA_TEXT}
@@ -32,7 +32,7 @@ export const endCard: Template = function* (world, d, _params, ctx): ThreadGener
           lineHeight={62}
           fill={'#fbbf24'}
           textAlign={'center'}
-          y={215}
+          y={150}
         />
       </Node>
     </>,
