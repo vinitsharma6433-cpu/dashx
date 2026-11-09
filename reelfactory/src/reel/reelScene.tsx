@@ -90,6 +90,7 @@ export default makeScene2D('reel', function* (view) {
   const logo = vars.get('logo', '')();
   const ball = vars.get('ball', '')();
   const endLogo = vars.get('endLogo', '')() || undefined;
+  const endPack = vars.get('endPack', '')() || undefined;
   const line = script.brand?.line ?? 'DASHX by Nav Durga Sports, Meerut';
 
   view.fill('#000000');
@@ -222,7 +223,7 @@ export default makeScene2D('reel', function* (view) {
     }
 
     tasks.push(
-      TEMPLATE_FUNCTIONS[sc.template](world(), sc.duration, sc.params ?? {}, {logo, ball, endLogo}),
+      TEMPLATE_FUNCTIONS[sc.template](world(), sc.duration, sc.params ?? {}, {logo, ball, endLogo, endPack}),
       stage().scale(cam.s1, sc.duration, linear),
       stage().position([cam.x1, cam.y1], sc.duration, linear),
     );

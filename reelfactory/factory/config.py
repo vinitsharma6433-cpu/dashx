@@ -33,6 +33,7 @@ class Config:
     RUN_TIME: str = "09:00"            # local time the scheduler starts the daily run
     MIN_QC_SCORE: int = 90             # a reel below this is never marked ready
     MIN_STORY_SCORE: int = 70          # a story below this is rejected
+    MAX_FAILED_STORIES: int = 3        # the run stops after this many failed stories (a repeating failure is a bug, not bad luck)
     MAX_REPAIRS: int = 3               # automatic repair attempts per reel
     ALLOW_NARRATION: bool = False      # False = only dialogue stories (stories/dialogue_bank.md); True also allows the older narrated bank and Gemma
     GEMMA_SLOTS_PER_RUN: int = 1       # Gemma gets this many tries per run (its Hindi is weak), then the bank is used

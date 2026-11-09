@@ -7,6 +7,8 @@ export interface Ctx {
   ball: string;
   /** End-card logo (assets/store-images/dashx-logo.png). Undefined = use logo. */
   endLogo?: string;
+  /** End-card product pack (assets/store-images/pack-*.png), one per reel in turn. Undefined = no pack shown. */
+  endPack?: string;
 }
 
 /** The "parameters" object of one scene in script.json. */

@@ -78,6 +78,11 @@ async function reel() {
     return `/_reel/${name}/${target}`;
   };
   const endLogo = storeUrl('dashx-logo.png', 'end-logo');
+  // The end card shows one product pack, alternating from reel to reel: an even count of reel folders = power (red), odd = light (green).
+  const reelCount = fs.readdirSync('reels').filter((d: string) => fs.existsSync(path.join('reels', d, 'script.json'))).length;
+  const packFile = process.env.DASHX_END_PACK || (reelCount % 2 === 0 ? 'pack-power-red.png' : 'pack-light-green.png'); // env override: for tests only
+  const endPack = storeUrl(packFile, 'end-pack');
+  console.log(`end card pack: ${packFile} (${reelCount} reels)`);
 
   // 2. Render the silent video with revideo.
   const outDir = path.join('output', 'reels');
@@ -85,7 +90,7 @@ async function reel() {
   console.log(`Rendering reel "${name}"...`);
   const videoFile: string = await renderVideo({
     projectFile: './src/reel/project.tsx',
-    variables: {name, script, logo, ball, endLogo},
+    variables: {name, script, logo, ball, endLogo, endPack},
     settings: {
       outFile: `${name}-video.mp4`,
       outDir: `./${outDir.split(path.sep).join('/')}`,

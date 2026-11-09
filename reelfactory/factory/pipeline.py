@@ -478,6 +478,10 @@ class ProductionManager:
                     log.error(f"job crashed: {e}", stage="crash")
                     log.event("ERROR", "traceback", tb=traceback.format_exc()[-600:])
                     results.append({"name": "-", "status": "failed", "error": f"{type(e).__name__}: {e}"})
+                failed = sum(1 for r in results if r["status"] != "ready")
+                if failed >= cfg.MAX_FAILED_STORIES:  # a systematic problem (a rule, a template): stop instead of burning minutes on more stories
+                    log.error(f"stopping: {failed} stories failed in this run (limit {cfg.MAX_FAILED_STORIES})")
+                    break
             ok = sum(1 for r in results if r["status"] == "ready")
             db.finish_run(run_id, "done" if ok >= target else "partial", f"{ok} ready of {target}")
             self.report(run_id, day, results, brief)
