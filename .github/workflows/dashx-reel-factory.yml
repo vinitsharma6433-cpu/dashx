@@ -79,7 +79,7 @@ jobs:
         if: steps.stop.outputs.skip != 'true'
         run: |
           pip install -r requirements-ci.txt requests
-          if [ "${{ steps.nm.outputs.cache-hit }}" != "true" ]; then npm ci; fi
+          if [ "${{ steps.nm.outputs.cache-hit }}" != "true" ]; then npm ci --force; fi  # --force: the Windows-made lockfile lists @esbuild/aix-ppc64 as required, which fails EBADPLATFORM on Linux
           npx tsc
       - name: Download Kokoro model (only when not cached)
         if: steps.stop.outputs.skip != 'true'
