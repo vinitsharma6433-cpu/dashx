@@ -76,9 +76,11 @@ def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens:
     req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
+            raw = r.read().decode("utf-8", "replace")
             try:
-                return r.status, json.loads(r.read().decode("utf-8"))["choices"][0]["message"]["content"] or ""
+                return r.status, json.loads(raw)["choices"][0]["message"]["content"] or ""
             except Exception:
+                ACTIVE["last_raw"] = scrub(raw)[:400]
                 return r.status, ""
     except urllib.error.HTTPError as e:
         raw = e.read().decode("utf-8", "replace")
@@ -267,7 +269,7 @@ def main() -> int:
             if blk:
                 cands.append(blk)
             else:
-                print("  unusable answer (first 400 chars):", txt[:400].replace(chr(10), " / "))
+                print("  unusable answer (first 400 chars):", txt[:400].replace(chr(10), " / "), "| raw:", ACTIVE.get("last_raw", "")[:400].replace(chr(10), " / "))
         print(f"round {rnd + 1}: {len(cands)} candidate(s)")
         if not cands:
             break
