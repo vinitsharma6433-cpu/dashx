@@ -38,6 +38,26 @@ if hasattr(sys.stdout, "reconfigure"):
 BANK = ROOT / "stories" / "dialogue_bank.md"
 LOG = ROOT / "stories" / "refill_log.md"
 DRY = ROOT / "stories" / "refill_dry_run.md"
+def gemini_models(key: str) -> list[str]:
+    """Ask Gemini which models this key may use, and rank the text 'flash' models (newest first). Model names change often."""
+    if not key:
+        return []
+    try:
+        req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/openai/models", headers={"Authorization": "Bearer " + key})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            names = [m["id"].split("/")[-1] for m in json.loads(r.read().decode("utf-8")).get("data", [])]
+    except Exception as e:
+        print("gemini model list failed:", str(e).replace(key, "<token>")[:120])
+        return ["gemini-flash-latest", "gemini-flash-lite-latest"]
+    print("gemini models available:", ", ".join(n for n in names if "gemini" in n)[:600])
+    bad = re.compile(r"(image|tts|live|audio|embed|vision|robotics|computer|thinking|exp|learnlm|gemma|aqa|imagen|veo)")
+    cand = [n for n in names if n.startswith("gemini") and "flash" in n and not bad.search(n)]
+    def rank(n: str):
+        nums = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", n)]
+        return (0 if "preview" not in n else 1, 1 if "lite" in n else 0, -(nums[0] if nums else 0), n)
+    return sorted(cand, key=rank)[:5] or ["gemini-flash-latest"]
+
+
 # (name, chat-completions URL, token, models). The first provider+model that answers is used for the whole run.
 PROVIDERS = [
     ("github-models", "https://models.github.ai/inference/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
@@ -45,7 +65,7 @@ PROVIDERS = [
     ("github-models-legacy", "https://models.inference.ai.azure.com/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
      ["gpt-4.1", "gpt-4o", "Llama-3.3-70B-Instruct", "gpt-4o-mini"]),
     ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", os.environ.get("GEMINI_API_KEY", "").strip(),
-     ["gemini-2.5-flash", "gemini-2.0-flash"]),
+     gemini_models(os.environ.get("GEMINI_API_KEY", "").strip())),
     ("huggingface", "https://router.huggingface.co/v1/chat/completions", os.environ.get("HF_TOKEN", "").strip(),
      ["Qwen/Qwen2.5-72B-Instruct", "meta-llama/Llama-3.3-70B-Instruct"]),
 ]
