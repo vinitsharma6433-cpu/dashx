@@ -6,12 +6,12 @@
     python scripts/refill_bank.py --probe          # only test which free models answer (no story is made)
 
 How it works (every story must pass ALL of these, nothing is lowered):
-  1. a free open model on Hugging Face (HF_TOKEN) writes ONE story in the bank format, from a random gully-cricket situation
+  1. a free model (GitHub Models with the built-in GITHUB_TOKEN; optionally Gemini free key or Hugging Face) writes ONE story in the bank format, from a random gully-cricket situation
      (stories/situations.json) and a hook formula (stories/viral_formats.json, idea credit: rediumvex/viral-hooks-skill, MIT)
   2. the same checker as for hand-written stories (scripts/check_dialogue_bank.py: format, DASHX rules, roles, hook, score >= 80,
      no repeated line / ending / hook against the whole bank and every reel made)
   3. a second model call that grades funny / clear / natural Hindi / kid-safe (all must be >= 7)
-  Only then the story is appended to the bank. Nothing is ever deleted or rewritten. The HF token is never printed.
+  Only then the story is appended to the bank. Nothing is ever deleted or rewritten. No token is ever printed.
 """
 from __future__ import annotations
 
@@ -38,10 +38,17 @@ if hasattr(sys.stdout, "reconfigure"):
 BANK = ROOT / "stories" / "dialogue_bank.md"
 LOG = ROOT / "stories" / "refill_log.md"
 DRY = ROOT / "stories" / "refill_dry_run.md"
-URL = "https://router.huggingface.co/v1/chat/completions"
-# tried in this order; the first one that answers is used for the whole run
-MODELS = ["Qwen/Qwen2.5-72B-Instruct", "meta-llama/Llama-3.3-70B-Instruct", "Qwen/Qwen3-235B-A22B-Instruct-2507", "CohereLabs/c4ai-command-r-plus-08-2024"]
-TOK = os.environ.get("HF_TOKEN", "").strip()
+# (name, chat-completions URL, token, models). The first provider+model that answers is used for the whole run.
+PROVIDERS = [
+    ("github-models", "https://models.github.ai/inference/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
+     ["openai/gpt-4.1", "openai/gpt-4o", "meta/Llama-3.3-70B-Instruct", "openai/gpt-4.1-mini"]),
+    ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", os.environ.get("GEMINI_API_KEY", "").strip(),
+     ["gemini-2.5-flash", "gemini-2.0-flash"]),
+    ("huggingface", "https://router.huggingface.co/v1/chat/completions", os.environ.get("HF_TOKEN", "").strip(),
+     ["Qwen/Qwen2.5-72B-Instruct", "meta-llama/Llama-3.3-70B-Instruct"]),
+]
+SECRETS = [p[2] for p in PROVIDERS if p[2]]
+ACTIVE: dict = {}
 MIN_JUDGE = 7
 CAST_HELP = {
     "sachin": "main batter: confident, loves big shots, a little sleepy",
@@ -58,13 +65,15 @@ CAST_HELP = {
 
 def scrub(s) -> str:
     s = str(s)
-    return s.replace(TOK, "<token>") if TOK else s
+    for t in SECRETS:
+        s = s.replace(t, "<token>")
+    return s
 
 
 def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 1100) -> tuple[int, str]:
     """(http status, text). The text is the model's answer or a scrubbed error message."""
     body = json.dumps({"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}).encode("utf-8")
-    req = urllib.request.Request(URL, data=body, headers={"Authorization": "Bearer " + TOK, "Content-Type": "application/json"})
+    req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
             try:
@@ -84,19 +93,21 @@ def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens:
 
 
 def pick_model() -> str | None:
-    bad_token = False
-    for m in MODELS:
-        code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 5)
-        print(f"model {m}: HTTP {code}" + ("" if code == 200 else f" - {txt}"))
-        if code == 200:
-            return m
-        if code in (401, 403):
-            bad_token = True
-        if code == 402:
-            print("::warning::Hugging Face free credits are used up; no story can be written until they renew")
-            return None
-    if bad_token:
-        print("::warning::HF_TOKEN was refused (needs the permission 'Make calls to Inference Providers')")
+    """Probe the providers in order; set ACTIVE and return the model name of the first one that answers."""
+    for name, url, tok, models in PROVIDERS:
+        if not tok:
+            print(f"provider {name}: no key, skipped")
+            continue
+        ACTIVE.update(url=url, token=tok)
+        for m in models:
+            code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 8)
+            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 else f" - {txt[:120]}"))
+            if code == 200:
+                ACTIVE["name"] = name
+                return m
+            if code in (401, 402, 403, 429):
+                break  # this provider refuses (key, credits or rate limit): next provider
+    print("::warning::no free model answered (GitHub Models, Gemini, Hugging Face); the existing bank is still used")
     return None
 
 
@@ -219,9 +230,6 @@ def main() -> int:
     a = ap.parse_args()
     if a.seed is not None:
         random.seed(a.seed)
-    if not TOK:
-        print("::warning::HF_TOKEN is not set: no story can be written (the existing bank is still used)")
-        return 0
     if a.probe:
         return 0 if pick_model() else 1
     left, total = usable_count()
@@ -251,7 +259,8 @@ def main() -> int:
             code, txt = chat(model, prompt_for(seed, existing[-40:] + [b.split("\n")[0][3:].split("|")[0].strip() for b, _ in accepted], endings[-40:]))
             if code != 200:
                 print(f"  writer HTTP {code}: {txt}")
-                if code in (401, 402, 403):
+                if code in (401, 402, 403, 429):
+                    print('  provider refuses further calls (credits / rate limit): stopping the writer')
                     break
                 continue
             blk = extract_block(txt)
@@ -282,7 +291,7 @@ def main() -> int:
             accepted.append((blk, j))
     print(f"accepted {len(accepted)} new stories")
     if accepted:
-        stamp = f"\n<!-- auto-written {date.today().isoformat()} by {model}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
+        stamp = f"\n<!-- auto-written {date.today().isoformat()} by {ACTIVE.get('name')}/{model}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
         text = stamp + "\n\n".join(b for b, _ in accepted) + "\n"
         if a.dry_run:
             DRY.write_text(text, encoding="utf-8")
@@ -292,7 +301,7 @@ def main() -> int:
                 f.write(text)
             with LOG.open("a", encoding="utf-8", newline="\n") as f:
                 for b, j in accepted:
-                    f.write(f"- {date.today().isoformat()} | {model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
+                    f.write(f"- {date.today().isoformat()} | {ACTIVE.get('name')}/{model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
     left2, total2 = usable_count() if accepted and not a.dry_run else (left, total)
     print(f"bank now: {total2} stories, {left2} usable")
     if left2 < a.min_usable and not a.dry_run:
