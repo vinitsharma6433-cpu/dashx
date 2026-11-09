@@ -1,0 +1,38 @@
+name: DASHX Meta Comment Backfill
+# One-off: first comment on the 2 live META TEST reels (no new post is created).
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: dashx-poster
+  cancel-in-progress: false
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Post the comments
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+        run: python poster/meta_comment_backfill.py
+      - name: Save results
+        if: always()
+        run: |
+          git config user.name "dashx-poster"
+          git config user.email "dashx-poster@users.noreply.github.com"
+          git add poster/queue.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Poster: Meta test comments result"
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 6))
+            done
+            exit 1
+          fi
