@@ -962,13 +962,13 @@
       },
       "notes": {
         "ig_media_id": "18374865976210869",
-        "ig_comment": [
-          "failed: ig comment failed (code 10/None): (#10) Application does not have permission for this action"
-        ],
         "fb_video_id": "1904599574255188",
         "fb_status": "ready",
+        "ig_comment": [
+          "ok"
+        ],
         "fb_comment": [
-          "failed: fb comment failed (code 200/None): (#200) Permissions error"
+          "ok"
         ]
       }
     }
