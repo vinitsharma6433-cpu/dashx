@@ -947,9 +947,30 @@
       "comments": [
         "DASHX cricket tennis ball yahan se lo:\nAmazon: https://www.amazon.in/dp/B0H4QG8FKG\nFlipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4\nMeesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3\nMystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3\nWebsite: https://vinitsharma6433-cpu.github.io/dashx/"
       ],
-      "status": "scheduled",
-      "results": {},
-      "notes": {}
+      "status": "done",
+      "results": {
+        "instagram": {
+          "ok": true,
+          "link": "https://www.instagram.com/reel/Dfh2E1GIJKU/",
+          "at": "2026-11-09T22:45:18.140402+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1904599574255188",
+          "at": "2026-11-09T22:45:18.140402+05:30"
+        }
+      },
+      "notes": {
+        "ig_media_id": "18374865976210869",
+        "ig_comment": [
+          "failed: ig comment failed (code 10/None): (#10) Application does not have permission for this action"
+        ],
+        "fb_video_id": "1904599574255188",
+        "fb_status": "ready",
+        "fb_comment": [
+          "failed: fb comment failed (code 200/None): (#200) Permissions error"
+        ]
+      }
     }
   ]
 }
