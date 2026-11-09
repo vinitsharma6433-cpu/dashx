@@ -12,6 +12,8 @@
   "min_qc": 90,
   "lead_minutes": 30,
   "networks": [
-    "youtube"
+    "youtube",
+    "instagram",
+    "facebook"
   ]
 }
