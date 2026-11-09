@@ -1,0 +1,183 @@
+{
+  "id": "golu-s-commentary",
+  "title": "गोलू की कमेंट्री",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu does commentary with a stick as a microphone, calls Meena's six a four, Sachin corrects him, and Aunty catches the ball and takes the microphone.",
+    "idea": "Golu's Commentary",
+    "generated": "2026-11-09",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "गोलू की कमेंट्री में चौका या छक्का? 🎤",
+    "closing": "माइक गया, कमेंट्री ख़त्म!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "sachin",
+        "boardText": "कमेंट्री"
+      },
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अब सुनिए आँखों देखा हाल! गोलू, पहले बल्ला तो पकड़ने दे!",
+      "subtitle": "अब सुनिए आँखों देखा हाल! गोलू, पहले बल्ला तो पकड़ने दे!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "अब सुनिए आँखों देखा हाल!",
+          "start": 0.25,
+          "end": 2.15,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "गोलू, पहले बल्ला तो पकड़ने दे!",
+          "start": 2.25,
+          "end": 4.44,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "अब सुनिए आँखों देखा हाल!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "meena",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "देखो, गेंद सीमा पार! और यह गया चौका!",
+      "subtitle": "देखो, गेंद सीमा पार! और यह गया चौका!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "देखो, गेंद सीमा पार!",
+          "start": 0.25,
+          "end": 1.78,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "और यह गया चौका!",
+          "start": 1.88,
+          "end": 3.23,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "देखो, गेंद सीमा पार!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "golu",
+          "sachin"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "गेंद भी मेरी, माइक भी मेरा!",
+      "subtitle": "गेंद भी मेरी, माइक भी मेरा!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गेंद भी मेरी, माइक भी मेरा!",
+          "start": 0.25,
+          "end": 2.28,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गेंद भी मेरी, माइक भी मेरा!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "golu",
+        "boardText": "विराम"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, तेरी कमेंट्री बंद! अब थोड़ा विराम, फिर मिलेंगे!",
+      "subtitle": "गोलू, तेरी कमेंट्री बंद! अब थोड़ा विराम, फिर मिलेंगे!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "गोलू, तेरी कमेंट्री बंद!",
+          "start": 0.25,
+          "end": 2.0,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "अब थोड़ा विराम, फिर मिलेंगे!",
+          "start": 2.1,
+          "end": 4.02,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "गोलू, तेरी कमेंट्री बंद!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

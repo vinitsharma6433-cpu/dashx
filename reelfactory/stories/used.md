@@ -35,3 +35,4 @@
 - 2026-10-30 | mirror-sun | आईने की धूप (Mirror Sun) | Aunty's mirror throws sunlight into Sachin's eyes, he swings blindly, and Aunty removes the mirror and catches the ball. | शीशे का कमाल!
 - 2026-10-30 | wrong-name | ग़लत नाम (Wrong Name) | Pintu mixes up the boys' names, Sachin insists on his own name, Surya asks if he is out then, and Coach catches the ball and sorts out the names. | सबके नाम अब पक्के!
 - 2026-10-30 | tomato-ball | टमाटर की गेंद (Tomato Ball) | Surya forgets the ball and bowls a tomato, Sachin's shot splashes it over Pintu, and Aunty catches what is left and sends everyone to wash. | टमाटर की चटनी बन गई!
+- 2026-11-09 | golu-s-commentary | गोलू की कमेंट्री (Golu's Commentary) | Golu does commentary with a stick as a microphone, calls Meena's six a four, Sachin corrects him, and Aunty catches the ball and takes the microphone. | माइक गया, कमेंट्री ख़त्म!
