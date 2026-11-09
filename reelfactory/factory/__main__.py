@@ -59,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  + {e['title']}  {e['when']}  {e['yt_title']}\n" + "\n".join("      | " + ln for ln in e["captions"]["instagram"].split("\n")))
         for name, why in out.blocked:
             print(f"  - {name}: {'; '.join(why)}")
-        if os.environ.get("DASHX_CI") and (out.blocked or (out.queued and not a.dry_run and not out.pushed)):
+        if os.environ.get("DASHX_CI") and (out.blocked or (out.queued and not a.dry_run and not a.no_push and not out.pushed)):
             return 2  # cloud run: a reel failed a check or could not be pushed, so the job must go red
         return 0
     if a.cmd == "schedule":
