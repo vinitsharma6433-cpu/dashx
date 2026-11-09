@@ -31,4 +31,13 @@ jobs:
           git config user.name "dashx-poster"
           git config user.email "dashx-poster@users.noreply.github.com"
           git add poster/queue.json
-          git diff --cached --quiet || (git commit -m "Poster: update queue results" && git pull --rebase -q && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Poster: update queue results"
+            # the factory also edits queue.json (it only runs when this job is not running: same concurrency group), so retry the rebase + push
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 6))
+            done
+            echo "::error::could not push the poster results to queue.json"; exit 1
+          fi

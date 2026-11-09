@@ -15,8 +15,13 @@ def env(*names):
 def get_media(url):
     r = requests.get(url, timeout=300); r.raise_for_status(); return r.content
 
+# GitHub cron can run hours late, so a YouTube entry is uploaded up to LOOKAHEAD_H hours BEFORE its `when`
+# as a private video with publishAt = when. YouTube then makes it public on time, whatever the cron does.
+LOOKAHEAD_H = 36
+MIN_PUBLISH_AHEAD = dt.timedelta(minutes=15)  # publishAt must be in the future; closer than this = publish now
+
 # ---------- YouTube Short ----------
-def post_youtube(p):
+def yt_token():
     s = env("YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN")
     if not s: return None
     t = requests.post("https://oauth2.googleapis.com/token", data={
@@ -25,20 +30,10 @@ def post_youtube(p):
         try: e = t.json()
         except Exception: e = {}
         raise RuntimeError("google token error: %s - %s | id_len=%d secret_len=%d token_len=%d" % (e.get("error"), e.get("error_description"), len(s[0]), len(s[1]), len(s[2])))
-    tok = t.json()["access_token"]
-    title = (p.get("yt_title") or p["title"])[:95]
-    meta = {"snippet": {"title": title, "description": p.get("captions", {}).get("youtube") or p["caption"],
-                        "tags": ["DASHX", "gully cricket", "Meerut"], "categoryId": "24"},
-            "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}}
-    data = get_media(p["media"])
-    h = {"Authorization": "Bearer " + tok, "Content-Type": "application/json; charset=UTF-8",
-         "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(len(data))}
-    i = requests.post("https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
-                      headers=h, data=json.dumps(meta), timeout=60)
-    i.raise_for_status()
-    u = requests.put(i.headers["Location"], data=data, headers={"Content-Type": "video/mp4"}, timeout=600)
-    u.raise_for_status()
-    vid = u.json()["id"]
+    return t.json()["access_token"]
+
+def yt_engage(p, vid, tok):
+    """Pinned-style comments and a like. Only works once the video is public."""
     notes = p.setdefault("notes", {})
     hdr = {"Authorization": "Bearer " + tok}
     cl = p.get("comments") or ([p["comment"]] if p.get("comment") else [])
@@ -56,6 +51,32 @@ def post_youtube(p):
         notes["yt_like"] = "ok" if rr.status_code in (200, 204) else "failed %s" % rr.status_code
     except Exception as e:
         notes["yt_like"] = "error " + str(e)[:80]
+
+def post_youtube(p, publish_at=None):
+    """publish_at (aware datetime) = upload private and let YouTube publish it then; None = public now.
+    Returns the Shorts link, or None when the secrets are missing."""
+    tok = yt_token()
+    if not tok: return None
+    title = (p.get("yt_title") or p["title"])[:95]
+    status = {"privacyStatus": "public", "selfDeclaredMadeForKids": False}
+    if publish_at is not None:
+        status = {"privacyStatus": "private", "selfDeclaredMadeForKids": False,
+                  "publishAt": publish_at.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")}
+    meta = {"snippet": {"title": title, "description": p.get("captions", {}).get("youtube") or p["caption"],
+                        "tags": ["DASHX", "gully cricket", "Meerut"], "categoryId": "24"},
+            "status": status}
+    data = get_media(p["media"])
+    h = {"Authorization": "Bearer " + tok, "Content-Type": "application/json; charset=UTF-8",
+         "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(len(data))}
+    i = requests.post("https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
+                      headers=h, data=json.dumps(meta), timeout=60)
+    i.raise_for_status()
+    u = requests.put(i.headers["Location"], data=data, headers={"Content-Type": "video/mp4"}, timeout=600)
+    u.raise_for_status()
+    vid = u.json()["id"]
+    p.setdefault("notes", {})["yt_video_id"] = vid
+    if publish_at is None:
+        yt_engage(p, vid, tok)
     return "https://www.youtube.com/shorts/" + vid
 
 # ---------- Facebook Page Reel ----------
@@ -99,9 +120,35 @@ def main():
     now = dt.datetime.now(IST); changed = False
     for p in q["posts"]:
         due = dt.datetime.fromisoformat(p["when"])
-        if p.get("status") == "done" or due > now: continue
+        if p.get("status") == "done": continue
         res = p.setdefault("results", {})
+        if due > now:
+            # not due yet: only a YouTube entry inside the look-ahead window is uploaded now, as a scheduled publish
+            yt = res.get("youtube", {})
+            if ("youtube" in p["networks"] and not yt.get("ok") and due - now <= dt.timedelta(hours=LOOKAHEAD_H)
+                    and due - now > MIN_PUBLISH_AHEAD):
+                try:
+                    link = post_youtube(p, publish_at=due)
+                    res["youtube"] = ({"ok": False, "error": "secrets missing, add them in repo Settings"} if link is None else
+                                      {"ok": True, "link": link, "scheduled": True, "publish_at": p["when"], "at": now.isoformat()})
+                except Exception as e:
+                    res["youtube"] = {"ok": False, "error": str(e)[:300]}
+                changed = True
+            continue
         for net in p["networks"]:
+            yt = res.get(net, {})
+            if net == "youtube" and yt.get("ok") and yt.get("scheduled"):
+                # published by YouTube at `when`: now add the comments and the like (once)
+                if not p.get("notes", {}).get("yt_engaged"):
+                    try:
+                        tok = yt_token()
+                        if tok:
+                            yt_engage(p, p["notes"]["yt_video_id"], tok)
+                            p["notes"]["yt_engaged"] = True
+                    except Exception as e:
+                        p.setdefault("notes", {})["yt_engage_error"] = str(e)[:200]
+                    changed = True
+                continue
             if net in res and res[net].get("ok"): continue
             fn = HANDLERS.get(net)
             if not fn:
@@ -115,7 +162,8 @@ def main():
                 changed = True
             except Exception as e:
                 res[net] = {"ok": False, "error": str(e)[:300]}; changed = True
-        if all(res.get(n, {}).get("ok") for n in p["networks"]): p["status"] = "done"
+        engaged = all(p.get("notes", {}).get("yt_engaged") or not res.get(n, {}).get("scheduled") for n in p["networks"])
+        if engaged and all(res.get(n, {}).get("ok") for n in p["networks"]): p["status"] = "done"
     if changed: json.dump(q, open(QUEUE, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print("run ok", now.isoformat())
 
