@@ -885,11 +885,13 @@
         },
         "facebook": {
           "ok": false,
-          "error": "secrets missing, add them in repo Settings"
+          "error": "skipped by owner request: old Diwali entry must not be posted to Meta now",
+          "tries": 3
         },
         "instagram": {
           "ok": false,
-          "error": "secrets missing, add them in repo Settings"
+          "error": "skipped by owner request: old Diwali entry must not be posted to Meta now",
+          "tries": 3
         }
       },
       "notes": {

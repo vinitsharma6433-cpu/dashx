@@ -11,6 +11,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,6 +28,7 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
         run: python poster/poster.py
       - name: Save results
+        if: always()   # also after a failed post (e.g. invalid Meta token), so the results are never lost
         run: |
           git config user.name "dashx-poster"
           git config user.email "dashx-poster@users.noreply.github.com"
