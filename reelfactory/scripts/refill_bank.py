@@ -266,6 +266,9 @@ def main() -> int:
             blk = extract_block(txt)
             if blk:
                 cands.append(blk)
+            else:
+                print("  unusable answer (first 400 chars):", txt[:400].replace("
+", " / "))
         print(f"round {rnd + 1}: {len(cands)} candidate(s)")
         if not cands:
             break
