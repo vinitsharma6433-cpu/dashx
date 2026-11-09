@@ -98,9 +98,12 @@ def clean(x, n: int = 200) -> str:
     return scrub(t).replace("::", ": :")[:n]
 
 
-def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 1100) -> tuple[int, str]:
+def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 4000) -> tuple[int, str]:
     """(http status, text). The text is the model's answer or a scrubbed error message."""
-    body = json.dumps({"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}).encode("utf-8")
+    payload = {"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}
+    if ACTIVE.get("name") == "gemini":
+        payload["reasoning_effort"] = "low"   # new Gemini models "think" first; without this the thinking can eat the whole token budget
+    body = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json",
                                                                        "Accept": "application/vnd.github+json, application/json", "X-GitHub-Api-Version": "2022-11-28"})
     try:
@@ -129,9 +132,9 @@ def pick_model() -> str | None:
         if not tok:
             print(f"provider {name}: no key, skipped")
             continue
-        ACTIVE.update(url=url, token=tok)
+        ACTIVE.update(url=url, token=tok, name=name)
         for m in models:
-            code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 8)
+            code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 300)
             print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else " - " + clean(txt or ACTIVE.get("last_raw", ""), 120)))
             if code == 200 and txt.strip():
                 ACTIVE["name"] = name
@@ -225,7 +228,7 @@ def judge(model: str, block: str) -> tuple[bool, dict]:
            '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"kid_safe":true|false,"issue":"one short sentence"}. '
            "funny = does the punchline really land; clear = a kid understands what happens; natural_hindi = the sentences are correct, "
            "everyday Hindi, no broken grammar or odd words; kid_safe = nothing unsuitable or unfair to anyone.\n\n" + block)
-    code, txt = chat(model, [{"role": "user", "content": msg}], 0.0, 200)
+    code, txt = chat(model, [{"role": "user", "content": msg}], 0.0, 1500)
     m = re.search(r"\{.*\}", txt or "", re.S)
     if code != 200 or not m:
         return False, {"issue": f"judge unavailable (HTTP {code})"}
