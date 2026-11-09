@@ -1,0 +1,13 @@
+{
+  "_about": "Hook formulas for the auto story maker (scripts/refill_bank.py). Adapted (not copied) from the idea categories of rediumvex/viral-hooks-skill, MIT License, Copyright (c) 2026 Roman Knox: https://github.com/rediumvex/viral-hooks-skill . Only the psychology idea (curiosity gap, unexpected result, ...) is used; every hook is newly written in Hindi for DASHX gully cricket. Hook rules stay: Hindi, at most 60 characters, exactly 1 emoji, no digits, not a line from the story.",
+  "formulas": [
+    {"name": "curiosity gap", "pattern": "[किरदार] ने [अजीब काम] क्यों किया?", "example": "गोलू ने कोच के जूते क्यों माँगे? 👟"},
+    {"name": "unexpected result", "pattern": "[छोटी बात] का नतीजा देखकर सब हैरान!", "example": "एक छींक और दादाजी का कमाल कैच! 🤧"},
+    {"name": "who is right", "pattern": "[बात] में गलती किसकी थी?", "example": "एक सीटी, दो दावेदार, फ़ैसला किसका? 🤔"},
+    {"name": "nobody talks about", "pattern": "गली क्रिकेट में [चीज़] की बात कोई नहीं करता", "example": "गली क्रिकेट में खिड़की की बात कोई नहीं करता 🪟"},
+    {"name": "it went wrong", "pattern": "[किरदार] का [प्लान] उल्टा पड़ गया!", "example": "सूर्या का घमंड उल्टा पड़ गया! 😅"},
+    {"name": "wait for it", "pattern": "आख़िर तक देखना, [किरदार] ने [क्या किया]!", "example": "आख़िर तक देखना, ब्रूनो ने क्या छुपाया था! 🐶"},
+    {"name": "guess", "pattern": "बताओ, [सवाल]?", "example": "बताओ, छक्का किसका था? 🏏"},
+    {"name": "secret", "pattern": "[किरदार] की [राज़ वाली बात] पता चल गई!", "example": "आंटी की खिड़की का राज़ पता चल गया! 🤫"}
+  ]
+}
