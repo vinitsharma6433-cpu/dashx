@@ -11,9 +11,10 @@ on:
         description: "Test run: make and check the reels but do NOT push anything (reels are kept as a download only)"
         type: boolean
         default: true
-  # DISABLED until the owner says OK. To enable, remove the two leading '#':
-  # schedule:
-  #   - cron: "30 20 * * *"   # 02:00 IST every night
+  # ENABLED (owner OK): every night at 02:00 IST it makes 2 reels (count 2, test_only OFF) and queues them for the next two free
+  # slots, 12:30 and 20:30 IST. To pause: create a file named STOP_QUEUE in the repo root (or in reelfactory/), or comment these 2 lines out.
+  schedule:
+    - cron: "30 20 * * *"   # 20:30 UTC = 02:00 IST
 permissions:
   contents: write
 concurrency:
@@ -22,7 +23,7 @@ concurrency:
 jobs:
   factory:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 20
     env:
       DASHX_CI: "1"
       DASHX_REPO_DIR: ${{ github.workspace }}
@@ -118,7 +119,15 @@ jobs:
           git config user.name "dashx-factory"
           git config user.email "dashx-factory@users.noreply.github.com"
           git add reelfactory/stories/used.md reelfactory/reels/*/script.json 2>/dev/null || true
-          git diff --cached --quiet || (git commit -m "Factory: mark stories as used" && git pull --rebase -q --autostash && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Factory: mark stories as used"
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 6))
+            done
+            echo "::error::could not push the used-stories list"; exit 1
+          fi
 
       - name: Summary
         if: always() && steps.stop.outputs.skip != 'true'
