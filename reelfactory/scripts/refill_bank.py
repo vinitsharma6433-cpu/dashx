@@ -23,6 +23,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 from datetime import date
 from pathlib import Path
 
@@ -72,6 +73,7 @@ PROVIDERS = [
 SECRETS = [p[2] for p in PROVIDERS if p[2]]
 ACTIVE: dict = {}
 MIN_JUDGE = 7
+BUDGET_S = 420   # the whole writing stage stops after this many seconds, so the nightly job never hangs
 CAST_HELP = {
     "sachin": "main batter: confident, loves big shots, a little sleepy",
     "surya": "main bowler: boastful, fast, funny when he loses",
@@ -107,7 +109,7 @@ def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens:
     req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json",
                                                                        "Accept": "application/vnd.github+json, application/json", "X-GitHub-Api-Version": "2022-11-28"})
     try:
-        with urllib.request.urlopen(req, timeout=180) as r:
+        with urllib.request.urlopen(req, timeout=100) as r:
             raw = r.read().decode("utf-8", "replace")
             try:
                 return r.status, json.loads(raw)["choices"][0]["message"]["content"] or ""
@@ -126,6 +128,23 @@ def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens:
         return 0, scrub(e)[:200]
 
 
+def cur_model() -> str:
+    return ACTIVE["models"][ACTIVE["idx"]]
+
+
+def ask(messages: list[dict], temperature: float = 0.9, max_tokens: int = 4000) -> tuple[int, str]:
+    """Like chat(), but on quota / overload / unavailable (429, 5xx, 404, network) it moves on to the provider's next model."""
+    while True:
+        m = cur_model()
+        code, txt = chat(m, messages, temperature, max_tokens)
+        if code in (0, 404, 429, 500, 502, 503, 504) and ACTIVE["idx"] + 1 < len(ACTIVE["models"]):
+            ACTIVE["idx"] += 1
+            print(f"  model {m}: HTTP {code}, switching to {cur_model()}")
+            time.sleep(2)
+            continue
+        return code, txt
+
+
 def pick_model() -> str | None:
     """Probe the providers in order; set ACTIVE and return the model name of the first one that answers."""
     for name, url, tok, models in PROVIDERS:
@@ -137,7 +156,7 @@ def pick_model() -> str | None:
             code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 300)
             print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else " - " + clean(txt or ACTIVE.get("last_raw", ""), 120)))
             if code == 200 and txt.strip():
-                ACTIVE["name"] = name
+                ACTIVE.update(name=name, models=list(models), idx=models.index(m))
                 return m
             if code in (401, 402, 403, 429):
                 break  # this provider refuses (key, credits or rate limit): next provider
@@ -223,12 +242,12 @@ def extract_block(text: str) -> str | None:
     return "\n".join(keep)
 
 
-def judge(model: str, block: str) -> tuple[bool, dict]:
+def judge(block: str) -> tuple[bool, dict]:
     msg = ("You are a strict editor of kids' Hindi comedy reels. Grade this story. Reply with ONLY a JSON object: "
            '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"kid_safe":true|false,"issue":"one short sentence"}. '
            "funny = does the punchline really land; clear = a kid understands what happens; natural_hindi = the sentences are correct, "
            "everyday Hindi, no broken grammar or odd words; kid_safe = nothing unsuitable or unfair to anyone.\n\n" + block)
-    code, txt = chat(model, [{"role": "user", "content": msg}], 0.0, 1500)
+    code, txt = ask([{"role": "user", "content": msg}], 0.0, 1500)
     m = re.search(r"\{.*\}", txt or "", re.S)
     if code != 200 or not m:
         return False, {"issue": f"judge unavailable (HTTP {code})"}
@@ -283,19 +302,53 @@ def main() -> int:
     endings = re.findall(r"^ending: (.+)$", BANK.read_text(encoding="utf-8"), re.M)
     accepted: list[tuple[str, dict]] = []
     tried = 0
-    for rnd in range(3):  # up to 3 rounds
+    t0 = time.time()
+
+    def title_of(blk: str) -> str:
+        return blk.splitlines()[0][3:].split("|")[0].strip()
+
+    def consider(blks: list[str], label: str) -> list[tuple[str, list[str]]]:
+        """Run the checker + the catch-ending limit + the editor on blks. Accepted ones go to `accepted`; returns the failed (block, problems)."""
+        failed: list[tuple[str, list[str]]] = []
+        res = check_blocks(blks)
+        if len(res["problems"]) != len(blks):
+            print("  checker output did not match the candidates: skipped")
+            return failed
+        for idx, blk in enumerate(blks):
+            probs = res["problems"][idx]
+            if probs:
+                print(f"  x {label}{clean(title_of(blk), 60)}: {clean('; '.join(probs))}")
+                failed.append((blk, probs))
+                continue
+            if res["last"][idx] == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
+                print(f"  x {label}{clean(title_of(blk), 60)}: too many stories ending in a catch scene")
+                continue
+            ok, j = judge(blk)
+            if not ok:
+                print(f"  x {label}{clean(title_of(blk), 60)}: editor says {clean(json.dumps(j, ensure_ascii=False))}")
+                continue
+            print(f"  + {label}{clean(title_of(blk), 60)}: accepted {clean(json.dumps(j, ensure_ascii=False), 120)}")
+            accepted.append((blk, j))
+        return failed
+
+    out_of_quota = False
+    for rnd in range(2):  # up to 2 rounds
         want = a.make - len(accepted)
-        if want <= 0:
+        if want <= 0 or out_of_quota or time.time() - t0 > BUDGET_S:
             break
         cands: list[str] = []
-        for _ in range(want + 3):
+        for _ in range(want + 2):
+            if time.time() - t0 > BUDGET_S:
+                print("  time budget used up: stopping the writer")
+                break
             seed = {"situation": sits[tried % len(sits)], "formula": random.choice(cfg)}
             tried += 1
-            code, txt = chat(model, prompt_for(seed, existing[-40:] + [b.split("\n")[0][3:].split("|")[0].strip() for b, _ in accepted], endings[-40:]))
+            code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:]))
             if code != 200:
                 print(f"  writer HTTP {code}: {clean(txt)}")
-                if code in (401, 402, 403, 429):
-                    print('  provider refuses further calls (credits / rate limit): stopping the writer')
+                if code in (0, 401, 402, 403, 404, 429, 500, 502, 503, 504):
+                    print("  no model left that answers (credits / rate limit): stopping the writer")
+                    out_of_quota = True
                     break
                 continue
             blk = extract_block(txt)
@@ -303,31 +356,35 @@ def main() -> int:
                 cands.append(blk)
             else:
                 print("  unusable answer:", clean(txt, 300), "| raw:", clean(ACTIVE.get("last_raw", ""), 300))
-        print(f"round {rnd + 1}: {len(cands)} candidate(s)")
+        print(f"round {rnd + 1}: {len(cands)} candidate(s), model {cur_model()}")
         if not cands:
             break
-        res = check_blocks(cands)
-        if len(res["problems"]) != len(cands):
-            print("  checker output did not match the candidates: skipped this round")
-            break
-        for idx, blk in enumerate(cands):
-            title = blk.splitlines()[0][3:].split("|")[0].strip()
-            probs = res["problems"][idx]
-            if probs:
-                print(f"  x {clean(title, 60)}: {clean('; '.join(probs))}")
-                continue
-            if res["last"][idx] == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
-                print(f"  x {clean(title, 60)}: too many stories ending in a catch scene")
-                continue
-            ok, j = judge(model, blk)
-            if not ok:
-                print(f"  x {clean(title, 60)}: editor says {clean(json.dumps(j, ensure_ascii=False))}")
-                continue
-            print(f"  + {clean(title, 60)}: accepted {clean(json.dumps(j, ensure_ascii=False), 120)}")
-            accepted.append((blk, j))
+        failed = consider(cands, "")
+        # one repair try for a story that failed only on fixable things (wrong speaker on stage, weak hook, too long ...), not on duplicates
+        fixable = [(b, p) for b, p in failed if not any(k in " ".join(p) for k in ("too close", "repeats", "same word", "nearly the same", "similarity", "capped"))]
+        repaired: list[str] = []
+        for blk, probs in fixable[: max(0, a.make - len(accepted))]:
+            if time.time() - t0 > BUDGET_S or out_of_quota:
+                break
+            sys_msg = ("You fix ONE kids' Hindi cartoon story so it passes a checker. Keep the idea and the jokes, change only what the problems say. "
+                       "Follow the file format exactly. Output only the corrected story block starting with '## ', nothing else.\n\n" + bank_header())
+            user_msg = blk + "\n\nProblems found by the checker:\n- " + "\n- ".join(probs[:6]) + "\n\nWrite the corrected story block."
+            code, txt = ask([{"role": "system", "content": sys_msg}, {"role": "user", "content": user_msg}], 0.4)
+            fixed = extract_block(txt) if code == 200 else None
+            if fixed:
+                repaired.append(fixed)
+        if repaired:
+            print(f"repair: {len(repaired)} story(ies) rewritten")
+            consider(repaired, "repaired ")
+
     print(f"accepted {len(accepted)} new stories")
+    if a.dry_run:
+        for b, _ in accepted:
+            print("  ---")
+            for ln in b.splitlines():
+                print("  |", clean(ln, 240))
     if accepted:
-        stamp = f"\n<!-- auto-written {date.today().isoformat()} by {ACTIVE.get('name')}/{model}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
+        stamp = f"\n<!-- auto-written {date.today().isoformat()} by {ACTIVE.get('name')}/{cur_model()}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
         text = stamp + "\n\n".join(b for b, _ in accepted) + "\n"
         if a.dry_run:
             DRY.write_text(text, encoding="utf-8")
@@ -337,7 +394,7 @@ def main() -> int:
                 f.write(text)
             with LOG.open("a", encoding="utf-8", newline="\n") as f:
                 for b, j in accepted:
-                    f.write(f"- {date.today().isoformat()} | {ACTIVE.get('name')}/{model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
+                    f.write(f"- {date.today().isoformat()} | {ACTIVE.get('name')}/{cur_model()} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
     left2, total2 = usable_count() if accepted and not a.dry_run else (left, total)
     print(f"bank now: {total2} stories, {left2} usable")
     if left2 < a.min_usable and not a.dry_run:

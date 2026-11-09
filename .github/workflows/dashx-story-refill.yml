@@ -23,7 +23,7 @@ permissions:
   contents: write
   models: read   # lets the built-in GITHUB_TOKEN call GitHub Models (free, no extra key)
 concurrency:
-  group: dashx-poster
+  group: dashx-refill   # its own group: a slow refill must never hold up the poster or the reel factory (it only edits the story bank files)
   cancel-in-progress: false
 jobs:
   refill:
@@ -55,6 +55,7 @@ jobs:
         run: pip install -r requirements-ci.txt requests
       - name: Write new stories when the bank is low
         if: steps.stop.outputs.skip != 'true'
+        timeout-minutes: 11
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}   # optional backup provider (free key); empty = not used
