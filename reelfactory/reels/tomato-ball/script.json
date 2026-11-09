@@ -1,0 +1,186 @@
+{
+  "id": "tomato-ball",
+  "title": "टमाटर की गेंद",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya forgets the ball and bowls a tomato, Sachin's shot splashes it over Pintu, and Aunty catches what is left and sends everyone to wash.",
+    "idea": "Tomato Ball",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "टमाटर की चटनी बन गई!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "गेंद"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या, गेंद कहाँ है? गेंद नहीं मिली, टमाटर चलेगा!",
+      "subtitle": "सूर्या, गेंद कहाँ है? गेंद नहीं मिली, टमाटर चलेगा!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "सूर्या, गेंद कहाँ है?",
+          "start": 0.25,
+          "end": 1.63,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "गेंद नहीं मिली, टमाटर चलेगा!",
+          "start": 1.73,
+          "end": 3.82,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "सूर्या, गेंद कहाँ है?"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "ये ले टमाटर वाली गेंद! इसे बल्ले से मारूँ क्या?",
+      "subtitle": "ये ले टमाटर वाली गेंद! इसे बल्ले से मारूँ क्या?",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "ये ले टमाटर वाली गेंद!",
+          "start": 0.25,
+          "end": 2.13,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "इसे बल्ले से मारूँ क्या?",
+          "start": 2.23,
+          "end": 4.0,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "ये ले टमाटर वाली गेंद!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "pintu"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "लो, टमाटर हवा में! छपाक! मैं तो टमाटर से लाल हो गया!",
+      "subtitle": "लो, टमाटर हवा में! छपाक! मैं तो टमाटर से लाल हो गया!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "लो, टमाटर हवा में!",
+          "start": 0.25,
+          "end": 1.8,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "छपाक! मैं तो टमाटर से लाल हो गया!",
+          "start": 1.9,
+          "end": 4.65,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "लो, टमाटर हवा में!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "pintu",
+        "boardText": "चटनी"
+      },
+      "duration": 5.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बचा टमाटर मेरा, सब नहाने जाओ! आंटी, आज चटनी में अंपायर भी है!",
+      "subtitle": "बचा टमाटर मेरा, सब नहाने जाओ! आंटी, आज चटनी में अंपायर भी है!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "बचा टमाटर मेरा, सब नहाने जाओ!",
+          "start": 0.25,
+          "end": 2.76,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "आंटी, आज चटनी में अंपायर भी है!",
+          "start": 2.86,
+          "end": 5.46,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "बचा टमाटर मेरा, सब नहाने जाओ!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "टमाटर की चटनी बन गई! खेलो डैश एक्स के साथ!",
+      "subtitle": "टमाटर की चटनी बन गई! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "टमाटर की चटनी बन गई! खेलो डैश एक्स के साथ!"
+    }
+  ],
+  "dialogue_format": 2
+}

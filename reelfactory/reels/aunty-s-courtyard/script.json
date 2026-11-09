@@ -1,0 +1,105 @@
+{
+  "id": "aunty-s-courtyard",
+  "title": "आंटी का आँगन",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu bowls, Surya's shot heads for Aunty's courtyard, the kids close their eyes, and Aunty catches it and smiles.",
+    "idea": "Aunty's Courtyard",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "आंटी का दिल भी बड़ा!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "golu"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गोलू ने नन्हे हाथों से गेंद डाली।",
+      "subtitle": "गोलू ने नन्हे हाथों से गेंद डाली।"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "meena"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या का शॉट आंटी के आँगन की तरफ़!",
+      "subtitle": "सूर्या का शॉट आंटी के आँगन की तरफ़!"
+    },
+    {
+      "id": 3,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "meena",
+        "boardText": "OOPS!"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दोनों ने डरकर आँखें बंद कर लीं।",
+      "subtitle": "दोनों ने डरकर आँखें बंद कर लीं।"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "आंटी ने हँसकर गेंद पकड़ ली!",
+      "subtitle": "आंटी ने हँसकर गेंद पकड़ ली!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "आंटी का दिल भी बड़ा! खेलो डैश एक्स के साथ!",
+      "subtitle": "आंटी का दिल भी बड़ा! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 870
+    }
+  ]
+}

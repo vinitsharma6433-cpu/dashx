@@ -1,0 +1,23 @@
+{
+  "id": "cast-test",
+  "title": "cast test (not a real reel)",
+  "language": "hi",
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "brand": {"spelling": "DASHX", "line": "DASHX by Nav Durga Sports, Meerut", "notes": "Visual test of the new characters, no voice."},
+  "scenes": [
+    {"id": 1, "template": "face-off", "params": {"left": "aunty", "right": "pintu", "boardText": "OUT?"}, "duration": 3.6,
+     "camera": {"move": "zoom-in", "from": 1.0, "to": 1.05}, "voice": "आंटी और पिंटू", "subtitle": "आंटी और पिंटू"},
+    {"id": 2, "template": "face-off", "params": {"left": "golu", "right": "meena", "boardText": "DARE"}, "duration": 3.6,
+     "camera": {"move": "zoom-in", "from": 1.0, "to": 1.05}, "voice": "गोलू और मीना", "subtitle": "गोलू और मीना"},
+    {"id": 3, "template": "face-off", "params": {"left": "coach", "right": "bruno", "boardText": "WOOF"}, "duration": 3.6,
+     "camera": {"move": "zoom-in", "from": 1.0, "to": 1.05}, "voice": "कोच और ब्रूनो", "subtitle": "कोच और ब्रूनो"},
+    {"id": 4, "template": "run-up", "params": {"batter": "meena", "bowler": "golu"}, "duration": 4.1,
+     "camera": {"move": "pan-left", "zoom": 1.1}, "voice": "गोलू गेंदबाज़ी करता है", "subtitle": "गोलू गेंदबाज़ी करता है"},
+    {"id": 5, "template": "shot", "params": {"batter": "meena", "watcher": "bruno"}, "duration": 4.5,
+     "camera": {"move": "tilt-up", "zoom": 1.1}, "voice": "मीना का शॉट", "subtitle": "मीना का शॉट"},
+    {"id": 6, "template": "catch", "params": {"catcher": "aunty", "watchers": ["golu", "bruno"]}, "duration": 3.8,
+     "camera": {"move": "zoom-in", "from": 1.0, "to": 1.15}, "voice": "आंटी का कैच", "subtitle": "आंटी का कैच"},
+    {"id": 7, "template": "end-card", "params": {}, "duration": 4.5,
+     "camera": {"move": "zoom-in", "from": 1.0, "to": 1.05}, "voice": "खेलो डैश एक्स के साथ!", "subtitle": "खेलो डैश एक्स के साथ!"}
+  ]
+}

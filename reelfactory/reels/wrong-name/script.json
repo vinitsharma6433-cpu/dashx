@@ -1,0 +1,183 @@
+{
+  "id": "wrong-name",
+  "title": "ग़लत नाम",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Pintu mixes up the boys' names, Sachin insists on his own name, Surya asks if he is out then, and Coach catches the ball and sorts out the names.",
+    "idea": "Wrong Name",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "सबके नाम अब पक्के!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "sachin",
+        "boardText": "आउट"
+      },
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "तुम आउट हो, तुम्हीं! अंपायर साहब, पहले मेरा नाम तो पूछिए!",
+      "subtitle": "तुम आउट हो, तुम्हीं! अंपायर साहब, पहले मेरा नाम तो पूछिए!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "तुम आउट हो, तुम्हीं!",
+          "start": 0.25,
+          "end": 1.71,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "अंपायर साहब, पहले मेरा नाम तो पूछिए!",
+          "start": 1.81,
+          "end": 4.42,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "तुम आउट हो, तुम्हीं!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.7,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "तो फिर आउट मैं हुआ क्या? तू भी नहीं, अंपायर को कुछ पता नहीं!",
+      "subtitle": "तो फिर आउट मैं हुआ क्या? तू भी नहीं, अंपायर को कुछ पता नहीं!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "तो फिर आउट मैं हुआ क्या?",
+          "start": 0.25,
+          "end": 1.82,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "तू भी नहीं, अंपायर को कुछ पता नहीं!",
+          "start": 1.92,
+          "end": 4.26,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "तो फिर आउट मैं हुआ क्या?"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "pintu",
+          "surya"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "रुको! पहले नाम सुधारो, फिर आउट!",
+      "subtitle": "रुको! पहले नाम सुधारो, फिर आउट!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "रुको! पहले नाम सुधारो, फिर आउट!",
+          "start": 0.25,
+          "end": 2.71,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "रुको! पहले नाम सुधारो, फिर आउट!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "sachin",
+        "boardText": "सूची"
+      },
+      "duration": 5.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ठीक है, नामों की सूची बनाऊँगा! और उसमें मेरा नाम सबसे ऊपर!",
+      "subtitle": "ठीक है, नामों की सूची बनाऊँगा! और उसमें मेरा नाम सबसे ऊपर!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "ठीक है, नामों की सूची बनाऊँगा!",
+          "start": 0.25,
+          "end": 2.46,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "और उसमें मेरा नाम सबसे ऊपर!",
+          "start": 2.56,
+          "end": 4.77,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "ठीक है, नामों की सूची बनाऊँगा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "सबके नाम अब पक्के! खेलो डैश एक्स के साथ!",
+      "subtitle": "सबके नाम अब पक्के! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "सबके नाम अब पक्के! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

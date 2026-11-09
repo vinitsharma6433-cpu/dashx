@@ -1,0 +1,73 @@
+{
+  "id": "gali-umpire",
+  "title": "गली अंपायर | DASHX Cricket Tennis Ball",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Only existing templates are used. No price, no 'best/no.1' claim, no copyrighted music."
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "OUT?"
+      },
+      "duration": 4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1,
+        "to": 1.12
+      },
+      "voice": "आउट या नॉट आउट? गली में बहस छिड़ गई!",
+      "subtitle": "आउट या नॉट आउट? गली में बहस छिड़ गई!"
+    },
+    {
+      "id": 2,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1,
+        "to": 1.15
+      },
+      "voice": "तभी बॉल सीधे अंपायर दादाजी के हाथ में!",
+      "subtitle": "तभी बॉल सीधे अंपायर दादाजी के हाथ में!"
+    },
+    {
+      "id": 3,
+      "template": "hero-end",
+      "params": {
+        "cast": [
+          "surya",
+          "dadaji",
+          "sachin"
+        ]
+      },
+      "duration": 9,
+      "camera": {
+        "move": "zoom-out",
+        "from": 1.15,
+        "to": 1
+      },
+      "voice": "फैसला दादाजी का! गली क्रिकेट का मज़ा, DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "subtitle": "फैसला दादाजी का! गली क्रिकेट का मज़ा, DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "tts_text": "फैसला दादाजी का! गली क्रिकेट का मज़ा, डैश एक्स क्रिकेट टेनिस बॉल. डैश एक्स बाय नव दुर्गा स्पोर्ट्स, मेरठ."
+    }
+  ]
+}

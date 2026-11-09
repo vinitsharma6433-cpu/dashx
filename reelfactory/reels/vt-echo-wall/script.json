@@ -1,0 +1,107 @@
+{
+  "id": "vt-echo-wall",
+  "title": "गूँज वाली दीवार",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya shouts six and the wall echoes it back, Golu thinks another team is cheering, and Dadaji says the wall can talk but cannot catch.",
+    "idea": "Echo Wall",
+    "generated": "2026-10-30",
+    "writer": "voice test",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "दीवार सिर्फ़ नक़ल करती है!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "golu",
+        "boardText": "ECHO"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या चिल्लाया, छक्का! दीवार बोली, छक्का!",
+      "subtitle": "सूर्या चिल्लाया, छक्का! दीवार बोली, छक्का!",
+      "subtitleWidth": 760
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "surya",
+        "boardText": "WHO?"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू डरकर बोला, दीवार के पीछे कौन है?",
+      "subtitle": "गोलू डरकर बोला, दीवार के पीछे कौन है?"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने दूसरी गेंद ज़ोर से उड़ाई!",
+      "subtitle": "सूर्या ने दूसरी गेंद ज़ोर से उड़ाई!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "golu",
+          "surya"
+        ]
+      },
+      "duration": 5.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी बोले, दीवार बोलती है, कैच पकड़ती नहीं।",
+      "subtitle": "दादाजी बोले, दीवार बोलती है, कैच पकड़ती नहीं।"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "दीवार सिर्फ़ नक़ल करती है! खेलो डैश एक्स के साथ!",
+      "subtitle": "दीवार सिर्फ़ नक़ल करती है! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

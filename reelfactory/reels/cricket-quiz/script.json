@@ -1,0 +1,182 @@
+{
+  "id": "cricket-quiz",
+  "title": "क्रिकेट की पहेली",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach asks a cricket quiz, Golu answers with food, Meena answers with a six, and Coach catches the ball and says that is the right answer.",
+    "idea": "Cricket Quiz",
+    "generated": "2026-10-30",
+    "writer": "dialogue bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "पहेली हल, गोलू फेल!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "golu",
+        "boardText": "सवाल"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, विकेट में कितने डंडे? तीन, और चौथा समोसा!",
+      "subtitle": "गोलू, विकेट में कितने डंडे? तीन, और चौथा समोसा!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "गोलू, विकेट में कितने डंडे?",
+          "start": 0.25,
+          "end": 2.27,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "तीन, और चौथा समोसा!",
+          "start": 2.37,
+          "end": 3.99,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "गोलू, विकेट में कितने डंडे?"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "meena",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सवाल छोड़ो, ये लो छक्का! मीना ने जवाब दे दिया!",
+      "subtitle": "सवाल छोड़ो, ये लो छक्का! मीना ने जवाब दे दिया!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "सवाल छोड़ो, ये लो छक्का!",
+          "start": 0.25,
+          "end": 1.94,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "मीना ने जवाब दे दिया!",
+          "start": 2.04,
+          "end": 3.65,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "सवाल छोड़ो, ये लो छक्का!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "golu",
+          "meena"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "सही जवाब पकड़ लिया!",
+      "subtitle": "सही जवाब पकड़ लिया!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "सही जवाब पकड़ लिया!",
+          "start": 0.25,
+          "end": 1.94,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "सही जवाब पकड़ लिया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "golu",
+        "boardText": "नतीजा"
+      },
+      "duration": 4.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, तुम्हारा जवाब ग़लत है! कोच जी, समोसे वाला सही था!",
+      "subtitle": "गोलू, तुम्हारा जवाब ग़लत है! कोच जी, समोसे वाला सही था!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "गोलू, तुम्हारा जवाब ग़लत है!",
+          "start": 0.25,
+          "end": 2.48,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "कोच जी, समोसे वाला सही था!",
+          "start": 2.58,
+          "end": 4.46,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "गोलू, तुम्हारा जवाब ग़लत है!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "पहेली हल, गोलू फेल! खेलो डैश एक्स के साथ!",
+      "subtitle": "पहेली हल, गोलू फेल! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "पहेली हल, गोलू फेल! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 840
+    }
+  ],
+  "dialogue_format": 2
+}

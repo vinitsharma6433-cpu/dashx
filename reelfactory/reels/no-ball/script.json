@@ -1,0 +1,105 @@
+{
+  "id": "no-ball",
+  "title": "नो बॉल",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Meena bowls fast, Pintu calls a no ball, Surya hits it anyway, and Aunty catches it without even looking.",
+    "idea": "No Ball",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "नो बॉल पर भी कैच!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "meena"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "मीना ने तेज़ गेंद फेंकी।",
+      "subtitle": "मीना ने तेज़ गेंद फेंकी।"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "meena",
+        "boardText": "NO BALL"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू ने कहा, यह नो बॉल है!",
+      "subtitle": "पिंटू ने कहा, यह नो बॉल है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "pintu"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने फिर भी शॉट मार दिया!",
+      "subtitle": "सूर्या ने फिर भी शॉट मार दिया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "meena",
+          "sachin"
+        ]
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "आंटी ने बिना देखे ही कैच पकड़ लिया!",
+      "subtitle": "आंटी ने बिना देखे ही कैच पकड़ लिया!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "नो बॉल पर भी कैच! खेलो डैश एक्स के साथ!",
+      "subtitle": "नो बॉल पर भी कैच! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 810
+    }
+  ]
+}

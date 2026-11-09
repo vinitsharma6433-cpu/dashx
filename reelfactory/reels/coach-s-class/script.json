@@ -1,0 +1,105 @@
+{
+  "id": "coach-s-class",
+  "title": "कोच की क्लास",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach uncle tells the kids to get ready and bowls himself, Sachin hits it straight, and Pintu catches it while the coach laughs.",
+    "idea": "Coach's Class",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "कोच भी हँस पड़े!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "sachin",
+        "boardText": "READY?"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "कोच अंकल बोले, तैयार हो जाओ!",
+      "subtitle": "कोच अंकल बोले, तैयार हो जाओ!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "coach"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "कोच ने खुद दौड़कर गेंद डाली।",
+      "subtitle": "कोच ने खुद दौड़कर गेंद डाली।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "meena"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने सीधा बल्ला घुमाया!",
+      "subtitle": "सचिन ने सीधा बल्ला घुमाया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "pintu",
+        "watchers": [
+          "meena",
+          "golu"
+        ]
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "पिंटू ने सीटी बजाते हुए कैच पकड़ा!",
+      "subtitle": "पिंटू ने सीटी बजाते हुए कैच पकड़ा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "कोच भी हँस पड़े! खेलो डैश एक्स के साथ!",
+      "subtitle": "कोच भी हँस पड़े! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 750
+    }
+  ]
+}

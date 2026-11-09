@@ -1,0 +1,104 @@
+{
+  "id": "dadaji-s-bat",
+  "title": "दादाजी का बल्ले!",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin and Surya find Dadaji's bat, but it's hiding a surprise – a playful monkey!",
+    "idea": "Dadaji's Lost Bat",
+    "generated": "2026-10-30",
+    "writer": "Gemma gemma3:4b via purffle-shorts planner + Script Doctor (score 68)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "गिल्ली-डिल्ली, खूब खेलो!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "MINE!"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूरज ने बल्ले ढूंढी!",
+      "subtitle": "सूरज ने बल्ले ढूंढी!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन गेंद फेंकेगा अब!",
+      "subtitle": "सचिन गेंद फेंकेगा अब!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "बल्ले से गेंद ऊपर!",
+      "subtitle": "बल्ले से गेंद ऊपर!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने गेंद पकड़ी!",
+      "subtitle": "दादाजी ने गेंद पकड़ी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "गिल्ली-डिल्ली, खूब खेलो! खेलो डैश एक्स के साथ!",
+      "subtitle": "गिल्ली-डिल्ली, खूब खेलो! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Stories already made (newest last)
+
+- 2026-10-30 | chai-wala-catch | चाय वाला कैच (Chai Wala Catch) | Surya swears he will get Sachin out today, Sachin smashes the ball sky-high, and Dadaji catches it without spilling his chai.
+- 2026-10-30 | my-turn-first | पहले मेरी बारी (My Turn First) | Both boys want to bat first; Sachin wins, hits it sky-high, and Dadaji catches it and announces that now he will bat.
+- 2026-10-30 | the-window-is-safe | खिड़की बच गई (The Window Is Safe) | Sachin's big shot heads for the neighbour auntie's window and the boys panic, until Dadaji catches the ball just in time.
+- 2026-10-30 | surya-s-big-talk | सूर्या का घमंड (Surya's Big Talk) | Surya boasts that nobody can play his bowling, Sachin sends the ball into the sky, and Surya is left speechless but still smiling.
+- 2026-10-30 | dadaji-is-asleep | सोते हुए दादाजी (Dadaji Is Asleep) | The boys whisper so Dadaji can sleep, but Surya's shot flies straight at his chair, and Dadaji catches it in his sleep.
+- 2026-10-30 | hero-dadaji | आज का हीरो (Hero Dadaji) | Surya dares Sachin to hit a six, Sachin sends the ball into the clouds, and Dadaji catches it without leaving his chair. | आज का हीरो दादाजी!
+- 2026-10-30 | dadaji-s-bat | दादाजी का बल्ले! (Dadaji's Bat!) | Sachin and Surya find Dadaji's bat, but it's hiding a surprise – a playful monkey! | गिल्ली-डिल्ली, खूब खेलो!
+- 2026-10-30 | surya-s-big-talk-2 | सूर्य का दिखावा (Surya's Big Talk) | Surya tries to bowl too fast, causing a silly debate with Sachin about whether the ball is afraid. | गिल्ली खेलना बहुत मजेदार है!
+- 2026-10-30 | toss-time | टॉस का खेल (Toss Time) | Surya wins the toss and bats, his big swing sends the ball up, and Dadaji grabs it. | टॉस सूर्या का, मज़ा सबका!
+- 2026-10-30 | see-you-tomorrow | कल फिर खेलेंगे (See You Tomorrow) | At sunset the last ball goes up, the boys wonder what will happen, Dadaji calmly catches it, and they promise to play again tomorrow. | चलो, कल फिर खेलेंगे!
+- 2026-10-30 | the-ball-comes-back | गेंद लौट आई (The Ball Comes Back) | Surya's shot flies far away, the boys worry about the lost ball, Dadaji catches it, and everyone thanks him. | गेंद लौट आई, दोस्ती भी!
+- 2026-10-30 | after-the-rain | बारिश के बाद (After The Rain) | When the rain stops both boys rush out, Surya sends the ball up, and Dadaji catches it under his umbrella. | बारिश गई, खेल लौट आया!
+- 2026-10-30 | coach-s-class | कोच की क्लास (Coach's Class) | Coach uncle tells the kids to get ready and bowls himself, Sachin hits it straight, and Pintu catches it while the coach laughs. | कोच भी हँस पड़े!
+- 2026-10-30 | bruno-on-guard | ब्रूनो की निगरानी (Bruno On Guard) | Surya tells Bruno not to touch the ball, Sachin's shot goes high while Bruno barks, and Aunty catches it from her chair. | ब्रूनो को भी मज़ा आया!
+- 2026-10-30 | eyes-closed | आँखें बंद (Eyes Closed) | Sachin is scared of Surya's fast bowling, Surya bowls with his eyes shut, Sachin swings with his eyes shut, and the ball lands in Dadaji's hands. | आँखें खुलीं तो गेंद ग़ायब!
+- 2026-10-30 | no-ball | नो बॉल (No Ball) | Meena bowls fast, Pintu calls a no ball, Surya hits it anyway, and Aunty catches it without even looking. | नो बॉल पर भी कैच!
+- 2026-10-30 | golu-s-sharp-eyes | गोलू की तेज़ नज़र (Golu's Sharp Eyes) | Sachin hits the ball very high, tiny Golu shouts to look up, Coach uncle catches it one-handed, and Golu is amazed. | छोटे गोलू की बड़ी नज़र!
+- 2026-10-30 | bruno-and-dadaji | ब्रूनो और दादाजी (Bruno And Dadaji) | Bruno barks at Dadaji, runs after Surya, jumps at Sachin's shot, and Dadaji shows him the caught ball. | ब्रूनो ने पूँछ हिला दी!
+- 2026-10-30 | kite-day | पतंग वाला दिन (Kite Day) | A kite flies overhead, Surya's shot goes up toward it, and Dadaji catches the ball while watching the kite. | पतंग उड़ी, गेंद लौटी!
+- 2026-10-30 | aunty-s-courtyard | आंटी का आँगन (Aunty's Courtyard) | Golu bowls, Surya's shot heads for Aunty's courtyard, the kids close their eyes, and Aunty catches it and smiles. | आंटी का दिल भी बड़ा!
+- 2026-10-30 | pintu-s-whistle | पिंटू की सीटी (Pintu's Whistle) | Umpire Pintu declares Golu out, Golu gets another ball and hits it, and Pintu himself catches it while blowing his whistle. | अब अंपायर भी खिलाड़ी!
+- 2026-10-30 | clap-clap | तालियाँ (Clap Clap) | A straight ball, a big shot, a calm catch by Dadaji, and then both boys burst out laughing. | सबने मिलकर ताली बजाई!
+- 2026-10-30 | dadaji-s-team | दादाजी की टीम (Dadaji's Team) | Dadaji asks to join the team, Sachin's shot comes straight at him, and Dadaji makes the team's first catch. | दादाजी अब टीम के कप्तान!
+- 2026-10-30 | hidden-ball | छुपी हुई गेंद (Hidden Ball) | Surya hides the ball behind his back, then suddenly runs in, Sachin hits it in surprise, and Dadaji spots and catches it. | छुपाई गेंद भी पकड़ी गई!
+- 2026-10-30 | slow-ball | धीमी गेंद (Slow Ball) | Surya bowls very slowly, Sachin yawns, then smashes it in one go, and Dadaji quietly catches it. | धीमी गेंद, तेज़ हँसी!
+- 2026-10-30 | two-whistles | दो सीटियाँ (Two Whistles) | Pintu and Coach both blow whistles at the same time, Surya freezes in confusion, and Aunty takes both whistles away while catching the ball. | अब सीटी सिर्फ़ आंटी की!
+- 2026-10-30 | big-shoes | बड़े जूते (Big Shoes) | Golu wears Coach's huge shoes to look tall, stumbles while bowling, Meena hits the rolling ball, and Coach catches it and takes his shoes back. | जूतों में गोलू लड़खड़ाया!
+- 2026-10-30 | digging-bruno | खोदता ब्रूनो (Digging Bruno) | Bruno digs up the pitch, Sachin's foot sinks into the hole mid-run, Surya hits the ball skyward, and Aunty catches it and tells everyone to fill the hole. | पिच बना खदान!
+- 2026-10-30 | sneeze | छींक (Sneeze) | Dadaji sneezes just as the ball arrives, his hands fly up by reflex, and the ball lands perfectly in them. | छींक का आशीर्वाद मिला!
+- 2026-10-30 | fake-cramp | झूठी मोच (Fake Cramp) | Sachin pretends to have a cramp so he does not have to bowl, Coach sees through it, Sachin forgets the pain and sprints, and Pintu says a man with a cramp can run fast. | मोच अपने आप ठीक!
+- 2026-10-30 | kulfi-bell | कुल्फ़ी की घंटी (Kulfi Bell) | The kulfi seller's bell rings, every player runs off, Sachin's last shot goes up, and Dadaji, left alone, catches it. | घंटी बजी, मैदान सूना!
+- 2026-10-30 | lunch-time | खाने का वक़्त (Lunch Time) | Aunty calls Meena for lunch, Meena asks for one last ball, Sachin sends it into Aunty's kitchen, and Aunty catches it still holding her rolling pin. | रसोई में छक्का, बेलन तैयार!
+- 2026-10-30 | mirror-sun | आईने की धूप (Mirror Sun) | Aunty's mirror throws sunlight into Sachin's eyes, he swings blindly, and Aunty removes the mirror and catches the ball. | शीशे का कमाल!
+- 2026-10-30 | wrong-name | ग़लत नाम (Wrong Name) | Pintu mixes up the boys' names, Sachin insists on his own name, Surya asks if he is out then, and Coach catches the ball and sorts out the names. | सबके नाम अब पक्के!
+- 2026-10-30 | tomato-ball | टमाटर की गेंद (Tomato Ball) | Surya forgets the ball and bowls a tomato, Sachin's shot splashes it over Pintu, and Aunty catches what is left and sends everyone to wash. | टमाटर की चटनी बन गई!

@@ -1,0 +1,104 @@
+{
+  "id": "two-whistles",
+  "title": "दो सीटियाँ",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Pintu and Coach both blow whistles at the same time, Surya freezes in confusion, and Aunty takes both whistles away while catching the ball.",
+    "idea": "Two Whistles",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "अब सीटी सिर्फ़ आंटी की!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "coach",
+        "boardText": "WHISTLE"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू बोला, यह सीटी मेरी है, कोच!",
+      "subtitle": "पिंटू बोला, यह सीटी मेरी है, कोच!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "golu"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गोलू ने गेंद डाली, दोनों ने सीटी बजाई।",
+      "subtitle": "गोलू ने गेंद डाली, दोनों ने सीटी बजाई।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "golu"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दो सीटियाँ सुनकर सूर्या चकरा गया!",
+      "subtitle": "दो सीटियाँ सुनकर सूर्या चकरा गया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "pintu",
+          "coach"
+        ]
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "आंटी ने गेंद पकड़ी, सीटियाँ भी छीन लीं!",
+      "subtitle": "आंटी ने गेंद पकड़ी, सीटियाँ भी छीन लीं!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अब सीटी सिर्फ़ आंटी की! खेलो डैश एक्स के साथ!",
+      "subtitle": "अब सीटी सिर्फ़ आंटी की! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "the-ball-comes-back",
+  "title": "गेंद लौट आई",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya's shot flies far away, the boys worry about the lost ball, Dadaji catches it, and everyone thanks him.",
+    "idea": "The Ball Comes Back",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "गेंद लौट आई, दोस्ती भी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या का शॉट बहुत दूर चला गया!",
+      "subtitle": "सूर्या का शॉट बहुत दूर चला गया!"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "LOST?"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन बोला, अब गेंद कहाँ मिलेगी?",
+      "subtitle": "सचिन बोला, अब गेंद कहाँ मिलेगी?"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी के हाथ में गेंद वापस आ गई!",
+      "subtitle": "दादाजी के हाथ में गेंद वापस आ गई!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "sachin",
+        "boardText": "THANKS"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सब बोले, शुक्रिया दादाजी!",
+      "subtitle": "सब बोले, शुक्रिया दादाजी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "गेंद लौट आई, दोस्ती भी! खेलो डैश एक्स के साथ!",
+      "subtitle": "गेंद लौट आई, दोस्ती भी! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

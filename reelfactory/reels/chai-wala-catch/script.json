@@ -1,0 +1,112 @@
+{
+  "id": "chai-wala-catch",
+  "title": "चाय वाला कैच",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya swears he will get Sachin out today, Sachin smashes the ball sky-high, and Dadaji catches it without spilling his chai.",
+    "idea": "Chai Wala Catch",
+    "generated": "2026-10-30",
+    "writer": "written by the coding assistant (no LLM run)",
+    "doctor_score": null,
+    "doctor_notes": [],
+    "durations_are_estimates": "Run scripts/make_voice.py, then set each duration to voice length + about 0.7 s."
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "DARE"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या बोला, आज तुझे आउट करूँगा!",
+      "subtitle": "सूर्या बोला, आज तुझे आउट करूँगा!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने दौड़कर गेंद फेंकी।",
+      "subtitle": "सूर्या ने दौड़कर गेंद फेंकी।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गेंद आसमान में उड़ा दी!",
+      "subtitle": "सचिन ने गेंद आसमान में उड़ा दी!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने चाय पीते-पीते कैच पकड़ा!",
+      "subtitle": "दादाजी ने चाय पीते-पीते कैच पकड़ा!"
+    },
+    {
+      "id": 5,
+      "template": "hero-end",
+      "params": {
+        "cast": [
+          "sachin",
+          "dadaji",
+          "surya"
+        ]
+      },
+      "duration": 9.5,
+      "camera": {
+        "move": "zoom-out",
+        "from": 1.15,
+        "to": 1.0
+      },
+      "voice": "गली क्रिकेट का मज़ा ही अलग! DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "subtitle": "गली क्रिकेट का मज़ा ही अलग! DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "tts_text": "गली क्रिकेट का मज़ा ही अलग! डैश एक्स क्रिकेट टेनिस बॉल. डैश एक्स बाय नव दुर्गा स्पोर्ट्स, मेरठ."
+    }
+  ]
+}

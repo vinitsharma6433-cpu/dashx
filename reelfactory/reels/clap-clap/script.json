@@ -1,0 +1,104 @@
+{
+  "id": "clap-clap",
+  "title": "तालियाँ",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "A straight ball, a big shot, a calm catch by Dadaji, and then both boys burst out laughing.",
+    "idea": "Clap Clap",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "सबने मिलकर ताली बजाई!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने सीधी गेंद डाली।",
+      "subtitle": "सूर्या ने सीधी गेंद डाली।"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन का शॉट हवा में उड़ गया!",
+      "subtitle": "सचिन का शॉट हवा में उड़ गया!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने गेंद आराम से पकड़ ली!",
+      "subtitle": "दादाजी ने गेंद आराम से पकड़ ली!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "CLAP"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन और सूर्या हँस पड़े!",
+      "subtitle": "सचिन और सूर्या हँस पड़े!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "सबने मिलकर ताली बजाई! खेलो डैश एक्स के साथ!",
+      "subtitle": "सबने मिलकर ताली बजाई! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

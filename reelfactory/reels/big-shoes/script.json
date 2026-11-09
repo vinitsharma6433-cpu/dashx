@@ -1,0 +1,106 @@
+{
+  "id": "big-shoes",
+  "title": "बड़े जूते",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu wears Coach's huge shoes to look tall, stumbles while bowling, Meena hits the rolling ball, and Coach catches it and takes his shoes back.",
+    "idea": "Big Shoes",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "जूतों में गोलू लड़खड़ाया!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "coach",
+        "boardText": "SHOES"
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू बोला, कोच जी, आज आपके जूते पहनूँगा!",
+      "subtitle": "गोलू बोला, कोच जी, आज आपके जूते पहनूँगा!",
+      "subtitleWidth": 800
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "meena",
+        "bowler": "golu"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गोलू बड़े जूतों में लड़खड़ाते हुए दौड़ा।",
+      "subtitle": "गोलू बड़े जूतों में लड़खड़ाते हुए दौड़ा।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "meena",
+        "watcher": "golu"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "मीना ने लुढ़कती गेंद पर शॉट जमा दिया!",
+      "subtitle": "मीना ने लुढ़कती गेंद पर शॉट जमा दिया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "golu",
+          "meena"
+        ]
+      },
+      "duration": 3.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "कोच ने कैच लिया, जूते भी वापस लिए!",
+      "subtitle": "कोच ने कैच लिया, जूते भी वापस लिए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "जूतों में गोलू लड़खड़ाया! खेलो डैश एक्स के साथ!",
+      "subtitle": "जूतों में गोलू लड़खड़ाया! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 890
+    }
+  ]
+}

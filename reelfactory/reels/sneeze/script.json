@@ -1,0 +1,106 @@
+{
+  "id": "sneeze",
+  "title": "छींक",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Dadaji sneezes just as the ball arrives, his hands fly up by reflex, and the ball lands perfectly in them.",
+    "idea": "Sneeze",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "छींक का आशीर्वाद मिला!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "dadaji",
+        "boardText": "ACHOO"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या बोला, दादाजी, आपको ज़ुकाम लग गया?",
+      "subtitle": "सूर्या बोला, दादाजी, आपको ज़ुकाम लग गया?",
+      "subtitleWidth": 830
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गेंद आराम से फेंकी।",
+      "subtitle": "सचिन ने गेंद आराम से फेंकी।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "dadaji"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने शॉट मारा, दादाजी को छींक आई!",
+      "subtitle": "सूर्या ने शॉट मारा, दादाजी को छींक आई!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "छींकते-छींकते दादाजी ने कैच पकड़ लिया!",
+      "subtitle": "छींकते-छींकते दादाजी ने कैच पकड़ लिया!",
+      "subtitleWidth": 730
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "छींक का आशीर्वाद मिला! खेलो डैश एक्स के साथ!",
+      "subtitle": "छींक का आशीर्वाद मिला! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

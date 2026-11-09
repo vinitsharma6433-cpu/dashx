@@ -1,0 +1,105 @@
+{
+  "id": "eyes-closed",
+  "title": "आँखें बंद",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin is scared of Surya's fast bowling, Surya bowls with his eyes shut, Sachin swings with his eyes shut, and the ball lands in Dadaji's hands.",
+    "idea": "Eyes Closed",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "आँखें खुलीं तो गेंद ग़ायब!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "SCARY"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन बोला, तेरी गेंद से डर लगता है!",
+      "subtitle": "सचिन बोला, तेरी गेंद से डर लगता है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने आँखें बंद करके गेंद डाली।",
+      "subtitle": "सूर्या ने आँखें बंद करके गेंद डाली।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने भी आँखें बंद करके बल्ला घुमाया!",
+      "subtitle": "सचिन ने भी आँखें बंद करके बल्ला घुमाया!",
+      "subtitleWidth": 710
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "गेंद सीधी दादाजी के हाथ में पहुँची!",
+      "subtitle": "गेंद सीधी दादाजी के हाथ में पहुँची!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "आँखें खुलीं तो गेंद ग़ायब! खेलो डैश एक्स के साथ!",
+      "subtitle": "आँखें खुलीं तो गेंद ग़ायब! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

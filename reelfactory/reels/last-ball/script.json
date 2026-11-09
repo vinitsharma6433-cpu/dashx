@@ -1,0 +1,128 @@
+{
+  "id": "last-ball",
+  "title": "आखिरी बॉल | DASHX Cricket Tennis Ball",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "totalSeconds": 25
+  },
+  "style": "3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian gali setting, no text in image",
+  "characters": {
+    "sachin": "Sachin: 10-year-old Indian boy, short black hair, sleepy-eyed, red t-shirt, blue shorts, 3D Pixar-style cartoon",
+    "surya": "Surya: 10-year-old Indian boy, black hair, green t-shirt, jeans, 3D Pixar-style cartoon",
+    "dadaji": "Dadaji: kind elderly Indian grandfather, white moustache, white kurta, cream cap, 3D Pixar-style cartoon (supporting character, not in your brief: tell me if you want him changed)"
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "overlayAssets": {
+      "logo": "assets/dashx-logo.jpg",
+      "ballPhoto": "assets/hero-ball.jpg"
+    },
+    "notes": "No price, no 'best/no.1' claim, no copyrighted music. DASHX name and ball are added by overlay, not trusted to the AI image."
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "TIE"
+      },
+      "duration": 4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1,
+        "to": 1.12
+      },
+      "image_prompt": "Sachin: 10-year-old Indian boy, short black hair, sleepy-eyed, red t-shirt, blue shorts, 3D Pixar-style cartoon, and Surya: 10-year-old Indian boy, black hair, green t-shirt, jeans, 3D Pixar-style cartoon, stand tense in a narrow Indian gali cricket pitch at golden hour, last ball of the match, friends watching nervously, a plain yellow tennis ball in Surya's hand. 3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian setting, no text in image",
+      "voice": "आखिरी बॉल, स्कोर बराबर!",
+      "subtitle": "आखिरी बॉल, स्कोर बराबर!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4,
+      "camera": {
+        "move": "pan-left",
+        "from": 0.55,
+        "to": 0.45,
+        "zoom": 1.1
+      },
+      "image_prompt": "Surya: 10-year-old Indian boy, black hair, green t-shirt, jeans, 3D Pixar-style cartoon, running fast down the gali to bowl, determined face, dust and motion, Sachin in red t-shirt and blue shorts waiting with the bat in the background. 3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian setting, no text in image",
+      "voice": "सूर्या ने दौड़ लगाई…",
+      "subtitle": "सूर्या ने दौड़ लगाई…"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "from": 0.6,
+        "to": 0.4,
+        "zoom": 1.1
+      },
+      "image_prompt": "Sachin: 10-year-old Indian boy, short black hair, sleepy-eyed, red t-shirt, blue shorts, 3D Pixar-style cartoon, finishing a big cricket shot, a yellow tennis ball flying high into the evening sky above the gali rooftops, all the kids looking up in wonder. 3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian setting, no text in image",
+      "voice": "सचिन का शॉट… बॉल आसमान में!",
+      "subtitle": "सचिन का शॉट… बॉल आसमान में!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1,
+        "to": 1.15
+      },
+      "image_prompt": "Dadaji: kind elderly Indian grandfather, white moustache, white kurta, cream cap, 3D Pixar-style cartoon, standing at his house gate and catching the yellow tennis ball with one hand, proud smile, Sachin in red t-shirt and blue shorts and Surya in green t-shirt and jeans staring in surprise. 3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian setting, no text in image",
+      "voice": "लेकिन दादाजी ने कैच पकड़ लिया!",
+      "subtitle": "लेकिन दादाजी ने कैच पकड़ लिया!"
+    },
+    {
+      "id": 5,
+      "template": "hero-end",
+      "params": {
+        "cast": [
+          "sachin",
+          "dadaji",
+          "surya"
+        ]
+      },
+      "duration": 8,
+      "camera": {
+        "move": "zoom-out",
+        "from": 1.15,
+        "to": 1
+      },
+      "image_prompt": "Sachin: 10-year-old Indian boy, short black hair, sleepy-eyed, red t-shirt, blue shorts, 3D Pixar-style cartoon, Surya: 10-year-old Indian boy, black hair, green t-shirt, jeans, 3D Pixar-style cartoon, and Dadaji laughing together in the gali at sunset, holding a plain yellow tennis ball up happily. 3D Pixar-style cartoon illustration, warm cinematic lighting, vertical 9:16, detailed Indian setting, no text in image",
+      "voice": "गली क्रिकेट का असली मज़ा, DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "subtitle": "गली क्रिकेट का असली मज़ा, DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "tts_text": "गली क्रिकेट का असली मज़ा, डैश एक्स क्रिकेट टेनिस बॉल. डैश एक्स बाय नव दुर्गा स्पोर्ट्स, मेरठ.",
+      "overlay": [
+        "ballPhoto",
+        "logo",
+        "endCard"
+      ]
+    }
+  ]
+}

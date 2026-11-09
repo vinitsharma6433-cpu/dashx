@@ -1,0 +1,188 @@
+{
+  "id": "sneeze-talk",
+  "title": "छींक वाला कैच",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Dadaji has a dusty nose, Surya hits a six straight at him, Dadaji sneezes and catches the ball by reflex, and Surya calls him a hero.",
+    "idea": "Sneeze Talk",
+    "generated": "2026-10-30",
+    "writer": "dialogue bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "छींक का आशीर्वाद मिला!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "dadaji",
+        "boardText": "ACHOO"
+      },
+      "duration": 5.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी, आपको ज़ुकाम है क्या? नहीं बेटा, बस धूल है।",
+      "subtitle": "दादाजी, आपको ज़ुकाम है क्या? नहीं बेटा, बस धूल है।",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "दादाजी, आपको ज़ुकाम है क्या?",
+          "start": 0.25,
+          "end": 2.17,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "नहीं बेटा, बस धूल है।",
+          "start": 2.27,
+          "end": 4.69,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "दादाजी, आपको ज़ुकाम है क्या?"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या, मैं गेंद डालूँ? डाल, पर दादाजी की तरफ़ नहीं!",
+      "subtitle": "सूर्या, मैं गेंद डालूँ? डाल, पर दादाजी की तरफ़ नहीं!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "सूर्या, मैं गेंद डालूँ?",
+          "start": 0.25,
+          "end": 1.8,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "डाल, पर दादाजी की तरफ़ नहीं!",
+          "start": 1.9,
+          "end": 3.83,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "सूर्या, मैं गेंद डालूँ?"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "dadaji"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ये लो छक्का! आ, आ, आछूँ!",
+      "subtitle": "ये लो छक्का! आ, आ, आछूँ!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "ये लो छक्का!",
+          "start": 0.25,
+          "end": 1.33,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "आ, आ, आछूँ!",
+          "start": 1.43,
+          "end": 3.16,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "ये लो छक्का!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 5.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "लो, छींकते-छींकते पकड़ लिया! दादाजी, आप तो छींक में भी हीरो हो!",
+      "subtitle": "लो, छींकते-छींकते पकड़ लिया! दादाजी, आप तो छींक में भी हीरो हो!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "लो, छींकते-छींकते पकड़ लिया!",
+          "start": 0.25,
+          "end": 3.05,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "दादाजी, आप तो छींक में भी हीरो हो!",
+          "start": 3.15,
+          "end": 5.37,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "लो, छींकते-छींकते पकड़ लिया!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "छींक का आशीर्वाद मिला! खेलो डैश एक्स के साथ!",
+      "subtitle": "छींक का आशीर्वाद मिला! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "छींक का आशीर्वाद मिला! खेलो डैश एक्स के साथ!"
+    }
+  ],
+  "dialogue_format": 2
+}

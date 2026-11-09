@@ -1,0 +1,104 @@
+{
+  "id": "dadaji-s-team",
+  "title": "दादाजी की टीम",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Dadaji asks to join the team, Sachin's shot comes straight at him, and Dadaji makes the team's first catch.",
+    "idea": "Dadaji's Team",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "दादाजी अब टीम के कप्तान!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "sachin",
+        "boardText": "TEAM?"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी बोले, मुझे भी टीम में लो!",
+      "subtitle": "दादाजी बोले, मुझे भी टीम में लो!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या हँसते हुए गेंद लेकर दौड़ा।",
+      "subtitle": "सूर्या हँसते हुए गेंद लेकर दौड़ा।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "dadaji"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन का शॉट दादाजी की तरफ़ गया!",
+      "subtitle": "सचिन का शॉट दादाजी की तरफ़ गया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "टीम की पहली गेंद, पहला कैच!",
+      "subtitle": "टीम की पहली गेंद, पहला कैच!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "दादाजी अब टीम के कप्तान! खेलो डैश एक्स के साथ!",
+      "subtitle": "दादाजी अब टीम के कप्तान! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "vt-bruno-keeper",
+  "title": "ब्रूनो विकेटकीपर",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Pintu makes Bruno the wicketkeeper, Bruno chases the bowler instead of the ball, and Coach catches while Bruno barks happily.",
+    "idea": "Bruno The Keeper",
+    "generated": "2026-10-30",
+    "writer": "voice test",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "विकेटकीपर ब्रूनो ज़िंदाबाद!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "bruno",
+        "boardText": "KEEPER"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू बोला, आज ब्रूनो विकेटकीपर बनेगा!",
+      "subtitle": "पिंटू बोला, आज ब्रूनो विकेटकीपर बनेगा!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन का शॉट गया और ब्रूनो चल पड़ा!",
+      "subtitle": "सचिन का शॉट गया और ब्रूनो चल पड़ा!"
+    },
+    {
+      "id": 3,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "bruno",
+        "boardText": "FETCH"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या बोला, ब्रूनो, गेंद पकड़ना है, मुझे नहीं!",
+      "subtitle": "सूर्या बोला, ब्रूनो, गेंद पकड़ना है, मुझे नहीं!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "surya",
+          "bruno"
+        ]
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "कोच ने कैच लिया, ब्रूनो ख़ुशी से भौंका!",
+      "subtitle": "कोच ने कैच लिया, ब्रूनो ख़ुशी से भौंका!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "विकेटकीपर ब्रूनो ज़िंदाबाद! खेलो डैश एक्स के साथ!",
+      "subtitle": "विकेटकीपर ब्रूनो ज़िंदाबाद! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

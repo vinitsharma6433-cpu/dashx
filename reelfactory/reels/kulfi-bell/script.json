@@ -1,0 +1,182 @@
+{
+  "id": "kulfi-bell",
+  "title": "कुल्फ़ी की घंटी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "The kulfi seller's bell rings, every player runs off, Sachin's last shot goes up, and Dadaji, left alone, catches it.",
+    "idea": "Kulfi Bell",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "घंटी बजी, मैदान सूना!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "meena",
+        "boardText": "कुल्फ़ी"
+      },
+      "duration": 3.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सुनो! कुल्फ़ी वाले की घंटी! चलो, सब भागो!",
+      "subtitle": "सुनो! कुल्फ़ी वाले की घंटी! चलो, सब भागो!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "सुनो! कुल्फ़ी वाले की घंटी!",
+          "start": 0.25,
+          "end": 2.05,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "चलो, सब भागो!",
+          "start": 2.15,
+          "end": 3.32,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "सुनो! कुल्फ़ी वाले की घंटी!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "golu"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "आख़िरी शॉट, फिर कुल्फ़ी! जल्दी करो, कुल्फ़ी पिघल जाएगी!",
+      "subtitle": "आख़िरी शॉट, फिर कुल्फ़ी! जल्दी करो, कुल्फ़ी पिघल जाएगी!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "आख़िरी शॉट, फिर कुल्फ़ी!",
+          "start": 0.25,
+          "end": 1.92,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "जल्दी करो, कुल्फ़ी पिघल जाएगी!",
+          "start": 2.02,
+          "end": 4.15,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "आख़िरी शॉट, फिर कुल्फ़ी!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "golu",
+          "meena"
+        ]
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "सब चले गए, मैंने अकेले पकड़ ली!",
+      "subtitle": "सब चले गए, मैंने अकेले पकड़ ली!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "सब चले गए, मैंने अकेले पकड़ ली!",
+          "start": 0.25,
+          "end": 3.56,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "सब चले गए, मैंने अकेले पकड़ ली!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "dadaji",
+        "boardText": "ठंडा"
+      },
+      "duration": 6.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी, आपके लिए भी कुल्फ़ी लाए! गेंद पकड़ी मैंने, कुल्फ़ी खाई तुमने!",
+      "subtitle": "दादाजी, आपके लिए भी कुल्फ़ी लाए! गेंद पकड़ी मैंने, कुल्फ़ी खाई तुमने!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "दादाजी, आपके लिए भी कुल्फ़ी लाए!",
+          "start": 0.25,
+          "end": 2.36,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "गेंद पकड़ी मैंने, कुल्फ़ी खाई तुमने!",
+          "start": 2.46,
+          "end": 5.75,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "दादाजी, आपके लिए भी कुल्फ़ी लाए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "घंटी बजी, मैदान सूना! खेलो डैश एक्स के साथ!",
+      "subtitle": "घंटी बजी, मैदान सूना! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "घंटी बजी, मैदान सूना! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -1,0 +1,66 @@
+{
+  "_comment": "Per-character voices for scripts/make_voice.py (Kokoro, offline). pitch is in semitones, speed 1.0 = normal, gain_db is loudness. Only four installed Kokoro voices speak Hindi (hf_alpha, hf_beta, hm_omega, hm_psi), so character differences come from the voice choice plus speed and pitch. Set enabled to false to go back to the single narrator voice.",
+  "enabled": true,
+  "speak_tag": true,
+  "gap_s": 0.1,
+  "narrator": {
+    "voice": "hm_omega",
+    "speed": 1.0,
+    "pitch": 0,
+    "gain_db": 0
+  },
+  "characters": {
+    "sachin": {
+      "voice": "hm_psi",
+      "speed": 1.08,
+      "pitch": 3.0,
+      "gain_db": 0
+    },
+    "surya": {
+      "voice": "hm_omega",
+      "speed": 1.15,
+      "pitch": 5.5,
+      "gain_db": 0
+    },
+    "golu": {
+      "voice": "hm_psi",
+      "speed": 1.2,
+      "pitch": 7.5,
+      "gain_db": 0
+    },
+    "meena": {
+      "voice": "hf_beta",
+      "speed": 1.1,
+      "pitch": 1.0,
+      "gain_db": 0
+    },
+    "dadaji": {
+      "voice": "hm_omega",
+      "speed": 0.78,
+      "pitch": -3.0,
+      "gain_db": 0
+    },
+    "coach": {
+      "voice": "hm_psi",
+      "speed": 0.95,
+      "pitch": -6.5,
+      "gain_db": 4
+    },
+    "aunty": {
+      "voice": "hf_alpha",
+      "speed": 1.08,
+      "pitch": 2.5,
+      "gain_db": 0
+    },
+    "pintu": {
+      "voice": "hm_psi",
+      "speed": 1.0,
+      "pitch": 1.0,
+      "gain_db": 0
+    },
+    "bruno": {
+      "bark": "assets/sfx/bark.wav",
+      "gain_db": -2
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "pintu-s-whistle",
+  "title": "पिंटू की सीटी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Umpire Pintu declares Golu out, Golu gets another ball and hits it, and Pintu himself catches it while blowing his whistle.",
+    "idea": "Pintu's Whistle",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "अब अंपायर भी खिलाड़ी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "golu",
+        "boardText": "OUT!"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू अंपायर बोला, गोलू आउट है!",
+      "subtitle": "पिंटू अंपायर बोला, गोलू आउट है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "golu",
+        "bowler": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने दोबारा गेंद डाली।",
+      "subtitle": "सचिन ने दोबारा गेंद डाली।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "golu",
+        "watcher": "pintu"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "गोलू ने छोटा बल्ला घुमा दिया!",
+      "subtitle": "गोलू ने छोटा बल्ला घुमा दिया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "pintu",
+        "watchers": [
+          "sachin",
+          "golu"
+        ]
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "पिंटू ने सीटी बजाते-बजाते कैच पकड़ा!",
+      "subtitle": "पिंटू ने सीटी बजाते-बजाते कैच पकड़ा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अब अंपायर भी खिलाड़ी! खेलो डैश एक्स के साथ!",
+      "subtitle": "अब अंपायर भी खिलाड़ी! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

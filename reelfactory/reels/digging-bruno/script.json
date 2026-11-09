@@ -1,0 +1,104 @@
+{
+  "id": "digging-bruno",
+  "title": "खोदता ब्रूनो",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Bruno digs up the pitch, Sachin's foot sinks into the hole mid-run, Surya hits the ball skyward, and Aunty catches it and tells everyone to fill the hole.",
+    "idea": "Digging Bruno",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "पिच बना खदान!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "bruno",
+        "boardText": "DIG"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या बोला, ब्रूनो, पिच मत खोदो!",
+      "subtitle": "सूर्या बोला, ब्रूनो, पिच मत खोदो!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन दौड़ा और गड्ढे में अटक गया!",
+      "subtitle": "सचिन दौड़ा और गड्ढे में अटक गया!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने गेंद ज़ोर से आसमान में भेजी!",
+      "subtitle": "सूर्या ने गेंद ज़ोर से आसमान में भेजी!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "bruno",
+          "sachin"
+        ]
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "आंटी बोलीं, गड्ढा भरो, कैच मैं पकड़ूँगी!",
+      "subtitle": "आंटी बोलीं, गड्ढा भरो, कैच मैं पकड़ूँगी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "पिच बना खदान! खेलो डैश एक्स के साथ!",
+      "subtitle": "पिच बना खदान! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

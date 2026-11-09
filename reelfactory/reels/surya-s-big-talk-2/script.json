@@ -1,0 +1,104 @@
+{
+  "id": "surya-s-big-talk-2",
+  "title": "सूर्य का दिखावा",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya tries to bowl too fast, causing a silly debate with Sachin about whether the ball is afraid.",
+    "idea": "Surya’s Overconfident Delivery”, ”,”, “style”: “myth vs”, ”, “angle”: “Is it brave or just silly, when Surya tries to bowl too fast?”    ”  ”  ”    ” ””  ” ” ” ” ”  ”      ””,”,”,”,”,”,”,””””,”””””””””   ”                                                                  ”",
+    "generated": "2026-10-30",
+    "writer": "Gemma gemma3:4b via purffle-shorts planner + Script Doctor (score 76)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "गिल्ली खेलना बहुत मजेदार है!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "DARE"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्य बहुत तेज़ी से बोलता है।”,",
+      "subtitle": "सूर्य बहुत तेज़ी से बोलता है।”,"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्य गेंद फेंकने के लिए दौड़ता है।”,",
+      "subtitle": "सूर्य गेंद फेंकने के लिए दौड़ता है।”,"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्य गेंद को ऊपर फेंकता है।”,",
+      "subtitle": "सूर्य गेंद को ऊपर फेंकता है।”,"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी गेंद को पकड़ते हैं।”,",
+      "subtitle": "दादाजी गेंद को पकड़ते हैं।”,"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 5.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "गिल्ली खेलना बहुत मजेदार है! खेलो डैश एक्स के साथ!",
+      "subtitle": "गिल्ली खेलना बहुत मजेदार है! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

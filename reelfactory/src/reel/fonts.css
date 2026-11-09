@@ -1,0 +1,7 @@
+/* Noto Sans Devanagari (SIL Open Font License, see fonts/OFL.txt) */
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  src: url('../../fonts/NotoSansDevanagari.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}

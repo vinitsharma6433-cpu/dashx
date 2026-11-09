@@ -1,0 +1,104 @@
+{
+  "id": "after-the-rain",
+  "title": "बारिश के बाद",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "When the rain stops both boys rush out, Surya sends the ball up, and Dadaji catches it under his umbrella.",
+    "idea": "After The Rain",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "बारिश गई, खेल लौट आया!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "RAIN"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बारिश रुकी तो दोनों दौड़ पड़े!",
+      "subtitle": "बारिश रुकी तो दोनों दौड़ पड़े!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गीली ज़मीन पर दौड़ लगाई।",
+      "subtitle": "सचिन ने गीली ज़मीन पर दौड़ लगाई।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने गेंद हवा में उड़ा दी!",
+      "subtitle": "सूर्या ने गेंद हवा में उड़ा दी!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने छाते के नीचे कैच पकड़ा!",
+      "subtitle": "दादाजी ने छाते के नीचे कैच पकड़ा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "बारिश गई, खेल लौट आया! खेलो डैश एक्स के साथ!",
+      "subtitle": "बारिश गई, खेल लौट आया! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

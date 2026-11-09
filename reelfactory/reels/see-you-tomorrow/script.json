@@ -1,0 +1,105 @@
+{
+  "id": "see-you-tomorrow",
+  "title": "कल फिर खेलेंगे",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "At sunset the last ball goes up, the boys wonder what will happen, Dadaji calmly catches it, and they promise to play again tomorrow.",
+    "idea": "See You Tomorrow",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "चलो, कल फिर खेलेंगे!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "शाम हुई, आख़िरी गेंद आई।",
+      "subtitle": "शाम हुई, आख़िरी गेंद आई।"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गेंद सीधी ऊपर उठा दी!",
+      "subtitle": "सचिन ने गेंद सीधी ऊपर उठा दी!"
+    },
+    {
+      "id": 3,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "NOW?"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दोनों बोले, अब क्या होगा?",
+      "subtitle": "दोनों बोले, अब क्या होगा?"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने आराम से गेंद पकड़ ली!",
+      "subtitle": "दादाजी ने आराम से गेंद पकड़ ली!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "चलो, कल फिर खेलेंगे! खेलो डैश एक्स के साथ!",
+      "subtitle": "चलो, कल फिर खेलेंगे! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 860
+    }
+  ]
+}

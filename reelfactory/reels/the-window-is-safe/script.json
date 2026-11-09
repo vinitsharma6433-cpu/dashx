@@ -1,0 +1,112 @@
+{
+  "id": "the-window-is-safe",
+  "title": "खिड़की बच गई",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin's big shot heads for the neighbour auntie's window and the boys panic, until Dadaji catches the ball just in time.",
+    "idea": "The Window Is Safe",
+    "generated": "2026-10-30",
+    "writer": "written by the coding assistant (no LLM run)",
+    "doctor_score": null,
+    "doctor_notes": [],
+    "durations_are_estimates": "Run scripts/make_voice.py, then set each duration to voice length + about 0.7 s."
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने ज़ोर से गेंद फेंकी।",
+      "subtitle": "सूर्या ने ज़ोर से गेंद फेंकी।"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गेंद ऊँची उठा दी!",
+      "subtitle": "सचिन ने गेंद ऊँची उठा दी!"
+    },
+    {
+      "id": 3,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "OOPS!"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अब आंटी की खिड़की की ख़ैर नहीं!",
+      "subtitle": "अब आंटी की खिड़की की ख़ैर नहीं!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "तभी दादाजी ने गेंद पकड़ ली!",
+      "subtitle": "तभी दादाजी ने गेंद पकड़ ली!"
+    },
+    {
+      "id": 5,
+      "template": "hero-end",
+      "params": {
+        "cast": [
+          "dadaji",
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 9.0,
+      "camera": {
+        "move": "zoom-out",
+        "from": 1.15,
+        "to": 1.0
+      },
+      "voice": "खिड़की भी बची, खेल भी! DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "subtitle": "खिड़की भी बची, खेल भी! DASHX Cricket Tennis Ball. DASHX by Nav Durga Sports, Meerut.",
+      "tts_text": "खिड़की भी बची, खेल भी! डैश एक्स क्रिकेट टेनिस बॉल. डैश एक्स बाय नव दुर्गा स्पोर्ट्स, मेरठ."
+    }
+  ]
+}

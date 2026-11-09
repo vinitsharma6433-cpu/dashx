@@ -1,0 +1,107 @@
+{
+  "id": "golu-s-sharp-eyes",
+  "title": "गोलू की तेज़ नज़र",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin hits the ball very high, tiny Golu shouts to look up, Coach uncle catches it one-handed, and Golu is amazed.",
+    "idea": "Golu's Sharp Eyes",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "छोटे गोलू की बड़ी नज़र!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "golu"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने गेंद बहुत ऊँची उठाई!",
+      "subtitle": "सचिन ने गेंद बहुत ऊँची उठाई!"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "sachin",
+        "boardText": "UP!"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू चिल्लाया, ऊपर देखो ऊपर!",
+      "subtitle": "गोलू चिल्लाया, ऊपर देखो ऊपर!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "golu",
+          "sachin"
+        ]
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "कोच अंकल ने एक हाथ से पकड़ लिया!",
+      "subtitle": "कोच अंकल ने एक हाथ से पकड़ लिया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "coach",
+        "boardText": "WOW!"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू बोला, अंकल, आप तो जादूगर हो!",
+      "subtitle": "गोलू बोला, अंकल, आप तो जादूगर हो!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "छोटे गोलू की बड़ी नज़र! खेलो डैश एक्स के साथ!",
+      "subtitle": "छोटे गोलू की बड़ी नज़र! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 890
+    }
+  ]
+}

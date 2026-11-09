@@ -1,0 +1,105 @@
+{
+  "id": "kite-day",
+  "title": "पतंग वाला दिन",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "A kite flies overhead, Surya's shot goes up toward it, and Dadaji catches the ball while watching the kite.",
+    "idea": "Kite Day",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "पतंग उड़ी, गेंद लौटी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "KITE"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आसमान में पतंग उड़ रही थी।",
+      "subtitle": "आसमान में पतंग उड़ रही थी।"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन ने नज़र हटाए बिना गेंद डाली।",
+      "subtitle": "सचिन ने नज़र हटाए बिना गेंद डाली।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या का शॉट पतंग के पास पहुँचा!",
+      "subtitle": "सूर्या का शॉट पतंग के पास पहुँचा!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने पतंग देखते-देखते कैच पकड़ा!",
+      "subtitle": "दादाजी ने पतंग देखते-देखते कैच पकड़ा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "पतंग उड़ी, गेंद लौटी! खेलो डैश एक्स के साथ!",
+      "subtitle": "पतंग उड़ी, गेंद लौटी! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 820
+    }
+  ]
+}

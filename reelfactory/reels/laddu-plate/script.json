@@ -1,0 +1,182 @@
+{
+  "id": "laddu-plate",
+  "title": "लड्डू की थाली",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty has counted her laddus, Sachin's shot lands near the plate, Golu says with a full mouth that he ate none, and Aunty catches the ball and recounts.",
+    "idea": "Laddu Plate",
+    "generated": "2026-10-30",
+    "writer": "dialogue bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "एक लड्डू कम निकला!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "golu",
+        "boardText": "लड्डू"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, लड्डू गिनकर रखे हैं! मैं तो छुऊँगा भी नहीं!",
+      "subtitle": "गोलू, लड्डू गिनकर रखे हैं! मैं तो छुऊँगा भी नहीं!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गोलू, लड्डू गिनकर रखे हैं!",
+          "start": 0.25,
+          "end": 2.14,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "मैं तो छुऊँगा भी नहीं!",
+          "start": 2.24,
+          "end": 3.7,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गोलू, लड्डू गिनकर रखे हैं!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "golu"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "शॉट थाली के पास गिरा! मैं उठा लाता हूँ!",
+      "subtitle": "शॉट थाली के पास गिरा! मैं उठा लाता हूँ!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "शॉट थाली के पास गिरा!",
+          "start": 0.25,
+          "end": 1.83,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "मैं उठा लाता हूँ!",
+          "start": 1.93,
+          "end": 3.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "शॉट थाली के पास गिरा!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "golu",
+          "sachin"
+        ]
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "गेंद पकड़ी, लड्डू भी गिन लिए!",
+      "subtitle": "गेंद पकड़ी, लड्डू भी गिन लिए!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गेंद पकड़ी, लड्डू भी गिन लिए!",
+          "start": 0.25,
+          "end": 2.42,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गेंद पकड़ी, लड्डू भी गिन लिए!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "golu",
+        "boardText": "कम"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, एक लड्डू कम क्यों है? वो लड्डू ख़ुद चलकर आया!",
+      "subtitle": "गोलू, एक लड्डू कम क्यों है? वो लड्डू ख़ुद चलकर आया!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गोलू, एक लड्डू कम क्यों है?",
+          "start": 0.25,
+          "end": 2.0,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "वो लड्डू ख़ुद चलकर आया!",
+          "start": 2.1,
+          "end": 3.87,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गोलू, एक लड्डू कम क्यों है?"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "एक लड्डू कम निकला! खेलो डैश एक्स के साथ!",
+      "subtitle": "एक लड्डू कम निकला! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "एक लड्डू कम निकला! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 840
+    }
+  ],
+  "dialogue_format": 2
+}

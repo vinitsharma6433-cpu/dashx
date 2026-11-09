@@ -1,0 +1,185 @@
+{
+  "id": "lunch-time",
+  "title": "खाने का वक़्त",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty calls Meena for lunch, Meena asks for one last ball, Sachin sends it into Aunty's kitchen, and Aunty catches it still holding her rolling pin.",
+    "idea": "Lunch Time",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "रसोई में छक्का, बेलन तैयार!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "meena",
+        "boardText": "खाना",
+        "sunset": true
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मीना, खाना ठंडा हो रहा है! बस आख़िरी गेंद, आंटी!",
+      "subtitle": "मीना, खाना ठंडा हो रहा है! बस आख़िरी गेंद, आंटी!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "मीना, खाना ठंडा हो रहा है!",
+          "start": 0.25,
+          "end": 2.18,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "बस आख़िरी गेंद, आंटी!",
+          "start": 2.28,
+          "end": 3.84,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "मीना, खाना ठंडा हो रहा है!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "aunty",
+        "sunset": true
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "लो, गेंद सीधी रसोई में! अरे, मेरी रसोई में छक्का?",
+      "subtitle": "लो, गेंद सीधी रसोई में! अरे, मेरी रसोई में छक्का?",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "लो, गेंद सीधी रसोई में!",
+          "start": 0.25,
+          "end": 2.06,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "अरे, मेरी रसोई में छक्का?",
+          "start": 2.16,
+          "end": 4.03,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "लो, गेंद सीधी रसोई में!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "meena",
+          "sachin"
+        ],
+        "sunset": true
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "बेलन हाथ में, गेंद भी हाथ में!",
+      "subtitle": "बेलन हाथ में, गेंद भी हाथ में!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "बेलन हाथ में, गेंद भी हाथ में!",
+          "start": 0.25,
+          "end": 2.51,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "बेलन हाथ में, गेंद भी हाथ में!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "meena",
+        "right": "aunty",
+        "boardText": "रोटी",
+        "sunset": true
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, अब तो खाना खा लूँ? पहले बेलन से बचो, फिर रोटी!",
+      "subtitle": "आंटी, अब तो खाना खा लूँ? पहले बेलन से बचो, फिर रोटी!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "आंटी, अब तो खाना खा लूँ?",
+          "start": 0.25,
+          "end": 1.84,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "पहले बेलन से बचो, फिर रोटी!",
+          "start": 1.94,
+          "end": 4.18,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "आंटी, अब तो खाना खा लूँ?"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "रसोई में छक्का, बेलन तैयार! खेलो डैश एक्स के साथ!",
+      "subtitle": "रसोई में छक्का, बेलन तैयार! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "रसोई में छक्का, बेलन तैयार! खेलो डैश एक्स के साथ!"
+    }
+  ],
+  "dialogue_format": 2
+}

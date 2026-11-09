@@ -1,0 +1,104 @@
+{
+  "id": "toss-time",
+  "title": "टॉस का खेल",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya wins the toss and bats, his big swing sends the ball up, and Dadaji grabs it.",
+    "idea": "Toss Time",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "टॉस सूर्या का, मज़ा सबका!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "TOSS"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सिक्का उछला और सूर्या जीत गया!",
+      "subtitle": "सिक्का उछला और सूर्या जीत गया!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन गेंद लेकर तेज़ दौड़ा।",
+      "subtitle": "सचिन गेंद लेकर तेज़ दौड़ा।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने पूरे ज़ोर से बल्ला घुमाया!",
+      "subtitle": "सूर्या ने पूरे ज़ोर से बल्ला घुमाया!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 3.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने झट से गेंद पकड़ ली!",
+      "subtitle": "दादाजी ने झट से गेंद पकड़ ली!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "टॉस सूर्या का, मज़ा सबका! खेलो डैश एक्स के साथ!",
+      "subtitle": "टॉस सूर्या का, मज़ा सबका! खेलो डैश एक्स के साथ!"
+    }
+  ]
+}

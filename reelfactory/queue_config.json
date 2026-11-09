@@ -1,0 +1,17 @@
+{
+  "_comment": "Settings for `npm run queue` (factory/queue.py). repo_dir is a local clone of the dashx repo used only for the queue.",
+  "repo_dir": "C:\\Users\\vinit\\dashx-repo",
+  "remote": "https://github.com/vinitsharma6433-cpu/dashx.git",
+  "branch": "main",
+  "pages_base": "https://vinitsharma6433-cpu.github.io/dashx/social/",
+  "slots": [
+    "12:30",
+    "20:30"
+  ],
+  "max_per_run": 14,
+  "min_qc": 90,
+  "lead_minutes": 30,
+  "networks": [
+    "youtube"
+  ]
+}

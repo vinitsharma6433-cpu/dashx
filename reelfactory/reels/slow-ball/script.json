@@ -1,0 +1,105 @@
+{
+  "id": "slow-ball",
+  "title": "धीमी गेंद",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya bowls very slowly, Sachin yawns, then smashes it in one go, and Dadaji quietly catches it.",
+    "idea": "Slow Ball",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "धीमी गेंद, तेज़ हँसी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या ने बहुत धीमी गेंद डाली।",
+      "subtitle": "सूर्या ने बहुत धीमी गेंद डाली।"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "ZZZ"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन को जम्हाई आने लगी।",
+      "subtitle": "सचिन को जम्हाई आने लगी।"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "फिर सचिन ने एक ही बार उड़ा दी!",
+      "subtitle": "फिर सचिन ने एक ही बार उड़ा दी!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "दादाजी ने चुपचाप गेंद पकड़ ली!",
+      "subtitle": "दादाजी ने चुपचाप गेंद पकड़ ली!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "धीमी गेंद, तेज़ हँसी! खेलो डैश एक्स के साथ!",
+      "subtitle": "धीमी गेंद, तेज़ हँसी! खेलो डैश एक्स के साथ!",
+      "subtitleWidth": 800
+    }
+  ]
+}

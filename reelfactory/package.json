@@ -1,0 +1,29 @@
+{
+  "name": "my-video-tool",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "revideo editor --projectFile ./src/project.tsx",
+    "render": "tsc && node dist/render.js",
+    "reel": "tsc && node dist/reel.js",
+    "stories": ".venv\\Scripts\\python.exe scripts\\make_stories.py",
+    "daily": ".venv\\Scripts\\python.exe -m factory daily",
+    "daily:legacy": ".venv\\Scripts\\python.exe scripts\\daily.py",
+    "scheduler": ".venv\\Scripts\\python.exe -m factory schedule",
+    "dashboard": ".venv\\Scripts\\python.exe -m factory dashboard",
+    "factory": ".venv\\Scripts\\python.exe -m factory",
+    "test": ".venv\\Scripts\\python.exe -m unittest discover -s tests -v",
+    "queue": ".venv\\Scripts\\python.exe -m factory queue"
+  },
+  "dependencies": {
+    "@revideo/core": "0.11.0",
+    "@revideo/2d": "0.11.0",
+    "@revideo/renderer": "0.11.0"
+  },
+  "devDependencies": {
+    "@revideo/ui": "0.11.0",
+    "@revideo/cli": "0.11.0",
+    "typescript": "5.5.4",
+    "vite": "^4.5"
+  }
+}

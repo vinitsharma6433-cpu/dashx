@@ -1,0 +1,182 @@
+{
+  "id": "mirror-sun",
+  "title": "आईने की धूप",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty's mirror throws sunlight into Sachin's eyes, he swings blindly, and Aunty removes the mirror and catches the ball.",
+    "idea": "Mirror Sun",
+    "generated": "2026-10-30",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "closing": "शीशे का कमाल!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "aunty",
+        "boardText": "धूप"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, शीशा हटाओ, धूप चुभ रही! अरे, मैं तो बाल बना रही थी!",
+      "subtitle": "आंटी, शीशा हटाओ, धूप चुभ रही! अरे, मैं तो बाल बना रही थी!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "आंटी, शीशा हटाओ, धूप चुभ रही!",
+          "start": 0.25,
+          "end": 2.57,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "अरे, मैं तो बाल बना रही थी!",
+          "start": 2.67,
+          "end": 4.58,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "आंटी, शीशा हटाओ, धूप चुभ रही!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन, तैयार हो? आँखें बंद हैं, कुछ दिख नहीं रहा!",
+      "subtitle": "सचिन, तैयार हो? आँखें बंद हैं, कुछ दिख नहीं रहा!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "सचिन, तैयार हो?",
+          "start": 0.25,
+          "end": 1.5,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "आँखें बंद हैं, कुछ दिख नहीं रहा!",
+          "start": 1.6,
+          "end": 3.79,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "सचिन, तैयार हो?"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "sachin",
+          "surya"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "शीशा हटाया, गेंद पकड़ ली!",
+      "subtitle": "शीशा हटाया, गेंद पकड़ ली!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "शीशा हटाया, गेंद पकड़ ली!",
+          "start": 0.25,
+          "end": 2.32,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "शीशा हटाया, गेंद पकड़ ली!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "aunty",
+        "boardText": "चमक"
+      },
+      "duration": 5.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, आपका शीशा तो दूसरी धूप है! चलो, अगली बार छाँव में खेलो!",
+      "subtitle": "आंटी, आपका शीशा तो दूसरी धूप है! चलो, अगली बार छाँव में खेलो!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "आंटी, आपका शीशा तो दूसरी धूप है!",
+          "start": 0.25,
+          "end": 2.71,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "चलो, अगली बार छाँव में खेलो!",
+          "start": 2.81,
+          "end": 4.87,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "आंटी, आपका शीशा तो दूसरी धूप है!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "शीशे का कमाल! खेलो डैश एक्स के साथ!",
+      "subtitle": "शीशे का कमाल! खेलो डैश एक्स के साथ!",
+      "speaker": "narrator",
+      "line": "शीशे का कमाल! खेलो डैश एक्स के साथ!"
+    }
+  ],
+  "dialogue_format": 2
+}
