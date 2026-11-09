@@ -49,7 +49,7 @@ def gemini_models(key: str) -> list[str]:
     except Exception as e:
         print("gemini model list failed:", str(e).replace(key, "<token>")[:120])
         return ["gemini-flash-latest", "gemini-flash-lite-latest"]
-    print("gemini models available:", clean(", ".join(n for n in names if "gemini" in n), 600))
+    print("gemini models available:", re.sub(r"[^\w.\-, ]", "", ", ".join(n for n in names if "gemini" in n))[:600])
     bad = re.compile(r"(image|tts|live|audio|embed|vision|robotics|computer|thinking|exp|learnlm|gemma|aqa|imagen|veo)")
     cand = [n for n in names if n.startswith("gemini") and "flash" in n and not bad.search(n)]
     def rank(n: str):
@@ -244,10 +244,11 @@ def check_blocks(blocks: list[str]) -> dict[str, list[str]]:
         out = Path(d) / "result.json"
         f.write_text(BANK.read_text(encoding="utf-8").rstrip() + "\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "check_dialogue_bank.py"), str(f), "--json", str(out)],
-                       cwd=ROOT, capture_output=True, text=True, timeout=900)
+                       cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=900)
         res = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
     n_old = len(res) - len(blocks)
-    return {r["title"]: r["problems"] for r in res[n_old:]} | {"__last__": {r["title"]: r["last_template"] for r in res[n_old:]}}
+    mine = res[n_old:] if n_old >= 0 else []
+    return {"problems": [r["problems"] for r in mine], "last": [r["last_template"] for r in mine]}
 
 
 def main() -> int:
@@ -303,17 +304,16 @@ def main() -> int:
         if not cands:
             break
         res = check_blocks(cands)
-        last = res.pop("__last__", {})
-        for blk in cands:
-            title = blk.split("\n")[0][3:].split("|")[0].strip()
-            probs = res.get(title)
-            if probs is None:
-                print(f"  - {clean(title, 60)}: not found in checker output, skipped")
-                continue
+        if len(res["problems"]) != len(cands):
+            print("  checker output did not match the candidates: skipped this round")
+            break
+        for idx, blk in enumerate(cands):
+            title = blk.splitlines()[0][3:].split("|")[0].strip()
+            probs = res["problems"][idx]
             if probs:
                 print(f"  x {clean(title, 60)}: {clean('; '.join(probs))}")
                 continue
-            if last.get(title) == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
+            if res["last"][idx] == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
                 print(f"  x {clean(title, 60)}: too many stories ending in a catch scene")
                 continue
             ok, j = judge(model, blk)
