@@ -49,7 +49,7 @@ def gemini_models(key: str) -> list[str]:
     except Exception as e:
         print("gemini model list failed:", str(e).replace(key, "<token>")[:120])
         return ["gemini-flash-latest", "gemini-flash-lite-latest"]
-    print("gemini models available:", ", ".join(n for n in names if "gemini" in n)[:600])
+    print("gemini models available:", clean(", ".join(n for n in names if "gemini" in n), 600))
     bad = re.compile(r"(image|tts|live|audio|embed|vision|robotics|computer|thinking|exp|learnlm|gemma|aqa|imagen|veo)")
     cand = [n for n in names if n.startswith("gemini") and "flash" in n and not bad.search(n)]
     def rank(n: str):
@@ -92,6 +92,12 @@ def scrub(s) -> str:
     return s
 
 
+def clean(x, n: int = 200) -> str:
+    """Make model/checker text safe for the GitHub log: no control characters, no '::' workflow commands, bounded length."""
+    t = re.sub(r"[\x00-\x1f\x7f\u2028\u2029]+", " ", str(x))
+    return scrub(t).replace("::", ": :")[:n]
+
+
 def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 1100) -> tuple[int, str]:
     """(http status, text). The text is the model's answer or a scrubbed error message."""
     body = json.dumps({"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}).encode("utf-8")
@@ -126,7 +132,7 @@ def pick_model() -> str | None:
         ACTIVE.update(url=url, token=tok)
         for m in models:
             code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 8)
-            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else f" - {txt[:120] or ACTIVE.get('last_raw', '')[:120]!r}"))
+            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else " - " + clean(txt or ACTIVE.get("last_raw", ""), 120)))
             if code == 200 and txt.strip():
                 ACTIVE["name"] = name
                 return m
@@ -283,7 +289,7 @@ def main() -> int:
             tried += 1
             code, txt = chat(model, prompt_for(seed, existing[-40:] + [b.split("\n")[0][3:].split("|")[0].strip() for b, _ in accepted], endings[-40:]))
             if code != 200:
-                print(f"  writer HTTP {code}: {txt}")
+                print(f"  writer HTTP {code}: {clean(txt)}")
                 if code in (401, 402, 403, 429):
                     print('  provider refuses further calls (credits / rate limit): stopping the writer')
                     break
@@ -292,7 +298,7 @@ def main() -> int:
             if blk:
                 cands.append(blk)
             else:
-                print("  unusable answer (first 400 chars):", txt[:400].replace(chr(10), " / "), "| raw:", ACTIVE.get("last_raw", "")[:400].replace(chr(10), " / "))
+                print("  unusable answer:", clean(txt, 300), "| raw:", clean(ACTIVE.get("last_raw", ""), 300))
         print(f"round {rnd + 1}: {len(cands)} candidate(s)")
         if not cands:
             break
@@ -302,19 +308,19 @@ def main() -> int:
             title = blk.split("\n")[0][3:].split("|")[0].strip()
             probs = res.get(title)
             if probs is None:
-                print(f"  - {title}: not found in checker output, skipped")
+                print(f"  - {clean(title, 60)}: not found in checker output, skipped")
                 continue
             if probs:
-                print(f"  x {title}: {'; '.join(probs)[:200]}")
+                print(f"  x {clean(title, 60)}: {clean('; '.join(probs))}")
                 continue
             if last.get(title) == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
-                print(f"  x {title}: too many stories ending in a catch scene")
+                print(f"  x {clean(title, 60)}: too many stories ending in a catch scene")
                 continue
             ok, j = judge(model, blk)
             if not ok:
-                print(f"  x {title}: editor says {json.dumps(j, ensure_ascii=False)[:200]}")
+                print(f"  x {clean(title, 60)}: editor says {clean(json.dumps(j, ensure_ascii=False))}")
                 continue
-            print(f"  + {title}: accepted {json.dumps(j, ensure_ascii=False)[:120]}")
+            print(f"  + {clean(title, 60)}: accepted {clean(json.dumps(j, ensure_ascii=False), 120)}")
             accepted.append((blk, j))
     print(f"accepted {len(accepted)} new stories")
     if accepted:
