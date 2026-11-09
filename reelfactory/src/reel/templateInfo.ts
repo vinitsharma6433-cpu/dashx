@@ -31,8 +31,8 @@ export const TEMPLATES = {
     min: 5,
     params: {cast: 'who[3]'},
   },
-  // the closing card of a reel: one short spoken line, at most 6 s, the DASHX name shown once
-  'end-card': {min: 4.5, max: 6, params: {}},
+  // the closing card of a reel: one short spoken line, at most 7 s, the DASHX name shown once
+  'end-card': {min: 4.5, max: 7, params: {}},
 } as const;
 
 export type TemplateName = keyof typeof TEMPLATES;

@@ -6,7 +6,7 @@ import {FONT} from '../art/helpers';
 import type {Template} from './types';
 
 /** The call to action shown as text on the end card. The same sentence is spoken (Hindi) and subtitled. */
-export const CTA_TEXT = 'Amazon, Flipkart ya Meesho par\nDASHX cricket tennis ball buy karo';
+export const CTA_TEXT = 'Amazon, Flipkart ya Meesho par\nDASHX cricket tennis ball\nsearch karo aur le lo';
 
 /**
  * end-card: the one closing card of a reel (max 5 s, ONE short spoken line = the call to action).
@@ -22,7 +22,7 @@ export const endCard: Template = function* (world, d, _params, ctx): ThreadGener
   world.add(
     <>
       <Rect size={[1080, 1920]} fill={'#000000'} />
-      <Img ref={logo} src={ctx.endLogo ?? ctx.logo} width={760} y={-260} scale={0.9} />
+      <Img ref={logo} src={ctx.endLogo ?? ctx.logo} width={760} y={-290} scale={0.9} />
       <Node ref={cta} opacity={0}>
         <Txt
           text={CTA_TEXT}
@@ -32,7 +32,7 @@ export const endCard: Template = function* (world, d, _params, ctx): ThreadGener
           lineHeight={62}
           fill={'#fbbf24'}
           textAlign={'center'}
-          y={250}
+          y={215}
         />
       </Node>
     </>,

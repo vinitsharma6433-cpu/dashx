@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LEAD = 0.25  # must match LEAD in src/reel.ts
-END_CARD_MAX = 6.0  # the call-to-action line is ~5 s of Kokoro speech; the whole reel is still capped by TOTAL_MAX
+END_CARD_MAX = 7.0  # the call-to-action line is ~5.7 s of Kokoro speech; the whole reel is still capped by TOTAL_MAX
 TOTAL_MAX = 24.9
 TOTAL_TARGET_MIN = 21.0  # shorter reels get extra animation time (checked: 20 s minimum)
 
