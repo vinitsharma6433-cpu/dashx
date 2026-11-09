@@ -5,6 +5,9 @@ import type {ThreadGenerator} from '@revideo/core';
 export interface Ctx {
   logo: string;
   ball: string;
+  /** End-card pictures (assets/store-images/): the DASHX logo and the product photo. Undefined = use logo / ball. */
+  endLogo?: string;
+  endPhoto?: string;
 }
 
 /** The "parameters" object of one scene in script.json. */

@@ -95,6 +95,7 @@ def captions_for(hook: str) -> tuple[str, str]:
 
 def make_entry(name: str, seo: dict, when: str, cfg: dict, hook: str) -> dict:
     """Exactly the keys and order of the poster's existing entries (see the fake-cramp-talk entry), plus captions.instagram."""
+    from . import seo as seo_mod  # noqa: PLC0415
     caption, insta = captions_for(hook)
     return {
         "title": f"{name} DASHX",
@@ -103,7 +104,8 @@ def make_entry(name: str, seo: dict, when: str, cfg: dict, hook: str) -> dict:
         "when": when,
         "networks": list(cfg["networks"]),
         "caption": caption,
-        "captions": {"youtube": caption, "instagram": insta},
+        "captions": {"youtube": caption, "instagram": insta, "facebook": insta},
+        "comments": [seo_mod.first_comment()],  # posted by the poster right after the upload (YouTube cannot pin: pin it by hand)
         "status": "scheduled",
     }
 
@@ -186,7 +188,8 @@ def check_reel(mp4: Path, queued_media: set[str], repo_social: Path, cfg: dict, 
     why += [f"hook: {p}" for p in hook_why]
     yt_cap, ig_cap = captions_for(hook or "")
     for field_name, text in (("title", seo.get("title", "")), ("yt_title", youtube_title(seo.get("title", ""))), ("youtube caption", yt_cap),
-                             ("instagram caption", ig_cap), ("story title", script.get("title", ""))):
+                             ("instagram caption", ig_cap), ("first comment", seo_mod.first_comment()),
+                             ("story title", script.get("title", ""))):
         for p in banned_problems(text):
             why.append(f"{field_name}: {p}")
     for sc in script["scenes"]:

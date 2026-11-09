@@ -113,7 +113,7 @@ class TestSEO(unittest.TestCase):
         self.assertGreaterEqual(m["seo_score"], 90)
         self.assertLessEqual(len(m["title"]), 60)
         self.assertLessEqual(sum(len(t) + 1 for t in m["tags"]), 450)
-        self.assertIn("#Shorts", m["hashtags"])
+        self.assertEqual(m["hashtags"], ["#DASHX", "#GullyCricket", "#CricketReels", "#Meerut"])
         self.assertTrue(m["made_with_ai"])
         for bad in ("best", "premium", "guaranteed", "₹"):
             self.assertNotIn(bad, (m["title"] + m["description"]).lower().replace("https://", ""))

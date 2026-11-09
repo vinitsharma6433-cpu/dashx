@@ -43,7 +43,11 @@ BANK = ROOT / "stories" / "bank.md"
 DIALOGUE_BANK = ROOT / "stories" / "dialogue_bank.md"
 TODAY = date.today().isoformat()
 READY = ROOT / "output" / "ready" / TODAY
-TAIL_HI = "खेलो डैश एक्स के साथ!"  # spoken right after the story's ending: the ONE end-card line
+TAIL_HI = "खेलो डैश एक्स के साथ!"  # OLD end-card tail (reels made before the call to action); kept to read old reels' endings
+# The ONE end-card line, spoken and subtitled LAST (after the story and its joke). The same sentence is written in Roman
+# letters by src/reel/templates/endCard.tsx. Kokoro needs Devanagari, and a subtitle must equal the voice.
+CTA_HI = "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो।"
+CTA_MAX_WORDS = 12
 GEMMA = "gemma3:4b"
 MIN_DOCTOR_SCORE = 80  # a Gemma story below this Doctor score is not used (the bank is used instead)
 LOG_FILE: Path | None = None
@@ -114,7 +118,7 @@ def known_closings(history: History) -> list[str]:
         voice = sc.get("voice", "")
         if sc.get("template") == "hero-end":
             out.append(voice.replace(ms.BRAND_EN, "").strip())
-        elif sc.get("template") == "end-card":
+        elif sc.get("template") == "end-card" and voice != CTA_HI:  # a CTA-only end card has no story ending in it
             out.append(voice.replace(TAIL_HI, "").strip())
     return [c for c in out if c]
 
@@ -400,7 +404,9 @@ def story_from_gemma(llm: LLM, ideas: list[dict], history: History, batch: list[
 # Build, voice, fit, render, check
 # --------------------------------------------------------------------------------------------------
 def write_script(story: dict, mins: dict) -> tuple[str, dict]:
-    end = {"template": "end-card", "params": {}, "line": f"{story['closing']} {TAIL_HI}"}
+    # the call to action comes LAST, after the story and the joke. story["closing"] stays in the history (used.md) but is no longer spoken:
+    # the end card is only the CTA, so the story scenes keep their time and the CTA is never shortened.
+    end = {"template": "end-card", "params": {}, "line": CTA_HI}
     scenes = story["scenes"] + [end]
     lines = [s["line"] for s in scenes]
     durs = ms.estimate_durations(scenes, lines, mins)
@@ -435,7 +441,9 @@ def precheck(script: dict) -> list[str]:
     scenes = script["scenes"]
     for sc in scenes:
         last = sc["template"] == "end-card"
-        problems += [f"scene {sc['id']} {p}" for p in hindi_problems(sc["voice"], 3 if last else 2, 10 if last else 8)]
+        problems += [f"scene {sc['id']} {p}" for p in hindi_problems(sc["voice"], 3 if last else 2, CTA_MAX_WORDS if last else 8)]
+        if last and sc["voice"] != CTA_HI:
+            problems.append(f"scene {sc['id']}: the end card must speak the call to action exactly")
         if sc["subtitle"] != sc["voice"]:
             problems.append(f"scene {sc['id']}: subtitle differs from voice")
     if scenes[-1]["template"] != "end-card" or sum(s["template"] == "end-card" for s in scenes) != 1:

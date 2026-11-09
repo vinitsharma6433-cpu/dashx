@@ -6,7 +6,7 @@ Checks:
   1. the mp4 exists, has video and audio, the audio is not silent; frame 0 and the frame at 0.5 s are not dark
   2. length: 20 to 25.2 s, and equal to the timeline of script.json (+-0.4 s)
   3. subtitles: no single word alone on a line (re-measured in a real browser with the width used in the render)
-  4. end card: the last scene is an end-card, at most 5.0 s, its spoken line fits inside it, and the
+  4. end card: the last scene is an end-card, at most 6.0 s, its spoken line fits inside it, and the
      DASHX name appears nowhere in the subtitles or spoken lines (the end card shows it once, as the logo)
   5. spoken lines are Devanagari only (no English letters, no digits)
 """

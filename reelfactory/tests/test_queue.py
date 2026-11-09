@@ -55,13 +55,18 @@ class TestText(unittest.TestCase):
 
     def test_entry_has_the_posters_keys_and_instagram_caption(self):
         e = queue.make_entry("sneeze-talk", seo(), "2026-10-31T12:30:00+05:30", CFG, "दादाजी की छींक ने क्या कमाल कर दिया? 🤧")
-        self.assertEqual(list(e), ["title", "yt_title", "media", "when", "networks", "caption", "captions", "status"])
+        self.assertEqual(list(e), ["title", "yt_title", "media", "when", "networks", "caption", "captions", "comments", "status"])
         self.assertEqual(e["title"], "sneeze-talk DASHX")
         self.assertEqual(e["media"], "https://vinitsharma6433-cpu.github.io/dashx/social/sneeze-talk.mp4")
         self.assertEqual((e["networks"], e["status"]), (["youtube"], "scheduled"))
         self.assertEqual(e["caption"], e["captions"]["youtube"])
-        self.assertTrue(e["captions"]["instagram"].endswith("links: bio me"))
-        self.assertNotIn("amazon", e["captions"]["instagram"].lower())
+        self.assertIn("Amazon, Flipkart, Meesho links: bio me", e["captions"]["instagram"])
+        self.assertTrue(e["captions"]["instagram"].endswith("#DASHX #GullyCricket #CricketReels #Meerut"))
+        self.assertEqual(e["captions"]["facebook"], e["captions"]["instagram"])
+        self.assertNotIn("http", e["captions"]["instagram"])  # no links in IG/FB captions: they are in the bio
+        self.assertEqual(len(e["comments"]), 1)  # the first comment carries the shop links
+        for shop in ("amazon.in/dp/B0H4QG8FKG", "dl.flipkart.com", "meesho.com", "mystore.in", "vinitsharma6433-cpu.github.io/dashx/"):
+            self.assertIn(shop, e["comments"][0])
 
     def test_long_titles_are_cut_under_60(self):
         self.assertLess(len(queue.youtube_title("शब्द " * 30)), 60)
@@ -284,10 +289,10 @@ class TestCaptions(unittest.TestCase):
         lines = S.instagram_caption(self.GOOD).split("\n")
         self.assertEqual(lines[0], self.GOOD)
         self.assertEqual(lines[1], "")
-        self.assertEqual(lines[2], "DASHX ball - Meerut se. COD aur UPI.")
-        self.assertEqual(lines[3], "#DASHX #GullyCricket #FunnyReels #Meerut #CricketReels")
-        self.assertEqual(lines[-1], "links: bio me")
-        self.assertNotIn("amazon", "\n".join(lines).lower())
+        self.assertEqual(lines[2], "DASHX ball - Meerut se.")
+        self.assertEqual(lines[3], "Amazon, Flipkart, Meesho links: bio me")
+        self.assertEqual(lines[-1], "#DASHX #GullyCricket #CricketReels #Meerut")
+        self.assertNotIn("http", "\n".join(lines))
 
     def test_youtube_caption_has_the_same_hook_and_the_buy_links(self):
         from factory import seo as S
@@ -295,7 +300,9 @@ class TestCaptions(unittest.TestCase):
         self.assertEqual(yt.split("\n")[0], self.GOOD)
         for shop in ("amazon.in/dp/B0H4QG8FKG", "dl.flipkart.com", "meesho.com", "mystore.in"):
             self.assertIn(shop, yt)
-        self.assertIn("#Shorts", yt)
+        self.assertIn("BUY LINKS", yt)
+        self.assertIn("https://vinitsharma6433-cpu.github.io/dashx/", yt)
+        self.assertTrue(yt.endswith("#DASHX #GullyCricket #CricketReels #Meerut"))
         self.assertEqual(queue.banned_problems(yt), [])
 
 

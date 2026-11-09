@@ -12,11 +12,16 @@ BRAND = "DASHX by Nav Durga Sports, Meerut"
 BUY_BLOCK = """Amazon: https://www.amazon.in/dp/B0H4QG8FKG
 Flipkart: https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4
 Meesho: https://meesho.com/dash-x-power-yellow/p/hetayl?_ms=1.3
-Mystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3"""
+Mystore: https://www.mystore.in/product/dash-x-extra-duty-cricket-tennis-balls-pack-of-3
+Website: https://vinitsharma6433-cpu.github.io/dashx/"""
+BUY_HEADER = "BUY LINKS"
 CTA = "मज़ा आया? कमेंट में अपना पसंदीदा सीन बताओ!"
-IG_BRAND_LINE = "DASHX ball - Meerut se. COD aur UPI."
-IG_HASHTAGS = ["#DASHX", "#GullyCricket", "#FunnyReels", "#Meerut", "#CricketReels"]
-YT_HASHTAGS = ["#DASHX", "#GullyCricket", "#FunnyReels", "#Meerut", "#CricketReels", "#Shorts"]
+IG_BRAND_LINE = "DASHX ball - Meerut se."
+LINKS_IN_BIO = "Amazon, Flipkart, Meesho links: bio me"
+# every post ends with exactly these hashtags, in this order
+HASHTAGS = ["#DASHX", "#GullyCricket", "#CricketReels", "#Meerut"]
+IG_HASHTAGS = YT_HASHTAGS = HASHTAGS
+COMMENT_INTRO = "DASHX cricket tennis ball yahan se lo:"
 HOOK_MAX = 60  # characters, including the one emoji
 EMOJI = re.compile(r"[\U0001F300-\U0001FAFF\u2600-\u27BF]")
 REMOVED_PHRASES = ("आख़िर में क्या हुआ? देखो", "मिस मत करना")  # the old template wording must never come back
@@ -82,12 +87,17 @@ def hook_problems(hook: str | None, script: dict | None = None) -> list[str]:
 
 def instagram_caption(hook: str) -> str:
     """line 1 hook, line 2 blank, line 3 brand line, then the five hashtags, and the closing line for the link in the bio."""
-    return f"{hook}\n\n{IG_BRAND_LINE}\n{' '.join(IG_HASHTAGS)}\nlinks: bio me"
+    return f"{hook}\n\n{IG_BRAND_LINE}\n{LINKS_IN_BIO}\n\n{' '.join(HASHTAGS)}"  # hashtags last (Instagram and Facebook)
 
 
 def youtube_caption(hook: str) -> str:
     """The same hook, the brand line and the buy links block (the poster's format), then the hashtags."""
-    return f"{hook}\n\n{BRAND}.\n\n{BUY_BLOCK}\n\n{' '.join(YT_HASHTAGS)}"
+    return f"{hook}\n\n{BRAND}.\n\n{BUY_HEADER}\n{BUY_BLOCK}\n\n{' '.join(HASHTAGS)}"  # hashtags last
+
+
+def first_comment() -> str:
+    """The first comment under the YouTube video: the same links. (The API cannot pin it: pin it by hand in YouTube Studio.)"""
+    return f"{COMMENT_INTRO}\n{BUY_BLOCK}"
 BASE_KEYWORDS = ["gali cricket", "tennis ball cricket", "cricket comedy", "hindi cartoon", "cricket shorts", "DASHX", "Meerut"]
 CAST_NAMES = {"sachin": "Sachin", "surya": "Surya", "dadaji": "Dadaji", "aunty": "Aunty", "pintu": "Pintu", "golu": "Golu", "meena": "Meena", "coach": "Coach", "bruno": "Bruno"}
 
@@ -132,10 +142,10 @@ def score(meta: dict) -> tuple[float, list[str]]:
     else:
         notes.append("the hook has too little Hindi")
     tags = meta["hashtags"]
-    if 5 <= len(tags) <= 8 and "#Shorts" in tags and "#DASHX" in tags:
+    if tags == HASHTAGS and d.rstrip().endswith(" ".join(HASHTAGS)):
         pts += 15
     else:
-        notes.append("hashtags: want 5-8 including #Shorts and #DASHX")
+        notes.append("hashtags: the description must end with " + " ".join(HASHTAGS))
     if len(meta["tags"]) >= 10:
         pts += 15
     else:

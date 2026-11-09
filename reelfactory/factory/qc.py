@@ -215,11 +215,11 @@ def inspect(name: str, thumbnail: Path | None = None, measure=None) -> dict:
         probs = []
         if last["template"] != "end-card":
             probs.append("last scene is not an end-card")
-        if last["duration"] > 5.001:
-            probs.append(f"end card lasts {last['duration']}s")
+        if last["duration"] > 6.001:
+            probs.append(f"end card lasts {last['duration']}s (max 6s)")
         if re.search(r"dash\s*x", text, re.I):
             probs.append("DASHX written in a subtitle (the card shows it once, as the logo)")
-        return not probs, "; ".join(probs) or "one end card, <=5s, one spoken line"
+        return not probs, "; ".join(probs) or "one end card, <=6s, one spoken line"
     add("end_card", 6, "fit", end_card, True)
 
     def logo():
