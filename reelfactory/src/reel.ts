@@ -68,7 +68,7 @@ async function reel() {
   };
   const logo = brandUrl('dashx-logo');
   const ball = brandUrl('hero-ball');
-  // End-card pictures: the store images, copied as they are. Missing files = the end card falls back to logo / ball.
+  // End-card logo: the store image, copied as it is. Missing file = the end card falls back to logo.
   const storeUrl = (file: string, out: string) => {
     const f = path.join('assets', 'store-images', file);
     if (!fs.existsSync(f)) return '';
@@ -78,7 +78,6 @@ async function reel() {
     return `/_reel/${name}/${target}`;
   };
   const endLogo = storeUrl('dashx-logo.png', 'end-logo');
-  const endPhoto = storeUrl('item-07.jpg', 'end-photo');
 
   // 2. Render the silent video with revideo.
   const outDir = path.join('output', 'reels');
@@ -86,7 +85,7 @@ async function reel() {
   console.log(`Rendering reel "${name}"...`);
   const videoFile: string = await renderVideo({
     projectFile: './src/reel/project.tsx',
-    variables: {name, script, logo, ball, endLogo, endPhoto},
+    variables: {name, script, logo, ball, endLogo},
     settings: {
       outFile: `${name}-video.mp4`,
       outDir: `./${outDir.split(path.sep).join('/')}`,

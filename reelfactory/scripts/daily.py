@@ -46,7 +46,7 @@ READY = ROOT / "output" / "ready" / TODAY
 TAIL_HI = "खेलो डैश एक्स के साथ!"  # OLD end-card tail (reels made before the call to action); kept to read old reels' endings
 # The ONE end-card line, spoken and subtitled LAST (after the story and its joke). The same sentence is written in Roman
 # letters by src/reel/templates/endCard.tsx. Kokoro needs Devanagari, and a subtitle must equal the voice.
-CTA_HI = "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो।"
+CTA_HI = "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल बाय करो।"
 CTA_MAX_WORDS = 12
 GEMMA = "gemma3:4b"
 MIN_DOCTOR_SCORE = 80  # a Gemma story below this Doctor score is not used (the bank is used instead)

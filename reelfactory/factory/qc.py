@@ -226,8 +226,8 @@ def inspect(name: str, thumbnail: Path | None = None, measure=None) -> dict:
         fr = rgb_frame(mp4, max(0.0, dur - 1.0))
         r, g, b = (fr[..., i].astype(int) for i in range(3))
         yellow = float(((r > 200) & (g > 180) & (b < 90))[: fr.shape[0] // 2].mean())
-        red = float(((r > 170) & (g < 90) & (b < 90))[fr.shape[0] // 4: 3 * fr.shape[0] // 4].mean())
-        return yellow >= 0.01 and red >= 0.01, f"logo (yellow) {yellow * 100:.1f}%, ball (red) {red * 100:.1f}% of the end-card frame"
+        # the end card shows only the logo (no product photo any more): only its yellow is checked
+        return yellow >= 0.01, f"logo (yellow) {yellow * 100:.1f}% of the top half of the end-card frame"
     add("logo_visible", 5, "render", logo)
 
     def sync():
