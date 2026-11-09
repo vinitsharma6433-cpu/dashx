@@ -19,9 +19,9 @@ on:
         description: "Dry run: write nothing to the bank, only show the accepted stories in full in the log"
         type: boolean
         default: true
-  # DAILY SCHEDULE IS OFF until the owner has read the first dry-run stories. To turn on: remove the two "#" below.
-  # schedule:
-  #   - cron: "30 8 * * *"   # 08:30 UTC = 14:00 IST
+  # DAILY SCHEDULE IS ON (owner's decision: no review, just keep making and posting reels). To pause: create STOP_REFILL or comment out these 2 lines.
+  schedule:
+    - cron: "30 8 * * *"   # 08:30 UTC = 14:00 IST
 permissions:
   contents: write
 concurrency:
