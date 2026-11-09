@@ -42,6 +42,8 @@ DRY = ROOT / "stories" / "refill_dry_run.md"
 PROVIDERS = [
     ("github-models", "https://models.github.ai/inference/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
      ["openai/gpt-4.1", "openai/gpt-4o", "meta/Llama-3.3-70B-Instruct", "openai/gpt-4.1-mini"]),
+    ("github-models-legacy", "https://models.inference.ai.azure.com/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
+     ["gpt-4.1", "gpt-4o", "Llama-3.3-70B-Instruct", "gpt-4o-mini"]),
     ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", os.environ.get("GEMINI_API_KEY", "").strip(),
      ["gemini-2.5-flash", "gemini-2.0-flash"]),
     ("huggingface", "https://router.huggingface.co/v1/chat/completions", os.environ.get("HF_TOKEN", "").strip(),
@@ -73,7 +75,8 @@ def scrub(s) -> str:
 def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 1100) -> tuple[int, str]:
     """(http status, text). The text is the model's answer or a scrubbed error message."""
     body = json.dumps({"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}).encode("utf-8")
-    req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json"})
+    req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json",
+                                                                       "Accept": "application/vnd.github+json, application/json", "X-GitHub-Api-Version": "2022-11-28"})
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
             raw = r.read().decode("utf-8", "replace")
@@ -103,8 +106,8 @@ def pick_model() -> str | None:
         ACTIVE.update(url=url, token=tok)
         for m in models:
             code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 8)
-            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 else f" - {txt[:120]}"))
-            if code == 200:
+            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else f" - {txt[:120] or ACTIVE.get('last_raw', '')[:120]!r}"))
+            if code == 200 and txt.strip():
                 ACTIVE["name"] = name
                 return m
             if code in (401, 402, 403, 429):
