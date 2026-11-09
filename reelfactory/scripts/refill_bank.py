@@ -1,17 +1,22 @@
-"""Auto story maker: keeps stories/dialogue_bank.md from ever running dry.
+"""Daily story maker: adds 2 new stories a day to stories/dialogue_bank.md with the free Gemini key, using very little quota.
 
-    python scripts/refill_bank.py                  # if fewer than --min-usable stories are left, write --make new ones
-    python scripts/refill_bank.py --force --make 6 # always write
-    python scripts/refill_bank.py --dry-run        # write nothing, only print (candidates go to stories/refill_dry_run.md)
-    python scripts/refill_bank.py --probe          # only test which free models answer (no story is made)
+    python scripts/refill_bank.py                              # the daily run: aim for 2 stories, at most 12 Gemini calls per day
+    python scripts/refill_bank.py --dry-run --target 6 --max-calls 30   # review run: nothing is written to the bank
+    python scripts/refill_bank.py --probe                      # only list the Gemini models (no story)
 
-How it works (every story must pass ALL of these, nothing is lowered):
-  1. a free model (GitHub Models with the built-in GITHUB_TOKEN; optionally Gemini free key or Hugging Face) writes ONE story in the bank format, from a random gully-cricket situation
-     (stories/situations.json) and a hook formula (stories/viral_formats.json, idea credit: rediumvex/viral-hooks-skill, MIT)
+Rules (every story must pass ALL of these, nothing is lowered to reach the target; 0 or 1 story on a bad day is fine):
+  1. Gemini writes ONE story in the bank format from a random gully-cricket situation (stories/situations.json) and a hook
+     formula (stories/viral_formats.json, idea credit: rediumvex/viral-hooks-skill, MIT)
   2. the same checker as for hand-written stories (scripts/check_dialogue_bank.py: format, DASHX rules, roles, hook, score >= 80,
      no repeated line / ending / hook against the whole bank and every reel made)
-  3. a second model call that grades funny / clear / natural Hindi / kid-safe (all must be >= 7)
-  Only then the story is appended to the bank. Nothing is ever deleted or rewritten. No token is ever printed.
+  3. one repair try per story that failed only on fixable things
+  4. a second Gemini call grades funny / clear / natural Hindi / kid-safe (all >= 7)
+Quota safety:
+  - stops as soon as the target number of stories is accepted
+  - hard cap of Gemini calls per quota day (default 12, counted in stories/refill_usage.json); a 429 / quota answer ends the day at once
+  - skips completely when the bank has more than 60 usable stories
+  - ALWAYS exits 0: a Gemini problem is only a warning, it can never turn the poster or the reel factory red
+No token is ever printed.
 """
 from __future__ import annotations
 
@@ -24,11 +29,10 @@ import subprocess
 import sys
 import tempfile
 import time
-from datetime import date
-from pathlib import Path
-
 import urllib.error
 import urllib.request
+from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -39,41 +43,14 @@ if hasattr(sys.stdout, "reconfigure"):
 BANK = ROOT / "stories" / "dialogue_bank.md"
 LOG = ROOT / "stories" / "refill_log.md"
 DRY = ROOT / "stories" / "refill_dry_run.md"
-def gemini_models(key: str) -> list[str]:
-    """Ask Gemini which models this key may use, and rank the text 'flash' models (newest first). Model names change often."""
-    if not key:
-        return []
-    try:
-        req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/openai/models", headers={"Authorization": "Bearer " + key})
-        with urllib.request.urlopen(req, timeout=60) as r:
-            names = [m["id"].split("/")[-1] for m in json.loads(r.read().decode("utf-8")).get("data", [])]
-    except Exception as e:
-        print("gemini model list failed:", str(e).replace(key, "<token>")[:120])
-        return ["gemini-flash-latest", "gemini-flash-lite-latest"]
-    print("gemini models available:", re.sub(r"[^\w.\-, ]", "", ", ".join(n for n in names if "gemini" in n))[:600])
-    bad = re.compile(r"(image|tts|live|audio|embed|vision|robotics|computer|thinking|exp|learnlm|gemma|aqa|imagen|veo)")
-    cand = [n for n in names if n.startswith("gemini") and "flash" in n and not bad.search(n)]
-    def rank(n: str):
-        nums = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", n)]
-        return (0 if "preview" not in n else 1, 1 if "lite" in n else 0, -(nums[0] if nums else 0), n)
-    return sorted(cand, key=rank)[:5] or ["gemini-flash-latest"]
-
-
-# (name, chat-completions URL, token, models). The first provider+model that answers is used for the whole run.
-PROVIDERS = [
-    ("github-models", "https://models.github.ai/inference/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
-     ["openai/gpt-4.1", "openai/gpt-4o", "meta/Llama-3.3-70B-Instruct", "openai/gpt-4.1-mini"]),
-    ("github-models-legacy", "https://models.inference.ai.azure.com/chat/completions", os.environ.get("GITHUB_TOKEN", "").strip(),
-     ["gpt-4.1", "gpt-4o", "Llama-3.3-70B-Instruct", "gpt-4o-mini"]),
-    ("gemini", "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", os.environ.get("GEMINI_API_KEY", "").strip(),
-     gemini_models(os.environ.get("GEMINI_API_KEY", "").strip())),
-    ("huggingface", "https://router.huggingface.co/v1/chat/completions", os.environ.get("HF_TOKEN", "").strip(),
-     ["Qwen/Qwen2.5-72B-Instruct", "meta-llama/Llama-3.3-70B-Instruct"]),
-]
-SECRETS = [p[2] for p in PROVIDERS if p[2]]
-ACTIVE: dict = {}
+USAGE = ROOT / "stories" / "refill_usage.json"
+DAILY = ROOT / "stories" / "refill_daily.txt"
+URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 MIN_JUDGE = 7
-BUDGET_S = 420   # the whole writing stage stops after this many seconds, so the nightly job never hangs
+BUDGET_S = 540   # the whole run stops after this many seconds, so the daily job never hangs
+CALLS = {"n": 0, "cap": 12}
+STATE: dict = {"models": [], "idx": 0, "quota_hit": False, "last_raw": ""}
 CAST_HELP = {
     "sachin": "main batter: confident, loves big shots, a little sleepy",
     "surya": "main bowler: boastful, fast, funny when he loses",
@@ -89,79 +66,104 @@ CAST_HELP = {
 
 def scrub(s) -> str:
     s = str(s)
-    for t in SECRETS:
-        s = s.replace(t, "<token>")
-    return s
+    return s.replace(KEY, "<token>") if KEY else s
 
 
 def clean(x, n: int = 200) -> str:
     """Make model/checker text safe for the GitHub log: no control characters, no '::' workflow commands, bounded length."""
-    t = re.sub(r"[\x00-\x1f\x7f\u2028\u2029]+", " ", str(x))
+    t = re.sub(r"[\x00-\x1f\x7f  ]+", " ", str(x))
     return scrub(t).replace("::", ": :")[:n]
 
 
-def chat(model: str, messages: list[dict], temperature: float = 0.9, max_tokens: int = 4000) -> tuple[int, str]:
-    """(http status, text). The text is the model's answer or a scrubbed error message."""
-    payload = {"model": model, "messages": messages, "temperature": temperature, "max_tokens": max_tokens}
-    if ACTIVE.get("name") == "gemini":
-        payload["reasoning_effort"] = "low"   # new Gemini models "think" first; without this the thinking can eat the whole token budget
-    body = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(ACTIVE["url"], data=body, headers={"Authorization": "Bearer " + ACTIVE["token"], "Content-Type": "application/json",
-                                                                       "Accept": "application/vnd.github+json, application/json", "X-GitHub-Api-Version": "2022-11-28"})
+# ---------------------------------------------------------------------------------------------------
+# quota day + call counter (Gemini's free quota resets at midnight US Pacific = about 13:30 IST)
+def quota_day() -> str:
+    return (datetime.now(timezone.utc) - timedelta(hours=8)).date().isoformat()
+
+
+def load_usage() -> int:
     try:
-        with urllib.request.urlopen(req, timeout=100) as r:
-            raw = r.read().decode("utf-8", "replace")
-            try:
-                return r.status, json.loads(raw)["choices"][0]["message"]["content"] or ""
-            except Exception:
-                ACTIVE["last_raw"] = scrub(raw)[:400]
-                return r.status, ""
+        j = json.loads(USAGE.read_text(encoding="utf-8"))
+        return int(j["calls"]) if j.get("day") == quota_day() else 0
+    except Exception:
+        return 0
+
+
+def save_usage() -> None:
+    USAGE.write_text(json.dumps({"day": quota_day(), "calls": CALLS["n"], "cap": CALLS["cap"]}) + "\n", encoding="utf-8", newline="\n")
+
+
+def calls_left() -> int:
+    return 0 if STATE["quota_hit"] else max(0, CALLS["cap"] - CALLS["n"])
+
+
+# ---------------------------------------------------------------------------------------------------
+def http(url: str, body: dict | None, timeout: int) -> tuple[int, str]:
+    """One Gemini HTTP call, counted. (status, text). Never raises."""
+    CALLS["n"] += 1
+    data = json.dumps(body).encode("utf-8") if body is not None else None
+    req = urllib.request.Request(url, data=data, headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
         raw = e.read().decode("utf-8", "replace")
+        if e.code == 429:
+            STATE["quota_hit"] = True   # quota answer: the day is over, no retry
         try:
-            msg = json.loads(raw).get("error", raw)
+            msg = json.loads(raw)
+            msg = msg[0] if isinstance(msg, list) else msg
+            msg = msg.get("error", raw)
             msg = msg.get("message", msg) if isinstance(msg, dict) else msg
         except Exception:
             msg = raw
         return e.code, scrub(msg)[:240]
-    except Exception as e:  # network problem
+    except Exception as e:  # network problem / timeout
         return 0, scrub(e)[:200]
 
 
-def cur_model() -> str:
-    return ACTIVE["models"][ACTIVE["idx"]]
+def gemini_models() -> list[str]:
+    """Ask Gemini which models this key may use and rank the text 'flash' models (newest stable first). Model names change often."""
+    code, raw = http("https://generativelanguage.googleapis.com/v1beta/openai/models", None, 60)
+    if code != 200:
+        print(f"gemini model list failed: HTTP {code} {clean(raw, 100)}")
+        return ["gemini-flash-latest"]
+    try:
+        names = [m["id"].split("/")[-1] for m in json.loads(raw).get("data", [])]
+    except Exception:
+        return ["gemini-flash-latest"]
+    bad = re.compile(r"(image|tts|live|audio|embed|vision|robotics|computer|thinking|exp|learnlm|gemma|aqa|imagen|veo|omni|nano)")
+    cand = [n for n in names if n.startswith("gemini") and "flash" in n and not bad.search(n)]
+
+    def rank(n: str):
+        nums = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", n)]
+        return (0 if "preview" not in n else 1, 1 if "lite" in n else 0, -(nums[0] if nums else 0), n)
+    models = sorted(cand, key=rank)[:4] or ["gemini-flash-latest"]
+    print("gemini models to use:", ", ".join(models))
+    return models
 
 
 def ask(messages: list[dict], temperature: float = 0.9, max_tokens: int = 4000) -> tuple[int, str]:
-    """Like chat(), but on quota / overload / unavailable (429, 5xx, 404, network) it moves on to the provider's next model."""
+    """One Gemini chat call. -1 = no call left today. On 404 / 5xx / timeout it moves to the next model (each try is a counted call).
+    A 429 / quota answer stops everything for the day: no retry."""
     while True:
-        m = cur_model()
-        code, txt = chat(m, messages, temperature, max_tokens)
-        if code in (0, 404, 429, 500, 502, 503, 504) and ACTIVE["idx"] + 1 < len(ACTIVE["models"]):
-            ACTIVE["idx"] += 1
-            print(f"  model {m}: HTTP {code}, switching to {cur_model()}")
-            time.sleep(2)
+        if calls_left() <= 0:
+            return -1, "no Gemini call left today"
+        m = STATE["models"][STATE["idx"]]
+        payload = {"model": m, "messages": messages, "temperature": temperature, "max_tokens": max_tokens,
+                   "reasoning_effort": "low"}   # new Gemini models "think" first; without this the thinking can eat the whole token budget
+        code, raw = http(URL, payload, 100)
+        if code == 200:
+            try:
+                return 200, json.loads(raw)["choices"][0]["message"]["content"] or ""
+            except Exception:
+                STATE["last_raw"] = scrub(raw)[:300]
+                return 200, ""
+        if code in (0, 404, 500, 502, 503, 504) and STATE["idx"] + 1 < len(STATE["models"]):
+            STATE["idx"] += 1
+            print(f"  model {m}: HTTP {code}, switching to {STATE['models'][STATE['idx']]}")
             continue
-        return code, txt
-
-
-def pick_model() -> str | None:
-    """Probe the providers in order; set ACTIVE and return the model name of the first one that answers."""
-    for name, url, tok, models in PROVIDERS:
-        if not tok:
-            print(f"provider {name}: no key, skipped")
-            continue
-        ACTIVE.update(url=url, token=tok, name=name)
-        for m in models:
-            code, txt = chat(m, [{"role": "user", "content": "Say OK."}], 0, 300)
-            print(f"provider {name} model {m}: HTTP {code}" + ("" if code == 200 and txt.strip() else " - " + clean(txt or ACTIVE.get("last_raw", ""), 120)))
-            if code == 200 and txt.strip():
-                ACTIVE.update(name=name, models=list(models), idx=models.index(m))
-                return m
-            if code in (401, 402, 403, 429):
-                break  # this provider refuses (key, credits or rate limit): next provider
-    print("::warning::no free model answered (GitHub Models, Gemini, Hugging Face); the existing bank is still used")
-    return None
+        return code, raw
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -210,7 +212,8 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str]) -> list[dict]:
         "- Spell the names exactly: सचिन, सूर्या, दादाजी, आंटी, पिंटू, गोलू, मीना, कोच, ब्रूनो.\n"
         "- Use at least 3 different templates among the 4 scenes. A story must NOT end in a catch scene unless the joke needs it.\n"
         "- Never mention price, discounts, 'best', brands, politics, religion, accidents, hospitals or police.\n"
-        "- Each scene has 1 or 2 lines. With 2 lines the two speakers differ. The speaker of every line must be on stage in that scene.\n"
+        "- Each scene has 1 or 2 lines. With 2 lines the two speakers differ. The speaker of every line must be on stage in that scene, "
+        "and a character named inside a line must be on stage in that scene too.\n"
         "- The FIRST spoken line is a 4 to 8 word hook that ends with ! or ?. The LAST line is the punchline and ends with ! or ?.\n"
         "- The whole story has at most 40 spoken words. Every line is at most 10 words.\n"
         "- The `hook:` line is the title card text: Hindi, at most 60 characters, exactly ONE emoji, no digits, not a line from the dialogue.\n"
@@ -242,6 +245,10 @@ def extract_block(text: str) -> str | None:
     return "\n".join(keep)
 
 
+def title_of(blk: str) -> str:
+    return blk.splitlines()[0][3:].split("|")[0].strip()
+
+
 def judge(block: str) -> tuple[bool, dict]:
     msg = ("You are a strict editor of kids' Hindi comedy reels. Grade this story. Reply with ONLY a JSON object: "
            '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"kid_safe":true|false,"issue":"one short sentence"}. '
@@ -259,147 +266,157 @@ def judge(block: str) -> tuple[bool, dict]:
         return False, {"issue": "judge answer not understood"}
 
 
-def check_blocks(blocks: list[str]) -> dict[str, list[str]]:
-    """Run the hand-written-story checker on (existing bank + the candidates). Returns {english title: problems} for the candidates."""
+def check_block(blk: str, prior: list[str]) -> tuple[list[str], str]:
+    """Run the hand-written-story checker on (existing bank + stories accepted earlier in this run + this candidate). (problems, last template). No Gemini call."""
     with tempfile.TemporaryDirectory() as d:
         f = Path(d) / "combined.md"
         out = Path(d) / "result.json"
-        f.write_text(BANK.read_text(encoding="utf-8").rstrip() + "\n\n" + "\n\n".join(blocks) + "\n", encoding="utf-8")
+        f.write_text(BANK.read_text(encoding="utf-8").rstrip() + "\n\n" + "\n\n".join(prior + [blk]) + "\n", encoding="utf-8")
         subprocess.run([sys.executable, str(ROOT / "scripts" / "check_dialogue_bank.py"), str(f), "--json", str(out)],
                        cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=900)
         res = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
-    n_old = len(res) - len(blocks)
-    mine = res[n_old:] if n_old >= 0 else []
-    return {"problems": [r["problems"] for r in mine], "last": [r["last_template"] for r in mine]}
+    if not res:
+        return ["checker gave no result"], ""
+    return res[-1]["problems"], res[-1]["last_template"]
+
+
+FIXABLE_NOT = ("too close", "repeats", "same word", "nearly the same", "similarity", "capped", "checker gave no result")
+
+
+def write_report(left: int, added: int, a, extra: str = "") -> None:
+    line = f"Story refill {quota_day()}: {left} stories left in the bank, {added} added today, Gemini calls used {CALLS['n']}/{CALLS['cap']}{extra}"
+    print(line)
+    if not a.dry_run:
+        DAILY.write_text(line + "\n", encoding="utf-8", newline="\n")
+    summ = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summ:
+        try:
+            with open(summ, "a", encoding="utf-8") as f:
+                f.write("### Story refill\n" + line + "\n")
+        except Exception:
+            pass
+
+
+def run(a) -> int:
+    t0 = time.time()
+    CALLS["cap"] = a.max_calls
+    CALLS["n"] = load_usage()
+    left, total = usable_count()
+    print(f"bank: {total} stories, {left} usable now; Gemini calls used today so far: {CALLS['n']} of {CALLS['cap']}")
+    if left > a.max_bank:
+        write_report(left, 0, a, f" (bank has more than {a.max_bank} usable stories: nothing to write)")
+        return 0
+    if not KEY:
+        print("::warning::GEMINI_API_KEY is not set: no story written (the existing bank is still used)")
+        write_report(left, 0, a, " (no key)")
+        return 0
+    if calls_left() < 2:
+        print("::warning::the Gemini call limit for today is already used: no story written")
+        write_report(left, 0, a, " (daily limit reached)")
+        return 0
+    STATE["models"] = gemini_models()
+    if a.probe:
+        save_usage()
+        return 0
+    cfg = json.loads((ROOT / "stories" / "viral_formats.json").read_text(encoding="utf-8"))["formulas"]
+    sits = json.loads((ROOT / "stories" / "situations.json").read_text(encoding="utf-8"))["situations"]
+    random.shuffle(sits)
+    bank_text = BANK.read_text(encoding="utf-8")
+    existing = re.findall(r"^## (.+?) \|", bank_text, re.M)
+    endings = re.findall(r"^ending: (.+)$", bank_text, re.M)
+    accepted: list[tuple[str, dict]] = []
+    tried = 0
+    stop_msg = ""
+    while len(accepted) < a.target:
+        if STATE["quota_hit"]:
+            stop_msg = " (Gemini quota answer: stopped for the day)"
+            break
+        if calls_left() < 2:
+            stop_msg = " (call limit reached)"
+            break
+        if time.time() - t0 > BUDGET_S:
+            stop_msg = " (time budget used up)"
+            break
+        seed = {"situation": sits[tried % len(sits)], "formula": random.choice(cfg)}
+        tried += 1
+        code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:]))
+        if code != 200:
+            print(f"  writer HTTP {code}: {clean(txt)}")
+            stop_msg = f" (Gemini answered HTTP {code}: stopped)"
+            break
+        blk = extract_block(txt)
+        if not blk:
+            print("  unusable answer:", clean(txt, 200), "| raw:", clean(STATE["last_raw"], 200))
+            continue
+        prior = [b for b, _ in accepted]
+        probs, last = check_block(blk, prior)
+        if probs and not any(k in " ".join(probs) for k in FIXABLE_NOT) and calls_left() >= 3:
+            print(f"  ~ {clean(title_of(blk), 60)}: fixable problems, one repair try: {clean('; '.join(probs), 160)}")
+            sys_msg = ("You fix ONE kids' Hindi cartoon story so it passes a checker. Keep the idea and the jokes, change only what the problems say. "
+                       "Follow the file format exactly. Output only the corrected story block starting with '## ', nothing else.\n\n" + bank_header())
+            user_msg = blk + "\n\nProblems found by the checker:\n- " + "\n- ".join(probs[:6]) + "\n\nWrite the corrected story block."
+            code, txt = ask([{"role": "system", "content": sys_msg}, {"role": "user", "content": user_msg}], 0.4)
+            fixed = extract_block(txt) if code == 200 else None
+            if not fixed:
+                continue
+            blk = fixed
+            probs, last = check_block(blk, prior)
+        if probs:
+            print(f"  x {clean(title_of(blk), 60)}: {clean('; '.join(probs))}")
+            continue
+        if last == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
+            print(f"  x {clean(title_of(blk), 60)}: too many stories ending in a catch scene")
+            continue
+        ok, j = judge(blk)
+        if not ok:
+            print(f"  x {clean(title_of(blk), 60)}: editor says {clean(json.dumps(j, ensure_ascii=False))}")
+            continue
+        print(f"  + {clean(title_of(blk), 60)}: accepted {clean(json.dumps(j, ensure_ascii=False), 120)}")
+        accepted.append((blk, j))
+    model = STATE["models"][STATE["idx"]]
+    print(f"accepted {len(accepted)} new stories (target {a.target}){stop_msg}")
+    if accepted:
+        if a.dry_run:
+            print("--- accepted stories, in full, for review ---")
+            for b, j in accepted:
+                print("  ---")
+                for ln in b.splitlines():
+                    print("  |", clean(ln, 300))
+                print("  | editor:", clean(json.dumps(j, ensure_ascii=False), 200))
+            DRY.write_text("\n\n".join(b for b, _ in accepted) + "\n", encoding="utf-8", newline="\n")
+        else:
+            stamp = f"\n<!-- auto-written {date.today().isoformat()} by gemini/{model}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
+            with BANK.open("a", encoding="utf-8", newline="\n") as f:
+                f.write(stamp + "\n\n".join(b for b, _ in accepted) + "\n")
+            with LOG.open("a", encoding="utf-8", newline="\n") as f:
+                for b, j in accepted:
+                    f.write(f"- {date.today().isoformat()} | gemini/{model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
+    save_usage()
+    left2 = usable_count()[0] if accepted and not a.dry_run else left
+    write_report(left2, 0 if a.dry_run else len(accepted), a, stop_msg + (" [dry run: nothing saved]" if a.dry_run else ""))
+    return 0
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--min-usable", type=int, default=14, help="write new stories when fewer than this many are left")
-    ap.add_argument("--make", type=int, default=10, help="how many new stories to aim for")
-    ap.add_argument("--force", action="store_true")
+    ap.add_argument("--target", type=int, default=2, help="stop as soon as this many stories are accepted (the factory uses 2 reels a day)")
+    ap.add_argument("--max-calls", type=int, default=12, help="hard cap of Gemini calls per quota day")
+    ap.add_argument("--max-bank", type=int, default=60, help="write nothing when more than this many usable stories are left")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--probe", action="store_true")
     ap.add_argument("--seed", type=int, default=None)
     a = ap.parse_args()
     if a.seed is not None:
         random.seed(a.seed)
-    if a.probe:
-        return 0 if pick_model() else 1
-    left, total = usable_count()
-    print(f"bank: {total} stories, {left} usable now")
-    if left >= a.min_usable and not a.force:
-        print(f"enough stories (>= {a.min_usable}): nothing to do")
+    try:
+        return run(a)
+    except Exception as e:  # never turn a job red because of the story maker
+        print(f"::warning::story refill stopped by an error: {clean(type(e).__name__ + ': ' + str(e), 200)}")
+        try:
+            save_usage()
+        except Exception:
+            pass
         return 0
-    model = pick_model()
-    if not model:
-        print(f"::warning::story maker could not start; {left} usable stories remain in the bank")
-        return 0
-    cfg = json.loads((ROOT / "stories" / "viral_formats.json").read_text(encoding="utf-8"))["formulas"]
-    sits = json.loads((ROOT / "stories" / "situations.json").read_text(encoding="utf-8"))["situations"]
-    random.shuffle(sits)
-    existing = re.findall(r"^## (.+?) \|", BANK.read_text(encoding="utf-8"), re.M)
-    endings = re.findall(r"^ending: (.+)$", BANK.read_text(encoding="utf-8"), re.M)
-    accepted: list[tuple[str, dict]] = []
-    tried = 0
-    t0 = time.time()
-
-    def title_of(blk: str) -> str:
-        return blk.splitlines()[0][3:].split("|")[0].strip()
-
-    def consider(blks: list[str], label: str) -> list[tuple[str, list[str]]]:
-        """Run the checker + the catch-ending limit + the editor on blks. Accepted ones go to `accepted`; returns the failed (block, problems)."""
-        failed: list[tuple[str, list[str]]] = []
-        res = check_blocks(blks)
-        if len(res["problems"]) != len(blks):
-            print("  checker output did not match the candidates: skipped")
-            return failed
-        for idx, blk in enumerate(blks):
-            probs = res["problems"][idx]
-            if probs:
-                print(f"  x {label}{clean(title_of(blk), 60)}: {clean('; '.join(probs))}")
-                failed.append((blk, probs))
-                continue
-            if res["last"][idx] == "catch" and sum(1 for b, _ in accepted if b.splitlines()[-1].startswith("- catch")) + 1 > max(1, (len(accepted) + 1) // 5):
-                print(f"  x {label}{clean(title_of(blk), 60)}: too many stories ending in a catch scene")
-                continue
-            ok, j = judge(blk)
-            if not ok:
-                print(f"  x {label}{clean(title_of(blk), 60)}: editor says {clean(json.dumps(j, ensure_ascii=False))}")
-                continue
-            print(f"  + {label}{clean(title_of(blk), 60)}: accepted {clean(json.dumps(j, ensure_ascii=False), 120)}")
-            accepted.append((blk, j))
-        return failed
-
-    out_of_quota = False
-    for rnd in range(2):  # up to 2 rounds
-        want = a.make - len(accepted)
-        if want <= 0 or out_of_quota or time.time() - t0 > BUDGET_S:
-            break
-        cands: list[str] = []
-        for _ in range(want + 2):
-            if time.time() - t0 > BUDGET_S:
-                print("  time budget used up: stopping the writer")
-                break
-            seed = {"situation": sits[tried % len(sits)], "formula": random.choice(cfg)}
-            tried += 1
-            code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:]))
-            if code != 200:
-                print(f"  writer HTTP {code}: {clean(txt)}")
-                if code in (0, 401, 402, 403, 404, 429, 500, 502, 503, 504):
-                    print("  no model left that answers (credits / rate limit): stopping the writer")
-                    out_of_quota = True
-                    break
-                continue
-            blk = extract_block(txt)
-            if blk:
-                cands.append(blk)
-            else:
-                print("  unusable answer:", clean(txt, 300), "| raw:", clean(ACTIVE.get("last_raw", ""), 300))
-        print(f"round {rnd + 1}: {len(cands)} candidate(s), model {cur_model()}")
-        if not cands:
-            break
-        failed = consider(cands, "")
-        # one repair try for a story that failed only on fixable things (wrong speaker on stage, weak hook, too long ...), not on duplicates
-        fixable = [(b, p) for b, p in failed if not any(k in " ".join(p) for k in ("too close", "repeats", "same word", "nearly the same", "similarity", "capped"))]
-        repaired: list[str] = []
-        for blk, probs in fixable[: max(0, a.make - len(accepted))]:
-            if time.time() - t0 > BUDGET_S or out_of_quota:
-                break
-            sys_msg = ("You fix ONE kids' Hindi cartoon story so it passes a checker. Keep the idea and the jokes, change only what the problems say. "
-                       "Follow the file format exactly. Output only the corrected story block starting with '## ', nothing else.\n\n" + bank_header())
-            user_msg = blk + "\n\nProblems found by the checker:\n- " + "\n- ".join(probs[:6]) + "\n\nWrite the corrected story block."
-            code, txt = ask([{"role": "system", "content": sys_msg}, {"role": "user", "content": user_msg}], 0.4)
-            fixed = extract_block(txt) if code == 200 else None
-            if fixed:
-                repaired.append(fixed)
-        if repaired:
-            print(f"repair: {len(repaired)} story(ies) rewritten")
-            consider(repaired, "repaired ")
-
-    print(f"accepted {len(accepted)} new stories")
-    if a.dry_run:
-        for b, _ in accepted:
-            print("  ---")
-            for ln in b.splitlines():
-                print("  |", clean(ln, 240))
-    if accepted:
-        stamp = f"\n<!-- auto-written {date.today().isoformat()} by {ACTIVE.get('name')}/{cur_model()}; passed the same checks as hand-written stories + editor grade >= {MIN_JUDGE} -->\n\n"
-        text = stamp + "\n\n".join(b for b, _ in accepted) + "\n"
-        if a.dry_run:
-            DRY.write_text(text, encoding="utf-8")
-            print("dry run: candidates saved to", DRY)
-        else:
-            with BANK.open("a", encoding="utf-8", newline="\n") as f:
-                f.write(text)
-            with LOG.open("a", encoding="utf-8", newline="\n") as f:
-                for b, j in accepted:
-                    f.write(f"- {date.today().isoformat()} | {ACTIVE.get('name')}/{cur_model()} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
-    left2, total2 = usable_count() if accepted and not a.dry_run else (left, total)
-    print(f"bank now: {total2} stories, {left2} usable")
-    if left2 < a.min_usable and not a.dry_run:
-        print(f"::warning::only {left2} usable stories left in the bank after the refill")
-    return 0
 
 
 if __name__ == "__main__":

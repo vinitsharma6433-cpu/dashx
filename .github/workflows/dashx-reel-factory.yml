@@ -132,7 +132,7 @@ jobs:
       - name: Summary
         if: always() && steps.stop.outputs.skip != 'true'
         run: |
-          { echo "### DASHX Reel Factory"; cat output/reports/*.md 2>/dev/null || echo "no report"; } >> "$GITHUB_STEP_SUMMARY"
+          { echo "### DASHX Reel Factory"; cat output/reports/*.md 2>/dev/null || echo "no report"; echo; echo "$(cat stories/refill_daily.txt 2>/dev/null || echo 'Story refill: no report yet')"; } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Keep videos and reports for inspection
         if: always() && steps.stop.outputs.skip != 'true'
