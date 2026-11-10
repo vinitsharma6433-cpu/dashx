@@ -1,0 +1,182 @@
+{
+  "id": "two-whistles-talk",
+  "title": "सीटी पर झगड़ा",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Pintu and Coach both claim the same whistle, Surya cannot tell whose whistle to obey, and Aunty ends the argument by taking the whistle herself.",
+    "idea": "Two Whistles Talk",
+    "generated": "2026-11-10",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "एक सीटी, दो दावेदार, फ़ैसला किसका? 🤔",
+    "closing": "आंटी बनीं अंपायर!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "coach",
+        "boardText": "सीटी"
+      },
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "कोच जी, यह मेरी सीटी है! नहीं पिंटू, यह मेरी सीटी है!",
+      "subtitle": "कोच जी, यह मेरी सीटी है! नहीं पिंटू, यह मेरी सीटी है!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "कोच जी, यह मेरी सीटी है!",
+          "start": 0.25,
+          "end": 2.09,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "coach",
+          "line": "नहीं पिंटू, यह मेरी सीटी है!",
+          "start": 2.19,
+          "end": 4.38,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "कोच जी, यह मेरी सीटी है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "भैया, गेंद डालूँ क्या? सीटी बजे तो डालना!",
+      "subtitle": "भैया, गेंद डालूँ क्या? सीटी बजे तो डालना!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "भैया, गेंद डालूँ क्या?",
+          "start": 0.25,
+          "end": 1.8,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "सीटी बजे तो डालना!",
+          "start": 1.9,
+          "end": 3.46,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "भैया, गेंद डालूँ क्या?"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दो सीटी? मैं रुकूँ या खेलूँ?",
+      "subtitle": "दो सीटी? मैं रुकूँ या खेलूँ?",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "दो सीटी? मैं रुकूँ या खेलूँ?",
+          "start": 0.25,
+          "end": 2.16,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "दो सीटी? मैं रुकूँ या खेलूँ?"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "pintu",
+          "coach"
+        ]
+      },
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "आंटी, मेरी सीटी वापस दो! अब सीटी सिर्फ़ मैं बजाऊँगी!",
+      "subtitle": "आंटी, मेरी सीटी वापस दो! अब सीटी सिर्फ़ मैं बजाऊँगी!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "आंटी, मेरी सीटी वापस दो!",
+          "start": 0.25,
+          "end": 2.36,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "अब सीटी सिर्फ़ मैं बजाऊँगी!",
+          "start": 2.46,
+          "end": 4.45,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "आंटी, मेरी सीटी वापस दो!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

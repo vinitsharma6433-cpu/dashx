@@ -1,0 +1,183 @@
+{
+  "id": "bruno-steals",
+  "title": "ब्रूनो की चोरी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya tells Bruno to drop the ball, Sachin's shot sends Bruno running after it, and Bruno tosses the ball straight into Dadaji's hands.",
+    "idea": "Bruno Steals",
+    "generated": "2026-11-10",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "गेंद लेकर भागा ब्रूनो, अब कौन रोकेगा? 🐕",
+    "closing": "ब्रूनो की शरारत रंग लाई!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "bruno",
+        "boardText": "छोड़ो"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो, मेरी गेंद वापस दो! भौं भौं!",
+      "subtitle": "ब्रूनो, मेरी गेंद वापस दो! भौं भौं!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "ब्रूनो, मेरी गेंद वापस दो!",
+          "start": 0.25,
+          "end": 2.13,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "bruno",
+          "line": "भौं भौं!",
+          "start": 2.23,
+          "end": 2.72,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "ब्रूनो, मेरी गेंद वापस दो!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "रुक जा चोर, मैं बल्ला उठाता हूँ! भौं भौं भौं!",
+      "subtitle": "रुक जा चोर, मैं बल्ला उठाता हूँ! भौं भौं भौं!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "रुक जा चोर, मैं बल्ला उठाता हूँ!",
+          "start": 0.25,
+          "end": 2.52,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "bruno",
+          "line": "भौं भौं भौं!",
+          "start": 2.62,
+          "end": 3.11,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "रुक जा चोर, मैं बल्ला उठाता हूँ!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "sachin",
+          "bruno"
+        ]
+      },
+      "duration": 3.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "अरे वाह, गेंद सीधी मेरे हाथ में!",
+      "subtitle": "अरे वाह, गेंद सीधी मेरे हाथ में!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "अरे वाह, गेंद सीधी मेरे हाथ में!",
+          "start": 0.25,
+          "end": 3.35,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "अरे वाह, गेंद सीधी मेरे हाथ में!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "इनाम"
+      },
+      "duration": 5.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "देखा, चोर ने ख़ुद गेंद लौटा दी! तो इस चोर को इनाम में हड्डी दो!",
+      "subtitle": "देखा, चोर ने ख़ुद गेंद लौटा दी! तो इस चोर को इनाम में हड्डी दो!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "देखा, चोर ने ख़ुद गेंद लौटा दी!",
+          "start": 0.25,
+          "end": 2.68,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "तो इस चोर को इनाम में हड्डी दो!",
+          "start": 2.78,
+          "end": 4.83,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "देखा, चोर ने ख़ुद गेंद लौटा दी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
