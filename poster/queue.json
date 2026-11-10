@@ -1028,14 +1028,15 @@
         ],
         "yt_like": "ok",
         "yt_engaged": true,
-        "fb_comment_tries": 2,
-        "fb_comment": [
-          "failed: META TOKEN INVALID/EXPIRED (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931"
-        ],
+        "fb_comment_tries": 3,
         "ig_media_id": "17952679944055566",
         "ig_comment": [
           "ok"
-        ]
+        ],
+        "fb_comment": [
+          "ok"
+        ],
+        "fb_engaged": true
       }
     },
     {
