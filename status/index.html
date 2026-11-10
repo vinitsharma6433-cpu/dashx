@@ -268,7 +268,7 @@ a{color:var(--sch)}
     var r = (p.results || {})[net];
     var due = new Date(p.when) <= now;
     if (r && r.ok) {
-      if (net === "youtube" && r.scheduled && !due) return "scheduled";
+      if (r.scheduled && !due) return "scheduled";
       return "posted";
     }
     if (r && r.error) {

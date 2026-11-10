@@ -18,6 +18,8 @@ def get_media(url):
 # GitHub cron can run hours late, so a YouTube entry is uploaded up to LOOKAHEAD_H hours BEFORE its `when`
 # as a private video with publishAt = when. YouTube then makes it public on time, whatever the cron does.
 LOOKAHEAD_H = 36
+FB_LOOKAHEAD = dt.timedelta(hours=24)       # Facebook Reels are scheduled up to this long before their slot (Meta: SCHEDULED + scheduled_publish_time)
+FB_MIN_AHEAD = dt.timedelta(minutes=15)       # Meta needs the time to be at least ~10 minutes ahead
 MIN_PUBLISH_AHEAD = dt.timedelta(minutes=15)  # publishAt must be in the future; closer than this = publish now
 
 # ---------- YouTube Short ----------
@@ -132,7 +134,8 @@ def meta_comments(p, target_id, tok, key):
     if out: notes[key + "_comment"] = out
 
 # ---------- Facebook Page Reel ----------
-def post_facebook(p):
+def post_facebook(p, publish_at=None):
+    """publish_at (aware datetime) = upload now and let Facebook publish it then (video_state SCHEDULED, no cron needed); None = publish now."""
     s = env("META_PAGE_TOKEN", "FB_PAGE_ID")
     if not s: return None
     tok, page = s
@@ -140,10 +143,17 @@ def post_facebook(p):
     a = meta_check(requests.post(f"{G}/{page}/video_reels", data={"upload_phase": "start", "access_token": tok}, timeout=60), tok, "Facebook reel start")
     vid = a.json()["video_id"]; up = a.json()["upload_url"]
     meta_check(requests.post(up, headers={"Authorization": "OAuth " + tok, "file_url": p["media"]}, timeout=300), tok, "Facebook reel upload")
-    meta_check(requests.post(f"{G}/{page}/video_reels", data={
-        "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-        "description": p.get("captions", {}).get("facebook") or p["caption"], "title": p["title"][:90],
-        "access_token": tok}, timeout=120), tok, "Facebook reel publish")
+    fin = {"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
+           "description": p.get("captions", {}).get("facebook") or p["caption"], "title": p["title"][:90], "access_token": tok}
+    if publish_at is not None:
+        fin["video_state"] = "SCHEDULED"
+        fin["scheduled_publish_time"] = int(publish_at.timestamp())
+    meta_check(requests.post(f"{G}/{page}/video_reels", data=fin, timeout=120), tok,
+               "Facebook reel schedule" if publish_at is not None else "Facebook reel publish")
+    if publish_at is not None:
+        # Facebook publishes it by itself at publish_at. The first comment is added by main() after that time.
+        p.setdefault("notes", {})["fb_video_id"] = vid
+        return "https://www.facebook.com/reel/" + vid
     # wait until Facebook has processed it (up to ~6 minutes), so a processing error is seen as an error
     state = ""
     for _ in range(24):
@@ -211,6 +221,20 @@ def main():
                 except Exception as e:
                     res["youtube"] = {"ok": False, "error": str(e)[:300]}
                 changed = True
+            fb = res.get("facebook", {})
+            if ("facebook" in p["networks"] and not fb.get("ok") and not fb.get("sched_failed") and fb.get("tries", 0) < MAX_META_TRIES
+                    and FB_MIN_AHEAD < due - now <= FB_LOOKAHEAD):
+                try:
+                    link = post_facebook(p, publish_at=due)
+                    if link:
+                        res["facebook"] = {"ok": True, "link": link, "scheduled": True, "publish_at": p["when"], "at": now.isoformat()}
+                        changed = True
+                except Exception as e:
+                    # scheduling did not work: leave it to the normal post at the slot time (that path is unchanged)
+                    res["facebook"] = {"ok": False, "sched_failed": True, "error": "scheduling failed: " + _scrub(e, os.environ.get("META_PAGE_TOKEN", "").strip())[:250]}
+                    print("::warning::Facebook scheduling failed, it will be posted normally at its slot: %s" % res["facebook"]["error"])
+                    changed = True
+                json.dump(q, open(QUEUE, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
             continue
         # YouTube first: Facebook/Instagram problems (slow processing, bad token) must never delay or block it
         for net in sorted(p["networks"], key=lambda n: n != "youtube"):
@@ -226,6 +250,18 @@ def main():
                     except Exception as e:
                         p.setdefault("notes", {})["yt_engage_error"] = str(e)[:200]
                     changed = True
+                continue
+            if net == "facebook" and yt.get("ok") and yt.get("scheduled"):
+                notes = p.setdefault("notes", {})
+                if not notes.get("fb_engaged") and notes.get("fb_comment_tries", 0) < 5:
+                    s_ = env("META_PAGE_TOKEN", "FB_PAGE_ID")
+                    if s_:
+                        notes["fb_comment_tries"] = notes.get("fb_comment_tries", 0) + 1
+                        notes.pop("fb_comment", None)
+                        meta_comments(p, notes["fb_video_id"], s_[0], "fb")   # never raises; fails while the reel is not public yet -> retried next run
+                        if notes.get("fb_comment") == ["ok"] or not (p.get("comments") or p.get("comment")):
+                            notes["fb_engaged"] = True
+                        changed = True
                 continue
             if net in res and res[net].get("ok"): continue
             fn = HANDLERS.get(net)
@@ -247,7 +283,9 @@ def main():
             changed = True
             # save after every network, so a later crash can never make an already-published post run twice
             json.dump(q, open(QUEUE, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
-        engaged = all(p.get("notes", {}).get("yt_engaged") or not res.get(n, {}).get("scheduled") for n in p["networks"])
+        notes_ = p.get("notes", {})
+        engaged = all((not res.get(n, {}).get("scheduled")) or (notes_.get("fb_engaged") or notes_.get("fb_comment_tries", 0) >= 5 if n == "facebook" else notes_.get("yt_engaged"))
+                      for n in p["networks"])
         if engaged and all(res.get(n, {}).get("ok") for n in p["networks"]): p["status"] = "done"
     if changed: json.dump(q, open(QUEUE, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print("run ok", now.isoformat())
