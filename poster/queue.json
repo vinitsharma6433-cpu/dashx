@@ -1004,10 +1004,18 @@
           "scheduled": true,
           "publish_at": "2026-11-10T20:30:00+05:30",
           "at": "2026-11-10T09:12:19.947435+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1165586036039524",
+          "scheduled": true,
+          "publish_at": "2026-11-10T20:30:00+05:30",
+          "at": "2026-11-10T15:56:05.801746+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "J-MlSRsWWNk"
+        "yt_video_id": "J-MlSRsWWNk",
+        "fb_video_id": "1165586036039524"
       }
     },
     {
@@ -1037,10 +1045,18 @@
           "scheduled": true,
           "publish_at": "2026-11-11T12:30:00+05:30",
           "at": "2026-11-10T09:12:19.947435+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/2220454692204684",
+          "scheduled": true,
+          "publish_at": "2026-11-11T12:30:00+05:30",
+          "at": "2026-11-10T15:56:05.801746+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "wgbNHYimQds"
+        "yt_video_id": "wgbNHYimQds",
+        "fb_video_id": "2220454692204684"
       }
     }
   ]
