@@ -1013,6 +1013,11 @@
           "scheduled": true,
           "publish_at": "2026-11-10T20:30:00+05:30",
           "at": "2026-11-10T15:56:05.801746+05:30"
+        },
+        "instagram": {
+          "ok": false,
+          "error": "Instagram container create failed (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931",
+          "tries": 1
         }
       },
       "notes": {
