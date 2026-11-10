@@ -54,7 +54,7 @@ h2{font-size:1.1rem;margin:28px 0 10px}
 .sub{color:var(--muted);font-size:.92rem;margin:0 0 14px}
 .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--muted);display:inline-block}
-.dot.live{background:#22c55e}.dot.err{background:#ef4444}
+.dot.live{background:#22c55e}.dot.err{background:#ef4444}.dot.warn{background:#f59e0b}
 button.ref{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer}
 button.ref:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .banner{display:none;margin:12px 0;padding:12px 14px;border-radius:10px;background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad)}
@@ -167,6 +167,7 @@ a{color:var(--sch)}
     <span class="dot" id="dot"></span>
     <span id="updated">Loading&hellip;</span>
   </div>
+  <div class="bar" style="margin-top:6px"><span class="dot" id="pdot"></span><span id="pollast">Last poster run: checking&hellip;</span></div>
   <div class="banner" id="banner" role="alert"></div>
 
   <div class="clock">
@@ -508,6 +509,27 @@ a{color:var(--sch)}
     step();
     setInterval(step, 2600);
   })();
+
+
+  // ---- last poster run (GitHub public API, checked every 5 minutes so the free rate limit is never a problem) ----
+  function lastPoster() {
+    fetch("https://api.github.com/repos/vinitsharma6433-cpu/dashx/actions/workflows/dashx-poster.yml/runs?per_page=1", { headers: { Accept: "application/vnd.github+json" } })
+      .then(function (r) { if (!r.ok) throw new Error("api"); return r.json(); })
+      .then(function (j) {
+        var run = j.workflow_runs && j.workflow_runs[0];
+        if (!run) throw new Error("none");
+        var t = new Date(run.run_started_at || run.created_at), mins = Math.max(0, Math.round((Date.now() - t.getTime()) / 60000));
+        var ago = mins < 60 ? mins + " min ago" : Math.floor(mins / 60) + " h " + (mins % 60) + " min ago";
+        var late = mins > 45;
+        $("pollast").textContent = "Last poster run: " + ist(t) + " (" + ago + ")" + (late ? " · delayed: GitHub runs the poster less often than every 15 min, so posts and comments can be late" : "");
+        $("pdot").className = "dot " + (late ? "warn" : "live");
+      })
+      .catch(function () {
+        $("pollast").textContent = "Last poster run: not available right now";
+        $("pdot").className = "dot";
+      });
+  }
+  lastPoster(); setInterval(lastPoster, 300000);
 
   $("refresh").addEventListener("click", load);
   load();

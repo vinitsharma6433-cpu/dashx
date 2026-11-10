@@ -2,6 +2,12 @@ name: DASHX Auto Poster
 on:
   schedule:
     - cron: "*/15 * * * *"
+    # GitHub runs scheduled workflows only ~4 times a day on this repo (measured: median gap 6.3 h), so extra lines are packed around the two
+    # slots. Cron is UTC: 12:25-13:15 IST = 06:55-07:45 UTC, 20:25-21:15 IST = 14:55-15:45 UTC. Overlapping runs just queue (same concurrency group).
+    - cron: "55 6 * * *"
+    - cron: "0-45/5 7 * * *"
+    - cron: "55 14 * * *"
+    - cron: "0-45/5 15 * * *"
   workflow_dispatch:
 permissions:
   contents: write
