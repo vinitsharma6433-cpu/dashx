@@ -68,24 +68,73 @@ ol.how li{margin:6px 0}
 .clock .lbl{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
 .clock .big{font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
 .clock .small{color:var(--muted);font-size:.88rem;overflow-wrap:anywhere}
-.floor{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 8px 10px;overflow-x:auto}
-.floor-in{min-width:700px;position:relative;padding:0 8px 22px}
-.stations{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
-.stations li{text-align:center;font-size:.8rem;border-radius:10px;padding:8px 2px 6px;border:1px solid transparent;transition:background .25s,border-color .25s}
-.stations .ic{display:block;font-size:1.5rem;line-height:1.3}
-.stations .nm{display:block;font-weight:600}
-.stations .no{color:var(--muted);font-size:.7rem}
-.stations li.on{background:var(--accent-bg);border-color:var(--accent)}
-.belt{position:relative;height:18px;margin-top:8px;border-radius:9px;background:
-  repeating-linear-gradient(90deg,var(--line) 0 14px,transparent 14px 28px);background-color:var(--bg);border:1px solid var(--line);
-  animation:beltmove 1.2s linear infinite}
-.ball{position:absolute;top:-9px;left:0;width:34px;height:34px;border-radius:50%;
-  background:radial-gradient(circle at 35% 30%,#fde047,#eab308 60%,#a16207);box-shadow:0 3px 6px rgba(0,0,0,.35);
-  animation:roll 18s linear infinite}
-.ball::after{content:"";position:absolute;inset:5px;border-radius:50%;border:2px solid rgba(255,255,255,.75);border-left-color:transparent;border-right-color:transparent}
-@keyframes beltmove{to{background-position:28px 0}}
-@keyframes roll{from{left:0;transform:rotate(0)}to{left:calc(100% - 34px);transform:rotate(1440deg)}}
-@media (prefers-reduced-motion: reduce){.belt,.ball{animation:none}.ball{left:calc(50% - 17px)}}
+.hero{font-size:1.05rem;margin:0 0 12px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.stats b{display:block;font-size:1.5rem;font-variant-numeric:tabular-nums;line-height:1.2;color:var(--accent)}
+.stats span{font-size:.75rem;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.stats div:first-child{grid-column:1 / -1}}
+.stepline{margin:0 0 10px;font-size:.95rem;min-height:3em}
+.stepline b{color:var(--accent)}
+.world{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:640px){.world{grid-template-columns:repeat(2,1fr)}}
+.room{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:box-shadow .3s,border-color .3s,transform .3s}
+.room.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent);transform:translateY(-2px)}
+.room svg{display:block;width:100%;height:auto}
+.room .cap{padding:5px 9px 7px;font-size:.8rem;font-weight:650;border-top:1px solid var(--line)}
+.worldnote{color:var(--muted);font-size:.8rem;margin:8px 0 0}
+.w-wall{fill:var(--bg)}
+.w-floor{stroke:var(--muted);stroke-width:2;fill:none}
+.w-ink{stroke:var(--text);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.w-fill{fill:var(--text)}
+.w-prop{fill:var(--card);stroke:var(--text);stroke-width:1.6}
+.w-skin{fill:#f2c89b}
+.w-hat{fill:#eab308}
+.w-txt{fill:var(--text)}
+.a-write,.a-wave,.a-crank,.a-push{transform-origin:0 0}
+.a-write{animation:k-write .35s ease-in-out infinite alternate}
+.a-wave{animation:k-wave .6s ease-in-out infinite alternate}
+.a-crank{animation:k-crank .45s ease-in-out infinite alternate}
+.a-push{animation:k-push 1.6s ease-in-out infinite}
+.bob{animation:k-bob .7s ease-in-out infinite alternate}
+.jump{animation:k-jump .5s ease-out infinite alternate}
+.walk{animation:k-walk 3s ease-in-out infinite alternate}
+.draw{stroke-dasharray:40;animation:k-draw 3.2s linear infinite}
+.wave{animation:k-fade 1.2s ease-out infinite}
+.blink{animation:k-fade 1s steps(2) infinite}
+.floatup{animation:k-float 2.4s ease-out infinite}
+.bounce{animation:k-bounce .55s cubic-bezier(.5,0,1,.5) infinite alternate}
+.slide{animation:k-slide 4.5s linear infinite}
+.scan{animation:k-scan 1.1s ease-in-out infinite alternate}
+.stamp{animation:k-stamp 1.6s ease-in-out infinite}
+.stamped{animation:k-stamped 1.6s linear infinite}
+.press{animation:k-press 1.6s ease-in-out infinite}
+.fly{animation:k-fly 1.6s ease-in infinite}
+.pop{transform-box:fill-box;transform-origin:center;animation:k-pop 2.6s ease-out infinite}
+.d2{animation-delay:.5s}.d3{animation-delay:1s}.d4{animation-delay:1.5s}.d5{animation-delay:3s}
+@keyframes k-write{from{transform:rotate(-9deg)}to{transform:rotate(12deg)}}
+@keyframes k-wave{from{transform:rotate(-28deg)}to{transform:rotate(22deg)}}
+@keyframes k-crank{from{transform:rotate(-16deg)}to{transform:rotate(20deg)}}
+@keyframes k-push{0%,100%{transform:rotate(-14deg)}45%,60%{transform:rotate(26deg)}}
+@keyframes k-bob{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+@keyframes k-jump{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+@keyframes k-walk{from{transform:translateX(0)}to{transform:translateX(46px)}}
+@keyframes k-draw{0%{stroke-dashoffset:40}35%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:40}}
+@keyframes k-fade{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
+@keyframes k-float{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-34px);opacity:0}}
+@keyframes k-bounce{from{transform:translateY(0)}to{transform:translateY(38px)}}
+@keyframes k-slide{from{transform:translateX(-20px)}to{transform:translateX(210px)}}
+@keyframes k-scan{from{transform:translateY(0)}to{transform:translateY(38px)}}
+@keyframes k-stamp{0%,100%{transform:translateY(0)}45%,60%{transform:translateY(22px)}}
+@keyframes k-stamped{0%,44%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+@keyframes k-press{0%,100%{transform:translateY(0)}45%,60%{transform:translateY(3px)}}
+@keyframes k-fly{0%,40%{transform:translate(0,0);opacity:0}45%{opacity:1}100%{transform:translate(46px,-64px);opacity:0}}
+@keyframes k-pop{0%,25%{transform:scale(0);opacity:0}35%{transform:scale(1.15);opacity:1}45%,88%{transform:scale(1);opacity:1}100%{transform:scale(0);opacity:0}}
+.cta{margin-top:26px;background:var(--accent-bg);border:1px solid var(--accent);border-radius:14px;padding:16px}
+.cta h2{margin:0 0 6px}
+.cta p{margin:0 0 12px}
+.cta a.btn{display:inline-block;background:#16a34a;color:#fff;text-decoration:none;font-weight:650;padding:10px 16px;border-radius:10px}
+@media (prefers-reduced-motion: reduce){.world *{animation:none !important}.room{transition:none}}
 footer{margin-top:28px;color:var(--muted);font-size:.85rem}
 a{color:var(--sch)}
 </style>
@@ -96,7 +145,8 @@ a{color:var(--sch)}
     <h1>DASHX Reel Machine</h1>
     <button class="ref" id="refresh" type="button">Refresh now</button>
   </header>
-  <p class="sub">Live status of the automatic reel factory. All times are Indian Standard Time (IST).</p>
+  <p class="hero">A tiny cloud factory that writes, voices, animates, checks and posts cartoon reels <b>by itself, every day</b>. No laptop, no studio, no editor.</p>
+  <p class="sub">This page is live, not a recording. All times are Indian Standard Time (IST).</p>
   <div class="bar" role="status" aria-live="polite">
     <span class="dot" id="dot"></span>
     <span id="updated">Loading&hellip;</span>
@@ -108,22 +158,18 @@ a{color:var(--sch)}
     <div class="box"><div class="lbl">Next slot in</div><div class="big" id="count">--:--:--</div><div class="small" id="slotinfo">&nbsp;</div></div>
   </div>
 
-  <h2>Factory floor</h2>
-  <div class="floor" aria-label="The ball moves along the belt past the 8 steps">
-    <div class="floor-in" id="floor">
-      <ol class="stations" id="stations">
-        <li><span class="ic" aria-hidden="true">📖</span><span class="nm">Story</span><span class="no">1</span></li>
-        <li><span class="ic" aria-hidden="true">🎙️</span><span class="nm">Voice</span><span class="no">2</span></li>
-        <li><span class="ic" aria-hidden="true">🎬</span><span class="nm">Animation</span><span class="no">3</span></li>
-        <li><span class="ic" aria-hidden="true">✅</span><span class="nm">Quality</span><span class="no">4</span></li>
-        <li><span class="ic" aria-hidden="true">🏷️</span><span class="nm">End card</span><span class="no">5</span></li>
-        <li><span class="ic" aria-hidden="true">📋</span><span class="nm">Queue</span><span class="no">6</span></li>
-        <li><span class="ic" aria-hidden="true">📤</span><span class="nm">Publish</span><span class="no">7</span></li>
-        <li><span class="ic" aria-hidden="true">💬</span><span class="nm">1st comment</span><span class="no">8</span></li>
-      </ol>
-      <div class="belt"><div class="ball" id="ball"></div></div>
-    </div>
+  <div class="stats" aria-label="Live numbers from the queue">
+    <div><b id="st-total">&ndash;</b><span>reels posted by the machine</span></div>
+    <div><b id="st-yt">&ndash;</b><span>on YouTube</span></div>
+    <div><b id="st-ig">&ndash;</b><span>on Instagram</span></div>
+    <div><b id="st-fb">&ndash;</b><span>on Facebook</span></div>
+    <div><b>2 / day</b><span>new reels, made and posted automatically</span></div>
   </div>
+
+  <h2>Inside the tiny factory</h2>
+  <p class="stepline" id="stepline" aria-live="off">&nbsp;</p>
+  <div class="world" id="world"></div>
+  <p class="worldnote">The little workers are a looping picture of the 8 steps every reel goes through. The numbers, clock, countdown and reel lists on this page are live data.</p>
 
   <h2>Next 3 scheduled reels</h2>
   <div id="next"><div class="empty">Loading&hellip;</div></div>
@@ -154,6 +200,12 @@ a{color:var(--sch)}
     <div><b>02:00 IST</b><br>Factory makes 2 new reels</div>
     <div><b>12:30 IST</b><br>Morning slot goes live</div>
     <div><b>20:30 IST</b><br>Evening slot goes live</div>
+  </div>
+
+  <div class="cta">
+    <h2>Want a reel machine like this for your brand?</h2>
+    <p>The same factory can make and post daily reels for a shop, a product or a page. Message us on WhatsApp.</p>
+    <a class="btn" href="https://wa.me/919837821341?text=Hi%20DASHX%2C%20I%20saw%20the%20live%20reel%20machine%20and%20want%20one%20for%20my%20brand" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
   </div>
 
   <footer>
@@ -277,6 +329,20 @@ a{color:var(--sch)}
     nextReelAt = upcoming.length ? Date.parse(upcoming[0].when) : null;
     nextReelTitle = upcoming.length ? toTitle(upcoming[0].title) : "";
 
+    // live counters: reels with at least one network posted, and posts per network
+    var cnt = { youtube: 0, instagram: 0, facebook: 0 }, total = 0;
+    posts.forEach(function (p) {
+      var any = false;
+      NETS.forEach(function (n) {
+        if ((p.networks || []).indexOf(n[0]) >= 0 && netState(p, n[0], now) === "posted") { cnt[n[0]]++; any = true; }
+      });
+      if (any) total++;
+    });
+    $("st-total").textContent = total;
+    $("st-yt").textContent = cnt.youtube;
+    $("st-ig").textContent = cnt.instagram;
+    $("st-fb").textContent = cnt.facebook;
+
     // last 10 posted: slot already passed and at least one network is posted, newest first
     var posted = posts.filter(function (p) {
       return new Date(p.when) <= now && NETS.some(function (n) { return (p.networks || []).indexOf(n[0]) >= 0 && netState(p, n[0], now) === "posted"; });
@@ -342,22 +408,89 @@ a{color:var(--sch)}
   }
   setInterval(tick, 1000); tick();
 
-  // ---- factory floor: light up the station the ball is passing ----
-  (function floor() {
-    var ball = $("ball"), items = $("stations").children, last = -1;
-    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    setInterval(function () {
-      var b = ball.getBoundingClientRect(), cx = b.left + b.width / 2, pick = -1;
-      for (var i = 0; i < items.length; i++) {
-        var r = items[i].getBoundingClientRect();
-        if (cx >= r.left && cx < r.right) { pick = i; break; }
-      }
-      if (pick !== last) {
-        if (last >= 0) items[last].classList.remove("on");
-        if (pick >= 0) items[pick].classList.add("on");
-        last = pick;
-      }
-    }, 150);
+  // ---- the tiny factory: 8 rooms with little workers (a looping picture of the steps; all drawing code is static, no queue data goes in here) ----
+  (function world() {
+    var B = "#2563eb", R = "#dc2626", G = "#16a34a", V = "#7c3aed", O = "#ea580c";
+    // one tiny worker standing on the floor line (y = 110). dir 1 = faces right. arm = animation class of the working arm, (hx, hy) = where the hand points.
+    function P(x, shirt, arm, dir, wrap, hx, hy) {
+      dir = dir || 1; hx = hx == null ? 11 : hx; hy = hy == null ? 5 : hy;
+      return "<g transform='translate(" + x + ",110)'><g class='" + (wrap || "") + "'>"
+        + "<path class='w-ink' d='M-3,0 V-13 M3,0 V-13'/>"
+        + "<rect x='-6' y='-32' width='12' height='20' rx='4' fill='" + shirt + "'/>"
+        + "<circle cx='0' cy='-39' r='6' class='w-skin'/>"
+        + "<path d='M-7,-41 a7,7 0 0 1 14,0 z' class='w-hat'/>"
+        + "<path class='w-ink' d='M" + (-dir * 5) + ",-28 l" + (-dir * 3) + ",11'/>"
+        + "<g transform='translate(" + (dir * 5) + ",-28)'><path class='w-ink " + (arm || "") + "' d='M0,0 L" + (dir * hx) + "," + hy + "'/></g>"
+        + "</g></g>";
+    }
+    function tower(x, color, label) {
+      return "<path class='w-ink' d='M" + x + ",110 V70'/><rect x='" + (x - 13) + "' y='52' width='26' height='18' rx='4' fill='" + color + "'/>"
+        + "<text x='" + x + "' y='65' text-anchor='middle' font-size='10' font-weight='700' fill='#fff'>" + label + "</text>"
+        + "<path class='w-ink wave' d='M" + (x - 8) + ",46 q8,-8 16,0'/>";
+    }
+    var base = "<rect width='200' height='120' class='w-wall'/><path class='w-floor' d='M0,110 H200'/>";
+    var ROOMS = [
+      ["Story", "a writer and a thinker come up with a funny gully-cricket story",
+        "<rect x='122' y='36' width='52' height='46' rx='3' class='w-prop'/><path class='w-ink' d='M148,82 V110 M138,110 H158'/>"
+        + "<path class='w-ink draw' d='M129,48 H167'/><path class='w-ink draw d2' d='M129,58 H167'/><path class='w-ink draw d3' d='M129,68 H155'/>"
+        + P(104, B, "a-write", 1, "", 13, -12) + P(44, O, "", 1, "bob")
+        + "<text x='36' y='52' font-size='16' class='pop'>💡</text>"],
+      ["Voice", "every character gets a Hindi voice",
+        "<path class='w-ink' d='M122,110 V72 M114,110 H130'/><rect x='117' y='56' width='10' height='17' rx='5' class='w-fill'/>"
+        + "<path class='w-ink wave' d='M136,54 q8,10 0,20'/><path class='w-ink wave d2' d='M144,50 q11,14 0,28'/><path class='w-ink wave d3' d='M152,46 q14,18 0,36'/>"
+        + "<text x='166' y='62' font-size='13' class='w-txt floatup'>अ</text><text x='178' y='76' font-size='13' class='w-txt floatup d2'>आ</text><text x='164' y='88' font-size='13' class='w-txt floatup d3'>ई</text>"
+        + P(100, R, "a-wave", 1, "bob", 10, -4)
+        + "<rect x='18' y='84' width='40' height='7' rx='2' class='w-fill'/><path class='w-ink' d='M24,91 V110 M52,91 V110'/>"
+        + "<circle cx='30' cy='79' r='2.5' fill='#22c55e' class='blink'/><circle cx='40' cy='79' r='2.5' fill='#ef4444' class='blink d2'/>"
+        + P(70, V, "a-crank", -1, "", 12, 8)],
+      ["Animation", "the cartoon scenes are drawn into a vertical video",
+        "<rect x='126' y='22' width='50' height='84' rx='7' class='w-prop'/><rect x='131' y='29' width='40' height='70' rx='3' fill='#16a34a' opacity='.25'/>"
+        + "<circle cx='151' cy='42' r='5' fill='#eab308' class='bounce'/><path class='w-ink' d='M146,96 V86 M151,96 V86 M156,96 V86'/>"
+        + P(106, G, "a-crank", 1, "", 13, -6)
+        + "<g class='walk'>" + P(26, B, "", 1, "", 9, -2) + "<rect x='37' y='70' width='14' height='20' rx='2' class='w-prop'/></g>"],
+      ["Quality check", "length, subtitles and brand rules are checked; a bad reel never leaves",
+        "<rect x='0' y='98' width='200' height='5' class='w-fill' opacity='.45'/>"
+        + "<g class='slide'><rect x='0' y='78' width='12' height='20' rx='2' class='w-prop'/></g><g class='slide d4'><rect x='0' y='78' width='12' height='20' rx='2' class='w-prop'/></g><g class='slide d5'><rect x='0' y='78' width='12' height='20' rx='2' class='w-prop'/></g>"
+        + "<path class='w-ink' d='M120,98 V46 H156 V98'/><rect x='123' y='52' width='30' height='3' fill='#22c55e' class='scan'/>"
+        + "<text x='160' y='40' font-size='16' class='pop'>✅</text>"
+        + P(88, O, "a-wave", 1, "", 12, -8)],
+      ["End card", "the DASHX logo and the call to action are stamped on",
+        "<path class='w-ink' d='M112,110 V34 H164 V110'/>"
+        + "<rect x='120' y='84' width='36' height='24' rx='2' fill='#111' stroke='#fbbf24' stroke-width='1.5'/><text x='138' y='100' text-anchor='middle' font-size='9' font-weight='700' fill='#fbbf24' class='stamped'>DASHX</text>"
+        + "<g class='stamp'><path class='w-ink' d='M138,34 V50'/><rect x='124' y='50' width='28' height='12' rx='2' class='w-fill'/></g>"
+        + "<path class='w-ink' d='M112,70 H102'/>" + P(86, V, "a-push", 1, "", 13, -12)],
+      ["Queue", "the finished reel is parked for the next free slot",
+        "<rect x='116' y='30' width='68' height='30' rx='4' class='w-prop'/><text x='150' y='50' text-anchor='middle' font-size='12' font-weight='700' class='w-txt'>12:30</text>"
+        + "<rect x='116' y='66' width='68' height='30' rx='4' class='w-prop'/><text x='150' y='86' text-anchor='middle' font-size='12' font-weight='700' class='w-txt'>20:30</text>"
+        + "<g class='walk'>" + P(22, G, "", 1, "", 10, 2) + "<rect x='36' y='90' width='20' height='14' rx='2' fill='#eab308'/><circle cx='40' cy='107' r='3' class='w-fill'/><circle cx='52' cy='107' r='3' class='w-fill'/></g>"],
+      ["Publish", "it goes out to YouTube, Instagram and Facebook",
+        tower(112, "#dc2626", "YT") + tower(146, "#db2777", "IG") + tower(180, "#2563eb", "FB")
+        + "<path class='w-ink' d='M74,110 V94'/><rect x='66' y='86' width='16' height='8' rx='3' fill='#dc2626' class='press'/>"
+        + "<text x='58' y='72' font-size='16' class='fly'>🚀</text>"
+        + P(50, B, "a-push", 1, "", 14, 6)],
+      ["First comment", "the buy links are added as the first comment",
+        "<g class='pop'><rect x='84' y='30' width='98' height='30' rx='9' class='w-prop'/><text x='133' y='50' text-anchor='middle' font-size='11' class='w-txt'>🛒 Buy links</text></g>"
+        + "<text x='24' y='74' font-size='13' class='floatup'>❤️</text><text x='112' y='92' font-size='13' class='floatup d2'>❤️</text><text x='176' y='96' font-size='13' class='floatup d3'>❤️</text>"
+        + P(66, R, "a-wave", 1, "bob", 10, -6) + P(150, G, "a-wave", -1, "jump", 10, -10)]
+    ];
+    var box = $("world"), html = "";
+    ROOMS.forEach(function (r, i) {
+      html += "<div class='room'><svg viewBox='0 0 200 120' role='img' aria-label='Step " + (i + 1) + ": " + r[0] + "'>" + base + r[2] + "</svg>"
+        + "<div class='cap'>" + (i + 1) + ". " + r[0] + "</div></div>";
+    });
+    box.innerHTML = html;   // static markup written above, nothing from the network
+    var rooms = box.children, cur = -1;
+    function step() {
+      if (cur >= 0) rooms[cur].classList.remove("on");
+      cur = (cur + 1) % ROOMS.length;
+      rooms[cur].classList.add("on");
+      var line = $("stepline");
+      line.textContent = "";
+      line.appendChild(el("b", null, "Step " + (cur + 1) + " of 8: " + ROOMS[cur][0]));
+      line.appendChild(document.createTextNode(" · " + ROOMS[cur][1]));
+    }
+    step();
+    setInterval(step, 2600);
   })();
 
   $("refresh").addEventListener("click", load);
