@@ -10,7 +10,7 @@ import type {TemplateName} from './templateInfo';
 
 type CameraSpec = {move: string; from?: number; to?: number; zoom?: number};
 /** One spoken line of a dialogue scene. start/end (seconds from the scene start), lines and width are set by scripts/fit_reel.py. */
-type DialogueLine = {speaker: string; line: string; start?: number; end?: number; lines?: number; width?: number};
+type DialogueLine = {speaker: string; line: string; start?: number; end?: number; lines?: number; width?: number; mouth?: [number, string][]};
 type SceneSpec = {
   id: number;
   template: TemplateName; // which template draws this scene
@@ -76,13 +76,45 @@ function camera(c: CameraSpec) {
   }
 }
 
-/** The speaker's mouth opens and closes and the head bobs a little while the line is spoken. */
-function* speak(c: Char | undefined, seconds: number): ThreadGenerator {
+/** Mouth size (width, height scale of the drawn mouth) for each Rhubarb mouth shape; A = closed, D = wide open, E/F = rounded/pursed, X = rest. */
+const MOUTH: Record<string, [number, number]> = {
+  A: [1.0, 0.35], B: [1.0, 0.75], C: [1.12, 1.3], D: [1.2, 1.9], E: [0.85, 1.35], F: [0.7, 1.0], G: [1.1, 0.6], H: [1.15, 1.5], X: [1.0, 0.7],
+};
+
+/**
+ * The speaker's mouth moves and the head bobs a little while the line is spoken.
+ * With `cues` (made by scripts/lipsync.py from the real voice: [seconds since the line started, mouth shape]) the mouth follows the sound;
+ * without cues it opens and closes in a fixed beat, as before.
+ */
+function* speak(c: Char | undefined, seconds: number, cues?: [number, string][]): ThreadGenerator {
   if (!c) {
     yield* waitFor(seconds);
     return;
   }
   const y0 = c.head.y();
+  if (cues && cues.length > 0) {
+    const mouth = function* (): ThreadGenerator {
+      let t = 0;
+      for (let k = 0; k < cues.length; k++) {
+        const at = Math.min(seconds, Math.max(t, cues[k][0]));
+        if (at > t) yield* waitFor(at - t);
+        t = at;
+        c.mouth.scale(MOUTH[cues[k][1]] ?? [1, 1]);
+      }
+      if (seconds > t) yield* waitFor(seconds - t);
+    };
+    const bob = function* (): ThreadGenerator {
+      const beats = Math.max(1, Math.round(seconds / 0.3));
+      for (let k = 0; k < beats; k++) {
+        yield* c.head.y(y0 - 4, 0.15);
+        yield* c.head.y(y0, 0.15);
+      }
+    };
+    yield* all(mouth(), bob());
+    c.mouth.scale([1, 1]);
+    c.head.y(y0);
+    return;
+  }
   const beats = Math.max(1, Math.round(seconds / 0.22));
   for (let k = 0; k < beats; k++) {
     yield* all(c.mouth.scale([1.15, 1.9], 0.11), c.head.y(y0 - 6, 0.11));
@@ -191,7 +223,7 @@ export default makeScene2D('reel', function* (view) {
             }
             yield* all(
               g().opacity(1, 0.08),
-              speak(c, Math.max(0.2, stop - start)),
+              speak(c, Math.max(0.2, stop - start), e.mouth),
               nextStart !== undefined ? chain(waitFor(Math.max(0.1, nextStart - start - 0.08)), g().opacity(0, 0.08)) : waitFor(0),
             );
           })(),
