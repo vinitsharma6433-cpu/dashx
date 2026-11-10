@@ -1,30 +1,33 @@
 name: DASHX Auto Poster
+# SELF-DISPATCHING LOOP. GitHub's cron is unreliable on this repo (measured: ~4 scheduled runs a day instead of 96), so one run
+# does not end quickly: it checks the queue every 5 minutes for up to 5 h 45 min (poster/loop.sh), posts whatever is due, and then
+# starts the next run of itself with workflow_dispatch (allowed for GITHUB_TOKEN). The cron below is only the BACKUP that restarts
+# the chain if it ever breaks. All runs share one concurrency group, so two runs never post at the same time; results are
+# pushed right after each post, and posts older than 48 h are never posted late (poster/poster.py).
+# Kill switch: create a file STOP_POSTER in the repo root: the loop ends and does not start another run.
 on:
   schedule:
-    - cron: "*/15 * * * *"
-    # GitHub runs scheduled workflows only ~4 times a day on this repo (measured: median gap 6.3 h), so extra lines are packed around the two
-    # slots. Cron is UTC: 12:25-13:15 IST = 06:55-07:45 UTC, 20:25-21:15 IST = 14:55-15:45 UTC. Overlapping runs just queue (same concurrency group).
-    - cron: "55 6 * * *"
-    - cron: "0-45/5 7 * * *"
-    - cron: "55 14 * * *"
-    - cron: "0-45/5 15 * * *"
+    - cron: "*/15 * * * *"   # backup restart only
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write   # needed to start the next run of this workflow with GITHUB_TOKEN
 concurrency:
-  group: dashx-poster
+  group: dashx-poster   # poster only; the reel factory has its own group so it is never stuck behind the long loop
   cancel-in-progress: false
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install requests
-      - name: Post due items
+      - name: Poster loop (checks every 5 minutes for 5 h 45 min)
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
@@ -32,20 +35,21 @@ jobs:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-        run: python poster/poster.py
-      - name: Save results
-        if: always()   # also after a failed post (e.g. invalid Meta token), so the results are never lost
+          LOOP_SECONDS: "20700"
+          CHECK_EVERY: "300"
+        run: bash poster/loop.sh
+      - name: Start the next run (keeps the chain alive)
+        if: ${{ !cancelled() && hashFiles('.stopped') == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "dashx-poster"
-          git config user.email "dashx-poster@users.noreply.github.com"
-          git add poster/queue.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Poster: update queue results"
-            # the factory also edits queue.json (it only runs when this job is not running: same concurrency group), so retry the rebase + push
-            for i in 1 2 3 4 5; do
-              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
-              git rebase --abort 2>/dev/null || true
-              sleep $((i * 6))
-            done
-            echo "::error::could not push the poster results to queue.json"; exit 1
-          fi
+          for i in 1 2 3 4; do
+            if gh workflow run dashx-poster.yml --ref main; then echo "next run requested"; exit 0; fi
+            sleep $((i * 5))
+          done
+          echo "::warning::could not start the next run; the backup cron will restart the chain"
+      - name: Report an invalid Meta token (once per run)
+        if: always() && hashFiles('.token_bad') != ''
+        run: |
+          echo "::error::META_PAGE_TOKEN is invalid or expired: Facebook/Instagram posts are failing. YouTube is not affected."
+          exit 1

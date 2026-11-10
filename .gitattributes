@@ -1,0 +1,3 @@
+poster/queue.json merge=queuejson
+*.sh text eol=lf
+poster/*.py text eol=lf

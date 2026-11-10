@@ -17,8 +17,9 @@ on:
     - cron: "30 20 * * *"   # 20:30 UTC = 02:00 IST
 permissions:
   contents: write
+  actions: write               # to restart the poster chain at the end
 concurrency:
-  group: dashx-poster          # same group as the poster, so the two never edit queue.json at the same time
+  group: dashx-factory         # its own group: the poster is now a long-running loop, the factory must never wait behind it. queue.json is merged safely by poster/merge_queue.py (see .gitattributes)
   cancel-in-progress: false
 jobs:
   factory:
@@ -108,6 +109,12 @@ jobs:
         if: steps.stop.outputs.skip != 'true'
         run: python -m factory daily "${{ github.event.inputs.count || '2' }}" --source bank
 
+      - name: Queue merge driver (poster and factory both edit queue.json)
+        if: steps.stop.outputs.skip != 'true'
+        working-directory: .
+        run: |
+          git config merge.queuejson.name "DASHX queue.json merge"
+          git config merge.queuejson.driver "python $GITHUB_WORKSPACE/poster/merge_queue.py %O %A %B"
       - name: Queue reels that passed every check
         if: steps.stop.outputs.skip != 'true'
         run: python -m factory queue ${{ github.event.inputs.test_only == 'true' && '--no-push' || '' }}
@@ -145,3 +152,9 @@ jobs:
             reelfactory/logs
           retention-days: 7
           if-no-files-found: ignore
+      - name: Restart the poster loop (harmless if it is already running)
+        if: ${{ !cancelled() }}
+        working-directory: .
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run dashx-poster.yml --ref main || echo "::warning::could not request a poster run"
