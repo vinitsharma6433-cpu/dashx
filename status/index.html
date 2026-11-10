@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DASHX Reel Machine Status</title>
+<meta name="description" content="Live status of the DASHX reel machine: next scheduled reels and the latest posted reels on YouTube, Instagram and Facebook.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon-32.png">
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --text:#14171c; --muted:#5b6573; --line:#e1e5ea;
+  --accent:#b45309; --accent-bg:#fef3c7;
+  --ok:#166534; --ok-bg:#dcfce7; --sch:#1d4ed8; --sch-bg:#dbeafe; --que:#854d0e; --que-bg:#fef9c3;
+  --bad:#b91c1c; --bad-bg:#fee2e2; --skip:#475569; --skip-bg:#e2e8f0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --card:#171b22; --text:#e8ebf0; --muted:#9aa5b4; --line:#2a313c;
+    --accent:#fbbf24; --accent-bg:#3a2a07;
+    --ok:#86efac; --ok-bg:#12331e; --sch:#93c5fd; --sch-bg:#14284a; --que:#fde68a; --que-bg:#3a2f0b;
+    --bad:#fca5a5; --bad-bg:#3d1717; --skip:#cbd5e1; --skip-bg:#2a313c;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --card:#171b22; --text:#e8ebf0; --muted:#9aa5b4; --line:#2a313c;
+  --accent:#fbbf24; --accent-bg:#3a2a07;
+  --ok:#86efac; --ok-bg:#12331e; --sch:#93c5fd; --sch-bg:#14284a; --que:#fde68a; --que-bg:#3a2f0b;
+  --bad:#fca5a5; --bad-bg:#3d1717; --skip:#cbd5e1; --skip-bg:#2a313c;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:6px}
+h1{font-size:1.5rem;margin:0}
+h2{font-size:1.1rem;margin:28px 0 10px}
+.sub{color:var(--muted);font-size:.92rem;margin:0 0 14px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted);display:inline-block}
+.dot.live{background:#22c55e}.dot.err{background:#ef4444}
+button.ref{font:inherit;font-size:.85rem;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer}
+button.ref:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.banner{display:none;margin:12px 0;padding:12px 14px;border-radius:10px;background:var(--bad-bg);color:var(--bad);border:1px solid var(--bad)}
+.banner.show{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+.row1{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.title{font-weight:650;overflow-wrap:anywhere}
+.when{color:var(--muted);font-size:.9rem;white-space:nowrap}
+.nets{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.net{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:.85rem;border:1px solid transparent}
+.net b{font-weight:600}
+.s-posted{background:var(--ok-bg);color:var(--ok)}
+.s-scheduled{background:var(--sch-bg);color:var(--sch)}
+.s-queued{background:var(--que-bg);color:var(--que)}
+.s-failed{background:var(--bad-bg);color:var(--bad)}
+.s-skipped{background:var(--skip-bg);color:var(--skip)}
+.net a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.empty{color:var(--muted);padding:8px 2px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0;font-size:.8rem}
+ol.how{padding-left:1.2rem;margin:0}
+ol.how li{margin:6px 0}
+.times{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.times div{background:var(--accent-bg);color:var(--text);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.times b{color:var(--accent)}
+.clock{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:14px 0 0}
+.clock .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.clock .lbl{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.clock .big{font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.clock .small{color:var(--muted);font-size:.88rem;overflow-wrap:anywhere}
+.floor{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 8px 10px;overflow-x:auto}
+.floor-in{min-width:700px;position:relative;padding:0 8px 22px}
+.stations{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.stations li{text-align:center;font-size:.8rem;border-radius:10px;padding:8px 2px 6px;border:1px solid transparent;transition:background .25s,border-color .25s}
+.stations .ic{display:block;font-size:1.5rem;line-height:1.3}
+.stations .nm{display:block;font-weight:600}
+.stations .no{color:var(--muted);font-size:.7rem}
+.stations li.on{background:var(--accent-bg);border-color:var(--accent)}
+.belt{position:relative;height:18px;margin-top:8px;border-radius:9px;background:
+  repeating-linear-gradient(90deg,var(--line) 0 14px,transparent 14px 28px);background-color:var(--bg);border:1px solid var(--line);
+  animation:beltmove 1.2s linear infinite}
+.ball{position:absolute;top:-9px;left:0;width:34px;height:34px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fde047,#eab308 60%,#a16207);box-shadow:0 3px 6px rgba(0,0,0,.35);
+  animation:roll 18s linear infinite}
+.ball::after{content:"";position:absolute;inset:5px;border-radius:50%;border:2px solid rgba(255,255,255,.75);border-left-color:transparent;border-right-color:transparent}
+@keyframes beltmove{to{background-position:28px 0}}
+@keyframes roll{from{left:0;transform:rotate(0)}to{left:calc(100% - 34px);transform:rotate(1440deg)}}
+@media (prefers-reduced-motion: reduce){.belt,.ball{animation:none}.ball{left:calc(50% - 17px)}}
+footer{margin-top:28px;color:var(--muted);font-size:.85rem}
+a{color:var(--sch)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>DASHX Reel Machine</h1>
+    <button class="ref" id="refresh" type="button">Refresh now</button>
+  </header>
+  <p class="sub">Live status of the automatic reel factory. All times are Indian Standard Time (IST).</p>
+  <div class="bar" role="status" aria-live="polite">
+    <span class="dot" id="dot"></span>
+    <span id="updated">Loading&hellip;</span>
+  </div>
+  <div class="banner" id="banner" role="alert"></div>
+
+  <div class="clock">
+    <div class="box"><div class="lbl">Time now (IST)</div><div class="big" id="clock">--:--:--</div><div class="small" id="today">&nbsp;</div></div>
+    <div class="box"><div class="lbl">Next slot in</div><div class="big" id="count">--:--:--</div><div class="small" id="slotinfo">&nbsp;</div></div>
+  </div>
+
+  <h2>Factory floor</h2>
+  <div class="floor" aria-label="The ball moves along the belt past the 8 steps">
+    <div class="floor-in" id="floor">
+      <ol class="stations" id="stations">
+        <li><span class="ic" aria-hidden="true">📖</span><span class="nm">Story</span><span class="no">1</span></li>
+        <li><span class="ic" aria-hidden="true">🎙️</span><span class="nm">Voice</span><span class="no">2</span></li>
+        <li><span class="ic" aria-hidden="true">🎬</span><span class="nm">Animation</span><span class="no">3</span></li>
+        <li><span class="ic" aria-hidden="true">✅</span><span class="nm">Quality</span><span class="no">4</span></li>
+        <li><span class="ic" aria-hidden="true">🏷️</span><span class="nm">End card</span><span class="no">5</span></li>
+        <li><span class="ic" aria-hidden="true">📋</span><span class="nm">Queue</span><span class="no">6</span></li>
+        <li><span class="ic" aria-hidden="true">📤</span><span class="nm">Publish</span><span class="no">7</span></li>
+        <li><span class="ic" aria-hidden="true">💬</span><span class="nm">1st comment</span><span class="no">8</span></li>
+      </ol>
+      <div class="belt"><div class="ball" id="ball"></div></div>
+    </div>
+  </div>
+
+  <h2>Next 3 scheduled reels</h2>
+  <div id="next"><div class="empty">Loading&hellip;</div></div>
+
+  <h2>Last 10 posted reels</h2>
+  <div id="last"><div class="empty">Loading&hellip;</div></div>
+
+  <div class="legend" aria-label="Legend">
+    <span class="net s-posted">Posted: live now</span>
+    <span class="net s-scheduled">Scheduled: uploaded, goes public at its slot</span>
+    <span class="net s-queued">Queued: waiting for its slot</span>
+    <span class="net s-failed">Failed: will not be retried automatically</span>
+    <span class="net s-skipped">Skipped: intentionally not posted</span>
+  </div>
+
+  <h2>How it works</h2>
+  <ol class="how">
+    <li><b>Story:</b> a short funny gully-cricket story is picked from the story bank. A free AI model writes 2 new stories a day, and each one must pass the same quality rules as a hand-written story.</li>
+    <li><b>Voice:</b> every character speaks in Hindi with a text-to-speech voice (Kokoro).</li>
+    <li><b>Animation:</b> the cartoon scenes are rendered into a vertical 25 second video with subtitles.</li>
+    <li><b>Quality check:</b> length, subtitles inside the safe area, one end card, spelling, hook and brand rules are all checked. A reel that fails is never queued.</li>
+    <li><b>End card:</b> the DASHX logo, a product pack and the call to action to search for the ball on Amazon, Flipkart or Meesho.</li>
+    <li><b>Queue:</b> a reel that passes is added to the queue for the next free slot.</li>
+    <li><b>Publish:</b> YouTube Shorts are uploaded ahead of time and made public at the slot. Instagram and Facebook Reels are posted at the slot.</li>
+    <li><b>First comment:</b> the buy links are added as the first comment after the reel goes live.</li>
+  </ol>
+  <div class="times">
+    <div><b>02:00 IST</b><br>Factory makes 2 new reels</div>
+    <div><b>12:30 IST</b><br>Morning slot goes live</div>
+    <div><b>20:30 IST</b><br>Evening slot goes live</div>
+  </div>
+
+  <footer>
+    This page only reads the public queue file and refreshes every 60 seconds. It shows no keys, tokens or error details.
+    <a href="../">DASHX home</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var QUEUE_URL = "../poster/queue.json";
+  var NETS = [["youtube", "YouTube"], ["instagram", "Instagram"], ["facebook", "Facebook"]];
+  var HOSTS = { youtube: /(^|\.)youtube\.com$/, instagram: /(^|\.)instagram\.com$/, facebook: /(^|\.)facebook\.com$/ };
+  var $ = function (id) { return document.getElementById(id); };
+  var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", weekday: "short", day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit", hour12: false });
+  var fmtTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+
+  function ist(d) { return fmt.format(d).replace(",", "") + " IST"; }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function safeLink(net, url) {
+    // only plain https links on the network's own domain; anything else is not shown as a link
+    try {
+      var u = new URL(url);
+      if (u.protocol !== "https:" || !HOSTS[net].test(u.hostname)) return null;
+      return u.href;
+    } catch (e) { return null; }
+  }
+
+  function toTitle(t) {
+    return String(t || "Untitled reel").replace(/\s+DASHX\s*$/i, "").slice(0, 90);
+  }
+
+  // posted | scheduled | queued | failed | skipped. Only these words are shown: raw error text from the queue is never displayed.
+  function netState(p, net, now) {
+    var r = (p.results || {})[net];
+    var due = new Date(p.when) <= now;
+    if (r && r.ok) {
+      if (net === "youtube" && r.scheduled && !due) return "scheduled";
+      return "posted";
+    }
+    if (r && r.error) {
+      if (/skipped/i.test(String(r.error))) return "skipped";
+      var tries = Number(r.tries || 0);
+      var secretsMissing = /secrets missing/i.test(String(r.error));
+      // a due post that has errors is failed; an upload that failed before its slot will be retried, so it still counts as queued
+      if (!due && !tries && !secretsMissing) return "queued";
+      return "failed";
+    }
+    return "queued";
+  }
+
+  function netChip(p, net, label, now) {
+    var st = netState(p, net, now);
+    var r = (p.results || {})[net] || {};
+    var chip = el("span", "net s-" + st);
+    chip.appendChild(el("b", null, label));
+    var word = st.charAt(0).toUpperCase() + st.slice(1);
+    var href = (st === "posted" || st === "scheduled") ? safeLink(net, r.link) : null;
+    if (href) {
+      var a = el("a", null, word + " ↗");
+      a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer";
+      a.setAttribute("aria-label", label + " " + st + ", open link");
+      chip.appendChild(a);
+    } else {
+      chip.appendChild(el("span", null, word));
+    }
+    return chip;
+  }
+
+  function card(p, now) {
+    var c = el("div", "card");
+    var top = el("div", "row1");
+    top.appendChild(el("div", "title", toTitle(p.title)));
+    top.appendChild(el("div", "when", "Slot: " + ist(new Date(p.when))));
+    c.appendChild(top);
+    var nets = el("div", "nets");
+    NETS.forEach(function (n) {
+      if ((p.networks || []).indexOf(n[0]) >= 0) nets.appendChild(netChip(p, n[0], n[1], now));
+    });
+    c.appendChild(nets);
+    return c;
+  }
+
+  function fill(id, posts, now, emptyText) {
+    var box = $(id);
+    box.textContent = "";
+    if (!posts.length) { box.appendChild(el("div", "empty", emptyText)); return; }
+    posts.forEach(function (p) { box.appendChild(card(p, now)); });
+  }
+
+  function newestChange(posts) {
+    var best = 0;
+    posts.forEach(function (p) {
+      var r = p.results || {};
+      Object.keys(r).forEach(function (k) {
+        var t = r[k] && r[k].at ? Date.parse(r[k].at) : NaN;
+        if (!isNaN(t) && t > best) best = t;
+      });
+    });
+    return best ? new Date(best) : null;
+  }
+
+  function render(data, lastModified) {
+    var posts = (data && data.posts) || [];
+    if (!Array.isArray(posts)) throw new Error("bad format");
+    var now = new Date();
+    posts = posts.filter(function (p) { return p && p.when && !isNaN(Date.parse(p.when)); });
+
+    // next 3: slot still in the future, soonest first
+    var upcoming = posts.filter(function (p) { return new Date(p.when) > now; })
+      .sort(function (a, b) { return new Date(a.when) - new Date(b.when); }).slice(0, 3);
+    fill("next", upcoming, now, "Nothing is scheduled right now. The factory makes new reels every night at 02:00 IST.");
+    nextReelAt = upcoming.length ? Date.parse(upcoming[0].when) : null;
+    nextReelTitle = upcoming.length ? toTitle(upcoming[0].title) : "";
+
+    // last 10 posted: slot already passed and at least one network is posted, newest first
+    var posted = posts.filter(function (p) {
+      return new Date(p.when) <= now && NETS.some(function (n) { return (p.networks || []).indexOf(n[0]) >= 0 && netState(p, n[0], now) === "posted"; });
+    }).sort(function (a, b) { return new Date(b.when) - new Date(a.when); }).slice(0, 10);
+    fill("last", posted, now, "No reel has been posted yet.");
+
+    var changed = newestChange(posts);
+    var parts = ["Checked " + fmtTime.format(now) + " IST"];
+    if (lastModified) parts.push("queue file updated " + ist(lastModified));
+    else if (changed) parts.push("last post activity " + ist(changed));
+    $("updated").textContent = parts.join(" · ");
+    $("dot").className = "dot live";
+    $("banner").className = "banner";
+  }
+
+  function fail() {
+    $("dot").className = "dot err";
+    $("banner").textContent = "The queue file could not be loaded right now. The reel machine itself keeps running. This page will try again in 60 seconds.";
+    $("banner").className = "banner show";
+    $("updated").textContent = "Last try " + fmtTime.format(new Date()) + " IST";
+  }
+
+  var busy = false;
+  function load() {
+    if (busy) return;
+    busy = true;
+    fetch(QUEUE_URL + "?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("http");
+        var lm = r.headers.get("Last-Modified");
+        return r.json().then(function (j) { return [j, lm ? new Date(lm) : null]; });
+      })
+      .then(function (x) { render(x[0], x[1]); })
+      .catch(fail)
+      .then(function () { busy = false; });
+  }
+
+  // ---- live IST clock + countdown to the next daily slot (12:30 and 20:30 IST) ----
+  var SLOTS = [[12, 30], [20, 30]];
+  var IST_MS = 330 * 60000;            // IST = UTC + 5:30, no daylight saving
+  var nextReelAt = null, nextReelTitle = "";
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function nextSlot(nowMs) {
+    var shifted = new Date(nowMs + IST_MS);          // read with getUTC* = IST wall clock
+    for (var d = 0; d < 2; d++) {
+      for (var i = 0; i < SLOTS.length; i++) {
+        var t = Date.UTC(shifted.getUTCFullYear(), shifted.getUTCMonth(), shifted.getUTCDate() + d, SLOTS[i][0], SLOTS[i][1]) - IST_MS;
+        if (t > nowMs) return t;
+      }
+    }
+    return nowMs;
+  }
+  function tick() {
+    var now = Date.now();
+    $("clock").textContent = fmtTime.format(new Date(now));
+    $("today").textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Kolkata", weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(new Date(now));
+    var t = nextSlot(now), left = Math.max(0, Math.floor((t - now) / 1000));
+    $("count").textContent = pad(Math.floor(left / 3600)) + ":" + pad(Math.floor(left % 3600 / 60)) + ":" + pad(left % 60);
+    var info = "Slot " + ist(new Date(t)).replace(/^[A-Za-z]{3} /, "");
+    if (nextReelAt !== null && Math.abs(nextReelAt - t) < 120000) info += " · " + nextReelTitle;
+    else if (nextReelAt !== null) info += " · no reel is queued for this slot yet";
+    $("slotinfo").textContent = info;
+  }
+  setInterval(tick, 1000); tick();
+
+  // ---- factory floor: light up the station the ball is passing ----
+  (function floor() {
+    var ball = $("ball"), items = $("stations").children, last = -1;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setInterval(function () {
+      var b = ball.getBoundingClientRect(), cx = b.left + b.width / 2, pick = -1;
+      for (var i = 0; i < items.length; i++) {
+        var r = items[i].getBoundingClientRect();
+        if (cx >= r.left && cx < r.right) { pick = i; break; }
+      }
+      if (pick !== last) {
+        if (last >= 0) items[last].classList.remove("on");
+        if (pick >= 0) items[pick].classList.add("on");
+        last = pick;
+      }
+    }, 150);
+  })();
+
+  $("refresh").addEventListener("click", load);
+  load();
+  setInterval(load, 60000);
+})();
+</script>
+</body>
+</html>
