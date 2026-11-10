@@ -1015,9 +1015,9 @@
           "at": "2026-11-10T15:56:05.801746+05:30"
         },
         "instagram": {
-          "ok": false,
-          "error": "META TOKEN INVALID/EXPIRED (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931",
-          "tries": 2
+          "ok": true,
+          "link": "https://www.instagram.com/reel/DfkcU9XjyG_/",
+          "at": "2026-11-10T22:58:02.211951+05:30"
         }
       },
       "notes": {
@@ -1031,6 +1031,10 @@
         "fb_comment_tries": 2,
         "fb_comment": [
           "failed: META TOKEN INVALID/EXPIRED (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931"
+        ],
+        "ig_media_id": "17952679944055566",
+        "ig_comment": [
+          "ok"
         ]
       }
     },
