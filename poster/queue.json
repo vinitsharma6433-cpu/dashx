@@ -1027,7 +1027,11 @@
           "ok"
         ],
         "yt_like": "ok",
-        "yt_engaged": true
+        "yt_engaged": true,
+        "fb_comment_tries": 1,
+        "fb_comment": [
+          "failed: fb comment failed (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931"
+        ]
       }
     },
     {
