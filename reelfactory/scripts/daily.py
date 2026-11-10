@@ -53,8 +53,8 @@ MIN_DOCTOR_SCORE = 80  # a Gemma story below this Doctor score is not used (the 
 LOG_FILE: Path | None = None
 
 # Cast. Main cast: sachin, surya, dadaji. The rest are original gali characters (no real people).
-ROSTER = ["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno"]
-BATTERS = ["sachin", "surya", "golu", "meena"]  # kids who bat
+ROSTER = ["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"]
+BATTERS = ["sachin", "surya", "golu", "meena", "pappu", "chhotu", "mintu"]  # kids who bat
 BOWLERS = BATTERS + ["coach"]
 CATCHERS = ["dadaji", "aunty", "coach", "pintu"]  # grown-ups who sit on the chair and catch
 
@@ -211,7 +211,7 @@ def parse_dialogue_bank() -> list[dict]:
         line = raw.strip()
         if line.startswith("## "):
             en, _, hi = line[3:].partition("|")
-            cur = {"title_en": en.strip(), "title_hi": hi.strip(), "plot_en": "", "closing": "", "hook": "", "rows": []}
+            cur = {"title_en": en.strip(), "title_hi": hi.strip(), "plot_en": "", "closing": "", "hook": "", "card": "", "series": "", "ep": "", "rows": []}
             stories.append(cur)
         elif cur is not None and line.startswith("plot:"):
             cur["plot_en"] = line[5:].strip()
@@ -219,6 +219,12 @@ def parse_dialogue_bank() -> list[dict]:
             cur["closing"] = line[7:].strip()
         elif cur is not None and line.startswith("hook:"):
             cur["hook"] = line[5:].strip()
+        elif cur is not None and line.startswith("card:"):
+            cur["card"] = line[5:].strip()
+        elif cur is not None and line.startswith("series:"):
+            cur["series"] = line[7:].strip()
+        elif cur is not None and line.startswith("ep:"):
+            cur["ep"] = line[3:].strip()
         elif cur is not None and line.startswith("- ") and line.count("|") == 4:
             t, a, b, board, text = [c.strip() for c in line[2:].split("|")]
             entries = []
@@ -302,6 +308,9 @@ def from_dialogue_data(data: dict, seed: int = 0, mins: dict | None = None) -> t
         "scenes": scenes,
         "closing": " ".join(str(data.get("closing_hi", "")).split()),
         "hook": " ".join(str(data.get("hook", "")).split()),
+        "card": " ".join(str(data.get("card", "")).split()),
+        "series": " ".join(str(data.get("series", "")).split()),
+        "ep": " ".join(str(data.get("ep", "")).split()),
         "format": "dialogue",
     }, problems
 
@@ -417,6 +426,10 @@ def write_script(story: dict, mins: dict) -> tuple[str, dict]:
     if story.get("format") == "dialogue":
         script["dialogue_format"] = 2
         script["story"]["hook"] = story.get("hook", "")  # the reel-specific hook line used for captions
+        if story.get("card"):
+            script["story"]["card"] = story["card"]  # 3-5 word on-screen hook card, drawn in the first 1.5 s (src/reel/reelScene.tsx)
+        if story.get("series"):
+            script["story"]["series"], script["story"]["ep"] = story["series"], story.get("ep", "")
         for sc, src in zip(script["scenes"], scenes):
             if src.get("dialogue"):
                 sc["dialogue"] = [{"speaker": d["speaker"], "line": d["line"]} for d in src["dialogue"]]

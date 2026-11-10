@@ -3,6 +3,11 @@
 Every spoken line is said by one character, in the first person, in that character's own voice (voices.json).
 No narration: no "X बोला", no "X ने कहा". The narrator only reads the end card.
 
+NEW FORMAT (story-upgrade): a story that carries a `card:` line is also judged by the cold-open, plot-vs-dialogue, typo, card and series rules (scripts/story_rules.py).
+Extra field lines, after `hook:`: `card:` = the 3 to 5 word on-screen hook (Hindi only, at most 30 characters, no emoji, no digits, shown in the first 1.5 s),
+`series:` + `ep:` = a series episode (name and number; must both be set; the last spoken line must end with ?).
+Cold open: the FIRST spoken line is the conflict or the payoff, never a polite question or a greeting.
+
 Format: `## <English title> | <Hindi title>`, then `plot:`, `ending:` (2 to 5 Hindi words, read by the narrator just
 before the DASHX line on the end card) and exactly four scene rows:
 

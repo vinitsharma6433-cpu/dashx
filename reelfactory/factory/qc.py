@@ -26,6 +26,7 @@ FFPROBE = find_tool("ffprobe")
 LEAD = 0.25
 W, H = 1080, 1920
 SAFE_TOP, SAFE_BOTTOM_UI, SAFE_SIDE = 150, 380, 40  # px kept clear of Reels/Shorts interface
+CARD_Y, CARD_W, CARD_FONT = -660, 900, 76  # on-screen hook card (src/reel/reelScene.tsx)
 SUB_Y, SUB_Y_END = 470, 400  # subtitle box centre (px below the frame centre); the end card's subtitle sits higher (src/reel/reelScene.tsx)
 
 
@@ -232,6 +233,27 @@ def inspect(name: str, thumbnail: Path | None = None, measure=None) -> dict:
         return yellow >= 0.01, f"logo (yellow) {yellow * 100:.1f}% of the top half of the end-card frame"
     add("logo_visible", 5, "render", logo)
 
+    def hook_card():
+        card = (script.get("story") or {}).get("card")
+        if not card:
+            return True, "no on-screen hook card (older story format)"
+        from .bridge import story_rules  # noqa: PLC0415
+        probs = list(story_rules.card_problems(card))
+        words = len(card.split())
+        lines = 1 if len(card) <= 13 else 2
+        height = lines * CARD_FONT * 1.25 + 40
+        top, left = 960 + CARD_Y - height / 2, (W - (CARD_W + 88)) / 2
+        if top < SAFE_TOP or left < SAFE_SIDE:
+            probs.append(f"card box x={left:.0f} y={top:.0f} is outside the safe area")
+        fr = rgb_frame(mp4, 0.8)   # the card text is yellow on a dark box; it must be visible at 0.8 s in the top band
+        r, g, b = (fr[..., i].astype(int) for i in range(3))
+        band = ((r > 220) & (g > 190) & (b < 120))[int(fr.shape[0] * 0.09): int(fr.shape[0] * 0.24)]
+        yellow = float(band.mean())
+        if yellow < 0.004:
+            probs.append(f"the hook card is not visible at 0.8 s (yellow {yellow * 100:.2f}% of the top band)")
+        return not probs, "; ".join(probs) or f"hook card ({words} words) visible at 0.8 s, inside the safe area"
+    add("hook_card", 4, "render", hook_card)
+
     def sync():
         err = stderr_of(mp4, af="silencedetect=n=-38dB:d=0.12")
         ends = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", err)]
@@ -298,7 +320,7 @@ def inspect(name: str, thumbnail: Path | None = None, measure=None) -> dict:
         cfg = json.loads(cfgf.read_text(encoding="utf-8"))
         if not cfg.get("enabled", False):
             return True, "per-character voices are switched off in voices.json"
-        names = {"sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno"}
+        names = {"sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"}
         cast = set()
         for sc in scenes:
             for v in sc.get("params", {}).values():

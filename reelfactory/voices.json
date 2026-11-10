@@ -61,6 +61,24 @@
     "bruno": {
       "bark": "assets/sfx/bark.wav",
       "gain_db": -2
+    },
+    "pappu": {
+      "voice": "hm_omega",
+      "speed": 1.04,
+      "pitch": -1.5,
+      "gain_db": 1
+    },
+    "chhotu": {
+      "voice": "hm_psi",
+      "speed": 1.18,
+      "pitch": 6.5,
+      "gain_db": 0
+    },
+    "mintu": {
+      "voice": "hm_omega",
+      "speed": 1.04,
+      "pitch": 3.5,
+      "gain_db": 0
     }
   }
 }

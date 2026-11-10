@@ -22,7 +22,7 @@ type SceneSpec = {
   subtitleWidth?: number; // wrap width of the subtitle in px (default 900); set by scripts/fit_reel.py
   dialogue?: DialogueLine[]; // dialogue format: who says what, and when
 };
-type Script = {scenes: SceneSpec[]; brand?: {line?: string}};
+type Script = {scenes: SceneSpec[]; brand?: {line?: string}; story?: {card?: string}};
 
 const W = 1080;
 const H = 1920;
@@ -31,6 +31,11 @@ const END_CARD = 2.5; // end card length at the end of the last scene (seconds)
 const SUB_Y = 470; // centre of the subtitle box
 const SUB_Y_END = 400; // the end card's call to action is long (up to 3 lines), so its subtitle sits higher: it must stay above the Reels/Shorts bottom UI (factory/qc.py SUB_Y_END)
 const LINE_H = 88; // subtitle line height (px)
+// On-screen hook card (story `card:`, 3-5 Hindi words): top of the frame, first 1.5 s. Position and size are mirrored in factory/qc.py (hook_card).
+const CARD_Y = -660; // centre of the card (px above the frame centre): the box stays below the top safe area (150 px)
+const CARD_W = 900;
+const CARD_FONT = 76;
+const CARD_HOLD = 1.5; // seconds on screen
 
 // The coloured name tag above each speaker's subtitle: one colour per character, every colour has a contrast of at least 5:1 with the white text.
 const TAG: Record<string, {name: string; color: string}> = {
@@ -43,6 +48,9 @@ const TAG: Record<string, {name: string; color: string}> = {
   meena: {name: 'मीना', color: '#0f766e'},
   coach: {name: 'कोच', color: '#1d4ed8'},
   bruno: {name: 'ब्रूनो', color: '#7c2d12'},
+  pappu: {name: 'पप्पू भैया', color: '#c2410c'},
+  chhotu: {name: 'छोटू', color: '#0369a1'},
+  mintu: {name: 'मिंटू', color: '#6d28d9'},
 };
 
 /** Turn a camera spec into start/end values for scale and position (Ken Burns). */
@@ -220,6 +228,34 @@ export default makeScene2D('reel', function* (view) {
       if (i > 0) {
         tasks.push(chain(waitFor(0.2), sub().opacity(1, 0.25)));
       }
+    }
+
+    if (i === 0 && script.story?.card) {
+      // hook card: pops in with the very first frame and leaves after CARD_HOLD seconds (added to the view, so the camera does not move it)
+      const cardBox = createRef<Rect>();
+      view.add(
+        <Rect ref={cardBox} y={CARD_Y} fill={'#000000d8'} radius={30} padding={[20, 44]} layout opacity={0} scale={0.88}>
+          <Txt
+            text={script.story.card}
+            fontFamily={FONT}
+            fontWeight={800}
+            fontSize={CARD_FONT}
+            lineHeight={CARD_FONT * 1.25}
+            fill={'#fde047'}
+            width={CARD_W}
+            textWrap
+            textAlign={'center'}
+          />
+        </Rect>,
+      );
+      tasks.push(
+        (function* (): ThreadGenerator {
+          yield* all(cardBox().opacity(1, 0.12), cardBox().scale(1, 0.22));
+          yield* waitFor(CARD_HOLD - 0.34);
+          yield* cardBox().opacity(0, 0.2);
+          cardBox().remove();
+        })(),
+      );
     }
 
     tasks.push(

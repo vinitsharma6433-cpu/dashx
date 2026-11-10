@@ -117,7 +117,7 @@ class StoryWriterAgent:
         for i, (b, builder, where) in enumerate(sources):
             if b["title_hi"] in done or b["title_en"] in done:
                 continue
-            data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", "")}
+            data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", ""), "card": b.get("card", ""), "series": b.get("series", ""), "ep": b.get("ep", "")}
             st, probs = builder(data, i, m.mins)
             if st:
                 probs += daily.story_problems(st, m.history, m.batch_titles, m.closings)

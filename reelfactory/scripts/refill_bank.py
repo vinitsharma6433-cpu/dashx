@@ -48,6 +48,8 @@ DAILY = ROOT / "stories" / "refill_daily.txt"
 URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
 KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 MIN_JUDGE = 7
+MIN_MEERUT = 6   # the 'Meerut feel' and 'twist' scores of the second-model grade (same call as before, no extra Gemini call)
+MIN_TWIST = 6
 BUDGET_S = 540   # the whole run stops after this many seconds, so the daily job never hangs
 CALLS = {"n": 0, "cap": 12}
 STATE: dict = {"models": [], "idx": 0, "quota_hit": False, "last_raw": ""}
@@ -61,6 +63,9 @@ CAST_HELP = {
     "meena": "girl batter: fearless, hits sixes",
     "coach": "big loud coach uncle, laughs at the end",
     "bruno": "the dog: only barks (bruno: भौं भौं!), never bats",
+    "pappu": "Pappu Bhaiya, the gali captain: talks big, every plan backfires",
+    "chhotu": "Chhotu, the small shop boy: sharp, knows bats, balls and rates",
+    "mintu": "Mintu, the sneaky kid of the rival gali: tries tricks and gets caught",
 }
 
 
@@ -188,7 +193,7 @@ def usable_count() -> tuple[int, int]:
     for i, b in enumerate(stories):
         if b["title_hi"] in done or b["title_en"] in done:
             continue
-        data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", "")}
+        data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", ""), "card": b.get("card", ""), "series": b.get("series", ""), "ep": b.get("ep", "")}
         st, probs = daily.from_dialogue_data(data, i, {})
         if st:
             probs += daily.story_problems(st, hist, [], [])
@@ -197,33 +202,63 @@ def usable_count() -> tuple[int, int]:
     return left, len(stories)
 
 
-def prompt_for(seed: dict, titles: list[str], endings: list[str]) -> list[dict]:
-    cast = random.sample(["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno"], 4)
-    if "sachin" not in cast and "surya" not in cast:
-        cast[0] = random.choice(["sachin", "surya"])
+FORMATS = ["rivalry", "shop", "normal", "series", "normal"]   # the daily mix: 2 of 5 stories are the new formats, 1 of 5 is a Bruno Files episode
+
+
+def next_episode(bank_text: str) -> int:
+    eps = [int(x) for x in re.findall(r"^ep: *([0-9]+)", bank_text, re.M)]
+    return (max(eps) + 1) if eps else 1
+
+
+FORMAT_HELP = {
+    "normal": "A normal gully-cricket comedy.",
+    "rivalry": "RIVALRY: our gali against Mintu's gali. Mintu (rival kid) tries a sneaky trick to win (a fake no-ball call, a swapped ball, a late 'rule'), "
+               "our side (Pappu Bhaiya talks big, Golu spots the trick) turns it around. Mintu must be one of the characters. The joke is that the trick backfires.",
+    "shop": "SHOP COUNTER COMEDY at a small Meerut sports shop. Chhotu (small shop boy) is behind the counter: sharp, knows every bat, ball and rate, "
+            "and always one step ahead of the customer (Pappu Bhaiya, Surya or Sachin). Chhotu must be one of the characters. "
+            "Never say the brand name DASHX, never say a price or call anything 'best'. At most Chhotu confidently hands over 'the heavy tennis ball' that takes the hit. It must feel like comedy, never an ad.",
+    "series": "BRUNO FILES, episode {ep}: Bruno the dog and Golu (who spots clues nobody believes) and Surya (boasts, then it backfires). "
+              "The story is a COMPLETE joke by itself. Only the LAST spoken line plants tomorrow's question (it ends with ?). No extra scene, no 'to be continued'.",
+}
+
+
+def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "normal", ep: int = 1) -> list[dict]:
+    pool = ["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"]
+    must = {"rivalry": ["mintu", "pappu"], "shop": ["chhotu"], "series": ["bruno", "golu"]}.get(fmt, [])
+    cast = must + random.sample([c for c in pool if c not in must], 4 - len(must))
+    if not set(cast) & {"sachin", "surya", "pappu", "mintu", "chhotu"}:
+        cast[-1] = random.choice(["sachin", "surya"])
     hook = seed["formula"]
     sysmsg = (
         "You write ONE short funny cartoon story for kids, as a 25-second Hindi reel about gully cricket in Meerut, India. "
         "You follow the file format below EXACTLY. Output only the story block, nothing else, no code fence, no explanation.\n\n"
         + bank_header()
         + "\n\nExtra hard rules:\n"
-        "- Write all spoken lines, the ending, the hook and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. Short, simple words.\n"
+        "- Write all spoken lines, the ending, the hook, the card and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. Short, simple words, light western-UP flavour (अरे यार, ओ भाई), no heavy dialect.\n"
         "- English is allowed only in the title before the | and in the plot line. No digits anywhere in Hindi text.\n"
-        "- Spell the names exactly: सचिन, सूर्या, दादाजी, आंटी, पिंटू, गोलू, मीना, कोच, ब्रूनो.\n"
+        "- Spell the names exactly: सचिन, सूर्या, दादाजी, आंटी, पिंटू, गोलू, मीना, कोच, ब्रूनो, पप्पू भैया (पप्पू), छोटू, मिंटू.\n"
+        "- The `plot:` line must describe exactly what the spoken lines show: every character the plot names must appear in the story, and every character who speaks more than once must be named in the plot.\n"
         "- Use at least 3 different templates among the 4 scenes. A story must NOT end in a catch scene unless the joke needs it.\n"
-        "- Never mention price, discounts, 'best', brands, politics, religion, accidents, hospitals or police.\n"
+        "- Never mention price, discounts, 'best', brands (also not DASHX), politics, religion, accidents, hospitals or police.\n"
         "- Each scene has 1 or 2 lines. With 2 lines the two speakers differ. The speaker of every line must be on stage in that scene, "
         "and a character named inside a line must be on stage in that scene too.\n"
-        "- The FIRST spoken line is a 4 to 8 word hook that ends with ! or ?. The LAST line is the punchline and ends with ! or ?.\n"
-        "- The whole story has at most 40 spoken words. Every line is at most 10 words.\n"
-        "- The `hook:` line is the title card text: Hindi, at most 60 characters, exactly ONE emoji, no digits, not a line from the dialogue.\n"
+        "- COLD OPEN: the FIRST spoken line is the conflict or the payoff already happening (a loss, a claim, a boast, a trick), 4 to 8 words, ends with ! (or a blaming question like 'मेरी गेंद कौन ले गया?'). "
+        "NEVER open with a greeting, a polite question or a request ('...डालूँ क्या?', '...है क्या?').\n"
+        "- The LAST line is the punchline and ends with ! or ?. The whole story has at most 34 spoken words (the reel is 25 seconds including a 7 second end card). Every line is at most 9 words.\n"
+        "- The `card:` line is the 3 to 5 word on-screen hook shown in the first 1.5 seconds: Hindi only, at most 30 characters, no emoji, no digits, it teases the conflict.\n"
+        "- The `hook:` line is the caption text: Hindi, at most 60 characters, exactly ONE emoji, no digits, not a line from the dialogue.\n"
         "- The `ending:` is 2 to 5 Hindi words, a different idea from the punchline.\n"
+        "- Give the story a real TWIST: the last scene must flip what the viewer expected. Add ONE real Meerut touch (a place or thing people from Meerut know) in the plot or a line.\n"
+        "- Put the field lines in this order: plot, ending, hook, card" + (", series, ep" if fmt == "series" else "") + ", then the four scene rows.\n"
     )
+    fmt_text = FORMAT_HELP[fmt].format(ep=ep)
+    series_lines = (f"Also write the lines `series: Bruno Files` and `ep: {ep}` right after `card:`.\n" if fmt == "series" else "")
     user = (
-        f"Situation for this story: {seed['situation']}.\n"
-        f"Characters to use (at least 3 of these): " + "; ".join(f"{c} ({CAST_HELP[c]})" for c in cast) + ".\n"
+        f"Format for this story: {fmt_text}\n{series_lines}"
+        f"Situation: {seed['situation']}.\n"
+        f"Characters to use (all of these; the first ones are required by the format): " + "; ".join(f"{c} ({CAST_HELP[c]})" for c in cast) + ".\n"
         f"Hook style for the `hook:` line: {hook['name']} - pattern {hook['pattern']} (example: {hook['example']}). Make a NEW hook for THIS story, do not copy the example.\n\n"
-        "Here are two finished stories in the right format (do NOT copy them, write a different story):\n\n" + examples() + "\n\n"
+        "Here are two finished stories in the right format (do NOT copy them, write a different story; the real new format also has a `card:` line):\n\n" + examples() + "\n\n"
         "Titles already used (do not repeat these ideas): " + "; ".join(titles) + "\n"
         "Endings already used (do not repeat): " + "; ".join(endings) + "\n\n"
         "Now write the new story block, starting with '## '."
@@ -239,7 +274,7 @@ def extract_block(text: str) -> str | None:
     block = text[i:].strip()
     block = re.split(r"\n## ", block)[0]
     lines = [ln.rstrip() for ln in block.splitlines() if ln.strip()]
-    keep = [ln for ln in lines if ln.startswith(("## ", "plot:", "ending:", "hook:", "- "))]
+    keep = [ln for ln in lines if ln.startswith(("## ", "plot:", "ending:", "hook:", "card:", "series:", "ep:", "- "))]
     if not keep or not keep[0].startswith("## ") or "|" not in keep[0]:
         return None
     return "\n".join(keep)
@@ -251,16 +286,23 @@ def title_of(blk: str) -> str:
 
 def judge(block: str) -> tuple[bool, dict]:
     msg = ("You are a strict editor of kids' Hindi comedy reels. Grade this story. Reply with ONLY a JSON object: "
-           '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"kid_safe":true|false,"issue":"one short sentence"}. '
+           '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"meerut_feel":1-10,"twist":1-10,"plot_matches":1-10,"complete_alone":1-10,'
+           '"kid_safe":true|false,"typos":["misspelled Hindi words, empty list if none"],"issue":"one short sentence"}. '
            "funny = does the punchline really land; clear = a kid understands what happens; natural_hindi = the sentences are correct, "
-           "everyday Hindi, no broken grammar or odd words; kid_safe = nothing unsuitable or unfair to anyone.\n\n" + block)
+           "everyday Hindi, no broken grammar or odd words; meerut_feel = does it feel like real Meerut gully life (places, things, talk), not a generic story; "
+           "twist = does the last scene flip what the viewer expected; plot_matches = the `plot:` line says exactly what the spoken lines show "
+           "(same characters, same events); complete_alone = a new viewer understands and enjoys it without any other episode; "
+           "kid_safe = nothing unsuitable or unfair to anyone; typos = every misspelled Hindi word you can see.\n\n" + block)
     code, txt = ask([{"role": "user", "content": msg}], 0.0, 1500)
     m = re.search(r"\{.*\}", txt or "", re.S)
     if code != 200 or not m:
         return False, {"issue": f"judge unavailable (HTTP {code})"}
     try:
         j = json.loads(m.group(0))
-        ok = j.get("kid_safe") is True and all(int(j.get(k, 0)) >= MIN_JUDGE for k in ("funny", "clear", "natural_hindi"))
+        need = {"funny": MIN_JUDGE, "clear": MIN_JUDGE, "natural_hindi": MIN_JUDGE, "meerut_feel": MIN_MEERUT, "twist": MIN_TWIST, "plot_matches": MIN_JUDGE}
+        if "\nseries:" in block:
+            need["complete_alone"] = MIN_JUDGE
+        ok = j.get("kid_safe") is True and not j.get("typos") and all(int(j.get(k, 0)) >= v for k, v in need.items())
         return ok, j
     except Exception:
         return False, {"issue": "judge answer not understood"}
@@ -319,10 +361,13 @@ def run(a) -> int:
         save_usage()
         return 0
     cfg = json.loads((ROOT / "stories" / "viral_formats.json").read_text(encoding="utf-8"))["formulas"]
-    sits = json.loads((ROOT / "stories" / "situations.json").read_text(encoding="utf-8"))["situations"]
+    situations = json.loads((ROOT / "stories" / "situations.json").read_text(encoding="utf-8"))
+    sits = list(situations["situations"])
     random.shuffle(sits)
+    fmt_offset = random.randrange(len(FORMATS))
     bank_text = BANK.read_text(encoding="utf-8")
     existing = re.findall(r"^## (.+?) \|", bank_text, re.M)
+    ep_next = next_episode(bank_text)
     endings = re.findall(r"^ending: (.+)$", bank_text, re.M)
     accepted: list[tuple[str, dict]] = []
     tried = 0
@@ -337,9 +382,12 @@ def run(a) -> int:
         if time.time() - t0 > BUDGET_S:
             stop_msg = " (time budget used up)"
             break
-        seed = {"situation": sits[tried % len(sits)], "formula": random.choice(cfg)}
+        fmt = FORMATS[(tried + fmt_offset) % len(FORMATS)]
+        pool_ = {"rivalry": situations.get("rivalry"), "shop": situations.get("shop")}.get(fmt) or sits
+        anchor = random.choice(situations.get("meerut_anchors") or [""])
+        seed = {"situation": random.choice(pool_) + (f" (Meerut touch to use: {anchor})" if anchor else ""), "formula": random.choice(cfg)}
         tried += 1
-        code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:]))
+        code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:], fmt, ep_next))
         if code != 200:
             print(f"  writer HTTP {code}: {clean(txt)}")
             stop_msg = f" (Gemini answered HTTP {code}: stopped)"

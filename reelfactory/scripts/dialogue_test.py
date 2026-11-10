@@ -31,7 +31,7 @@ def run(cmd):
 
 def make(title_en: str) -> str:
     b = next(x for x in daily.parse_dialogue_bank() if x["title_en"] == title_en)
-    story, problems = daily.from_dialogue_data({"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", "")})
+    story, problems = daily.from_dialogue_data({"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "hook": b.get("hook", ""), "card": b.get("card", ""), "series": b.get("series", ""), "ep": b.get("ep", "")})
     assert story and not problems, problems
     story["writer"] = "dialogue bank (stories/dialogue_bank.md)"
     story["idea"] = title_en

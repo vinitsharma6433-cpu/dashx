@@ -121,6 +121,26 @@ const LOOKS: Record<Exclude<Who, 'bruno'>, Look> = {
     mouthColor: '#7f1d1d', collar: 'band', collarColor: '#f8fafc', collarY: -164,
     moustache: {color: '#15151a', w: 78, h: 18}, height: 1.08, extra: 'coach',
   },
+  // ---- story-upgrade: three more original characters ----
+  pappu: { // Pappu Bhaiya, the gali captain: broad, orange jersey with a yellow captain's armband, dark sunglasses, big-talker pose
+    skin: '#d79a6b', shirt: '#f97316', lower: 'shorts', lowerColor: '#111827', legW: 42, shoe: '#f8fafc',
+    legLen: 128, torsoW: 142, torsoH: 150, torsoY: -66, shoulderY: -124, armLen: 120, armW: 34, longSleeves: false,
+    headY: -192, headSize: 128, earSize: 28, eyeSize: 30, browColor: '#15151a', noseColor: '#bf8156', mouthY: 40,
+    mouthColor: '#7f1d1d', collar: 'neck', collarColor: '#d79a6b', collarY: -134, hairBack: '#15151a',
+    glasses: {color: '#0b0f14', size: 52}, armband: '#facc15', height: 1.08,
+  },
+  chhotu: { // Chhotu, the small shop boy: tiny, green shop apron colour, big eyes, quick
+    skin: '#e0a878', shirt: '#15803d', lower: 'long', lowerColor: '#374151', legW: 34, shoe: '#111827',
+    legLen: 100, torsoW: 112, torsoH: 126, torsoY: -56, shoulderY: -104, armLen: 104, armW: 26, longSleeves: false,
+    headY: -168, headSize: 132, earSize: 34, eyeSize: 36, browColor: '#2b1b12', noseColor: '#c98d62', mouthY: 40,
+    mouthColor: '#7f1d1d', collar: 'neck', collarColor: '#e0a878', collarY: -112, hairBack: '#2b1b12', height: 0.74,
+  },
+  mintu: { // Mintu, the sneaky rival from the other gali: purple jersey, thin eyebrows, small smirk
+    skin: '#e8b48b', shirt: '#6d28d9', lower: 'shorts', lowerColor: '#1f2937', legW: 34, shoe: '#facc15',
+    legLen: 122, torsoW: 112, torsoH: 136, torsoY: -60, shoulderY: -114, armLen: 114, armW: 26, longSleeves: false,
+    headY: -180, headSize: 120, earSize: 26, eyeSize: 28, browColor: '#15151a', noseColor: '#cf9a72', mouthY: 36,
+    mouthColor: '#7f1d1d', collar: 'neck', collarColor: '#e8b48b', collarY: -122, hairBack: '#15151a', height: 0.96,
+  },
 };
 
 /** Shapes drawn BEHIND the head: hair buns, pigtails, spikes. */

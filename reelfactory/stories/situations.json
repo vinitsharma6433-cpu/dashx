@@ -1,5 +1,5 @@
 {
-  "_about": "Seeds for the auto story maker: a small gully-cricket situation each. The maker picks one at random so the stories differ. Add more lines any time.",
+  "_about": "Seeds for the auto story maker. `situations`: gully-cricket situations; `meerut_anchors`: real Meerut touches, one is attached to every story; `rivalry`: our gali vs Mintu's gali; `shop`: shop-counter comedy with Chhotu.",
   "situations": [
     "the ball is stuck in a tree",
     "the wicket is a school bag and someone moves it",
@@ -51,5 +51,39 @@
     "a kid wants to bat first and cries a fake cry",
     "the sun is so hot that the kids play under a tree",
     "a team makes a funny secret code word"
+  ],
+  "meerut_anchors": [
+    "the sports-goods market (Meerut makes cricket bats and balls)",
+    "Ghanta Ghar (the clock tower)",
+    "Sadar Bazaar",
+    "a bijli cut (power cut) in the evening",
+    "the shop counter of a sports shop",
+    "Abu Lane market",
+    "Begum Bridge",
+    "Victoria Park ground",
+    "Hapur Adda",
+    "Garh Road",
+    "gajak and revdi from the corner shop",
+    "the pitch painted with chalk on a Meerut lane",
+    "a wedding band passing through the lane",
+    "evening chai on the shop bench"
+  ],
+  "rivalry": [
+    "Mintu's gali challenges our gali to a match and brings his own umpire",
+    "Mintu secretly swaps our ball with a softer one",
+    "Mintu calls a fake no-ball when our batter is about to win",
+    "Mintu claims the lane belongs to his gali because his chalk line is longer",
+    "Mintu offers a bet and then changes the rules",
+    "Mintu's gali scores on a wall boundary that does not exist",
+    "Mintu spies on our team practice from a rooftop"
+  ],
+  "shop": [
+    "a customer asks Chhotu for a heavy tennis ball and Chhotu already knows which one",
+    "Pappu Bhaiya tries to bargain at the counter and Chhotu out-bargains him",
+    "a customer wants a bat 'like the one on TV' and Chhotu finds the real problem",
+    "a customer returns a ball and Chhotu proves the customer hit it too hard",
+    "the shop's bijli goes off and Chhotu sells by touch",
+    "a customer asks for the 'best' bat and Chhotu makes him choose by feel",
+    "Surya brags he does not need a new ball and Chhotu watches the old one fall apart"
   ]
 }

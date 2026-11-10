@@ -78,8 +78,8 @@ def similar(a: str, b: str) -> float:
 
 
 # ---- dialogue format (every spoken line belongs to a character who says it in the first person) -----------------
-SPEAKERS = {"sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno"}
-SPEAKER_HI = {"sachin": "सचिन", "surya": "सूर्या", "dadaji": "दादाजी", "aunty": "आंटी", "pintu": "पिंटू", "golu": "गोलू", "meena": "मीना", "coach": "कोच", "bruno": "ब्रूनो"}
+SPEAKERS = {"sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"}
+SPEAKER_HI = {"sachin": "सचिन", "surya": "सूर्या", "dadaji": "दादाजी", "aunty": "आंटी", "pintu": "पिंटू", "golu": "गोलू", "meena": "मीना", "coach": "कोच", "bruno": "ब्रूनो", "pappu": "पप्पू", "chhotu": "छोटू", "mintu": "मिंटू"}
 MAX_DIALOGUE_WORDS = 14
 # A dialogue line is what the character SAYS. Narration tags like "X बोला" are not allowed in it.
 _NARRATION = re.compile(r"(बोला|बोली|बोले|बोलीं|ने कहा|ने पूछा|कहा था|चिल्लाया|चिल्लाई|चिल्लाए|फुसफुसाया|पूछा)")
@@ -95,4 +95,99 @@ def dialogue_problems(line: str, speaker: str | None) -> list[str]:
         out.append("contains a narration tag (बोला / बोली / ने कहा ...): write what the character says")
     if speaker in SPEAKER_HI and re.search(rf"{SPEAKER_HI[speaker]} (ने|को|का|की|के) ", line + " "):
         out.append("talks about its own speaker in the third person")
+    return out
+
+
+# ---- story-upgrade checks: apply ONLY to stories in the new format (they carry a `card:` field); older bank stories are never judged by them ----
+# 1. cold open: the first spoken line is the conflict or the payoff, never a polite question or a greeting
+_POLITE = re.compile(r"(कृपया|प्लीज़|प्लीज|क्या मैं|क्या आप|क्या हम|डालूँ क्या|दूँ क्या|करूँ क्या|चलूँ क्या|चलें क्या|सकता हूँ|सकती हूँ|शुरू करें|नमस्ते|ज़रा सुनिए|आपको .*क्या\?$)")
+_BLAME = re.compile(r"(किसने|किसकी|किसका|कहाँ|क्यों|कैसे|ये क्या|यह क्या|वो क्या|कौन)")
+
+
+def cold_open_problems(first_line: str) -> list[str]:
+    line = " ".join(first_line.split())
+    if _POLITE.search(line):
+        return ["cold open: the first line is a polite question or greeting; open with the conflict or the payoff"]
+    if line.endswith("?") and not _BLAME.search(line):
+        return ["cold open: the first line is a plain question; open with a claim, a loss or a boast that ends in !"]
+    return []
+
+
+# 2. plot vs dialogue: the people the plot names must be in the story, and a character who talks a lot must be in the plot
+_PLOT_KEYS = {"sachin": ["sachin"], "surya": ["surya"], "dadaji": ["dadaji", "grandfather"], "aunty": ["aunty"], "pintu": ["pintu"],
+              "golu": ["golu"], "meena": ["meena"], "coach": ["coach"], "bruno": ["bruno", "the dog"], "pappu": ["pappu"],
+              "chhotu": ["chhotu"], "mintu": ["mintu"]}
+
+
+def plot_dialogue_problems(plot_en: str, scenes: list[dict]) -> list[str]:
+    plot = plot_en.lower()
+    named = {c for c, keys in _PLOT_KEYS.items() if any(re.search(rf"\b{re.escape(k)}\b", plot) for k in keys)}
+    spoken: dict[str, int] = {}
+    on_stage: set[str] = set()
+    text = ""
+    for sc in scenes:
+        for v in sc.get("params", {}).values():
+            on_stage |= {x for x in (v if isinstance(v, list) else [v]) if x in SPEAKERS}
+        for d in sc.get("dialogue", []):
+            spoken[d["speaker"]] = spoken.get(d["speaker"], 0) + 1
+            text += " " + d["line"]
+    out = []
+    for c in sorted(named):
+        if c not in on_stage and SPEAKER_HI.get(c, "~") not in text:
+            out.append(f"plot names {c} but {c} is not in the story")
+    for c, n in sorted(spoken.items()):
+        if n >= 2 and c not in named:
+            out.append(f"plot/lines disagree: {c} speaks {n} times but the plot never mentions {c}")
+    return out
+
+
+# 3. Hindi typos. No Hindi dictionary can be used (tested and rejected, see factory/spell.py), so this is a list of known wrong spellings
+#    of words our stories use, plus pattern checks. The second-model grade also lists misspelled words (same call, no extra call).
+TYPO_MAP = {"फ़ीलडर": "फ़ील्डर", "फीलडर": "फील्डर", "फिल्डर": "फील्डर", "फील्डिग": "फील्डिंग", "फ़ील्डिग": "फ़ील्डिंग", "बैटिग": "बैटिंग",
+            "बालिंग": "बॉलिंग", "बोलिंग": "बॉलिंग", "क्रिकट": "क्रिकेट", "क्रीकेट": "क्रिकेट", "अम्पायर": "अंपायर", "कैपटन": "कैप्टन",
+            "छक्का": "छक्का", "चौक्का": "चौका", "चौकका": "चौका", "दुकान्दार": "दुकानदार",
+            "बल्ले बाज": "बल्लेबाज़", "पतन्ग": "पतंग", "गैंद": "गेंद", "गेद": "गेंद", "छोटु": "छोटू", "पप्पु": "पप्पू", "मिन्टू": "मिंटू"}
+_TOKEN = re.compile(r"[ऀ-ॿ]+")
+
+
+def typo_problems(text: str) -> list[str]:
+    out = []
+    toks = _TOKEN.findall(text)
+    for t in toks:
+        fix = TYPO_MAP.get(t)
+        if fix and fix != t:
+            out.append(f"spelling: {t} -> {fix}")
+    for a, b in zip(toks, toks[1:]):
+        if a == b and len(a) > 2 and a not in ("भौं", "हाहा", "नहीं"):   # barks and "नहीं नहीं" are legitimate repeats
+            out.append(f"the same word twice in a row: {a}")
+    return out
+
+
+# 4. on-screen hook card (new `card:` field): 3 to 5 Hindi words, short, no digits, no emoji (the card font has none)
+def card_problems(card: str) -> list[str]:
+    c = " ".join(card.split())
+    words = c.split()
+    out = []
+    if not 3 <= len(words) <= 5:
+        out.append(f"card: needs 3 to 5 words, has {len(words)}")
+    if len(c) > 30:
+        out.append(f"card: {len(c)} characters, at most 30")
+    if re.search(r"[A-Za-z0-9०-९]", c):
+        out.append("card: Hindi words only (no Latin letters or digits)")
+    if re.search(r"[\U0001F000-\U0001FFFF\u2600-\u27BF]", c):
+        out.append("card: no emoji on the card")
+    return out
+
+
+# 5. series fields: `series:` and `ep:` go together; a series story ends on the question that tomorrow answers (last spoken line ends with ?)
+def series_problems(series: str, ep: str, last_line: str) -> list[str]:
+    if not series and not ep:
+        return []
+    out = []
+    if not series or not ep:
+        out.append("series: `series:` and `ep:` must both be set")
+    elif not re.fullmatch(r"[1-9][0-9]?", ep.strip()):
+        out.append("series: ep must be a number from 1 to 99")
+    if not last_line.rstrip().endswith("?"):
+        out.append("series: the last spoken line must end with ? (it plants the next episode's question)")
     return out

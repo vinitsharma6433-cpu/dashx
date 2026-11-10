@@ -3,7 +3,7 @@
 
 // Main cast: sachin, surya, dadaji. Everyone else is an original character of the gali (no real people):
 // aunty (neighbour), pintu (umpire), golu (small fielder), meena (girl batter), coach (coach uncle), bruno (dog).
-export const CHARACTERS = ['sachin', 'surya', 'dadaji', 'aunty', 'pintu', 'golu', 'meena', 'coach', 'bruno'] as const;
+export const CHARACTERS = ['sachin', 'surya', 'dadaji', 'aunty', 'pintu', 'golu', 'meena', 'coach', 'bruno', 'pappu', 'chhotu', 'mintu'] as const;
 export type Who = (typeof CHARACTERS)[number];
 
 /**

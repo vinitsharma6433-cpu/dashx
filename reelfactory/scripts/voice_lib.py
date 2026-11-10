@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "voices.json"
 RATE = 24000
 
-NAMES = {"सचिन": "sachin", "सूर्या": "surya", "दादाजी": "dadaji", "आंटी": "aunty", "पिंटू": "pintu", "गोलू": "golu", "मीना": "meena", "कोच": "coach", "ब्रूनो": "bruno"}
+NAMES = {"सचिन": "sachin", "सूर्या": "surya", "दादाजी": "dadaji", "आंटी": "aunty", "पिंटू": "pintu", "गोलू": "golu", "मीना": "meena", "कोच": "coach", "ब्रूनो": "bruno", "पप्पू": "pappu", "छोटू": "chhotu", "मिंटू": "mintu"}
 SPEECH_VERBS = {"बोला", "बोली", "बोले", "बोलीं", "कहा", "चिल्लाया", "चिल्लाई", "चिल्लाए", "पूछा", "फुसफुसाया", "पुकारा", "हँसा"}
 BARK_WORDS = ("भौंका", "भौंकता", "भौंकने", "भौंकती")
 

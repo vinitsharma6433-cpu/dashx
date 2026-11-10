@@ -99,7 +99,7 @@ def first_comment() -> str:
     """The first comment under the YouTube video: the same links. (The API cannot pin it: pin it by hand in YouTube Studio.)"""
     return f"{COMMENT_INTRO}\n{BUY_BLOCK}"
 BASE_KEYWORDS = ["gali cricket", "tennis ball cricket", "cricket comedy", "hindi cartoon", "cricket shorts", "DASHX", "Meerut"]
-CAST_NAMES = {"sachin": "Sachin", "surya": "Surya", "dadaji": "Dadaji", "aunty": "Aunty", "pintu": "Pintu", "golu": "Golu", "meena": "Meena", "coach": "Coach", "bruno": "Bruno"}
+CAST_NAMES = {"sachin": "Sachin", "surya": "Surya", "dadaji": "Dadaji", "aunty": "Aunty", "pintu": "Pintu", "golu": "Golu", "meena": "Meena", "coach": "Coach", "bruno": "Bruno", "pappu": "Pappu Bhaiya", "chhotu": "Chhotu", "mintu": "Mintu"}
 
 
 def generate(script: dict, categories: list[str], cast: list[str]) -> dict:

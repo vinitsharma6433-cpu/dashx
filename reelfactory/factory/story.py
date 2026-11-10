@@ -21,6 +21,9 @@ PROFILES = {
     "meena": {"role": "the girl batter", "trait": "fearless, hits sixes"},
     "coach": {"role": "the coach uncle", "trait": "big, loud, laughs at the end"},
     "bruno": {"role": "the dog", "trait": "barks, chases the ball, never bats"},
+    "pappu": {"role": "Pappu Bhaiya, the gali captain", "trait": "talks big, plans always backfire"},
+    "chhotu": {"role": "the small shop boy", "trait": "sharp, knows bats, balls and rates"},
+    "mintu": {"role": "Mintu, the rival gali kid", "trait": "sneaky, tries tricks, gets caught"},
 }
 MAIN_CAST = {"sachin", "surya", "dadaji"}
 

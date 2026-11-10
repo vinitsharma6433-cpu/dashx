@@ -25,9 +25,10 @@ sys.path.insert(0, str(ROOT / "scripts"))
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 import daily  # noqa: E402
+import story_rules as sr  # noqa: E402
 from factory import story as sm  # noqa: E402
 
-NAMES = {"सचिन": "sachin", "सूर्या": "surya", "दादाजी": "dadaji", "आंटी": "aunty", "पिंटू": "pintu", "गोलू": "golu", "मीना": "meena", "कोच": "coach", "ब्रूनो": "bruno"}
+NAMES = {"सचिन": "sachin", "सूर्या": "surya", "दादाजी": "dadaji", "आंटी": "aunty", "पिंटू": "pintu", "गोलू": "golu", "मीना": "meena", "कोच": "coach", "ब्रूनो": "bruno", "पप्पू": "pappu", "छोटू": "chhotu", "मिंटू": "mintu"}
 STOP = {"भी", "का", "की", "के", "में", "ही", "है", "रहा", "गई", "गया", "गए", "था", "थी", "हो", "सब"}
 MAX_SPOKEN_WORDS = 46
 args = [a for a in sys.argv[1:] if not a.startswith("--") and not a.endswith(".json") and not a.isdigit()]
@@ -71,7 +72,7 @@ def main():
             skip = set(rendered[b["title_hi"]])
             ref = corpus_without(skip)
         probs = []
-        data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"]}
+        data = {"title_hi": b["title_hi"], "title_en": b["title_en"], "plot_en": b["plot_en"], "scenes": b["rows"], "closing_hi": b["closing"], "card": b.get("card", ""), "series": b.get("series", ""), "ep": b.get("ep", "")}
         story, p = daily.from_dialogue_data(data)
         probs += p
         cast, score, words, last_t = [], None, 0, ""
@@ -117,6 +118,14 @@ def main():
             probs += [f"hook: {x}" for x in seo_mod.hook_problems(hook, {"scenes": story["scenes"], "story": {"closing": story["closing"]}})]
             if hook and any(seo_mod.hooks_clash(hook, h) for h in accepted_hooks):
                 probs.append("hook has nearly the same wording as another story's hook")
+            if b.get("card"):   # new format: the story-upgrade checks run ONLY for stories that carry a card: field
+                if words > 34:
+                    probs.append(f"{words} spoken words: a new-format story must fit the 25 s reel with the 7 s end card (max 34)")
+                probs += sr.cold_open_problems(first)
+                probs += sr.plot_dialogue_problems(story["plot_en"], story["scenes"])
+                probs += sr.typo_problems(" ".join(all_lines + [b.get("hook", ""), b["closing"], b["card"]]))
+                probs += sr.card_problems(b["card"])
+                probs += sr.series_problems(b.get("series", ""), b.get("ep", ""), last)
             cast = sorted(sm.cast_of(story))
             last_t = story["scenes"][-1]["template"]
         res = {"title": b["title_en"], "title_hi": b["title_hi"], "score": score, "cast": cast, "speakers": [], "last_line": "", "last_template": last_t, "words": words, "problems": probs}
