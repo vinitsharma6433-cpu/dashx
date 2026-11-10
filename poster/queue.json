@@ -876,7 +876,7 @@
         "facebook": "Phone par phodo DIGITAL PATAKHE 🎇🪔 Bina dhuan, bina shor, sirf dhamaka!\nApna naam aur photo laga ke doston ko Diwali wish bhejo. Link bio me aur comment me 👆\nHappy Diwali from Nav Durga Sports, Meerut 🏏 DASH X Cricket Tennis Balls\n#HappyDiwali #Diwali2026 #DigitalPatakhe #DiwaliWish #DiwaliReels #Meerut #DASHX #CricketTennisBall #NavDurgaSports",
         "instagram": "Phone par phodo DIGITAL PATAKHE 🎇🪔 Bina dhuan, bina shor, sirf dhamaka!\nApna naam aur photo laga ke doston ko Diwali wish bhejo. Link bio me aur comment me 👆\nHappy Diwali from Nav Durga Sports, Meerut 🏏 DASH X Cricket Tennis Balls\n#HappyDiwali #Diwali2026 #DigitalPatakhe #DiwaliWish #DiwaliReels #Meerut #DASHX #CricketTennisBall #NavDurgaSports"
       },
-      "status": "scheduled",
+      "status": "done",
       "results": {
         "youtube": {
           "ok": true,
@@ -885,13 +885,15 @@
         },
         "facebook": {
           "ok": false,
-          "error": "skipped by owner request: old Diwali entry must not be posted to Meta now",
-          "tries": 3
+          "error": "skipped: slot older than 48 h, not posted late",
+          "tries": 99,
+          "skipped_late": true
         },
         "instagram": {
           "ok": false,
-          "error": "skipped by owner request: old Diwali entry must not be posted to Meta now",
-          "tries": 3
+          "error": "skipped: slot older than 48 h, not posted late",
+          "tries": 99,
+          "skipped_late": true
         }
       },
       "notes": {
