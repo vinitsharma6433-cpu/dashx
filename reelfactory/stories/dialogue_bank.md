@@ -332,3 +332,14 @@ hook: आंटी की बाल्टी बनी विकेट, गे�
 - run-up | meena | surya | | meena: सीधा बाल्टी पर निशाना! // surya: मैं चूक गया, गेंद बाल्टी में!
 - catch | aunty | meena | surya | aunty: पानी से गेंद निकालकर पकड़ी!
 - face-off | meena | aunty | पानी | meena: आंटी, विकेट भी बाल्टी का, पानी भी! // aunty: अब बाल्टी भरकर लाओ, दोनों!
+
+<!-- auto-written 2026-11-10 by gemini/gemini-3.5-flash; passed the same checks as hand-written stories + editor grade >= 7 -->
+
+## Dog Coaching | कुत्ते की कोचिंग
+plot: Surya tries to teach Bruno how to field, Sachin hits a soft shot, but Bruno catches the ball and passes it directly to Aunty.
+ending: ब्रूनो बना आंटी का चेला!
+hook: कुत्ते की कोचिंग में ग़लती किसकी थी? 🐶
+- face-off | surya | golu | फ़ील्ड | surya: आज तुझे फ़ील्डिंग सिखाऊँगा! // golu: ये तो बस भौंकता है!
+- shot | sachin | golu | | sachin: ये लो मेरा धीमा शॉट! // golu: अब कैच पकड़ो!
+- catch | aunty | bruno | golu | aunty: शाबाश ब्रूनो, गेंद मुझे दी! // bruno: भौं भौं!
+- face-off | surya | aunty | पास | surya: अरे, मुझे गेंद देनी थी! // aunty: ये तो अब मेरा फ़ीलडर है!

@@ -1,0 +1,1 @@
+- 2026-11-10 | gemini/gemini-3.5-flash | Dog Coaching | कुत्ते की कोचिंग | {"funny": 7, "clear": 8, "natural_hindi": 9, "kid_safe": true, "issue": "The punchline is cute, but Bruno's motivation for picking Aunty over Surya could be clearer for a stronger comedic payoff."}
