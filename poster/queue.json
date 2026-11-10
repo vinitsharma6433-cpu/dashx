@@ -1016,8 +1016,8 @@
         },
         "instagram": {
           "ok": false,
-          "error": "Instagram container create failed (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931",
-          "tries": 1
+          "error": "META TOKEN INVALID/EXPIRED (code 200/None): Cannot call API for app 1097560536379455 on behalf of user 1936272454002931",
+          "tries": 2
         }
       },
       "notes": {
