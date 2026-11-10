@@ -513,15 +513,22 @@ a{color:var(--sch)}
 
   // ---- last poster run (GitHub public API, checked every 5 minutes so the free rate limit is never a problem) ----
   function lastPoster() {
-    fetch("https://api.github.com/repos/vinitsharma6433-cpu/dashx/actions/workflows/dashx-poster.yml/runs?per_page=1", { headers: { Accept: "application/vnd.github+json" } })
+    fetch("https://api.github.com/repos/vinitsharma6433-cpu/dashx/actions/workflows/dashx-poster.yml/runs?per_page=5", { headers: { Accept: "application/vnd.github+json" } })
       .then(function (r) { if (!r.ok) throw new Error("api"); return r.json(); })
       .then(function (j) {
-        var run = j.workflow_runs && j.workflow_runs[0];
-        if (!run) throw new Error("none");
-        var t = new Date(run.run_started_at || run.created_at), mins = Math.max(0, Math.round((Date.now() - t.getTime()) / 60000));
+        var runs = j.workflow_runs || [];
+        if (!runs.length) throw new Error("none");
+        var live = runs.filter(function (x) { return x.status === "in_progress"; })[0];
+        if (live) {
+          // the poster is a loop: one run stays on and checks the queue every 5 minutes
+          $("pollast").textContent = "Poster: running now, checks the queue every 5 minutes (this loop started " + ist(new Date(live.run_started_at)) + ")";
+          $("pdot").className = "dot live";
+          return;
+        }
+        var run = runs[0], t = new Date(run.updated_at || run.run_started_at), mins = Math.max(0, Math.round((Date.now() - t.getTime()) / 60000));
         var ago = mins < 60 ? mins + " min ago" : Math.floor(mins / 60) + " h " + (mins % 60) + " min ago";
-        var late = mins > 45;
-        $("pollast").textContent = "Last poster run: " + ist(t) + " (" + ago + ")" + (late ? " · delayed: GitHub runs the poster less often than every 15 min, so posts and comments can be late" : "");
+        var late = mins > 20;
+        $("pollast").textContent = "Last poster run ended: " + ist(t) + " (" + ago + ")" + (late ? " · delayed: the next run has not started yet, posts and comments can be late" : "");
         $("pdot").className = "dot " + (late ? "warn" : "live");
       })
       .catch(function () {
