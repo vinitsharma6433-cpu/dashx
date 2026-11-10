@@ -102,7 +102,7 @@ def meta_check(r, tok, what):
         e = {}
     code, sub = e.get("code"), e.get("error_subcode")
     msg = _scrub(e.get("message") or ("HTTP %s" % r.status_code), tok)[:220]
-    if code in (190, 102) or sub in (458, 459, 460, 463, 467):
+    if code in (190, 102) or sub in (458, 459, 460, 463, 467) or (code == 200 and "Cannot call API for app" in str(e.get("message", ""))):
         TOKEN_BAD["flag"] = True
         print("::error::META TOKEN INVALID or EXPIRED (%s, Graph code %s/%s): %s. Make a new non-expiring Page token and update the META_PAGE_TOKEN secret." % (what, code, sub, msg))
         raise MetaError("META TOKEN INVALID/EXPIRED (code %s/%s): %s" % (code, sub, msg))
