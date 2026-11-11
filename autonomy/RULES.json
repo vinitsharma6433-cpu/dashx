@@ -23,6 +23,7 @@
       "autonomy/changes.jsonl",
       "autonomy/trends.json",
       "autonomy/learning.json",
+      "autonomy/metrics.json",
       "autonomy/memory.json",
       "autonomy/blocked_ideas.json",
       "autonomy/slot_hints.json",
@@ -98,6 +99,20 @@
       "crime": ["arrest", "police", "rape", "theft", "fraud", "scam", "court", "jail", "bail", "assault", "abuse", "kidnap", "gang", "drug"]
     },
     "brand_words": ["price", "rupee", "mrp", "cheap", "discount", "offer", "sale", "best", "no.1", "no. 1", "number one", "premium", "guarante", "free", "nike", "adidas", "puma", "mrf", "kookaburra", "cosco", "nivia", "decathlon", "ipl", "bcci", "icc", "dhoni", "kohli", "tendulkar", "rohit", "flipkart", "amazon"]
+  },
+  "learning": {
+    "_about": "Learning loop (Phase 4). READ-ONLY use of the access we already have. It never asks for a new scope and never changes a token. If a source answers 'denied', that is recorded as needs-owner and the loop carries on with the rest.",
+    "read_only": true,
+    "uses": ["YouTube Data API videos.list statistics (views, likes, comments) with the existing YouTube token", "Instagram like_count and comments_count of our own posts with the existing Meta token", "Facebook likes and comments counts of our own reels with the existing Meta token", "our own hook score of the first spoken line (recomputed from the story bank)", "slot (12:30 / 20:30), format, characters"],
+    "not_available_without_owner": ["YouTube Analytics (watch time, retention, traffic): needs the scope yt-analytics.readonly", "Instagram insights (reach, plays, saves, shares): needs instagram_manage_insights", "Facebook video insights (views, retention): needs read_insights", "QC score per reel: it is only a gate (>= 90 to be queued) and is not stored in the queue"],
+    "min_reels_with_data": 5,
+    "min_group_size": 2,
+    "explore_share": 0.2,
+    "window_days": 14,
+    "min_age_hours": 6,
+    "refresh_after_hours": 20,
+    "steer_dimensions": ["format", "hook_type"],
+    "score_weights": {"reach": 0.6, "reaction": 0.4}
   },
   "kill_switches": {
     "_about": "File names in the repo root or reelfactory/. If one exists the matching part of the machine does nothing. The machine can never create or delete them.",
