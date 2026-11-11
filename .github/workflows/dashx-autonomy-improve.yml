@@ -1,0 +1,74 @@
+name: DASHX Autonomy Improve
+# Self-improvement loop (Phase 6). Rules: autonomy/RULES.json (sealed). Logic: autonomy/improve.py.
+# Once a day (15:30 IST, outside the slot windows) it makes ONE small data change on a temporary branch, proves it with a canary (full unit tests,
+# story checks no worse than main, and ONE test reel with no posting that must pass QC 100/100), and only then merges it to main.
+# Every 3 hours it also WATCHES the next 2 posted reels after a merge and AUTO-REVERTS the change on any NEW failure.
+# A change that touches anything on the deny list is never merged: a pull request is opened for the owner instead.
+# NEW WORKFLOW FILE: the owner must review it before merge (the machine itself can never edit .github/**).
+# To pause: create STOP_AUTONOMY or STOP_QUEUE in the repo root (or in reelfactory/).
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: only log which idea it would try, change nothing"
+        type: boolean
+        default: true
+  schedule:
+    - cron: "0 10 * * *"       # 10:00 UTC = 15:30 IST: the daily improvement
+    - cron: "20 */3 * * *"     # every 3 hours: watch only (a no-op when nothing is being watched)
+permissions:
+  contents: write
+  actions: write               # to start the canary test reel (Reel Factory, test_only) on the temporary branch
+  pull-requests: write         # only to open a pull request for the owner when a change touches the deny list
+concurrency:
+  group: dashx-autonomy-improve
+  cancel-in-progress: false
+jobs:
+  improve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PYTHONUTF8: "1"
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Kill switch (STOP_AUTONOMY / STOP_QUEUE)
+        id: stop
+        run: |
+          if [ -e STOP_AUTONOMY ] || [ -e reelfactory/STOP_AUTONOMY ] || [ -e STOP_QUEUE ] || [ -e reelfactory/STOP_QUEUE ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::warning::paused by a STOP file"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.stop.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: reelfactory/requirements-ci.txt
+      - name: Install ffmpeg and dependencies (the unit tests need them)
+        if: steps.stop.outputs.skip != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -r reelfactory/requirements-ci.txt requests
+      - name: Self-improvement (daily) or watch (every 3 hours)
+        if: steps.stop.outputs.skip != 'true'
+        run: python autonomy/improve.py ${{ github.event.schedule == '20 */3 * * *' && '--watch-only' || '' }} ${{ github.event.inputs.dry_run == 'true' && '--dry' || '' }}
+      - name: Save the machine's notes
+        if: always() && steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        run: |
+          git checkout -q main
+          git config user.name "dashx-autonomy"
+          git config user.email "dashx-autonomy@users.noreply.github.com"
+          git add autonomy/log.md autonomy/blocked_ideas.json autonomy/watch.json autonomy/changes.jsonl 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Autonomy: improve notes"
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 6))
+            done
+            echo "::warning::could not push the autonomy notes"
+          fi
