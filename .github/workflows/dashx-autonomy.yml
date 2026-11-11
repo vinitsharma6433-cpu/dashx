@@ -50,6 +50,15 @@ jobs:
         if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
         continue-on-error: true
         run: python autonomy/trends.py
+      - name: Learning loop (read-only stats with the existing tokens, once a day)
+        if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: python autonomy/learning.py
       - name: Save the log and any queue fix
         if: always() && steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
         continue-on-error: true
@@ -58,7 +67,7 @@ jobs:
           git config user.email "dashx-autonomy@users.noreply.github.com"
           git config merge.queuejson.name "DASHX queue.json merge"
           git config merge.queuejson.driver "python poster/merge_queue.py %O %A %B"
-          git add autonomy/log.md autonomy/trends.json poster/queue.json
+          git add autonomy/log.md autonomy/trends.json autonomy/learning.json autonomy/metrics.json autonomy/slot_hints.json poster/queue.json
           if ! git diff --cached --quiet; then
             git commit -m "Autonomy: heal log"
             for i in 1 2 3 4 5; do

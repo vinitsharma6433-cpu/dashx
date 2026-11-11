@@ -372,6 +372,26 @@ def write_report(left: int, added: int, a, extra: str = "") -> None:
             pass
 
 
+def steer_format(default: str) -> str:
+    """DASHX Autonomy learning loop: more of the formats that work, 20 percent experiments. Any problem or no data = the normal cycle."""
+    try:
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import steer  # noqa: PLC0415
+        return steer.pick("format", list(FORMATS), default, ROOT.parent)
+    except Exception:
+        return default
+
+
+def steer_formula(cfg: list):
+    """Same for the hook style. Any problem or no data = a random formula, exactly as before."""
+    try:
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import steer  # noqa: PLC0415
+        return steer.pick_formula(cfg, ROOT.parent)
+    except Exception:
+        return random.choice(cfg)
+
+
 def run(a) -> int:
     t0 = time.time()
     CALLS["cap"] = a.max_calls
@@ -416,9 +436,10 @@ def run(a) -> int:
             stop_msg = " (time budget used up)"
             break
         fmt = FORMATS[(tried + fmt_offset) % len(FORMATS)]
+        fmt = steer_format(fmt)
         pool_ = {"rivalry": situations.get("rivalry"), "shop": situations.get("shop")}.get(fmt) or sits
         anchor = random.choice(situations.get("meerut_anchors") or [""])
-        seed = {"situation": random.choice(pool_) + (f" (Meerut touch to use: {anchor})" if anchor else ""), "formula": random.choice(cfg)}
+        seed = {"situation": random.choice(pool_) + (f" (Meerut touch to use: {anchor})" if anchor else ""), "formula": steer_formula(cfg)}
         tried += 1
         code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:], fmt, ep_next))
         if code != 200:
