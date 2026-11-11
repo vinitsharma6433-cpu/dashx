@@ -92,7 +92,7 @@ def festival_topics(today: date, cal: dict) -> list[dict]:
     for d in cal["days"]:
         day = date.fromisoformat(d["date"])
         if day - timedelta(days=cal["lead_days"]) <= today <= day + timedelta(days=cal["after_days"]):
-            out.append({"id": d["id"], "topic": d["label"], "why_fits": d["why"], "story_angle": d["angle"],
+            out.append({"id": d["id"], "topic": d["label"], "why_fits": d["why"], "story_angle": d["angle"], "story_situation": d.get("situation", ""),
                         "strength": 10 - abs((day - today).days), "sources": ["festival calendar"] + (["date approximate: owner to confirm"] if d.get("check") else []),
                         "expires": (day + timedelta(days=cal["after_days"])).isoformat()})
     return out
@@ -121,7 +121,7 @@ def build(today: date, fetched: dict[str, list[str]], rules: dict, themes: dict,
             continue
         if not (brand_ok(th["angle"], rules) and brand_ok(th["label"], rules) and brand_ok(th["why"], rules)):
             continue                                   # a theme that breaks the brand rules is dropped, never used
-        topics.append({"id": th["id"], "topic": th["label"], "why_fits": th["why"], "story_angle": th["angle"],
+        topics.append({"id": th["id"], "topic": th["label"], "why_fits": th["why"], "story_angle": th["angle"], "story_situation": th.get("situation", ""),
                        "strength": min(n, 5) + (0 if n else 0.5), "sources": srcs or ["evergreen"],
                        "expires": (today + timedelta(days=days)).isoformat()})
     for f in festival_topics(today, cal):

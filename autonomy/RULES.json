@@ -26,6 +26,7 @@
       "autonomy/metrics.json",
       "autonomy/memory.json",
       "autonomy/blocked_ideas.json",
+      "autonomy/watch.json",
       "autonomy/slot_hints.json",
       "autonomy/status.json",
       "status/daily.md"
@@ -113,6 +114,18 @@
     "refresh_after_hours": 20,
     "steer_dimensions": ["format", "hook_type"],
     "score_weights": {"reach": 0.6, "reaction": 0.4}
+  },
+  "improve": {
+    "_about": "Self-improvement loop (Phase 6). One small data change a day, made on a temporary branch, proven by a canary, merged only if everything passes, then watched for the next 2 posted reels and auto-reverted on any NEW failure. Whatever the improver says it changed, the REAL git diff is checked against the allow/deny lists and the limits before anything is merged.",
+    "improvers_enabled": ["situation_from_trend"],
+    "branch_prefix": "autonomy/improve-",
+    "max_diff_lines": 20,
+    "max_situations": 80,
+    "canary": {"unit_tests": true, "story_checks": true, "test_reel": true, "required_qc": 100, "timeout_minutes": 45},
+    "watch": {"reels": 2, "give_up_days": 5},
+    "revert_is_always_allowed": true,
+    "never_merge_if": ["any path is not on the allow list", "more than 3 files", "inside a blocked window", "a self-change was already made today", "any canary step failed", "STOP_AUTONOMY or STOP_QUEUE exists"],
+    "pr_instead": "A change that touches anything on the deny list is never merged: a pull request is opened for the owner."
   },
   "kill_switches": {
     "_about": "File names in the repo root or reelfactory/. If one exists the matching part of the machine does nothing. The machine can never create or delete them.",
