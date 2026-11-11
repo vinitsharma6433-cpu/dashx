@@ -1,0 +1,89 @@
+{
+  "_about": "Character voice file. One entry per character, read by factory/story.py (PROFILES, voice_card) and by scripts/refill_bank.py (the writer prompt), so every character sounds like themselves. wants = what the character is after in a story. voice_words = words and phrases they reach for (Hindi). voice_avoid = words and phrases they would never say. style = how they talk. Keep every word brand-safe: the DASHX rules ban price, discount, 'best', other brands and DASHX itself in story lines, so none of them may appear here. Bruno only barks.",
+  "characters": {
+    "sachin": {
+      "name_hi": "सचिन", "role": "main batter", "trait": "confident, loves big shots, a little sleepy",
+      "wants": "one big six and then a nap",
+      "voice_words": ["आराम से", "एक छक्का और बस", "ज़रा रुको", "जम्हाई"],
+      "voice_avoid": ["जल्दी", "भागो", "चिल्लाओ"],
+      "style": "slow, relaxed, short; yawns in the middle of a sentence"
+    },
+    "surya": {
+      "name_hi": "सूर्या", "role": "main bowler", "trait": "boastful, fast, funny when he loses",
+      "wants": "to be the fastest and loudest in the gali and never lose face",
+      "voice_words": ["देखना", "मेरी गेंद", "तूफ़ान", "कोई नहीं खेल सकता"],
+      "voice_avoid": ["शायद", "मैं हार गया", "माफ़ करना"],
+      "style": "fast and loud boasts; excuses when he loses"
+    },
+    "dadaji": {
+      "name_hi": "दादाजी", "role": "the calm elder", "trait": "sits on his chair and catches everything",
+      "wants": "to sit calmly on his chair and quietly catch whatever flies his way",
+      "voice_words": ["बेटा", "आराम से", "हमारे ज़माने में", "अरे बेटा"],
+      "voice_avoid": ["जल्दी", "चिल्लाना", "फ़ोन"],
+      "style": "slow and gentle, calls everyone बेटा, tiny old-time remarks"
+    },
+    "aunty": {
+      "name_hi": "आंटी", "role": "the neighbour", "trait": "warm, sharp-eyed, protects her window",
+      "wants": "to protect her window and know everyone's business",
+      "voice_words": ["खिड़की मेरी है", "ये क्या हो रहा है", "बेटा", "मैंने देखा"],
+      "voice_avoid": ["कृपया", "शायद"],
+      "style": "warm but sharp, always notices the thing nobody wanted noticed"
+    },
+    "pintu": {
+      "name_hi": "पिंटू", "role": "the umpire", "trait": "serious about rules, blows his whistle",
+      "wants": "every rule followed and his whistle respected",
+      "voice_words": ["नियम है", "सीटी बजेगी", "फ़ैसला मेरा", "आउट"],
+      "voice_avoid": ["कोई बात नहीं", "चलो छोड़ो"],
+      "style": "stiff, official, announces decisions"
+    },
+    "golu": {
+      "name_hi": "गोलू", "role": "the small fielder", "trait": "tiny, spots things first",
+      "wants": "to be believed when he is the first to spot something",
+      "voice_words": ["मैंने देखा!", "सबसे पहले मैंने", "देखो देखो", "सच्ची"],
+      "voice_avoid": ["शायद", "पता नहीं"],
+      "style": "quick, excited, short sentences, nobody listens at first"
+    },
+    "meena": {
+      "name_hi": "मीना", "role": "the girl batter", "trait": "fearless, hits sixes",
+      "wants": "to hit the longest six of the gali",
+      "voice_words": ["देखती जा", "छक्का", "डर किसको", "चल हट"],
+      "voice_avoid": ["डर लग रहा है", "माफ़ करना"],
+      "style": "fearless and teasing, short and sharp"
+    },
+    "coach": {
+      "name_hi": "कोच", "role": "the coach uncle", "trait": "big, loud, laughs at the end",
+      "wants": "everyone training properly, and a good laugh at the end",
+      "voice_words": ["शाबाश", "फिर से", "ज़ोर लगाओ", "हा हा"],
+      "voice_avoid": ["छोड़ दो", "कोई फ़ायदा नहीं"],
+      "style": "big and loud, orders, ends with a big laugh"
+    },
+    "bruno": {
+      "name_hi": "ब्रूनो", "role": "the dog", "trait": "barks, chases the ball, never bats",
+      "wants": "to bury things, fetch the ball and be noticed",
+      "voice_words": ["भौं भौं!"],
+      "voice_avoid": ["any spoken Hindi word: Bruno only barks"],
+      "style": "only barks (भौं भौं!), the other characters explain what he means"
+    },
+    "pappu": {
+      "name_hi": "पप्पू भैया", "role": "Pappu Bhaiya, the gali captain", "trait": "talks big, every plan backfires",
+      "wants": "to be the unquestioned captain and win the whole gali's respect with one grand plan",
+      "voice_words": ["भाई लोग", "मेरा प्लान", "देखना", "पक्का", "बड़ी बात नहीं"],
+      "voice_avoid": ["शायद", "माफ़ कीजिए", "कृपया", "मुझे नहीं पता"],
+      "style": "loud captain talk, big promises in short sentences; only at the very end he is forced to admit it went wrong"
+    },
+    "chhotu": {
+      "name_hi": "छोटू", "role": "Chhotu, the small shop boy", "trait": "sharp, knows bats and balls by weight and feel",
+      "wants": "to close the sale and prove he knows every bat and ball better than the customer",
+      "voice_words": ["भैया", "माल", "वज़न देखो", "हाथ में पकड़कर देखो", "ये लो"],
+      "voice_avoid": ["शायद", "मुझे नहीं पता", "चिल्लाना"],
+      "style": "polite, quick, always one step ahead; talks like a shop counter, never loud"
+    },
+    "mintu": {
+      "name_hi": "मिंटू", "role": "Mintu, the sneaky kid of the rival gali", "trait": "sneaky, tries tricks, gets caught",
+      "wants": "to win the match by a trick without being seen",
+      "voice_words": ["अरे वाह", "नियम है", "मैंने तो सिर्फ़", "सच्ची", "हमारी गली का नियम"],
+      "voice_avoid": ["मैंने झूठ बोला", "माफ़ी", "मैं हार गया"],
+      "style": "sweet and innocent voice while cheating; the excuse comes before the trick is even noticed"
+    }
+  }
+}

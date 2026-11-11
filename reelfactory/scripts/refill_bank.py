@@ -69,6 +69,16 @@ CAST_HELP = {
 }
 
 
+def cast_help(who: str) -> str:
+    """The voice card of a character for the writer prompt (stories/characters.json); falls back to the short CAST_HELP line."""
+    try:
+        c = json.loads((ROOT / "stories" / "characters.json").read_text(encoding="utf-8"))["characters"][who]
+        return (f"{c['role']}: {c['trait']} | wants: {c['wants']} | often says: " + ", ".join(f"«{w}»" for w in c["voice_words"])
+                + " | never says: " + ", ".join(f"«{w}»" for w in c["voice_avoid"]) + f" | style: {c['style']}")
+    except Exception:
+        return CAST_HELP.get(who, who)
+
+
 def scrub(s) -> str:
     s = str(s)
     return s.replace(KEY, "<token>") if KEY else s
@@ -237,6 +247,8 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
         "- Write all spoken lines, the ending, the hook, the card and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. Short, simple words, light western-UP flavour (अरे यार, ओ भाई), no heavy dialect.\n"
         "- English is allowed only in the title before the | and in the plot line. No digits anywhere in Hindi text.\n"
         "- Spell the names exactly: सचिन, सूर्या, दादाजी, आंटी, पिंटू, गोलू, मीना, कोच, ब्रूनो, पप्पू भैया (पप्पू), छोटू, मिंटू.\n"
+        "- VOICE: every character sounds like themselves. Use what each character WANTS as their goal in the story, let them reach for their own 'often says' words and phrases, and NEVER put a 'never says' word or phrase in their mouth. "
+        "Pappu, Chhotu and Mintu must not sound alike: Pappu is a loud captain with big promises, Chhotu is a quick polite shop boy, Mintu is sweet and innocent while he cheats.\n"
         "- The `plot:` line must describe exactly what the spoken lines show: every character the plot names must appear in the story, and every character who speaks more than once must be named in the plot.\n"
         "- Use at least 3 different templates among the 4 scenes. A story must NOT end in a catch scene unless the joke needs it.\n"
         "- Never mention price, discounts, 'best', brands (also not DASHX), politics, religion, accidents, hospitals or police.\n"
@@ -256,7 +268,7 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
     user = (
         f"Format for this story: {fmt_text}\n{series_lines}"
         f"Situation: {seed['situation']}.\n"
-        f"Characters to use (all of these; the first ones are required by the format): " + "; ".join(f"{c} ({CAST_HELP[c]})" for c in cast) + ".\n"
+        f"Characters to use (all of these; the first ones are required by the format): " + "; ".join(f"{c} ({cast_help(c)})" for c in cast) + ".\n"
         f"Hook style for the `hook:` line: {hook['name']} - pattern {hook['pattern']} (example: {hook['example']}). Make a NEW hook for THIS story, do not copy the example.\n\n"
         "Here are two finished stories in the right format (do NOT copy them, write a different story; the real new format also has a `card:` line):\n\n" + examples() + "\n\n"
         "Titles already used (do not repeat these ideas): " + "; ".join(titles) + "\n"

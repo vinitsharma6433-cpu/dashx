@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT))
 import story_rules as sr  # noqa: E402
 
 
@@ -102,6 +103,41 @@ class HookScore(unittest.TestCase):
     def test_score_is_not_a_story_check(self):
         # the score functions do not appear in any problem-returning rule
         self.assertEqual(sr.cold_open_problems("नो बॉल! नहीं गिनी जाएगी!"), [])
+
+
+class CharacterVoiceFile(unittest.TestCase):
+    """stories/characters.json: wants / voice_words / voice_avoid for every character, read by factory/story.py and the writer prompt."""
+
+    @classmethod
+    def setUpClass(cls):
+        import json
+        cls.chars = json.loads((ROOT / "stories" / "characters.json").read_text(encoding="utf-8"))["characters"]
+
+    def test_every_speaker_has_a_card(self):
+        for who in sr.SPEAKERS:
+            self.assertIn(who, self.chars, who)
+            c = self.chars[who]
+            for k in ("name_hi", "role", "trait", "wants", "voice_words", "voice_avoid", "style"):
+                self.assertTrue(c.get(k), f"{who}.{k}")
+
+    def test_words_and_avoid_do_not_overlap(self):
+        for who, c in self.chars.items():
+            self.assertFalse(set(c["voice_words"]) & set(c["voice_avoid"]), who)
+
+    def test_voice_words_are_brand_safe(self):
+        # the DASHX rules ban price, discount, 'best', other brands: none of them may sit in a character's words
+        for who, c in self.chars.items():
+            if who == "bruno":
+                continue
+            for w in c["voice_words"]:
+                self.assertEqual(sr.rule_problems(w), [], f"{who}: {w}")
+
+    def test_story_py_reads_the_file(self):
+        from factory import story as sm
+        self.assertIn("wants:", sm.voice_card("pappu"))
+        self.assertIn("«भाई लोग»", sm.voice_card("pappu"))
+        self.assertNotEqual(sm.voice_card("pappu"), sm.voice_card("chhotu"))
+        self.assertEqual(sm.PROFILES["pappu"]["role"], self.chars["pappu"]["role"])
 
 
 if __name__ == "__main__":

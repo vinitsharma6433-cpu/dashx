@@ -27,6 +27,26 @@ PROFILES = {
 }
 MAIN_CAST = {"sachin", "surya", "dadaji"}
 
+CHARACTERS_FILE = ROOT / "stories" / "characters.json"
+
+
+def load_characters() -> dict:
+    """The character voice file (stories/characters.json): role, trait, wants, voice_words, voice_avoid, style per character. {} when missing."""
+    try:
+        return json.loads(CHARACTERS_FILE.read_text(encoding="utf-8")).get("characters", {})
+    except Exception:
+        return {}
+
+
+def voice_card(who: str) -> str:
+    """One line for the writer prompt: who they are, what they want, the words they use and the words they never say."""
+    c = load_characters().get(who)
+    if not c:
+        p = PROFILES.get(who, {})
+        return f"{p.get('role', who)}: {p.get('trait', '')}"
+    return (f"{c['role']}: {c['trait']} | wants: {c['wants']} | often says: " + ", ".join(f"«{w}»" for w in c["voice_words"])
+            + " | never says: " + ", ".join(f"«{w}»" for w in c["voice_avoid"]) + f" | style: {c['style']}")
+
 CATEGORY_WORDS = {
     "School Cricket": ["क्लास", "स्कूल", "कोच", "टीम"],
     "Family Comedy": ["दादाजी", "आंटी", "चाय", "कुर्सी", "आँगन", "खिड़की"],
@@ -34,6 +54,12 @@ CATEGORY_WORDS = {
     "Funny Characters": ["जादूगर", "जम्हाई", "भौंक", "आँखें बंद", "पतंग"],
     "Unexpected Endings": ["ग़ायब", "बिना देखे", "सोते", "वापस"],
 }
+
+
+# the voice file is the source of role and trait when it exists (the dict above is the fallback)
+for _who, _c in load_characters().items():
+    if _who in PROFILES:
+        PROFILES[_who] = {"role": _c.get("role", PROFILES[_who]["role"]), "trait": _c.get("trait", PROFILES[_who]["trait"])}
 
 
 def infer_categories(story: dict) -> list[str]:
