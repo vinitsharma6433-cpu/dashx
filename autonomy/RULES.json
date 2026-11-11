@@ -72,6 +72,33 @@
     "retry_max_age_hours": 40,
     "report_only": "Everything not listed here is only reported in autonomy/log.md, never fixed."
   },
+  "trends": {
+    "_about": "Trend radar (Phase 3). FREE public sources only, no login, no scraping of accounts. The radar never copies a headline: it only COUNTS how many safe headlines hit one of our own pre-written themes (autonomy/trend_themes.json) and then offers that theme's own safe angle. Headlines with any blocked word are thrown away before counting.",
+    "login_required": false,
+    "sources": [
+      {"id": "google_trends_in", "kind": "trends_rss", "url": "https://trends.google.com/trending/rss?geo=IN"},
+      {"id": "news_cricket", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=cricket&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_gully_cricket", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=gully+cricket&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_meerut", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=Meerut&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_school", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=school+exams+holidays&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_weather", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=weather+rain+fog+heat&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_wedding", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=wedding+season&hl=en-IN&gl=IN&ceid=IN:en"}
+    ],
+    "not_used": ["YouTube trending page (no stable no-login feed; reading the HTML is scraping and may break or break YouTube rules)"],
+    "timeout_seconds": 15,
+    "max_bytes": 1000000,
+    "max_topics": 6,
+    "feed_per_day": 2,
+    "default_expiry_days": 3,
+    "refresh_after_hours": 20,
+    "blocked_words": {
+      "politics": ["election", "minister", "party", "bjp", "congress", "aap ", "parliament", "vote", "poll", "government", "govt", "mla", "protest", "rally", "politic", "manifesto", "neta"],
+      "religion": ["temple", "mosque", "masjid", "church", "hindu", "muslim", "sikh", "christian", "religio", "communal", "god ", "prayer", "jihad", "conversion"],
+      "tragedy": ["death", "dead", "died", "dies", "kill", "murder", "accident", "crash", "blast", "riot", "flood", "fire", "collapse", "injur", "suicide", "terror", "attack", "war ", "disaster", "earthquake", "covid", "tragedy", "victim", "stampede", "drown"],
+      "crime": ["arrest", "police", "rape", "theft", "fraud", "scam", "court", "jail", "bail", "assault", "abuse", "kidnap", "gang", "drug"]
+    },
+    "brand_words": ["price", "rupee", "mrp", "cheap", "discount", "offer", "sale", "best", "no.1", "no. 1", "number one", "premium", "guarante", "free", "nike", "adidas", "puma", "mrf", "kookaburra", "cosco", "nivia", "decathlon", "ipl", "bcci", "icc", "dhoni", "kohli", "tendulkar", "rohit", "flipkart", "amazon"]
+  },
   "kill_switches": {
     "_about": "File names in the repo root or reelfactory/. If one exists the matching part of the machine does nothing. The machine can never create or delete them.",
     "STOP_AUTONOMY": "everything in autonomy stops (healing, trends, learning, self-change)",

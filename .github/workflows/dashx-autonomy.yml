@@ -1,7 +1,7 @@
 name: DASHX Autonomy
 # Self-healing check (Phase 2). Rules: autonomy/RULES.json (sealed, the machine never edits it). Logic: autonomy/heal.py.
 # It only: re-dispatches the poster / factory / story refill when they are dead or failed, retries ONE failed network once (duplicate-guarded),
-# backfills a missing first comment, and writes autonomy/log.md. Everything else is only reported in the log.
+# backfills a missing first comment, refreshes the daily trend radar (autonomy/trends.json), and writes autonomy/log.md. Everything else is only reported in the log.
 # NEW WORKFLOW FILE: the owner must review it before merge (the machine itself can never edit .github/**).
 # To pause: create a file named STOP_AUTONOMY in the repo root (or in reelfactory/). STOP_POSTER / STOP_QUEUE / STOP_REFILL are respected too.
 on:
@@ -46,6 +46,10 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
         run: python autonomy/heal.py ${{ github.event.inputs.dry_run == 'true' && '--dry' || '' }}
+      - name: Trend radar (once a day, free public sources, no login)
+        if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        run: python autonomy/trends.py
       - name: Save the log and any queue fix
         if: always() && steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
         continue-on-error: true
@@ -54,7 +58,7 @@ jobs:
           git config user.email "dashx-autonomy@users.noreply.github.com"
           git config merge.queuejson.name "DASHX queue.json merge"
           git config merge.queuejson.driver "python poster/merge_queue.py %O %A %B"
-          git add autonomy/log.md poster/queue.json
+          git add autonomy/log.md autonomy/trends.json poster/queue.json
           if ! git diff --cached --quiet; then
             git commit -m "Autonomy: heal log"
             for i in 1 2 3 4 5; do

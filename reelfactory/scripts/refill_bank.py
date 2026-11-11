@@ -265,12 +265,20 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
     )
     fmt_text = FORMAT_HELP[fmt].format(ep=ep)
     series_lines = (f"Also write the lines `series: Bruno Files` and `ep: {ep}` right after `card:`.\n" if fmt == "series" else "")
+    trend_part = ""
+    try:   # DASHX Autonomy trend of the day (autonomy/trends.json): optional, empty on any problem, no Gemini call
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import trend_feed  # noqa: PLC0415
+        trend_part = trend_feed.prompt_text(ROOT.parent)
+    except Exception:
+        trend_part = ""
     user = (
         f"Format for this story: {fmt_text}\n{series_lines}"
         f"Situation: {seed['situation']}.\n"
         f"Characters to use (all of these; the first ones are required by the format): " + "; ".join(f"{c} ({cast_help(c)})" for c in cast) + ".\n"
         f"Hook style for the `hook:` line: {hook['name']} - pattern {hook['pattern']} (example: {hook['example']}). Make a NEW hook for THIS story, do not copy the example.\n\n"
         "Here are two finished stories in the right format (do NOT copy them, write a different story; the real new format also has a `card:` line):\n\n" + examples() + "\n\n"
+        + trend_part +
         "Titles already used (do not repeat these ideas): " + "; ".join(titles) + "\n"
         "Endings already used (do not repeat): " + "; ".join(endings) + "\n\n"
         "Now write the new story block, starting with '## '."
