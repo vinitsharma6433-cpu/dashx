@@ -28,6 +28,14 @@ import shutil
 import subprocess
 import time
 import traceback
+
+try:   # DASHX Autonomy series/variety memory (autonomy/series_memory.py): episode order + soft repeat penalty. Fail-open, no model call.
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parents[2] / "autonomy"))
+    import series_memory
+except Exception:
+    series_memory = None
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
@@ -132,9 +140,16 @@ class StoryWriterAgent:
             cast = story_mod.cast_of(st)
             text = " ".join(s["line"] for s in st["scenes"])
             rank = q["score"] + 6 * len(cast - seen) + 2 * sum(1 for c in cast if brief["usage"].get(c, 0) == 0) + (4 if brief["season_word"] and brief["season_word"] in text else 0)
-            cands.append((rank, i, st, q))
+            if series_memory:
+                try:   # soft penalty when the opening, hook or ending repeats the last 14 days (never rejects a story)
+                    rank -= series_memory.penalty(st["scenes"][0]["line"] if st.get("scenes") else "", b.get("hook", ""), b.get("closing", ""))
+                except Exception:
+                    pass
+            cands.append((rank, i, st, q, b.get("series", ""), b.get("ep", "")))
         if not cands:
             return None
+        if series_memory:   # episode order: a series episode waits while a LOWER episode of the same series is also ready
+            cands = series_memory.in_order(cands)
         cands.sort(key=lambda t: (-t[0], t[1]))
         return cands[0][2], cands[0][3]
 
