@@ -1107,10 +1107,18 @@
           "scheduled": true,
           "publish_at": "2026-11-11T20:30:00+05:30",
           "at": "2026-11-11T06:23:11.740169+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1821409018866085",
+          "scheduled": true,
+          "publish_at": "2026-11-11T20:30:00+05:30",
+          "at": "2026-11-11T06:23:11.740169+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "Lg89ZxbtNuE"
+        "yt_video_id": "Lg89ZxbtNuE",
+        "fb_video_id": "1821409018866085"
       }
     },
     {
