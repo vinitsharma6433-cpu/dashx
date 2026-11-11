@@ -1,0 +1,191 @@
+{
+  "id": "dog-coaching",
+  "title": "कुत्ते की कोचिंग",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya tries to teach Bruno how to field, Sachin hits a soft shot, but Bruno catches the ball and passes it directly to Aunty.",
+    "idea": "Dog Coaching",
+    "generated": "2026-11-11",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "कुत्ते की कोचिंग में ग़लती किसकी थी? 🐶",
+    "closing": "ब्रूनो बना आंटी का चेला!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "golu",
+        "boardText": "फ़ील्ड"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आज तुझे फ़ील्डिंग सिखाऊँगा! ये तो बस भौंकता है!",
+      "subtitle": "आज तुझे फ़ील्डिंग सिखाऊँगा! ये तो बस भौंकता है!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "आज तुझे फ़ील्डिंग सिखाऊँगा!",
+          "start": 0.25,
+          "end": 2.11,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "ये तो बस भौंकता है!",
+          "start": 2.21,
+          "end": 3.78,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "आज तुझे फ़ील्डिंग सिखाऊँगा!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ये लो मेरा धीमा शॉट! अब कैच पकड़ो!",
+      "subtitle": "ये लो मेरा धीमा शॉट! अब कैच पकड़ो!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ये लो मेरा धीमा शॉट!",
+          "start": 0.25,
+          "end": 1.91,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "अब कैच पकड़ो!",
+          "start": 2.01,
+          "end": 3.23,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ये लो मेरा धीमा शॉट!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "bruno",
+          "golu"
+        ]
+      },
+      "duration": 3.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "शाबाश ब्रूनो, गेंद मुझे दी! भौं भौं!",
+      "subtitle": "शाबाश ब्रूनो, गेंद मुझे दी! भौं भौं!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "शाबाश ब्रूनो, गेंद मुझे दी!",
+          "start": 0.25,
+          "end": 2.34,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "bruno",
+          "line": "भौं भौं!",
+          "start": 2.44,
+          "end": 2.93,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "शाबाश ब्रूनो, गेंद मुझे दी!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "aunty",
+        "boardText": "पास"
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अरे, मुझे गेंद देनी थी! ये तो अब मेरा फ़ीलडर है!",
+      "subtitle": "अरे, मुझे गेंद देनी थी! ये तो अब मेरा फ़ीलडर है!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "अरे, मुझे गेंद देनी थी!",
+          "start": 0.25,
+          "end": 1.91,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "ये तो अब मेरा फ़ीलडर है!",
+          "start": 2.01,
+          "end": 3.91,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "अरे, मुझे गेंद देनी थी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

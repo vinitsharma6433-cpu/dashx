@@ -38,3 +38,5 @@
 - 2026-11-09 | golu-s-commentary | गोलू की कमेंट्री (Golu's Commentary) | Golu does commentary with a stick as a microphone, calls Meena's six a four, Sachin corrects him, and Aunty catches the ball and takes the microphone. | माइक गया, कमेंट्री ख़त्म!
 - 2026-11-10 | bruno-steals | ब्रूनो की चोरी (Bruno Steals) | Surya tells Bruno to drop the ball, Sachin's shot sends Bruno running after it, and Bruno tosses the ball straight into Dadaji's hands. | ब्रूनो की शरारत रंग लाई!
 - 2026-11-10 | two-whistles-talk | सीटी पर झगड़ा (Two Whistles Talk) | Pintu and Coach both claim the same whistle, Surya cannot tell whose whistle to obey, and Aunty ends the argument by taking the whistle herself. | आंटी बनीं अंपायर!
+- 2026-11-11 | dog-coaching | कुत्ते की कोचिंग (Dog Coaching) | Surya tries to teach Bruno how to field, Sachin hits a soft shot, but Bruno catches the ball and passes it directly to Aunty. | ब्रूनो बना आंटी का चेला!
+- 2026-11-11 | meena-s-rule | मीना का नियम (Meena's Rule) | Meena makes a no-boasting rule, then hits a six and boasts herself, and Pintu blows the whistle on her. | नियम बनाने वाली ही फँसी!
