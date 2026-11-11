@@ -57,6 +57,21 @@
     ],
     "branch_protection": "Not a file. The machine has no GitHub admin access and must never ask for it."
   },
+  "healing": {
+    "_about": "Self-healing (Phase 2). Narrow on purpose. The machine may only dispatch these workflows and may only write these data files, and only through the fixed fixes in autonomy/heal.py. Poster LOGIC (poster/*.py, loop.sh) and every workflow file stay DENY.",
+    "may_dispatch": ["dashx-poster.yml", "dashx-reel-factory.yml", "dashx-story-refill.yml"],
+    "may_write": ["poster/queue.json", "autonomy/log.md"],
+    "poster_redispatch_per_hour": 2,
+    "poster_idle_minutes": 20,
+    "network_retry_times": 1,
+    "factory_redispatch_times": 1,
+    "low_bank_stories": 6,
+    "refill_min_calls_left": 4,
+    "comment_retry_times": 2,
+    "comment_min_age_minutes": 10,
+    "retry_max_age_hours": 40,
+    "report_only": "Everything not listed here is only reported in autonomy/log.md, never fixed."
+  },
   "kill_switches": {
     "_about": "File names in the repo root or reelfactory/. If one exists the matching part of the machine does nothing. The machine can never create or delete them.",
     "STOP_AUTONOMY": "everything in autonomy stops (healing, trends, learning, self-change)",

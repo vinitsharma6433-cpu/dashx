@@ -1,0 +1,66 @@
+name: DASHX Autonomy
+# Self-healing check (Phase 2). Rules: autonomy/RULES.json (sealed, the machine never edits it). Logic: autonomy/heal.py.
+# It only: re-dispatches the poster / factory / story refill when they are dead or failed, retries ONE failed network once (duplicate-guarded),
+# backfills a missing first comment, and writes autonomy/log.md. Everything else is only reported in the log.
+# NEW WORKFLOW FILE: the owner must review it before merge (the machine itself can never edit .github/**).
+# To pause: create a file named STOP_AUTONOMY in the repo root (or in reelfactory/). STOP_POSTER / STOP_QUEUE / STOP_REFILL are respected too.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run: only print what it would do, change nothing"
+        type: boolean
+        default: true
+  schedule:
+    - cron: "*/30 * * * *"   # GitHub cron can be late or skip runs; the poster itself is a self-dispatching loop, this only watches it
+permissions:
+  contents: write
+  actions: write               # to dispatch the poster / factory / refill (same permission the factory already uses)
+concurrency:
+  group: dashx-autonomy        # its own group: never blocks the poster or the factory
+  cancel-in-progress: false
+jobs:
+  heal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONUTF8: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kill switch (STOP_AUTONOMY)
+        id: stop
+        run: |
+          if [ -e STOP_AUTONOMY ] || [ -e reelfactory/STOP_AUTONOMY ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::warning::paused by STOP_AUTONOMY"; fi
+      - uses: actions/setup-python@v5
+        if: steps.stop.outputs.skip != 'true'
+        with:
+          python-version: "3.12"
+      - name: Install requests (for the comment backfill)
+        if: steps.stop.outputs.skip != 'true'
+        run: pip install requests
+      - name: Self-healing check
+        if: steps.stop.outputs.skip != 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}   # the existing secret, used only for the comment backfill; never printed
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python autonomy/heal.py ${{ github.event.inputs.dry_run == 'true' && '--dry' || '' }}
+      - name: Save the log and any queue fix
+        if: always() && steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        run: |
+          git config user.name "dashx-autonomy"
+          git config user.email "dashx-autonomy@users.noreply.github.com"
+          git config merge.queuejson.name "DASHX queue.json merge"
+          git config merge.queuejson.driver "python poster/merge_queue.py %O %A %B"
+          git add autonomy/log.md poster/queue.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Autonomy: heal log"
+            for i in 1 2 3 4 5; do
+              if git pull --rebase -q --autostash origin main && git push origin HEAD:main; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 6))
+            done
+            echo "::warning::could not push the autonomy log"
+          fi
