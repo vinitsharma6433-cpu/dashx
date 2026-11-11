@@ -79,5 +79,30 @@ class NewCast(unittest.TestCase):
             self.assertIn(who, sr.SPEAKER_HI)
 
 
+class HookScore(unittest.TestCase):
+    """The Hindi hook score is a logged number only: it must never raise and must never be a reason to reject a story."""
+
+    def test_weak_vs_strong(self):
+        weak = sr.hook_score("नमस्ते दोस्तो, आज हम गेंद के बारे में बात करेंगे")
+        strong = sr.hook_score("छोटू, ऐसी गेंद दे जो न फटे!")
+        self.assertLess(weak["score"], strong["score"])
+        self.assertEqual(weak["verdict"], "WEAK")
+        self.assertEqual(strong["verdict"], "STRONG")
+
+    def test_range_and_keys(self):
+        for line in ("", "!", "abc", "भौं भौं!", "नो बॉल! नहीं गिनी जाएगी!"):
+            h = sr.hook_score(line)
+            self.assertTrue(0 <= h["score"] <= 100)
+            for k in ("score", "verdict", "checks", "weakest", "flags"):
+                self.assertIn(k, h)
+
+    def test_text_form_never_raises(self):
+        self.assertIn("hook score", sr.hook_score_text("मेरी गेंद कौन ले गया?"))
+
+    def test_score_is_not_a_story_check(self):
+        # the score functions do not appear in any problem-returning rule
+        self.assertEqual(sr.cold_open_problems("नो बॉल! नहीं गिनी जाएगी!"), [])
+
+
 if __name__ == "__main__":
     unittest.main()

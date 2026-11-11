@@ -191,3 +191,64 @@ def series_problems(series: str, ep: str, last_line: str) -> list[str]:
     if not last_line.rstrip().endswith("?"):
         out.append("series: the last spoken line must end with ? (it plants the next episode's question)")
     return out
+
+
+# ---- Hindi hook score: a LOGGED NUMBER ONLY. It never rejects a story, never changes a check, never calls a model. ----
+# Idea from the five checks of Jakeschincariol/instagram-agent-skill (MIT): LENGTH, SPECIFICITY, STAKES, FRONTLOAD, ADDRESS, plus "dealbreaker" flags.
+# Its author measured that this kind of score separates bad hooks from good ones (AUC 0.83) but cannot pick winners (AUC 0.56), so treat it as a
+# weak-hook alarm and compare it with real views later. This Hindi version is NOT validated on Hindi at all.
+_NAMES_HI = {"सचिन", "सूर्या", "दादाजी", "आंटी", "पिंटू", "गोलू", "मीना", "कोच", "ब्रूनो", "पप्पू", "छोटू", "मिंटू", "भैया"}
+_THINGS_HI = {"गेंद", "बॉल", "बल्ला", "बैट", "छक्का", "चौका", "विकेट", "खिड़की", "घंटाघर", "सदर", "दुकान", "बोर्ड", "काउंटर", "पिच", "गली", "बाज़ार",
+              "चाय", "पतंग", "बिजली", "छत", "दीवार", "स्कोर", "सीटी", "जूते", "टोपी", "बैग", "रेवड़ी", "गजक"}
+_NUMBERS_HI = {"दो", "तीन", "चार", "पाँच", "पांच", "छह", "छः", "सात", "आठ", "नौ", "दस", "बीस", "पचास", "सौ", "हज़ार", "हजार", "लाख", "आधा", "दर्जन", "पहला", "आख़िरी", "आखिरी"}
+_STAKES_HI = {"गायब", "चोरी", "चोर", "झूठ", "झूठा", "झूठी", "धोखा", "हार", "हारा", "आउट", "ग़लत", "गलत", "चुनौती", "बेईमानी", "बेईमान", "पकड़ा", "पकड़ो", "नो",
+              "खतरा", "ख़तरा", "डर", "बचाओ", "रुको", "रुक", "मत", "नहीं", "न", "कौन", "किसने", "किसकी", "कहाँ", "क्यों", "कैसे", "सबूत", "शर्त", "बाज़ी"}
+_STAKE_STEMS = ("फट", "टूट", "भाग", "गिर", "फँस", "फंस", "चोर", "झूठ", "गुम", "खो", "हार", "बिगड़", "छीन", "उड़")
+_ADDRESS_HI = {"अबे", "ओ", "अरे", "सुनो", "ऐ", "तू", "तुम", "आप", "ये", "यह", "ले", "देख", "देखो", "बता", "बोल", "चल", "भैया"}
+_WEIGHTS = {"LENGTH": 15, "SPECIFICITY": 30, "STAKES": 25, "FRONTLOAD": 20, "ADDRESS": 10}
+
+
+def _hi_tokens(text: str) -> list[str]:
+    return re.findall(r"[ऀ-ॿ]+", text)
+
+
+def _is_stake(tok: str) -> bool:
+    return tok in _STAKES_HI or tok.startswith(_STAKE_STEMS)
+
+
+def _is_concrete(tok: str) -> bool:
+    return tok in _NAMES_HI or tok in _THINGS_HI or tok in _NUMBERS_HI
+
+
+def hook_score(first_line: str) -> dict:
+    """Score the first spoken line, 0-100 per check and overall. Returns {"score", "verdict", "checks", "weakest", "flags"}. Never raises."""
+    try:
+        line = " ".join(first_line.split())
+        toks = _hi_tokens(line)
+        n = len(toks)
+        checks = {}
+        checks["LENGTH"] = 100 if 4 <= n <= 8 else 70 if n in (3, 9) else 30
+        concrete = sum(1 for t in toks if _is_concrete(t)) + len(re.findall(r"[0-9०-९]+", line))
+        checks["SPECIFICITY"] = 0 if concrete == 0 else 60 if concrete == 1 else 85 if concrete == 2 else 100
+        stakes = sum(1 for t in toks if _is_stake(t))
+        checks["STAKES"] = 0 if stakes == 0 else 65 if stakes == 1 else 100
+        first = next((i for i, t in enumerate(toks) if _is_concrete(t) or _is_stake(t)), None)
+        checks["FRONTLOAD"] = 0 if first is None else 100 if first <= 2 else 70 if first <= 4 else 30
+        checks["ADDRESS"] = 100 if any(t in _ADDRESS_HI or t in _NAMES_HI for t in toks[:3]) else 40 if any(t in _ADDRESS_HI for t in toks) else 0
+        score = round(sum(checks[k] * w for k, w in _WEIGHTS.items()) / sum(_WEIGHTS.values()), 1)
+        flags = []
+        if _POLITE.search(line):
+            flags.append("polite question or greeting")
+        if line.endswith("?") and not _BLAME.search(line):
+            flags.append("plain question")
+        if n > 10:
+            flags.append("too long to say in 3 seconds")
+        verdict = "STRONG" if score >= 70 and not flags else "OK" if score >= 45 else "WEAK"
+        return {"score": score, "verdict": verdict, "checks": checks, "weakest": min(checks, key=checks.get), "flags": flags}
+    except Exception as e:  # a logged number must never break anything
+        return {"score": 0.0, "verdict": "n/a", "checks": {}, "weakest": "", "flags": [f"score failed: {type(e).__name__}"]}
+
+
+def hook_score_text(first_line: str) -> str:
+    h = hook_score(first_line)
+    return f"hook score {h['score']:.0f} {h['verdict']} (weakest: {h['weakest']})" + (f"; flags: {', '.join(h['flags'])}" if h["flags"] else "")

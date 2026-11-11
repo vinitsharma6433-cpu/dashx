@@ -76,6 +76,7 @@ def main():
         story, p = daily.from_dialogue_data(data)
         probs += p
         cast, score, words, last_t = [], None, 0, ""
+        hook_log = ""
         if story:
             probs += daily.story_problems(story, used, [], [])
             for row, sc in zip(b["rows"], story["scenes"]):
@@ -126,9 +127,10 @@ def main():
                 probs += sr.typo_problems(" ".join(all_lines + [b.get("hook", ""), b["closing"], b["card"]]))
                 probs += sr.card_problems(b["card"])
                 probs += sr.series_problems(b.get("series", ""), b.get("ep", ""), last)
+            hook_log = sr.hook_score_text(first) if b.get("card") else ""   # logged number only: never added to probs
             cast = sorted(sm.cast_of(story))
             last_t = story["scenes"][-1]["template"]
-        res = {"title": b["title_en"], "title_hi": b["title_hi"], "score": score, "cast": cast, "speakers": [], "last_line": "", "last_template": last_t, "words": words, "problems": probs}
+        res = {"title": b["title_en"], "title_hi": b["title_hi"], "score": score, "cast": cast, "speakers": [], "last_line": "", "last_template": last_t, "words": words, "problems": probs, "hook_score": hook_log}
         if story:
             seen = []
             for sc in story["scenes"]:
@@ -147,6 +149,8 @@ def main():
     bad = [r for r in results if r["problems"]]
     for r in results:
         print(("OK   " if not r["problems"] else "FAIL ") + f"{r['title']:<26} score {r['score']}  words {r['words']}  last scene {r['last_template']}")
+        if r.get("hook_score"):
+            print("       *", r["hook_score"])
         for p in r["problems"]:
             print("       -", p)
     limit = max(1, round(max_catch_30 * len(stories) / 30)) if len(stories) != 30 else max_catch_30

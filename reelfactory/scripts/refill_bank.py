@@ -284,6 +284,19 @@ def title_of(blk: str) -> str:
     return blk.splitlines()[0][3:].split("|")[0].strip()
 
 
+def first_spoken_line(blk: str) -> str:
+    for ln in blk.splitlines():
+        if ln.startswith("- "):
+            return ln.split("|", 4)[-1].split("//")[0].split(":", 1)[-1].strip()
+    return ""
+
+
+def hook_log(blk: str) -> str:
+    """The Hindi hook score of a candidate, as text for the log. Log only: it never rejects a story and never calls a model."""
+    import story_rules  # noqa: PLC0415
+    return story_rules.hook_score_text(first_spoken_line(blk))
+
+
 def judge(block: str) -> tuple[bool, dict]:
     msg = ("You are a strict editor of kids' Hindi comedy reels. Grade this story. Reply with ONLY a JSON object: "
            '{"funny":1-10,"clear":1-10,"natural_hindi":1-10,"meerut_feel":1-10,"twist":1-10,"plot_matches":1-10,"complete_alone":1-10,'
@@ -398,6 +411,7 @@ def run(a) -> int:
             continue
         prior = [b for b, _ in accepted]
         probs, last = check_block(blk, prior)
+        print(f"  . {clean(title_of(blk), 60)}: {hook_log(blk)}")
         if probs and not any(k in " ".join(probs) for k in FIXABLE_NOT) and calls_left() >= 3:
             print(f"  ~ {clean(title_of(blk), 60)}: fixable problems, one repair try: {clean('; '.join(probs), 160)}")
             sys_msg = ("You fix ONE kids' Hindi cartoon story so it passes a checker. Keep the idea and the jokes, change only what the problems say. "
@@ -438,7 +452,7 @@ def run(a) -> int:
                 f.write(stamp + "\n\n".join(b for b, _ in accepted) + "\n")
             with LOG.open("a", encoding="utf-8", newline="\n") as f:
                 for b, j in accepted:
-                    f.write(f"- {date.today().isoformat()} | gemini/{model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)}\n")
+                    f.write(f"- {date.today().isoformat()} | gemini/{model} | {b.splitlines()[0][3:]} | {json.dumps(j, ensure_ascii=False)} | {hook_log(b)}\n")
     save_usage()
     left2 = usable_count()[0] if accepted and not a.dry_run else left
     write_report(left2, 0 if a.dry_run else len(accepted), a, stop_msg + (" [dry run: nothing saved]" if a.dry_run else ""))
