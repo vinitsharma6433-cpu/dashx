@@ -1197,7 +1197,12 @@
       },
       "notes": {
         "yt_video_id": "msI8NpEks9Q",
-        "fb_video_id": "1130692456383953"
+        "fb_video_id": "1130692456383953",
+        "yt_comment": [
+          "failed 403 (needs youtube.force-ssl scope)"
+        ],
+        "yt_like": "ok",
+        "yt_engaged": true
       }
     },
     {
