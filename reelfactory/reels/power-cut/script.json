@@ -1,0 +1,190 @@
+{
+  "id": "power-cut",
+  "title": "बत्ती गुल",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "The lights go out during the game, the boys play by guessing, and Dadaji catches the ball with a torch in his lap.",
+    "idea": "Power Cut",
+    "generated": "2026-11-12",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "बत्ती गुल, पर खेल चालू! गेंद कहाँ गई? 🔦",
+    "closing": "बत्ती गई, खेल नहीं!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "अँधेरा"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अरे! बत्ती चली गई! कोई बात नहीं, खेल जारी रहेगा!",
+      "subtitle": "अरे! बत्ती चली गई! कोई बात नहीं, खेल जारी रहेगा!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "अरे! बत्ती चली गई!",
+          "start": 0.25,
+          "end": 1.63,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "कोई बात नहीं, खेल जारी रहेगा!",
+          "start": 1.73,
+          "end": 3.7,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "अरे! बत्ती चली गई!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "अंदाज़े से गेंद डाल रहा हूँ! मैं आवाज़ सुनकर खेलूँगा!",
+      "subtitle": "अंदाज़े से गेंद डाल रहा हूँ! मैं आवाज़ सुनकर खेलूँगा!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "अंदाज़े से गेंद डाल रहा हूँ!",
+          "start": 0.25,
+          "end": 2.29,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "मैं आवाज़ सुनकर खेलूँगा!",
+          "start": 2.39,
+          "end": 4.28,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "अंदाज़े से गेंद डाल रहा हूँ!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "चटाक! लगा या नहीं? पता नहीं, कहीं गिरी होगी!",
+      "subtitle": "चटाक! लगा या नहीं? पता नहीं, कहीं गिरी होगी!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "चटाक! लगा या नहीं?",
+          "start": 0.25,
+          "end": 1.77,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "पता नहीं, कहीं गिरी होगी!",
+          "start": 1.87,
+          "end": 3.46,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "चटाक! लगा या नहीं?"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 5.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "गेंद मेरी गोद में आ गिरी! दादाजी, अँधेरे में भी निशाना पक्का!",
+      "subtitle": "गेंद मेरी गोद में आ गिरी! दादाजी, अँधेरे में भी निशाना पक्का!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "गेंद मेरी गोद में आ गिरी!",
+          "start": 0.25,
+          "end": 2.94,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "दादाजी, अँधेरे में भी निशाना पक्का!",
+          "start": 3.04,
+          "end": 5.42,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "गेंद मेरी गोद में आ गिरी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

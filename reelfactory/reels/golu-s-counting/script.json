@@ -1,0 +1,183 @@
+{
+  "id": "golu-s-counting",
+  "title": "गोलू की गिनती",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu counts the runs in his own way, Pintu corrects him, and Golu still calls Coach's catch eleven out.",
+    "idea": "Golu's Counting",
+    "generated": "2026-11-12",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "गोलू की गिनती कभी सही निकली है? 🔢",
+    "closing": "गोलू की गिनती गोलू जाने!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "pintu",
+        "boardText": "गिनती"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "एक, दो, पाँच, दस रन! गोलू, यह कैसी गिनती है?",
+      "subtitle": "एक, दो, पाँच, दस रन! गोलू, यह कैसी गिनती है?",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "एक, दो, पाँच, दस रन!",
+          "start": 0.25,
+          "end": 1.82,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "गोलू, यह कैसी गिनती है?",
+          "start": 1.92,
+          "end": 3.81,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "एक, दो, पाँच, दस रन!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "meena",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "मैंने बस एक रन लिया! मैं तो दस गिनूँगा!",
+      "subtitle": "मैंने बस एक रन लिया! मैं तो दस गिनूँगा!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "मैंने बस एक रन लिया!",
+          "start": 0.25,
+          "end": 1.73,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "मैं तो दस गिनूँगा!",
+          "start": 1.83,
+          "end": 3.25,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "मैंने बस एक रन लिया!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "golu",
+          "pintu"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "लो, कैच पकड़ लिया!",
+      "subtitle": "लो, कैच पकड़ लिया!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "लो, कैच पकड़ लिया!",
+          "start": 0.25,
+          "end": 1.71,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "लो, कैच पकड़ लिया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "pintu",
+        "boardText": "ग्यारह"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ग्यारह आउट! गोलू, आउट एक ही बार होता है!",
+      "subtitle": "ग्यारह आउट! गोलू, आउट एक ही बार होता है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "ग्यारह आउट!",
+          "start": 0.25,
+          "end": 1.21,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "गोलू, आउट एक ही बार होता है!",
+          "start": 1.31,
+          "end": 3.52,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "ग्यारह आउट!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

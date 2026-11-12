@@ -40,3 +40,5 @@
 - 2026-11-10 | two-whistles-talk | सीटी पर झगड़ा (Two Whistles Talk) | Pintu and Coach both claim the same whistle, Surya cannot tell whose whistle to obey, and Aunty ends the argument by taking the whistle herself. | आंटी बनीं अंपायर!
 - 2026-11-11 | dog-coaching | कुत्ते की कोचिंग (Dog Coaching) | Surya tries to teach Bruno how to field, Sachin hits a soft shot, but Bruno catches the ball and passes it directly to Aunty. | ब्रूनो बना आंटी का चेला!
 - 2026-11-11 | meena-s-rule | मीना का नियम (Meena's Rule) | Meena makes a no-boasting rule, then hits a six and boasts herself, and Pintu blows the whistle on her. | नियम बनाने वाली ही फँसी!
+- 2026-11-12 | power-cut | बत्ती गुल (Power Cut) | The lights go out during the game, the boys play by guessing, and Dadaji catches the ball with a torch in his lap. | बत्ती गई, खेल नहीं!
+- 2026-11-12 | golu-s-counting | गोलू की गिनती (Golu's Counting) | Golu counts the runs in his own way, Pintu corrects him, and Golu still calls Coach's catch eleven out. | गोलू की गिनती गोलू जाने!
