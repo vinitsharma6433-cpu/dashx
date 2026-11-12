@@ -1287,10 +1287,18 @@
           "scheduled": true,
           "publish_at": "2026-11-13T12:30:00+05:30",
           "at": "2026-11-12T07:34:41.376398+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1707118657644334",
+          "scheduled": true,
+          "publish_at": "2026-11-13T12:30:00+05:30",
+          "at": "2026-11-12T12:30:01.764489+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "jm2t5JSRlbk"
+        "yt_video_id": "jm2t5JSRlbk",
+        "fb_video_id": "1707118657644334"
       }
     }
   ]
