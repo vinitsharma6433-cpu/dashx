@@ -348,3 +348,15 @@ hook: कुत्ते की कोचिंग में ग़लती क
 - shot | sachin | golu | | sachin: ये लो मेरा धीमा शॉट! // golu: अब कैच पकड़ो!
 - catch | aunty | bruno | golu | aunty: शाबाश ब्रूनो, गेंद मुझे दी! // bruno: भौं भौं!
 - face-off | surya | aunty | पास | surya: अरे, मुझे गेंद देनी थी! // aunty: ये तो अब मेरा फ़ीलडर है!
+
+<!-- auto-written 2026-11-12 by gemini/gemini-3.5-flash; passed the same checks as hand-written stories + editor grade >= 7 -->
+
+## Begum Bridge Four | बेगम पुल का चौका
+plot: Mintu claims the ball touched the Begum Bridge wall for a four, but Golu spots Bruno sitting on the ball, and Pintu gives Mintu out.
+ending: चौके का लालच पड़ा भारी!
+hook: मिंटू का बेगम पुल वाला प्लान उल्टा पड़ गया! 😜
+card: चौका या आउट?
+- face-off | mintu | pintu | नियम | mintu: बेगम पुल की दीवार छुई, चौका हुआ!
+- shot | mintu | golu | | mintu: हमारी गली का नियम है! // golu: गेंद वहाँ नहीं गई!
+- catch | pintu | golu | bruno | bruno: भौं भौं! // golu: देखो! गेंद पर ब्रूनो बैठा है!
+- face-off | pintu | mintu | आउट | pintu: फ़ैसला मेरा, मिंटू तुम आउट! // mintu: यह तो बेईमानी है!
