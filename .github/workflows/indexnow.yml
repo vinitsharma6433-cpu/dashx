@@ -1,0 +1,41 @@
+name: DASHX IndexNow
+# Daily: read the live sitemap, submit only URLs that are new or whose lastmod changed to IndexNow, commit state/indexnow.json.
+# The IndexNow key is PUBLIC by design (the store serves it at /<key>.txt). No secret is used here.
+on:
+  schedule:
+    - cron: "43 23 * * *"   # 05:13 IST, after the daily blog post is live
+  workflow_dispatch:
+permissions:
+  contents: write           # only to commit state/indexnow.json
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -I -m unittest discover -s tests
+      - name: Wake the store (free Render plan sleeps)
+        run: curl -sS -m 60 --retry 8 --retry-delay 15 --retry-all-errors -o /dev/null https://dashx-store-api.onrender.com/health
+      - name: Submit new or changed URLs
+        env:
+          SITE: https://dashx-store-api.onrender.com
+          INDEXNOW_KEY: 24e84efe1e5f97a24ad4e6441f9c8e65
+          STATE_FILE: state/indexnow.json
+        run: python tools/indexnow.py
+      - name: Commit state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/indexnow.json || true
+          if git diff --cached --quiet; then echo "no state change"; exit 0; fi
+          git commit -m "IndexNow: update submitted URL state"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

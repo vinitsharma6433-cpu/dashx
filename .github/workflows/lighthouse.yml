@@ -1,0 +1,39 @@
+name: DASHX Lighthouse
+# Weekly Lighthouse run on the live store: home, /blog, one product, one post.
+# Fails ONLY if the SEO score is under 0.9. Performance etc. are not asserted (free Render server is slow to wake).
+on:
+  schedule:
+    - cron: "11 21 * * 0"   # Monday 02:41 IST
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wake the store and pick one product page and one post from the sitemap
+        id: urls
+        run: |
+          S=https://dashx-store-api.onrender.com
+          curl -sS -m 60 --retry 8 --retry-delay 15 --retry-all-errors -o /dev/null $S/health
+          curl -sS -m 60 --retry 3 --retry-all-errors $S/sitemap.xml -o sitemap.xml
+          P=$(grep -o "<loc>[^<]*/p/[^<]*</loc>" sitemap.xml | head -1 | sed 's#</\?loc>##g')
+          B=$(grep -o "<loc>[^<]*/blog/[^<]*</loc>" sitemap.xml | head -1 | sed 's#</\?loc>##g')
+          if [ -z "$P" ] || [ -z "$B" ]; then echo "sitemap has no product or post"; exit 1; fi
+          {
+            echo "list<<EOF"
+            echo "$S/"
+            echo "$S/blog"
+            echo "$P"
+            echo "$B"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@3e7e23fb74242897f95c0ba9cabad3d0227b9b18 # v12
+        with:
+          urls: ${{ steps.urls.outputs.list }}
+          configPath: .github/lighthouse/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: false
