@@ -1,0 +1,302 @@
+{
+  "updated": "2026-11-14T03:02+05:30",
+  "enough_data": true,
+  "reels_with_data": 13,
+  "need": 5,
+  "availability": {
+    "youtube_statistics": "ok",
+    "instagram_counts": "ok",
+    "facebook_counts": "ok"
+  },
+  "needs_owner_for_more": [
+    "YouTube Analytics (watch time, retention, traffic): needs the scope yt-analytics.readonly",
+    "Instagram insights (reach, plays, saves, shares): needs instagram_manage_insights",
+    "Facebook video insights (views, retention): needs read_insights",
+    "QC score per reel: it is only a gate (>= 90 to be queued) and is not stored in the queue"
+  ],
+  "reels": [
+    {
+      "title": "kulfi-bell DASHX",
+      "views_per_day": 1.62,
+      "reactions_per_day": 0.07,
+      "format": "normal",
+      "cast": [
+        "dadaji",
+        "golu",
+        "meena",
+        "sachin"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 25.0,
+      "score": 4.7
+    },
+    {
+      "title": "lunch-time DASHX",
+      "views_per_day": 1.36,
+      "reactions_per_day": 0.08,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "meena",
+        "sachin"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "hook_score": 63.0,
+      "score": 4.2
+    },
+    {
+      "title": "mirror-sun DASHX",
+      "views_per_day": 11.9,
+      "reactions_per_day": 0.08,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "sachin",
+        "surya"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 63.0,
+      "score": 30.7
+    },
+    {
+      "title": "tomato-ball DASHX",
+      "views_per_day": 1.22,
+      "reactions_per_day": 0.16,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "pintu",
+        "sachin",
+        "surya"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "hook_score": 86.8,
+      "score": 4.5
+    },
+    {
+      "title": "wrong-name DASHX",
+      "views_per_day": 1.38,
+      "reactions_per_day": 0.09,
+      "format": "normal",
+      "cast": [
+        "coach",
+        "pintu",
+        "sachin",
+        "surya"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 61.2,
+      "score": 4.3
+    },
+    {
+      "title": "golu-s-commentary DASHX",
+      "views_per_day": 13.31,
+      "reactions_per_day": 0.55,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "golu",
+        "meena",
+        "sachin"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 15.0,
+      "score": 38.6
+    },
+    {
+      "title": "bruno-steals DASHX",
+      "views_per_day": 292.43,
+      "reactions_per_day": 3.97,
+      "format": "normal",
+      "cast": [
+        "bruno",
+        "dadaji",
+        "sachin",
+        "surya"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "hook_score": 75.0,
+      "score": 96.1
+    },
+    {
+      "title": "two-whistles-talk DASHX",
+      "views_per_day": 48.35,
+      "reactions_per_day": 2.69,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "coach",
+        "golu",
+        "pintu",
+        "surya"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 70.5,
+      "score": 84.5
+    },
+    {
+      "title": "dog-coaching DASHX",
+      "views_per_day": 88.89,
+      "reactions_per_day": 2.2,
+      "format": "normal",
+      "cast": [
+        "aunty",
+        "bruno",
+        "golu",
+        "sachin",
+        "surya"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "hook_score": 15.0,
+      "score": 80.0
+    },
+    {
+      "title": "meena-s-rule DASHX",
+      "views_per_day": 10.59,
+      "reactions_per_day": 2.49,
+      "format": "normal",
+      "cast": [
+        "meena",
+        "pintu",
+        "surya"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 15.0,
+      "score": 49.3
+    },
+    {
+      "title": "golu-s-counting DASHX",
+      "views_per_day": 94.3,
+      "reactions_per_day": 7.07,
+      "format": "normal",
+      "cast": [
+        "coach",
+        "golu",
+        "meena",
+        "pintu"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "hook_score": 65.0,
+      "score": 100.0
+    },
+    {
+      "title": "power-cut DASHX",
+      "views_per_day": 199.72,
+      "reactions_per_day": 16.51,
+      "format": "normal",
+      "cast": [
+        "dadaji",
+        "sachin",
+        "surya"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "hook_score": 25.0,
+      "score": 100.0
+    },
+    {
+      "title": "begum-bridge-four DASHX",
+      "views_per_day": 7.34,
+      "reactions_per_day": 25.69,
+      "format": "normal",
+      "cast": [
+        "golu",
+        "mintu",
+        "pintu"
+      ],
+      "slot": "20:30",
+      "hook_type": "exclaim",
+      "hook_score": 54.5,
+      "score": 58.5
+    }
+  ],
+  "groups": {
+    "format": {
+      "normal": {
+        "avg": 50.4,
+        "n": 13
+      }
+    },
+    "hook_type": {
+      "question": {
+        "avg": 49.7,
+        "n": 12
+      },
+      "exclaim": {
+        "avg": null,
+        "n": 1
+      }
+    },
+    "character": {
+      "dadaji": {
+        "avg": 66.9,
+        "n": 3
+      },
+      "golu": {
+        "avg": 61.1,
+        "n": 6
+      },
+      "meena": {
+        "avg": 39.4,
+        "n": 5
+      },
+      "sachin": {
+        "avg": 40.3,
+        "n": 9
+      },
+      "aunty": {
+        "avg": 40.4,
+        "n": 6
+      },
+      "surya": {
+        "avg": 56.2,
+        "n": 8
+      },
+      "pintu": {
+        "avg": 50.2,
+        "n": 6
+      },
+      "coach": {
+        "avg": 62.9,
+        "n": 3
+      },
+      "bruno": {
+        "avg": 88.0,
+        "n": 2
+      },
+      "mintu": {
+        "avg": null,
+        "n": 1
+      }
+    },
+    "slot": {
+      "12:30": {
+        "avg": 44.6,
+        "n": 7
+      },
+      "20:30": {
+        "avg": 57.2,
+        "n": 6
+      }
+    }
+  },
+  "steer": {
+    "dimensions": [
+      "format",
+      "hook_type"
+    ],
+    "explore_share": 0.2,
+    "active": true
+  }
+}

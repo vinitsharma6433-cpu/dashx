@@ -1,0 +1,23 @@
+{
+  "level": "green",
+  "reasons": [],
+  "alerts": 0,
+  "trend": {
+    "topic": "Children's Day",
+    "angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire."
+  },
+  "ladder": {
+    "step": 1,
+    "step_since": "2026-11-14T03:02+05:30",
+    "first_run": "2026-11-14T03:02+05:30",
+    "history": [],
+    "handled": [],
+    "drop_alert_until": null,
+    "last_drop": "",
+    "owner_ready": false,
+    "progress": "0 of 2 clean reels after the first run",
+    "blocker": "",
+    "evidence": ""
+  },
+  "updated": "2026-11-14T03:02+05:30"
+}

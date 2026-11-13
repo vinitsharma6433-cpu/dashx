@@ -1,0 +1,99 @@
+{
+  "generated": "2026-11-14T03:02+05:30",
+  "day": "2026-11-14",
+  "topics": [
+    {
+      "id": "childrens_day_2026",
+      "topic": "Children's Day",
+      "why_fits": "Kids are the centre of the day.",
+      "story_angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire.",
+      "story_situation": "the kids take over the gali for a day and the grown-ups follow the kids' rules",
+      "strength": 10,
+      "sources": [
+        "festival calendar"
+      ],
+      "expires": "2026-11-15"
+    },
+    {
+      "id": "gully_rules",
+      "topic": "Gully cricket house rules",
+      "why_fits": "Gully cricket is our home ground and people search for it.",
+      "story_angle": "A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument.",
+      "story_situation": "a house-rule argument: one-tip-one-hand and the wall is a six",
+      "strength": 5,
+      "sources": [
+        "news_gully_cricket"
+      ],
+      "expires": "2026-11-17"
+    },
+    {
+      "id": "match_fever",
+      "topic": "Big-match fever in the gali",
+      "why_fits": "People talk about cricket matches right now, and our reels are gully cricket.",
+      "story_angle": "The kids copy a big-match mood in the gali (TV-style commentary, a replay argument, a third-umpire fight) with a tennis ball. Name no real team, player or tournament.",
+      "story_situation": "the kids copy a big-match mood in the gali with commentary and a replay argument",
+      "strength": 5,
+      "sources": [
+        "news_cricket",
+        "news_gully_cricket",
+        "news_school",
+        "news_wedding"
+      ],
+      "expires": "2026-11-17"
+    },
+    {
+      "id": "meerut_touch",
+      "topic": "A very Meerut touch",
+      "why_fits": "DASHX is from Meerut and local touches make the reel feel real.",
+      "story_angle": "One thing every Meerut person knows (a place, a market lane, a habit) decides the joke. Name no real shop or person.",
+      "story_situation": "one thing every Meerut person knows decides the joke",
+      "strength": 5,
+      "sources": [
+        "news_meerut"
+      ],
+      "expires": "2026-11-17"
+    },
+    {
+      "id": "school_exams",
+      "topic": "Exam-time sneaky over",
+      "why_fits": "School and exam talk is everywhere for families, and our viewers are kids and parents.",
+      "story_angle": "A kid is supposed to study but sneaks one over; the twist is a parent or teacher spotting the ball. Kind and kid-safe, no marks or results mentioned.",
+      "story_situation": "a kid sneaks one over while he should be studying and a parent spots the ball",
+      "strength": 5,
+      "sources": [
+        "news_cricket",
+        "news_gully_cricket",
+        "news_meerut",
+        "news_school"
+      ],
+      "expires": "2026-11-17"
+    },
+    {
+      "id": "school_holidays",
+      "topic": "Holiday-mood gali",
+      "why_fits": "Holiday talk means kids can play all day.",
+      "story_angle": "The whole gali plays all day and one small plan (shade, water, one broken rule) runs the story.",
+      "story_situation": "holiday day: the whole gali plays and one small plan runs the story",
+      "strength": 5,
+      "sources": [
+        "news_school"
+      ],
+      "expires": "2026-11-17"
+    }
+  ],
+  "stats": {
+    "headlines_seen": 425,
+    "dropped_unsafe": 106,
+    "sources_ok": [
+      "google_trends_in",
+      "news_cricket",
+      "news_gully_cricket",
+      "news_meerut",
+      "news_school",
+      "news_weather",
+      "news_wedding"
+    ],
+    "sources_failed": []
+  },
+  "note": "Headlines are never stored or copied. Topics are our own safe themes, ranked by how many safe headlines matched."
+}
