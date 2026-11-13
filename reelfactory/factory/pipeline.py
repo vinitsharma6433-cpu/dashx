@@ -149,7 +149,12 @@ class StoryWriterAgent:
         if not cands:
             return None
         if series_memory:   # episode order: a series episode waits while a LOWER episode of the same series is also ready
-            cands = series_memory.in_order(cands)
+            try:
+                ordered = series_memory.in_order(cands)
+                if isinstance(ordered, list) and ordered:
+                    cands = ordered
+            except Exception:
+                pass            # broken series data or code: the old order is used
         cands.sort(key=lambda t: (-t[0], t[1]))
         return cands[0][2], cands[0][3]
 

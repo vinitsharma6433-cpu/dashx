@@ -28,6 +28,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   heal:
+    # DISABLED BY DEFAULT: the job is skipped unless the repository variable DASHX_AUTONOMY_ENABLED is exactly 'true'
+    # (GitHub -> Settings -> Secrets and variables -> Actions -> Variables). Only the owner sets it. Remove the variable or set it to anything else to stop.
+    if: ${{ vars.DASHX_AUTONOMY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 8
     env:
