@@ -13,6 +13,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from urllib.parse import urljoin, urldefrag
 import xml.etree.ElementTree as ET
 from datetime import date, datetime, timedelta, timezone
 from html.parser import HTMLParser
@@ -23,6 +24,9 @@ QUEUE_FILE = os.environ.get("QUEUE_FILE", "")
 REPORT = os.environ.get("REPORT", "seo-health-report.json")
 UA = {"User-Agent": "DASHX-SEO-Health/1.0 (read-only monitor)"}
 BLOG_WARN_DAYS, BLOG_FAIL_DAYS = 3, 10
+TITLE_MAX = 60          # Google cuts titles after about 60 characters
+MAX_DISCOUNT = 50       # more than this % off usually means the MRP in /portal is not the real MRP
+ISSUE_FILE = os.environ.get("ISSUE_FILE", "seo-health-issue.md")
 
 results = []  # (level, check, detail)
 
@@ -68,7 +72,7 @@ class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.title, self.desc, self.canonical, self.h1 = "", "", "", 0
-        self.ld, self.robots = [], ""
+        self.ld, self.robots, self.links = [], "", []
         self._in_title = self._in_ld = False
         self._buf = ""
 
@@ -76,6 +80,8 @@ class Page(HTMLParser):
         a = dict(attrs)
         if tag == "title":
             self._in_title = True
+        elif tag == "a" and a.get("href"):
+            self.links.append(a["href"])
         elif tag == "h1":
             self.h1 += 1
         elif tag == "meta" and a.get("name") == "description":
@@ -151,9 +157,32 @@ def check_sitemap():
     return items
 
 
+def norm(url):
+    return urldefrag(url)[0].split("?")[0].rstrip("/")
+
+
+def discount_pct(html):
+    """Discount percent shown on a product page ('NN% off'), 0 if none."""
+    m = re.search(r'class="off">(\d+)% off', html)
+    return int(m.group(1)) if m else 0
+
+
+def find_orphans(locs, links_by_page):
+    """Sitemap pages with no link from any OTHER page. The home page is the entry point and never an orphan."""
+    root = norm(SITE)
+    inbound = {norm(l): set() for l in locs}
+    for src, hrefs in links_by_page.items():
+        for h in hrefs:
+            t = norm(urljoin(src + "/", h)) if not h.startswith("http") else norm(h)
+            if t in inbound and t != norm(src):
+                inbound[t].add(norm(src))
+    return sorted(l for l, s in inbound.items() if not s and l != root)
+
+
 def check_pages(items):
     titles, descs = {}, {}
     broken, redirected, schema_bad, meta_warn = [], [], [], []
+    links_by_page, discount_warn = {}, []
     for loc, _ in items:
         st, _, body = get(loc)
         if 300 <= st < 400:
@@ -168,10 +197,15 @@ def check_pages(items):
         except Exception:
             pass
         t, d = p.title.strip(), p.desc.strip()
-        if not t or not (15 <= len(t) <= 75):
-            meta_warn.append("%s title length %d" % (loc, len(t)))
+        if not t or len(t) < 15:
+            meta_warn.append("%s title too short (%d)" % (loc, len(t)))
+        elif len(t) > TITLE_MAX:
+            meta_warn.append("%s title is %d chars, over %d" % (loc, len(t), TITLE_MAX))
         if not d or not (50 <= len(d) <= 220):
             meta_warn.append("%s description length %d" % (loc, len(d)))
+        links_by_page[loc] = p.links
+        if "/p/" in loc and discount_pct(body) > MAX_DISCOUNT:
+            discount_warn.append("%s shows %d%% off" % (loc, discount_pct(body)))
         titles.setdefault(t, []).append(loc)
         descs.setdefault(d, []).append(loc)
         if p.canonical and p.canonical.rstrip("/") != loc.rstrip("/"):
@@ -193,6 +227,9 @@ def check_pages(items):
     add("FAIL" if redirected else "OK", "sitemap URLs not redirected", "; ".join(redirected[:6]))
     add("FAIL" if schema_bad else "OK", "canonical, noindex, schema", "; ".join(schema_bad[:8]))
     add("WARN" if meta_warn else "OK", "title and description length", "; ".join(meta_warn[:8]))
+    add("WARN" if discount_warn else "OK", "MRP check (discount over %d%%)" % MAX_DISCOUNT, "; ".join(discount_warn[:6]) + (" - fix the MRP in /portal if it is not the real MRP" if discount_warn else ""))
+    orphans = find_orphans([l for l, _ in items], links_by_page)
+    add("WARN" if orphans else "OK", "orphan pages (no inbound link)", "; ".join(orphans[:8]))
     dup_t = ["%s (%d pages)" % (t[:50], len(v)) for t, v in titles.items() if t and len(v) > 1]
     dup_d = [d for d, v in descs.items() if d and len(v) > 1]
     add("WARN" if dup_t or dup_d else "OK", "duplicate titles or descriptions", "; ".join(dup_t[:4]) + (" | %d duplicate descriptions" % len(dup_d) if dup_d else ""))
@@ -272,6 +309,17 @@ def check_queue():
     add("WARN" if bad else "OK", "reel posting errors (last 3 days)", "; ".join(bad[:6]) or "%d recent reels, no errors" % len(recent))
 
 
+def write_issue_body(report, fails, warns):
+    """Markdown for the single 'SEO health FAIL' GitHub issue (the workflow opens, updates or closes it)."""
+    lines = ["Daily DASHX SEO health check found %d FAIL (%s)." % (len(fails), report["time"]), "", "### FAIL"]
+    lines += ["- **%s**: %s" % (r["check"], r["detail"] or "-") for r in fails] or ["- none"]
+    if warns:
+        lines += ["", "### WARN"] + ["- %s: %s" % (r["check"], r["detail"] or "-") for r in warns]
+    lines += ["", "This issue is updated by the workflow each day and closed automatically when all FAIL are fixed."]
+    with open(ISSUE_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+
 def main():
     t0 = time.time()
     if not warm_up():
@@ -296,6 +344,7 @@ def main():
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8").write(out + "\n")
     print("\n(%.0f s)" % (time.time() - t0))
+    write_issue_body(report, fails, warns)
     for r in fails:
         print("::error::%s: %s" % (r["check"], r["detail"]))
     for r in warns:

@@ -1,5 +1,6 @@
 name: DASHX SEO Health
-# READ-ONLY monitor: only GET requests to the public store and the public reel queue. Posts and changes nothing, uses no secrets.
+# READ-ONLY monitor: only GET requests to the public store and the public reel queue. Posts and changes nothing on the store, uses no extra secrets.
+# On FAIL it opens or updates ONE issue titled "SEO health FAIL" (owner gets an email) and closes it when clean.
 # FAIL = the run turns red and GitHub emails the owner. WARN = shown in the run summary only.
 on:
   schedule:
@@ -7,6 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  issues: write
 jobs:
   health:
     runs-on: ubuntu-latest
@@ -16,10 +18,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Unit tests for the checker
+        run: python -I -m unittest discover -s tests
       - name: Check store, sitemap, schema, feed, blog freshness and reel queue
         env:
           QUEUE_FILE: poster/queue.json
           REPORT: seo-health-report.json
+          ISSUE_FILE: seo-health-issue.md
         run: python tools/seo_health.py
       - name: Keep the report
         if: always()
@@ -28,3 +33,23 @@ jobs:
           name: seo-health-report
           path: seo-health-report.json
           retention-days: 30
+      - name: Open, update or close the "SEO health FAIL" issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          TITLE="SEO health FAIL"
+          NUM=$(gh issue list --state open --search "\"$TITLE\" in:title" --json number,title --jq "[.[] | select(.title==\"$TITLE\")][0].number // empty")
+          FAILS=$(python3 -c "import json;print(json.load(open('seo-health-report.json'))['fail'])" 2>/dev/null || echo "")
+          if [ -z "$FAILS" ]; then echo "no report; leaving the issue as it is"; exit 0; fi
+          if [ "$FAILS" -gt 0 ]; then
+            if [ -n "$NUM" ]; then
+              gh issue edit "$NUM" --body-file seo-health-issue.md
+              gh issue comment "$NUM" --body "Still failing on $(date -u +%F). See the updated description. Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            else
+              gh issue create --title "$TITLE" --body-file seo-health-issue.md
+            fi
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "All FAIL checks are clean again on $(date -u +%F)."
+          fi
