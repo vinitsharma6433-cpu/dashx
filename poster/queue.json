@@ -1347,10 +1347,18 @@
           "scheduled": true,
           "publish_at": "2026-11-13T20:30:00+05:30",
           "at": "2026-11-13T06:56:25.546329+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/973438922082617",
+          "scheduled": true,
+          "publish_at": "2026-11-13T20:30:00+05:30",
+          "at": "2026-11-13T06:56:25.546329+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "JImqJI_ZKAY"
+        "yt_video_id": "JImqJI_ZKAY",
+        "fb_video_id": "973438922082617"
       }
     },
     {
