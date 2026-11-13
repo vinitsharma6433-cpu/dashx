@@ -168,6 +168,7 @@ a{color:var(--sch)}
     <span id="updated">Loading&hellip;</span>
   </div>
   <div class="bar" style="margin-top:6px"><span class="dot" id="pdot"></span><span id="pollast">Last poster run: checking&hellip;</span></div>
+  <div class="bar" style="margin-top:6px"><span class="dot" id="adot"></span><span id="autolast">Autonomy: checking&hellip;</span></div>
   <div class="banner" id="banner" role="alert"></div>
 
   <div class="clock">
@@ -537,6 +538,28 @@ a{color:var(--sch)}
       });
   }
   lastPoster(); setInterval(lastPoster, 300000);
+
+  // ---- DASHX Autonomy status (green / yellow / red) + today's trend: autonomy/status.json, written by the machine every 30 minutes ----
+  function autonomy() {
+    fetch("../autonomy/status.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("none"); return r.json(); })
+      .then(function (j) {
+        var mins = Math.max(0, Math.round((Date.now() - new Date(j.updated).getTime()) / 60000));
+        var stale = mins > 180;
+        var lv = stale ? "yellow" : j.level;
+        var txt = "Autonomy: " + lv.toUpperCase();
+        if (stale) txt += " (no update for " + Math.floor(mins / 60) + " h: paused or stopped)";
+        else if (j.reasons && j.reasons.length) txt += " (" + j.reasons.slice(0, 2).join("; ") + ")";
+        if (j.trend && j.trend.topic) txt += " · today's trend: " + j.trend.topic;
+        $("autolast").textContent = txt;
+        $("adot").className = "dot " + (lv === "green" ? "live" : lv === "red" ? "err" : "warn");
+      })
+      .catch(function () {
+        $("autolast").textContent = "Autonomy: not reporting yet";
+        $("adot").className = "dot";
+      });
+  }
+  autonomy(); setInterval(autonomy, 300000);
 
   $("refresh").addEventListener("click", load);
   load();

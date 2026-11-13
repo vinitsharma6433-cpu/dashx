@@ -1,7 +1,8 @@
 name: DASHX Autonomy
 # Self-healing check (Phase 2). Rules: autonomy/RULES.json (sealed, the machine never edits it). Logic: autonomy/heal.py.
 # It only: re-dispatches the poster / factory / story refill when they are dead or failed, retries ONE failed network once (duplicate-guarded),
-# backfills a missing first comment, refreshes the daily trend radar (autonomy/trends.json), and writes autonomy/log.md. Everything else is only reported in the log.
+# backfills a missing first comment, refreshes the daily trend radar (autonomy/trends.json), keeps the DASHX ALERT issue and the autonomy status current,
+# writes the daily report (status/daily.md, 21:00 IST) and autonomy/log.md. Everything else is only reported in the log.
 # NEW WORKFLOW FILE: the owner must review it before merge (the machine itself can never edit .github/**).
 # To pause: create a file named STOP_AUTONOMY in the repo root (or in reelfactory/). STOP_POSTER / STOP_QUEUE / STOP_REFILL are respected too.
 on:
@@ -11,11 +12,17 @@ on:
         description: "Dry run: only print what it would do, change nothing"
         type: boolean
         default: true
+      report:
+        description: "Also write the daily report (status/daily.md) now"
+        type: boolean
+        default: false
   schedule:
+    - cron: "30 15 * * *"    # 15:30 UTC = 21:00 IST: the daily report
     - cron: "*/30 * * * *"   # GitHub cron can be late or skip runs; the poster itself is a self-dispatching loop, this only watches it
 permissions:
   contents: write
   actions: write               # to dispatch the poster / factory / refill (same permission the factory already uses)
+  issues: write                # the ONE GitHub Issue "DASHX ALERT" (human-only problems), opened, updated and closed by the machine
 concurrency:
   group: dashx-autonomy        # its own group: never blocks the poster or the factory
   cancel-in-progress: false
@@ -63,6 +70,16 @@ jobs:
         if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
         continue-on-error: true
         run: python autonomy/series_memory.py
+      - name: Alerts (one GitHub Issue, only for what the machine cannot fix) and autonomy status
+        if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python autonomy/alerts.py
+      - name: Daily report (21:00 IST)
+        if: steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true' && (github.event.schedule == '30 15 * * *' || github.event.inputs.report == 'true')
+        continue-on-error: true
+        run: python autonomy/report.py
       - name: Save the log and any queue fix
         if: always() && steps.stop.outputs.skip != 'true' && github.event.inputs.dry_run != 'true'
         continue-on-error: true
@@ -71,7 +88,7 @@ jobs:
           git config user.email "dashx-autonomy@users.noreply.github.com"
           git config merge.queuejson.name "DASHX queue.json merge"
           git config merge.queuejson.driver "python poster/merge_queue.py %O %A %B"
-          git add autonomy/log.md autonomy/trends.json autonomy/learning.json autonomy/metrics.json autonomy/slot_hints.json autonomy/memory.json poster/queue.json
+          git add autonomy/log.md autonomy/trends.json autonomy/learning.json autonomy/metrics.json autonomy/slot_hints.json autonomy/memory.json autonomy/status.json status/daily.md poster/queue.json
           if ! git diff --cached --quiet; then
             git commit -m "Autonomy: heal log"
             for i in 1 2 3 4 5; do
