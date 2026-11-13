@@ -29,7 +29,8 @@
       "autonomy/watch.json",
       "autonomy/slot_hints.json",
       "autonomy/status.json",
-      "status/daily.md"
+      "status/daily.md",
+      "autonomy/scout/*.md"
     ]
   },
   "deny": {

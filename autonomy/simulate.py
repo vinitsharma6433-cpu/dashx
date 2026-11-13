@@ -300,19 +300,20 @@ def _trend_fetcher(url, rules):
     return RSS
 
 
-def s4_bad_self_change_reverts() -> Result:
-    r, E = Result("S4", "A bad self-change is auto-reverted"), Env()
+def _s4(code: str, title: str, now: datetime, empty_queue: bool) -> Result:
+    r, E = Result(code, title), Env()
     try:
         original = (E.root / SIT).read_bytes()
-        q0 = E.queue()                                  # the copy holds the REAL queue: posts it contains for today would be counted as the "next reels"
-        q0["posts"] = []                                # so start the scenario with an empty queue (the real one is never touched)
-        E.put_queue(q0)
-        sh(E.root, "add", "-A")
-        sh(E.root, "commit", "-q", "-m", "sim: empty queue")
-        sh(E.root, "push", "-q", "origin", "main")
-        trends.run(E.root, NOW, force=True, fetcher=_trend_fetcher)
+        if empty_queue:
+            q0 = E.queue()                                  # the copy holds the REAL queue: posts it contains for today would be counted as the "next reels"
+            q0["posts"] = []                                # so start the scenario with an empty queue (the real one is never touched)
+            E.put_queue(q0)
+            sh(E.root, "add", "-A")
+            sh(E.root, "commit", "-q", "-m", "sim: empty queue")
+            sh(E.root, "push", "-q", "origin", "main")
+        trends.run(E.root, now, force=True, fetcher=_trend_fetcher)
         gh = FakeGH()
-        out = improve.run(E.root, NOW, E.git, gh, checks_ok, now_fn=lambda: NOW)
+        out = improve.run(E.root, now, E.git, gh, checks_ok, now_fn=lambda: now)
         r.check(out == "merged", f"a good-looking change passed the canary and was merged ({out})")
         r.check(len(E.situations()) == len(json.loads(original)["situations"]) + 1, "one situation line was added")
         w = json.loads((E.root / "autonomy/watch.json").read_text(encoding="utf-8"))
@@ -323,18 +324,18 @@ def s4_bad_self_change_reverts() -> Result:
             if bad:
                 res["instagram"] = {"ok": False, "error": "Instagram processing ERROR: media upload failed", "tries": 1}
             E.add_post(f"sim-after-{h}", h, results=res, status="done", now=merged_at)
-        out2 = improve.run(E.root, NOW + timedelta(hours=30), E.git, FakeGH(), checks_ok, factory_runs=[], watch_only=True)
+        out2 = improve.run(E.root, now + timedelta(hours=30), E.git, FakeGH(), checks_ok, factory_runs=[], watch_only=True)
         r.check(out2 == "reverted", f"the 2nd reel after the change had a NEW failure: {out2}")
         r.check((E.root / SIT).read_bytes().replace(b"\r\n", b"\n") == original.replace(b"\r\n", b"\n"), "situations.json is back to exactly the original")
         blocked = json.loads((E.root / "autonomy/blocked_ideas.json").read_text(encoding="utf-8"))["ideas"]
-        r.check(len(blocked) == 1 and list(blocked.values())[0] == (NOW + timedelta(hours=30, days=14)).date().isoformat(), f"idea blocked for 14 days: {blocked}")
+        r.check(len(blocked) == 1 and list(blocked.values())[0] == (now + timedelta(hours=30, days=14)).date().isoformat(), f"idea blocked for 14 days: {blocked}")
         r.check("| improve | auto_revert |" in E.log(), "the reason is in autonomy/log.md")
         r.check(sh(E.root, "rev-parse", "main") == sh(E.origin, "rev-parse", "main"), "the revert is pushed to origin/main")
         # and a change that fails the canary is never merged
         E3 = Env()
         try:
-            trends.run(E3.root, NOW, force=True, fetcher=_trend_fetcher)
-            o = improve.run(E3.root, NOW, E3.git, FakeGH((False, "QC scores [96] (need 100)")), checks_ok, now_fn=lambda: NOW)
+            trends.run(E3.root, now, force=True, fetcher=_trend_fetcher)
+            o = improve.run(E3.root, now, E3.git, FakeGH((False, "QC scores [96] (need 100)")), checks_ok, now_fn=lambda: now)
             r.check(o == "canary_failed" and sh(E3.root, "rev-parse", "main") == E3.start, "QC 96 in the test reel: nothing merged, main untouched")
         finally:
             E3.close()
@@ -347,6 +348,23 @@ def _evil(files):
     def improver(root, rules, now, blocked):
         return improve.Proposal("evil", "simulated attack", dict(files))
     return improver
+
+
+def s4_bad_self_change_reverts() -> Result:
+    return _s4("S4", "A bad self-change is auto-reverted", NOW, empty_queue=True)
+
+
+def s4b_populated_queue() -> Result:
+    """The same, but on the REAL queue with its real recent posts (they are older than the change, so they must not count as 'the next 2 reels')."""
+    qs = json.loads((REPO / "poster/queue.json").read_text(encoding="utf-8")).get("posts", [])
+    last = max((datetime.fromisoformat(p["when"]) for p in qs if p.get("when")), default=NOW)
+    t = max(NOW, last + timedelta(hours=1)).astimezone(guard.IST)
+    rules = guard.load_rules()
+    while guard.blocked_until(t, rules):
+        t += timedelta(minutes=30)
+    res = _s4("S4b", "A bad self-change is auto-reverted on a populated queue with real recent posts", t, empty_queue=False)
+    res.check(len(qs) >= 5, f"the copy really held {len(qs)} real posts (latest {last.isoformat()[:16]}), none removed")
+    return res
 
 
 def s5_deny_files_refused() -> Result:
@@ -506,7 +524,7 @@ def s9_full_day_changes_nothing_protected() -> Result:
 
 
 SCENARIOS = [s1_dead_loop, s2_failed_network, s3_missing_comment, s4_bad_self_change_reverts, s5_deny_files_refused, s6_blocked_window_waits,
-             s7_brand_breaking_trend_dropped, s8_rules_cannot_be_edited, s9_full_day_changes_nothing_protected]
+             s7_brand_breaking_trend_dropped, s8_rules_cannot_be_edited, s9_full_day_changes_nothing_protected, s4b_populated_queue]
 
 
 def repo_report() -> list[str]:

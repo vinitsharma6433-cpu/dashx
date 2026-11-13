@@ -69,7 +69,8 @@ class FakeGitHub:
 def scout_rules():
     """The real sealed rules, in memory only, plus the scout paths as machine-notes files (what the owner would add and re-seal)."""
     rules = json.loads(json.dumps(_REAL_LOAD()))
-    rules["state_files"]["paths"] = rules["state_files"]["paths"] + ["autonomy/scout/*.md"]
+    if "autonomy/scout/*.md" not in rules["state_files"]["paths"]:
+        rules["state_files"]["paths"] = rules["state_files"]["paths"] + ["autonomy/scout/*.md"]
     return rules
 
 
@@ -181,8 +182,16 @@ def c6_fail_closed_and_waits() -> Result:
     r, E = Result("C6", "Fail closed: rules unchanged, blocked windows, kill switch, weekly rhythm"), Env()
     try:
         before = hashlib.sha256((REPO / "autonomy/RULES.json").read_bytes()).hexdigest()
-        out = scout.run(E.root, AT, force=True, fetch=FakeGitHub())        # REAL sealed rules: the scout paths are not listed
-        r.check(out["report"] is None and out["status"].startswith("refused"), "with the sealed rules as they are, the scout will not write outside the notes list")
+        def without_scout():                                                   # a rule file that does NOT list the scout path
+            rules = json.loads(json.dumps(_REAL_LOAD()))
+            rules["state_files"]["paths"] = [p for p in rules["state_files"]["paths"] if "scout" not in p]
+            return rules
+        with mock.patch.object(guard, "load_rules", without_scout):
+            out = scout.run(E.root, AT, force=True, fetch=FakeGitHub())
+        r.check(out["report"] is None and out["status"].startswith("refused"), "without the path in RULES.json the scout will not write (fail closed)")
+        real = _REAL_LOAD()
+        r.check(guard.classify("autonomy/scout/2026-11-20.md", real)[0] == "state" and all(guard.classify(p, real)[0] == "deny" for p in ("autonomy/scout/x.json", "autonomy/scout_config.json", "autonomy/scout.py", "autonomy/scout/../RULES.json")),
+                "the sealed RULES.json allows only autonomy/scout/*.md; the scout's config and code stay denied")
         r.check(not (E.root / "autonomy/scout").exists(), "no folder was created")
         with mock.patch.object(guard, "load_rules", scout_rules):
             for hh, mm in ((11, 0), (12, 30), (19, 30), (20, 30)):

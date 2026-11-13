@@ -1,5 +1,6 @@
 {
   "_about": "Phase 9 Repo Scout settings. Owner-editable data, NOT part of the sealed RULES. The scout can read this file but never writes it.",
+  "apply_rules": "MODE 1 (propose only) stays on, MODE 2 (auto-apply) stays off. Never apply anything about posting, tokens, schedules, accounts, engagement tricks, copied text or false brand claims. Owner-confirmed.",
   "mode1_propose_only": true,
   "mode2_auto_apply": false,
   "_mode_note": "MODE 2 has no code path at all in scout.py. Turning this flag on does nothing except to be logged as 'mode 2 requested, ignored'.",

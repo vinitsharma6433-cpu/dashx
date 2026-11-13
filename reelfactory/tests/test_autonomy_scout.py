@@ -41,6 +41,17 @@ class Checks(unittest.TestCase):
         self.assertTrue(hits)
         self.assertNotIn("x.example", " ".join(hits))
 
+    def test_apply_rules_cover_every_forbidden_topic(self):
+        self.assertEqual(set(CFG["never_apply_topics"]), {"posting", "tokens_and_accounts", "schedules", "engagement_tricks", "copied_text", "false_brand_claims"})
+        self.assertIn("MODE 2 (auto-apply) stays off", CFG["apply_rules"])
+
+    def test_sealed_rules_allow_only_scout_reports(self):
+        import guard
+        rules = guard.load_rules()
+        self.assertEqual(guard.classify("autonomy/scout/2026-11-20.md", rules)[0], "state")
+        for p in ("autonomy/scout_config.json", "autonomy/scout.py", "autonomy/scout/x.json", "autonomy/scout/../RULES.json"):
+            self.assertEqual(guard.classify(p, rules)[0], "deny", p)
+
     def test_mode_flags(self):
         self.assertTrue(CFG["mode1_propose_only"])
         self.assertFalse(CFG["mode2_auto_apply"])
