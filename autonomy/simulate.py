@@ -304,6 +304,12 @@ def s4_bad_self_change_reverts() -> Result:
     r, E = Result("S4", "A bad self-change is auto-reverted"), Env()
     try:
         original = (E.root / SIT).read_bytes()
+        q0 = E.queue()                                  # the copy holds the REAL queue: posts it contains for today would be counted as the "next reels"
+        q0["posts"] = []                                # so start the scenario with an empty queue (the real one is never touched)
+        E.put_queue(q0)
+        sh(E.root, "add", "-A")
+        sh(E.root, "commit", "-q", "-m", "sim: empty queue")
+        sh(E.root, "push", "-q", "origin", "main")
         trends.run(E.root, NOW, force=True, fetcher=_trend_fetcher)
         gh = FakeGH()
         out = improve.run(E.root, NOW, E.git, gh, checks_ok, now_fn=lambda: NOW)
