@@ -12,6 +12,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "autonomy"))
 import guard as g  # noqa: E402
 import improve as im  # noqa: E402
+import simulate  # noqa: E402,F401
 
 RULES = g.load_rules()
 NOW = datetime(2026, 11, 11, 15, 30, tzinfo=g.IST)
@@ -66,7 +67,8 @@ class Base(unittest.TestCase):
         self.start = sh(self.work, "rev-parse", "HEAD")
 
     def tearDown(self):
-        shutil.rmtree(self.tmp, ignore_errors=True)
+        import simulate
+        simulate.rm_tree(self.tmp)
 
     @staticmethod
     def trends():
@@ -176,6 +178,30 @@ class Refusals(Base):
         self.assertEqual(gh.canary_branches, [])
         self.assertIn("pr_for_owner", self.log())
         self.assertEqual((self.work / ".github/workflows/w.yml").read_text(encoding="utf-8"), "name: w\n")
+
+    def test_a_kept_pull_request_branch_never_crashes_the_next_run(self):
+        # found by the Phase 8 simulation: the PR branch is kept, a second run on the same day used the same name and crashed
+        def evil(root, rules, now, blocked):
+            return im.Proposal("evil", "edit a workflow", {".github/workflows/w.yml": "name: hacked\n"})
+        old = im.IMPROVERS["situation_from_trend"]
+        try:
+            im.IMPROVERS["situation_from_trend"] = evil
+            gh = FakeGH()
+            self.assertEqual(self.go(gh=gh), "pr")
+            self.assertEqual(self.go(gh=gh), "pr")
+            self.assertEqual(self.go(gh=gh), "pr")
+        finally:
+            im.IMPROVERS["situation_from_trend"] = old
+        self.assertEqual([p[0].rsplit("-", 1)[-1] for p in gh.prs], ["evil", "2", "3"])
+        self.assertEqual(self.origin_main(), self.start)
+
+    def test_a_git_failure_is_logged_not_raised(self):
+        class BrokenGit(im.Git):
+            def sync_main(self):
+                raise RuntimeError("git pull failed: network down")
+        self.git = BrokenGit(self.work)
+        self.assertEqual(self.go(), "error")
+        self.assertIn("could not prepare the branch", self.log())
 
     def test_the_rule_file_cannot_be_changed(self):
         def evil(root, rules, now, blocked):

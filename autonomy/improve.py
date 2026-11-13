@@ -58,6 +58,11 @@ class Git:
         self.run("checkout", self.main)
         self.run("pull", "--ff-only", "-q", self.remote, self.main)
 
+    def branch_exists(self, name: str) -> bool:
+        if self.run("branch", "--list", name):
+            return True
+        return bool(self.run("ls-remote", "--heads", self.remote, name, check=False))
+
     def new_branch(self, name: str) -> None:
         self.run("checkout", "-q", "-b", name, self.main)
 
@@ -294,10 +299,18 @@ def improve_step(root: Path, now: datetime, rules: dict, git: Git, gh, checks, n
     if dry:
         log(root, now, "dry", prop.why, "nothing changed")
         return "dry"
-    git.sync_main()
-    before = git.head()
-    branch = f"{rules['improve']['branch_prefix']}{now.strftime('%Y%m%d')}-{re.sub(r'[^a-z0-9]+', '-', prop.idea.lower()).strip('-')}"
-    git.new_branch(branch)
+    base_name = f"{rules['improve']['branch_prefix']}{now.strftime('%Y%m%d')}-{re.sub(r'[^a-z0-9]+', '-', prop.idea.lower()).strip('-')}"
+    branch = base_name
+    try:
+        git.sync_main()
+        before = git.head()
+        n = 2
+        while git.branch_exists(branch):                          # an earlier branch (e.g. one kept for a pull request) must never crash today's run
+            branch, n = f"{base_name}-{n}", n + 1
+        git.new_branch(branch)
+    except Exception as e:
+        log(root, now, "error", f"{prop.idea}: could not prepare the branch ({type(e).__name__}: {str(e)[:100]})", "nothing changed")
+        return "error"
     try:
         for rel, content in prop.files.items():
             (root / rel).parent.mkdir(parents=True, exist_ok=True)
