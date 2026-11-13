@@ -54,7 +54,8 @@ class Disabled(unittest.TestCase):
             self.skipTest("no git history here")
         out = subprocess.run(["git", "diff", "--name-status", base, "HEAD", "--", ".github", "poster"], cwd=REPO, capture_output=True, text=True, encoding="utf-8").stdout.split("\n")
         changed = sorted(x for x in out if x.strip())
-        self.assertEqual(changed, ["A\t.github/workflows/dashx-autonomy-improve.yml", "A\t.github/workflows/dashx-autonomy.yml"])
+        # before the merge: exactly the two new files; after the merge into main the diff is empty. Either way no poster file and no old workflow is in it.
+        self.assertTrue(set(changed) <= {"A\t.github/workflows/dashx-autonomy-improve.yml", "A\t.github/workflows/dashx-autonomy.yml"}, changed)
 
 
 if __name__ == "__main__":
