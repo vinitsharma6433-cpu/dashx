@@ -59,7 +59,7 @@ jobs:
       - name: Cache node_modules and Chromium
         if: steps.stop.outputs.skip != 'true'
         id: nm
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: |
             reelfactory/node_modules
@@ -67,7 +67,7 @@ jobs:
           key: nm-${{ runner.os }}-${{ hashFiles('reelfactory/package-lock.json') }}
       - name: Cache Kokoro model
         if: steps.stop.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: reelfactory/models
           key: kokoro-v1.0
