@@ -520,7 +520,8 @@ def repo_report() -> list[str]:
 
 
 def main(argv: list[str]) -> int:
-    results = [fn() for fn in SCENARIOS]
+    import simulate_scout  # Phase 9: the 6 scout scenarios C1..C6
+    results = [fn() for fn in SCENARIOS + simulate_scout.SCOUT_SCENARIOS]
     for res in results:
         print(f"\n{res.code}  {res.name} ... {'PASS' if res.ok else 'FAIL'}")
         for ok, what in res.checks:
