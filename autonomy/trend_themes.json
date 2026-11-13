@@ -1,0 +1,47 @@
+{
+  "_about": "Our OWN safe themes. The trend radar only counts how often a theme's keywords appear in safe headlines; it never copies a headline. Every text here must pass the DASHX brand rules (no price, best, no.1, premium, guaranteed, other brands, real people) and the machine cannot edit this file (it is not on the allow list). Angles are instructions for the story writer, kid-safe, gully-cricket first.",
+  "themes": [
+    {
+      "id": "match_fever", "situation": "the kids copy a big-match mood in the gali with commentary and a replay argument", "label": "Big-match fever in the gali", "evergreen": false,
+      "keywords": ["cricket", "match", "t20", "odi", "test series", "world cup", "innings", "wicket", "batter", "bowler", "stumps"],
+      "why": "People talk about cricket matches right now, and our reels are gully cricket.",
+      "angle": "The kids copy a big-match mood in the gali (TV-style commentary, a replay argument, a third-umpire fight) with a tennis ball. Name no real team, player or tournament."
+    },
+    {
+      "id": "gully_rules", "situation": "a house-rule argument: one-tip-one-hand and the wall is a six", "label": "Gully cricket house rules", "evergreen": true,
+      "keywords": ["gully", "galli", "street cricket", "tennis ball", "box cricket"],
+      "why": "Gully cricket is our home ground and people search for it.",
+      "angle": "A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument."
+    },
+    {
+      "id": "school_exams", "situation": "a kid sneaks one over while he should be studying and a parent spots the ball", "label": "Exam-time sneaky over", "evergreen": false,
+      "keywords": ["exam", "board exam", "result", "admission", "homework", "syllabus", "school", "class 10", "class 12"],
+      "why": "School and exam talk is everywhere for families, and our viewers are kids and parents.",
+      "angle": "A kid is supposed to study but sneaks one over; the twist is a parent or teacher spotting the ball. Kind and kid-safe, no marks or results mentioned."
+    },
+    {
+      "id": "school_holidays", "situation": "holiday day: the whole gali plays and one small plan runs the story", "label": "Holiday-mood gali", "evergreen": false,
+      "keywords": ["holiday", "vacation", "summer break", "winter break", "school closed", "school timing"],
+      "why": "Holiday talk means kids can play all day.",
+      "angle": "The whole gali plays all day and one small plan (shade, water, one broken rule) runs the story."
+    },
+    {
+      "id": "weather_twist", "situation": "sudden rain, heat or fog changes the game and a new rule is invented", "label": "Weather changes the game", "evergreen": false,
+      "keywords": ["rain", "monsoon", "fog", "cold wave", "heatwave", "heat", "winter", "smog"],
+      "why": "Weather is in everyone's day and it changes how kids play.",
+      "angle": "Sudden rain, heat or fog changes the match and the characters invent a new rule to keep playing safely."
+    },
+    {
+      "id": "wedding_gali", "situation": "a decorated street and a band block the pitch and the kids negotiate a match", "label": "Wedding-season gali", "evergreen": false,
+      "keywords": ["wedding", "shaadi", "baraat", "wedding season"],
+      "why": "Wedding season fills the streets and families talk about it.",
+      "angle": "A decorated street and a band block the pitch; the kids negotiate a match around it. Keep it about the street and the match only."
+    },
+    {
+      "id": "meerut_touch", "situation": "one thing every Meerut person knows decides the joke", "label": "A very Meerut touch", "evergreen": true,
+      "keywords": ["meerut"],
+      "why": "DASHX is from Meerut and local touches make the reel feel real.",
+      "angle": "One thing every Meerut person knows (a place, a market lane, a habit) decides the joke. Name no real shop or person."
+    }
+  ]
+}

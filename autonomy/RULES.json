@@ -1,0 +1,153 @@
+{
+  "_about": "DASHX Autonomy rule file. THIS FILE IS LAW. The machine reads it and may never edit it, nor RULES.sha256, guard.py, the kill switches, the poster, the workflows or any secret. Only the owner changes it, and then must re-seal it (python autonomy/guard.py seal). Anything not listed under allow or state_files is denied.",
+  "version": 1,
+  "timezone": "Asia/Kolkata",
+  "allow": {
+    "_about": "The machine may change these by itself (self-change), one change a day, canary-tested first (Phase 6).",
+    "story_bank": ["reelfactory/stories/dialogue_bank.md"],
+    "situations": ["reelfactory/stories/situations.json"],
+    "characters_and_voice": ["reelfactory/stories/characters.json"],
+    "hook_card_text": ["reelfactory/stories/dialogue_bank.md"],
+    "scene_variety": ["reelfactory/stories/situations.json", "reelfactory/stories/dialogue_bank.md"],
+    "caption_and_seo_wording": ["reelfactory/factory/seo.py"]
+  },
+  "allow_after_owner_extraction": {
+    "_about": "Requested as ALLOW, but today these live inside code files that also hold safety checks or the Gemini call cap. Until the owner approves moving them into data files, the machine may NOT edit those code files.",
+    "story_prompt_wording": ["reelfactory/scripts/refill_bank.py"],
+    "grader_word_lists": ["reelfactory/scripts/story_rules.py"]
+  },
+  "state_files": {
+    "_about": "Files the machine writes as its own notes and reports. They are not self-changes and do not count toward the daily limit. They can never change behaviour of the poster or the factory.",
+    "paths": [
+      "autonomy/log.md",
+      "autonomy/changes.jsonl",
+      "autonomy/trends.json",
+      "autonomy/learning.json",
+      "autonomy/metrics.json",
+      "autonomy/memory.json",
+      "autonomy/blocked_ideas.json",
+      "autonomy/watch.json",
+      "autonomy/slot_hints.json",
+      "autonomy/status.json",
+      "status/daily.md"
+    ]
+  },
+  "deny": {
+    "_about": "Needs a human. A change that touches any of these is refused (or turned into a pull request for the owner). Default deny also covers every path not listed above.",
+    "paths": [
+      "autonomy/RULES.json",
+      "autonomy/RULES.sha256",
+      "autonomy/guard.py",
+      ".github/**",
+      "poster/**",
+      "STOP_*",
+      "reelfactory/STOP_*",
+      "**/STOP_*",
+      "**/.env",
+      "**/.env.*",
+      "**/*.env",
+      "**/*secret*",
+      "**/*token*",
+      "**/*credential*",
+      "**/*.pem",
+      "**/*.key",
+      "reelfactory/factory/youtube.py",
+      "reelfactory/factory/queue.py",
+      "reelfactory/queue_config.json",
+      "reelfactory/factory/qc.py",
+      "reelfactory/voices.json"
+    ],
+    "branch_protection": "Not a file. The machine has no GitHub admin access and must never ask for it."
+  },
+  "healing": {
+    "_about": "Self-healing (Phase 2). Narrow on purpose. The machine may only dispatch these workflows and may only write these data files, and only through the fixed fixes in autonomy/heal.py. Poster LOGIC (poster/*.py, loop.sh) and every workflow file stay DENY.",
+    "may_dispatch": ["dashx-poster.yml", "dashx-reel-factory.yml", "dashx-story-refill.yml"],
+    "may_write": ["poster/queue.json", "autonomy/log.md"],
+    "poster_redispatch_per_hour": 2,
+    "poster_idle_minutes": 20,
+    "network_retry_times": 1,
+    "factory_redispatch_times": 1,
+    "low_bank_stories": 6,
+    "refill_min_calls_left": 4,
+    "comment_retry_times": 2,
+    "comment_min_age_minutes": 10,
+    "retry_max_age_hours": 40,
+    "report_only": "Everything not listed here is only reported in autonomy/log.md, never fixed."
+  },
+  "trends": {
+    "_about": "Trend radar (Phase 3). FREE public sources only, no login, no scraping of accounts. The radar never copies a headline: it only COUNTS how many safe headlines hit one of our own pre-written themes (autonomy/trend_themes.json) and then offers that theme's own safe angle. Headlines with any blocked word are thrown away before counting.",
+    "login_required": false,
+    "sources": [
+      {"id": "google_trends_in", "kind": "trends_rss", "url": "https://trends.google.com/trending/rss?geo=IN"},
+      {"id": "news_cricket", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=cricket&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_gully_cricket", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=gully+cricket&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_meerut", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=Meerut&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_school", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=school+exams+holidays&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_weather", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=weather+rain+fog+heat&hl=en-IN&gl=IN&ceid=IN:en"},
+      {"id": "news_wedding", "kind": "news_rss", "url": "https://news.google.com/rss/search?q=wedding+season&hl=en-IN&gl=IN&ceid=IN:en"}
+    ],
+    "not_used": ["YouTube trending page (no stable no-login feed; reading the HTML is scraping and may break or break YouTube rules)"],
+    "timeout_seconds": 15,
+    "max_bytes": 1000000,
+    "max_topics": 6,
+    "feed_per_day": 2,
+    "default_expiry_days": 3,
+    "refresh_after_hours": 20,
+    "blocked_words": {
+      "politics": ["election", "minister", "party", "bjp", "congress", "aap ", "parliament", "vote", "poll", "government", "govt", "mla", "protest", "rally", "politic", "manifesto", "neta"],
+      "religion": ["temple", "mosque", "masjid", "church", "hindu", "muslim", "sikh", "christian", "religio", "communal", "god ", "prayer", "jihad", "conversion"],
+      "tragedy": ["death", "dead", "died", "dies", "kill", "murder", "accident", "crash", "blast", "riot", "flood", "fire", "collapse", "injur", "suicide", "terror", "attack", "war ", "disaster", "earthquake", "covid", "tragedy", "victim", "stampede", "drown"],
+      "crime": ["arrest", "police", "rape", "theft", "fraud", "scam", "court", "jail", "bail", "assault", "abuse", "kidnap", "gang", "drug"]
+    },
+    "brand_words": ["price", "rupee", "mrp", "cheap", "discount", "offer", "sale", "best", "no.1", "no. 1", "number one", "premium", "guarante", "free", "nike", "adidas", "puma", "mrf", "kookaburra", "cosco", "nivia", "decathlon", "ipl", "bcci", "icc", "dhoni", "kohli", "tendulkar", "rohit", "flipkart", "amazon"]
+  },
+  "learning": {
+    "_about": "Learning loop (Phase 4). READ-ONLY use of the access we already have. It never asks for a new scope and never changes a token. If a source answers 'denied', that is recorded as needs-owner and the loop carries on with the rest.",
+    "read_only": true,
+    "uses": ["YouTube Data API videos.list statistics (views, likes, comments) with the existing YouTube token", "Instagram like_count and comments_count of our own posts with the existing Meta token", "Facebook likes and comments counts of our own reels with the existing Meta token", "our own hook score of the first spoken line (recomputed from the story bank)", "slot (12:30 / 20:30), format, characters"],
+    "not_available_without_owner": ["YouTube Analytics (watch time, retention, traffic): needs the scope yt-analytics.readonly", "Instagram insights (reach, plays, saves, shares): needs instagram_manage_insights", "Facebook video insights (views, retention): needs read_insights", "QC score per reel: it is only a gate (>= 90 to be queued) and is not stored in the queue"],
+    "min_reels_with_data": 5,
+    "min_group_size": 2,
+    "explore_share": 0.2,
+    "window_days": 14,
+    "min_age_hours": 6,
+    "refresh_after_hours": 20,
+    "steer_dimensions": ["format", "hook_type"],
+    "score_weights": {"reach": 0.6, "reaction": 0.4}
+  },
+  "improve": {
+    "_about": "Self-improvement loop (Phase 6). One small data change a day, made on a temporary branch, proven by a canary, merged only if everything passes, then watched for the next 2 posted reels and auto-reverted on any NEW failure. Whatever the improver says it changed, the REAL git diff is checked against the allow/deny lists and the limits before anything is merged.",
+    "improvers_enabled": ["situation_from_trend"],
+    "branch_prefix": "autonomy/improve-",
+    "max_diff_lines": 20,
+    "max_situations": 80,
+    "canary": {"unit_tests": true, "story_checks": true, "test_reel": true, "required_qc": 100, "timeout_minutes": 45},
+    "watch": {"reels": 2, "give_up_days": 5},
+    "revert_is_always_allowed": true,
+    "never_merge_if": ["any path is not on the allow list", "more than 3 files", "inside a blocked window", "a self-change was already made today", "any canary step failed", "STOP_AUTONOMY or STOP_QUEUE exists"],
+    "pr_instead": "A change that touches anything on the deny list is never merged: a pull request is opened for the owner."
+  },
+  "kill_switches": {
+    "_about": "File names in the repo root or reelfactory/. If one exists the matching part of the machine does nothing. The machine can never create or delete them.",
+    "STOP_AUTONOMY": "everything in autonomy stops (healing, trends, learning, self-change)",
+    "STOP_QUEUE": "no self-change, no refill trigger",
+    "STOP_POSTER": "no poster re-dispatch",
+    "STOP_REFILL": "no refill trigger"
+  },
+  "limits": {
+    "max_self_changes_per_day": 1,
+    "max_files_per_change": 3,
+    "blocked_windows_ist": [
+      {"name": "slot 12:30", "from": "11:00", "to": "12:30"},
+      {"name": "slot 20:30", "from": "19:00", "to": "20:30"}
+    ],
+    "self_change_days": "calendar day in IST",
+    "watch_window_reels": 2,
+    "blocked_idea_days": 14
+  },
+  "never": [
+    "auto-like", "auto-follow", "auto-DM", "scraping other accounts", "reading Instagram through a logged-in Chrome",
+    "adding any Meta or Google permission or scope", "changing any token", "downloading or running an outside binary",
+    "adding any new third-party service", "editing its own rules"
+  ]
+}

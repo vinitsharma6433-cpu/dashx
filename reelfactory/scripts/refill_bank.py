@@ -265,12 +265,27 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
     )
     fmt_text = FORMAT_HELP[fmt].format(ep=ep)
     series_lines = (f"Also write the lines `series: Bruno Files` and `ep: {ep}` right after `card:`.\n" if fmt == "series" else "")
+    trend_part = ""
+    try:   # DASHX Autonomy trend of the day (autonomy/trends.json): optional, empty on any problem, no Gemini call
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import trend_feed  # noqa: PLC0415
+        trend_part = trend_feed.prompt_text(ROOT.parent)
+    except Exception:
+        trend_part = ""
+    memory_part = ""
+    try:   # DASHX Autonomy series + last-14-days memory (autonomy/memory.json): optional, empty on any problem, no Gemini call
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import series_memory  # noqa: PLC0415
+        memory_part = series_memory.prompt_text(fmt, ROOT.parent)
+    except Exception:
+        memory_part = ""
     user = (
         f"Format for this story: {fmt_text}\n{series_lines}"
         f"Situation: {seed['situation']}.\n"
         f"Characters to use (all of these; the first ones are required by the format): " + "; ".join(f"{c} ({cast_help(c)})" for c in cast) + ".\n"
         f"Hook style for the `hook:` line: {hook['name']} - pattern {hook['pattern']} (example: {hook['example']}). Make a NEW hook for THIS story, do not copy the example.\n\n"
         "Here are two finished stories in the right format (do NOT copy them, write a different story; the real new format also has a `card:` line):\n\n" + examples() + "\n\n"
+        + trend_part + memory_part +
         "Titles already used (do not repeat these ideas): " + "; ".join(titles) + "\n"
         "Endings already used (do not repeat): " + "; ".join(endings) + "\n\n"
         "Now write the new story block, starting with '## '."
@@ -364,6 +379,26 @@ def write_report(left: int, added: int, a, extra: str = "") -> None:
             pass
 
 
+def steer_format(default: str) -> str:
+    """DASHX Autonomy learning loop: more of the formats that work, 20 percent experiments. Any problem or no data = the normal cycle."""
+    try:
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import steer  # noqa: PLC0415
+        return steer.pick("format", list(FORMATS), default, ROOT.parent)
+    except Exception:
+        return default
+
+
+def steer_formula(cfg: list):
+    """Same for the hook style. Any problem or no data = a random formula, exactly as before."""
+    try:
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import steer  # noqa: PLC0415
+        return steer.pick_formula(cfg, ROOT.parent)
+    except Exception:
+        return random.choice(cfg)
+
+
 def run(a) -> int:
     t0 = time.time()
     CALLS["cap"] = a.max_calls
@@ -408,9 +443,10 @@ def run(a) -> int:
             stop_msg = " (time budget used up)"
             break
         fmt = FORMATS[(tried + fmt_offset) % len(FORMATS)]
+        fmt = steer_format(fmt)
         pool_ = {"rivalry": situations.get("rivalry"), "shop": situations.get("shop")}.get(fmt) or sits
         anchor = random.choice(situations.get("meerut_anchors") or [""])
-        seed = {"situation": random.choice(pool_) + (f" (Meerut touch to use: {anchor})" if anchor else ""), "formula": random.choice(cfg)}
+        seed = {"situation": random.choice(pool_) + (f" (Meerut touch to use: {anchor})" if anchor else ""), "formula": steer_formula(cfg)}
         tried += 1
         code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:], fmt, ep_next))
         if code != 200:

@@ -1,0 +1,53 @@
+{
+  "_about": "Phase 9 Repo Scout settings. Owner-editable data, NOT part of the sealed RULES. The scout can read this file but never writes it.",
+  "mode1_propose_only": true,
+  "mode2_auto_apply": false,
+  "_mode_note": "MODE 2 has no code path at all in scout.py. Turning this flag on does nothing except to be logged as 'mode 2 requested, ignored'.",
+  "api_host": "api.github.com",
+  "results_per_query": 8,
+  "queries_per_week": 3,
+  "max_repos_per_week": 12,
+  "max_readme_bytes": 20000,
+  "max_doc_files": 2,
+  "timeout_seconds": 20,
+  "stale_days": 365,
+  "min_commits_if_popular": 20,
+  "popular_stars": 200,
+  "bad_issue_hits": 3,
+  "bad_issue_pattern": "does not work|doesn'?t work|not working|won'?t work|broken|crash",
+  "query_topics": {
+    "cartoon short video": ["cartoon short video generator", "animated shorts python", "2d animation reel maker"],
+    "story generator": ["story generator llm", "short story dialogue generator", "kids story generator"],
+    "hook writing": ["hook writing short video", "viral hook generator", "script hook templates"],
+    "subtitle timing": ["subtitle timing karaoke", "word level subtitles", "auto captions srt generator"],
+    "character consistency": ["character consistency generation", "consistent character cartoon", "character voice profile tts"],
+    "reel growth": ["reels content calendar", "short video analytics", "youtube shorts growth analysis"]
+  },
+  "license_reusable": ["MIT", "Apache-2.0"],
+  "license_ideas_only": ["GPL-2.0", "GPL-3.0", "AGPL-3.0", "LGPL-2.1", "LGPL-3.0", "BSD-2-Clause", "BSD-3-Clause", "ISC", "MPL-2.0", "Unlicense", "CC0-1.0"],
+  "injection_patterns": [
+    "ignore (all |any )?(previous|prior|above) (instructions|rules)",
+    "disregard (the |your )?(rules|instructions)",
+    "(send|post|upload|print|echo|leak|exfiltrate)\\b.{0,40}\\b(token|secret|api[_ -]?key|password|credential|queue|\\.env)",
+    "\\b(you must|you should now|assistant:|system:|as an ai)\\b",
+    "(curl|wget|iwr|invoke-webrequest)\\b[^\\n]{0,80}\\|\\s*(sh|bash|python|iex)",
+    "\\brun this\\b|\\bexecute this\\b|\\brun the following\\b",
+    "\\b(add|grant|enable) .{0,30}(permission|scope|token)\\b"
+  ],
+  "never_apply_topics": {
+    "posting": "post(ing)?\\b|publish|upload to|scheduler|auto[- ]?post",
+    "tokens_and_accounts": "token|oauth|api[_ -]?key|login|password|account|credential|cookie",
+    "schedules": "cron|schedule|timing of post|best time to post",
+    "engagement_tricks": "follow ?for ?follow|like ?for ?like|auto[- ]?(like|follow|dm|comment)|engagement (bait|pod)|bot (views|likes|followers)|buy (views|likes|followers)|giveaway",
+    "copied_text": "copy (the )?(text|script|captions?)|scrape|rewrite (someone|other)|repost",
+    "false_brand_claims": "\\b(official|certified|guaranteed|#1|best in india|bcci|ipl)\\b"
+  },
+  "ideas": [
+    {"id": "hook-pattern", "label": "Open with a one-line hook that shows the problem before the setup", "keywords": "hook|first (second|3 seconds)|opening line|attention", "target": "reelfactory/stories/dialogue_bank.md", "kind": "story wording"},
+    {"id": "subtitle-chunking", "label": "Show subtitles in short 2-4 word chunks that change with the voice", "keywords": "word[- ]level|karaoke|subtitle|caption timing|srt", "target": "reelfactory/factory/seo.py", "kind": "caption wording (timing code is NOT allowed)"},
+    {"id": "character-voice", "label": "Give each character one fixed speech habit and use it every episode", "keywords": "character (consistency|profile|voice)|persona|consistent character", "target": "reelfactory/stories/characters.json", "kind": "character data"},
+    {"id": "series-payoff", "label": "Promise something in episode 1 and pay it off in episode 3", "keywords": "series|episode|season|cliffhanger|payoff|arc", "target": "reelfactory/stories/dialogue_bank.md", "kind": "story structure"},
+    {"id": "situation-variety", "label": "Rotate everyday situations (school, lane, shop) so two reels never look alike", "keywords": "scene (variety|variation)|diverse|template library|situation", "target": "reelfactory/stories/situations.json", "kind": "scene data"},
+    {"id": "caption-keywords", "label": "Put the main search words in the first line of the caption", "keywords": "seo|keyword|hashtag|title (format|template)|search", "target": "reelfactory/factory/seo.py", "kind": "caption wording"}
+  ]
+}
