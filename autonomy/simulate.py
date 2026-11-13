@@ -84,6 +84,11 @@ class Env:
         for stale in ("autonomy/log.md", "autonomy/trends.json", "autonomy/learning.json", "autonomy/metrics.json", "autonomy/memory.json", "autonomy/status.json", "autonomy/watch.json",
                       "autonomy/blocked_ideas.json", "autonomy/changes.jsonl", "autonomy/slot_hints.json"):
             (self.root / stale).unlink(missing_ok=True)
+        # the scenarios test self-improvement, which the Trust Ladder only allows from step 2: start the copy on a valid step 2
+        (self.root / "autonomy/status.json").write_text(json.dumps({"ladder": {
+            "step": 2, "step_since": "2026-11-01T00:00+05:30", "first_run": "2026-10-30T00:00+05:30", "handled": [], "drop_alert_until": None, "last_drop": "", "owner_ready": False,
+            "progress": "", "blocker": "", "evidence": "",
+            "history": [{"at": "2026-11-01T00:00+05:30", "from": 1, "to": 2, "why": "test copy"}]}}), encoding="utf-8")
         sh(self.tmp, "init", "-q", "--bare", "-b", "main", str(self.origin))
         sh(self.root, "init", "-q", "-b", "main")
         sh(self.root, "remote", "add", "origin", str(self.origin))

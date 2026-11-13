@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import alerts  # noqa: E402
 import guard  # noqa: E402
+import ladder  # noqa: E402
 
 ROOT = guard.ROOT
 IST = guard.IST
@@ -109,6 +110,7 @@ def build(s: alerts.Signals) -> str:
     L += ["", "### Story bank and Gemini quota",
           f"- Stories left: {left if left is not None else 'unknown'}" + (f" = about {left // REELS_PER_DAY} days at {REELS_PER_DAY} reels a day" if left is not None else ""),
           f"- Gemini calls used in this quota day: {calls}/{int(s.usage.get('cap', 12) or 12)}"]
+    L += [""] + ladder.report_lines(s.ladder, s.now)
     if problems:
         L += ["", "### Open alerts (also in the GitHub issue DASHX ALERT)", *(f"- {p.title}" for p in problems)]
     return "\n".join(L) + "\n"

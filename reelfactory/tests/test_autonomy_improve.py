@@ -57,7 +57,11 @@ class Base(unittest.TestCase):
         sh(self.work, "checkout", "-q", "-b", "main")
         for rel, text in {SIT: SITUATIONS, "autonomy/trends.json": json.dumps(self.trends(), ensure_ascii=False),
                           "poster/queue.json": json.dumps({"posts": []}), "poster/poster.py": "# poster\n", ".github/workflows/w.yml": "name: w\n",
-                          "autonomy/RULES.json": "{}\n"}.items():
+                          "autonomy/RULES.json": "{}\n",
+                          # self-improvement needs Trust Ladder step 2 (these tests are about the improve loop itself): a valid step 2 and the sealed ladder file
+                          "autonomy/TRUST_LADDER.md": (REPO / "autonomy/TRUST_LADDER.md").read_text(encoding="utf-8"),
+                          "autonomy/status.json": json.dumps({"ladder": {"step": 2, "step_since": "2026-11-01T00:00+05:30", "first_run": "2026-10-30T00:00+05:30", "handled": [],
+                                                                       "history": [{"at": "2026-11-01T00:00+05:30", "from": 1, "to": 2, "why": "test"}]}})}.items():
             (self.work / rel).parent.mkdir(parents=True, exist_ok=True)
             (self.work / rel).write_text(text, encoding="utf-8", newline="\n")
         sh(self.work, "add", "-A")

@@ -210,11 +210,13 @@ class Run(unittest.TestCase):
     def test_run_writes_status_and_syncs_the_issue(self):
         bad = dict(OKALL, facebook={"ok": False, "error": "token expired"})
         (self.root / "poster" / "queue.json").write_text(json.dumps({"posts": [post("a", 5, bad)]}), encoding="utf-8")
+        (self.root / "autonomy").mkdir()
+        (self.root / "autonomy/TRUST_LADDER.md").write_bytes((REPO / "autonomy/TRUST_LADDER.md").read_bytes())      # the sealed Trust Ladder file
         api = FakeIssues()
         out = A.run(self.root, NOW, api)
         self.assertEqual((out["problems"], out["issue"], out["level"]), (["META_TOKEN"], "created", "red"))
         self.assertEqual(json.loads((self.root / "autonomy/status.json").read_text(encoding="utf-8"))["level"], "red")
-        self.assertEqual(sorted(p.name for p in (self.root / "autonomy").iterdir()), ["status.json"])
+        self.assertEqual(sorted(p.name for p in (self.root / "autonomy").iterdir()), ["TRUST_LADDER.md", "log.md", "status.json"])       # + the ladder's start line
 
     def test_kill_switch_does_nothing(self):
         (self.root / "STOP_AUTONOMY").write_text("", encoding="utf-8")

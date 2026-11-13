@@ -25,6 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import guard  # noqa: E402
+import ladder  # noqa: E402
 
 ROOT = guard.ROOT
 IST = guard.IST
@@ -60,6 +61,9 @@ class Signals:
     rules_ok: bool = True
     rules_why: str = ""
     stops: list[str] = field(default_factory=list)
+    ladder: dict = field(default_factory=dict)        # Trust Ladder state (autonomy/ladder.py), kept inside autonomy/status.json
+    ladder_ok: bool = True                            # TRUST_LADDER.md still matches the hash sealed in RULES.json
+    ladder_why: str = ""
 
 
 def _rd(root: Path, rel: str, default):
@@ -83,9 +87,11 @@ def load_signals(root: Path = ROOT, now: datetime | None = None) -> Signals:
         except Exception:
             return ""
     stops = [n for n in ("STOP_AUTONOMY", "STOP_POSTER", "STOP_QUEUE", "STOP_REFILL") if (root / n).exists() or (root / "reelfactory" / n).exists()]
+    lok, lwhy = ladder.ladder_file_ok(root) if ok else (True, "")
     return Signals(now, _rd(root, "poster/queue.json", {"posts": []}).get("posts", []), text("reelfactory/stories/refill_daily.txt"),
                    _rd(root, "reelfactory/stories/refill_usage.json", {}), text("autonomy/log.md"), _rd(root, "autonomy/learning.json", {}),
-                   _rd(root, "autonomy/trends.json", {}), _rd(root, "autonomy/watch.json", {}), ok, why, stops)
+                   _rd(root, "autonomy/trends.json", {}), _rd(root, "autonomy/watch.json", {}), ok, why, stops,
+                   ladder.load(root), lok, lwhy)
 
 
 # ---------------------------------------------------------------- what is wrong (pure)
@@ -169,6 +175,21 @@ def detect(s: Signals) -> list[Problem]:
                             f"autonomy/watch.json mein dekho kaun si file badli thi ({', '.join(s.watch.get('files', [])[:3]) or 'file ka naam wahan likha hai'}).",
                             "GitHub → Commits mein 'Autonomy self-improvement merged' wala commit dhundo → Revert dabao.",
                             "Revert ho jaye to watch.json ka status 'reverted' kar do ya file delete kar do."], s.watch.get("idea", "")))
+    until = ladder._t(s.ladder.get("drop_alert_until")) if isinstance(s.ladder, dict) else None
+    if until and until > s.now:
+        out.append(Problem("LADDER_DROP", "Machine ek Trust Ladder step neeche aa gayi",
+                           "Ek reel slot chhoot gaya, Meta warning jaisa kuch dikha, ya ek self-change ke baad reel kharab hui. Isliye machine ne ek step kam kar diya aur bharosa dobara kamana shuru kiya. Kuch toot nahi gaya, bas machine zyada savdhaan hai.",
+                           ["status/daily.md kholo: 'Trust Ladder' hissa batata hai kaun sa step hai aur kya hua.",
+                            "autonomy/log.md mein 'ladder | drop' wali line padho.",
+                            "Agar Meta warning thi: Facebook / Instagram app mein Account status dekho. Gadbad ho toh repo root mein STOP_POSTER file banao.",
+                            "Agar sab theek lage: kuch karna nahi. Ye alert 7 din baad apne aap band ho jayega.",
+                            "Agar baar baar aaye: GitHub → Settings → Variables mein DASHX_AUTONOMY_ENABLED ko false kar do aur Claude ko batao."],
+                           str(s.ladder.get("last_drop", ""))[:160]))
+    if not s.ladder_ok and s.rules_ok:
+        out.append(Problem("LADDER_FILE", "TRUST_LADDER.md badli hui hai, machine step 1 par ruki hai",
+                           "autonomy/TRUST_LADDER.md RULES.json mein sealed hash se match nahi karti. Jab tak tum na check karo, machine sirf dekhti rahegi (self-improvement band).",
+                           ["Agar file tumne khud badli: apne PC par RULES.json mein uska naya hash daalo aur `python autonomy/guard.py seal` chalao.",
+                            "Agar tumne nahi badli: GitHub → autonomy/TRUST_LADDER.md → History dekho aur galat badlav wapas karo."], "autonomy/TRUST_LADDER.md"))
     # one entry per id (several networks can raise the same one)
     seen, uniq = set(), []
     for p in out:
@@ -286,7 +307,7 @@ def status_json(s: Signals, problems: list[Problem]) -> dict:
     lv, why = level(s, problems)
     topics = [t for t in s.trends.get("topics", []) if str(t.get("expires", "")) >= s.now.date().isoformat()]
     trend = {"topic": topics[0]["topic"], "angle": topics[0].get("story_angle", "")[:160]} if topics else None
-    return {"level": lv, "reasons": why[:5], "alerts": len(problems), "trend": trend, "updated": s.now.isoformat(timespec="minutes")}
+    return {"level": lv, "reasons": why[:5], "alerts": len(problems), "trend": trend, "ladder": s.ladder or ladder.new_state(), "updated": s.now.isoformat(timespec="minutes")}
 
 
 def write_status(root: Path, data: dict) -> None:
@@ -294,7 +315,7 @@ def write_status(root: Path, data: dict) -> None:
     assert rel in ALLOWED_OUT
     try:   # unchanged for under 2 hours: do not write (no commit every 30 minutes)
         cur = json.loads((root / rel).read_text(encoding="utf-8"))
-        same = all(cur.get(k) == data.get(k) for k in ("level", "reasons", "alerts", "trend"))
+        same = all(cur.get(k) == data.get(k) for k in ("level", "reasons", "alerts", "trend", "ladder"))
         if same and datetime.fromisoformat(data["updated"]) - datetime.fromisoformat(cur["updated"]) < timedelta(hours=2):
             return
     except Exception:
@@ -308,6 +329,9 @@ def run(root: Path = ROOT, now: datetime | None = None, api=None) -> dict:
     if guard.halted("all", root):
         print(f"{guard.halted('all', root)} is on: alerts do nothing")
         return {"halted": True}
+    if s.rules_ok:                                           # the Trust Ladder moves (or drops) first, so a drop raises its alert in this very run
+        s.ladder, lines = ladder.evaluate(s.ladder, s.posts, s.log_text, s.learning, s.now, s.rules_ok, s.ladder_ok, s.ladder_why)
+        ladder.write_log(root, lines)
     problems = detect(s)
     result = sync_issue(api or Issues(), problems, s.now) if (api or os.environ.get("GITHUB_TOKEN")) else "no token: issue not touched"
     st = status_json(s, problems)

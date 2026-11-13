@@ -28,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import guard  # noqa: E402
+import ladder  # noqa: E402
 import trends as _trends  # noqa: E402
 
 ROOT = guard.ROOT
@@ -480,6 +481,10 @@ def run(root: Path = ROOT, now: datetime | None = None, git: Git | None = None, 
         return watch_step(root, now, rules, git, factory_runs() if callable(factory_runs) else (factory_runs or []))
     if watch_only:
         return "idle"
+    step = ladder.current_step(root)                  # Trust Ladder: self-improvement is OFF on step 1 (watching an existing change above is never blocked)
+    if step < 2:
+        log(root, now, "ladder", "self-improvement is OFF at Trust Ladder step 1 (needs the first run + 2 clean reels)", "waiting")
+        return "ladder_step1"
     return improve_step(root, now, rules, git, gh or GH(root, rules["improve"]["canary"]["timeout_minutes"]), checks or run_checks, now_fn, dry)
 
 

@@ -16,6 +16,10 @@
     "story_prompt_wording": ["reelfactory/scripts/refill_bank.py"],
     "grader_word_lists": ["reelfactory/scripts/story_rules.py"]
   },
+  "protected_files": {
+    "_about": "Owner-approved documents the machine follows and can never edit. The sha256 (line endings normalised) is sealed with this file; if the document no longer matches, the Trust Ladder freezes at step 1 and an alert is raised.",
+    "autonomy/TRUST_LADDER.md": "92c47713a2d02fb9aa8487ef20dd5155994b6ebc83d9b15dd44ece8d00629ae9"
+  },
   "state_files": {
     "_about": "Files the machine writes as its own notes and reports. They are not self-changes and do not count toward the daily limit. They can never change behaviour of the poster or the factory.",
     "paths": [
@@ -39,6 +43,7 @@
       "autonomy/RULES.json",
       "autonomy/RULES.sha256",
       "autonomy/guard.py",
+      "autonomy/TRUST_LADDER.md",
       ".github/**",
       "poster/**",
       "STOP_*",
