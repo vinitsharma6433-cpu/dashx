@@ -1,0 +1,30 @@
+name: DASHX SEO Health
+# READ-ONLY monitor: only GET requests to the public store and the public reel queue. Posts and changes nothing, uses no secrets.
+# FAIL = the run turns red and GitHub emails the owner. WARN = shown in the run summary only.
+on:
+  schedule:
+    - cron: "17 22 * * *"   # 03:47 IST every day
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check store, sitemap, schema, feed, blog freshness and reel queue
+        env:
+          QUEUE_FILE: poster/queue.json
+          REPORT: seo-health-report.json
+        run: python tools/seo_health.py
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-health-report
+          path: seo-health-report.json
+          retention-days: 30
