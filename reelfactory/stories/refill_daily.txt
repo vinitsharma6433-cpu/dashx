@@ -1,1 +1,1 @@
-Story refill 2026-11-12: 20 stories left in the bank, 1 added today, Gemini calls used 11/12 (call limit reached)
+Story refill 2026-11-13: 18 stories left in the bank, 0 added today, Gemini calls used 5/12 (Gemini answered HTTP 0: stopped)
