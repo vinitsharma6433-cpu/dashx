@@ -28,7 +28,7 @@ jobs:
         run: python tools/seo_health.py
       - name: Keep the report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: seo-health-report
           path: seo-health-report.json
