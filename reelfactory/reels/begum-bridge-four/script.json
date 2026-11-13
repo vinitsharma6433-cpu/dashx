@@ -1,0 +1,184 @@
+{
+  "id": "begum-bridge-four",
+  "title": "बेगम पुल का चौका",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Mintu claims the ball touched the Begum Bridge wall for a four, but Golu spots Bruno sitting on the ball, and Pintu gives Mintu out.",
+    "idea": "Begum Bridge Four",
+    "generated": "2026-11-13",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "मिंटू का बेगम पुल वाला प्लान उल्टा पड़ गया! 😜",
+    "card": "चौका या आउट?",
+    "closing": "चौके का लालच पड़ा भारी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "mintu",
+        "right": "pintu",
+        "boardText": "नियम"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बेगम पुल की दीवार छुई, चौका हुआ!",
+      "subtitle": "बेगम पुल की दीवार छुई, चौका हुआ!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "बेगम पुल की दीवार छुई, चौका हुआ!",
+          "start": 0.25,
+          "end": 2.83,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "बेगम पुल की दीवार छुई, चौका हुआ!"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "mintu",
+        "watcher": "golu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "हमारी गली का नियम है! गेंद वहाँ नहीं गई!",
+      "subtitle": "हमारी गली का नियम है! गेंद वहाँ नहीं गई!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "हमारी गली का नियम है!",
+          "start": 0.25,
+          "end": 1.99,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "गेंद वहाँ नहीं गई!",
+          "start": 2.09,
+          "end": 3.58,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "हमारी गली का नियम है!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "pintu",
+        "watchers": [
+          "golu",
+          "bruno"
+        ]
+      },
+      "duration": 3.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "भौं भौं! देखो! गेंद पर ब्रूनो बैठा है!",
+      "subtitle": "भौं भौं! देखो! गेंद पर ब्रूनो बैठा है!",
+      "dialogue": [
+        {
+          "speaker": "bruno",
+          "line": "भौं भौं!",
+          "start": 0.25,
+          "end": 0.74,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "देखो! गेंद पर ब्रूनो बैठा है!",
+          "start": 0.84,
+          "end": 2.93,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "bruno",
+      "line": "भौं भौं!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "mintu",
+        "boardText": "आउट"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "फ़ैसला मेरा, मिंटू तुम आउट! यह तो बेईमानी है!",
+      "subtitle": "फ़ैसला मेरा, मिंटू तुम आउट! यह तो बेईमानी है!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "फ़ैसला मेरा, मिंटू तुम आउट!",
+          "start": 0.25,
+          "end": 2.33,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "mintu",
+          "line": "यह तो बेईमानी है!",
+          "start": 2.43,
+          "end": 4.06,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "फ़ैसला मेरा, मिंटू तुम आउट!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

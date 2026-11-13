@@ -42,3 +42,5 @@
 - 2026-11-11 | meena-s-rule | मीना का नियम (Meena's Rule) | Meena makes a no-boasting rule, then hits a six and boasts herself, and Pintu blows the whistle on her. | नियम बनाने वाली ही फँसी!
 - 2026-11-12 | power-cut | बत्ती गुल (Power Cut) | The lights go out during the game, the boys play by guessing, and Dadaji catches the ball with a torch in his lap. | बत्ती गई, खेल नहीं!
 - 2026-11-12 | golu-s-counting | गोलू की गिनती (Golu's Counting) | Golu counts the runs in his own way, Pintu corrects him, and Golu still calls Coach's catch eleven out. | गोलू की गिनती गोलू जाने!
+- 2026-11-13 | begum-bridge-four | बेगम पुल का चौका (Begum Bridge Four) | Mintu claims the ball touched the Begum Bridge wall for a four, but Golu spots Bruno sitting on the ball, and Pintu gives Mintu out. | चौके का लालच पड़ा भारी!
+- 2026-11-13 | puddle-splash | पानी की छपाक (Puddle Splash) | After the rain Surya warns Sachin about the puddle, Sachin's shot lands in it, Pintu gets soaked along with his whistle, and Aunty catches the ball under her umbrella. | पानी में भी पूरा मज़ा!
