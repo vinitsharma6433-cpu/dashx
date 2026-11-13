@@ -45,7 +45,7 @@ jobs:
             echo "::warning::STOP_QUEUE file exists - factory paused, nothing was made"
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.stop.outputs.skip != 'true'
         with:
           python-version: "3.12"

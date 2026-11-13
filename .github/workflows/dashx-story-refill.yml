@@ -46,7 +46,7 @@ jobs:
           if [ -e STOP_QUEUE ] || [ -e reelfactory/STOP_QUEUE ] || [ -e STOP_REFILL ] || [ -e reelfactory/STOP_REFILL ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::warning::paused by a STOP file"
           fi
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.stop.outputs.skip != 'true'
         with:
           python-version: "3.12"
