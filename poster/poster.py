@@ -34,17 +34,31 @@ def yt_token():
         raise RuntimeError("google token error: %s - %s | id_len=%d secret_len=%d token_len=%d" % (e.get("error"), e.get("error_description"), len(s[0]), len(s[1]), len(s[2])))
     return t.json()["access_token"]
 
+def _yt_reason(resp):
+    """Real reason from a Google API error (for example forbidden, commentsDisabled, quotaExceeded, insufficientPermissions)."""
+    try:
+        e = (resp.json().get("error") or {})
+        r = (e.get("errors") or [{}])[0].get("reason") or e.get("status") or ""
+        return ("(%s)" % r)[:60] if r else ""
+    except Exception:
+        return ""
+
+YT_ENGAGE_MAX_TRIES = 4   # a failed comment is retried on the next runs (the video may not be public yet), then left alone
+
 def yt_engage(p, vid, tok):
     """Pinned-style comments and a like. Only works once the video is public."""
     notes = p.setdefault("notes", {})
     hdr = {"Authorization": "Bearer " + tok}
     cl = p.get("comments") or ([p["comment"]] if p.get("comment") else [])
+    prev = notes.get("yt_comment") if isinstance(notes.get("yt_comment"), list) else []
     res = []
-    for ctext in cl:
+    for i, ctext in enumerate(cl):
+        if i < len(prev) and prev[i] == "ok":   # already posted on an earlier try: never post a comment twice
+            res.append("ok"); continue
         try:
             cr = requests.post("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet", headers=hdr,
                 json={"snippet": {"videoId": vid, "topLevelComment": {"snippet": {"textOriginal": ctext}}}}, timeout=60)
-            res.append("ok" if cr.ok else "failed %s (needs youtube.force-ssl scope)" % cr.status_code)
+            res.append("ok" if cr.ok else "failed %s %s" % (cr.status_code, _yt_reason(cr)))
         except Exception as e:
             res.append("error " + str(e)[:80])
     if res: notes["yt_comment"] = res
@@ -53,6 +67,7 @@ def yt_engage(p, vid, tok):
         notes["yt_like"] = "ok" if rr.status_code in (200, 204) else "failed %s" % rr.status_code
     except Exception as e:
         notes["yt_like"] = "error " + str(e)[:80]
+    return all(r == "ok" for r in res)
 
 def post_youtube(p, publish_at=None):
     """publish_at (aware datetime) = upload private and let YouTube publish it then; None = public now.
@@ -282,8 +297,11 @@ def handle(p, now):
                 try:
                     tok = yt_token()
                     if tok:
-                        yt_engage(p, p["notes"]["yt_video_id"], tok)
-                        p["notes"]["yt_engaged"] = True
+                        done = yt_engage(p, p["notes"]["yt_video_id"], tok)
+                        tries = p["notes"].get("yt_engage_tries", 0) + 1
+                        p["notes"]["yt_engage_tries"] = tries
+                        if done or tries >= YT_ENGAGE_MAX_TRIES:   # a failed comment is retried next run, never posted twice
+                            p["notes"]["yt_engaged"] = True
                 except Exception as e:
                     p.setdefault("notes", {})["yt_engage_error"] = str(e)[:200]
                 persist(p)
