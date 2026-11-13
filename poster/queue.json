@@ -1408,10 +1408,18 @@
           "scheduled": true,
           "publish_at": "2026-11-14T12:30:00+05:30",
           "at": "2026-11-13T06:56:25.546329+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1126448893316369",
+          "scheduled": true,
+          "publish_at": "2026-11-14T12:30:00+05:30",
+          "at": "2026-11-13T12:31:45.470670+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "OSiQBV-_fgc"
+        "yt_video_id": "OSiQBV-_fgc",
+        "fb_video_id": "1126448893316369"
       }
     }
   ]
