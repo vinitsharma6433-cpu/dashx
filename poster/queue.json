@@ -1500,7 +1500,13 @@
       },
       "notes": {
         "yt_video_id": "gpenBUAKsfM",
-        "fb_video_id": "1291592809795372"
+        "fb_video_id": "1291592809795372",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
