@@ -1,9 +1,13 @@
 name: DASHX IndexNow
-# Daily: read the live sitemap, submit only URLs that are new or whose lastmod changed to IndexNow, commit state/indexnow.json.
+# Read the live sitemap, submit only URLs that are new or whose lastmod changed to IndexNow (max one ping per URL per day), commit state/indexnow.json,
+# and print the 1-2 best URLs to press "Request indexing" for by hand in Search Console.
+# It also runs shortly after each Autopilot content run (11:07 and 17:13 IST) so a freshly published or refreshed post is pinged the same day.
 # The IndexNow key is PUBLIC by design (the store serves it at /<key>.txt). No secret is used here.
 on:
   schedule:
     - cron: "43 23 * * *"   # 05:13 IST, after the daily blog post is live
+    - cron: "20 6 * * *"    # 11:50 IST, after the Autopilot content run (11:07 IST)
+    - cron: "50 12 * * *"   # 18:20 IST, after its backup run (17:13 IST)
   workflow_dispatch:
 permissions:
   contents: write           # only to commit state/indexnow.json

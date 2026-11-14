@@ -31,6 +31,22 @@ class T(unittest.TestCase):
             open(p, "w").write("not json")
             self.assertEqual(indexnow.load_state(p), {})
 
+    def test_one_ping_per_url_per_day_is_remembered(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "indexnow.json")
+            indexnow.save_state(p, {"u": "2026-11-12"}, {"u": "2026-11-14"})
+            self.assertEqual(indexnow.load_pings(p), {"u": "2026-11-14"})
+            self.assertEqual(indexnow.load_state(p), {"u": "2026-11-12"})
+            indexnow.save_state(p, {"u": "2026-11-13"})                      # pings=None keeps the existing pings
+            self.assertEqual(indexnow.load_pings(p), {"u": "2026-11-14"})
+            self.assertEqual(indexnow.load_pings(os.path.join(d, "missing.json")), {})
+
+    def test_best_urls_for_google_are_blog_posts_newest_first(self):
+        sm = {"https://x.test/": "", "https://x.test/p/ball": "2026-11-20", "https://x.test/blog/a": "2026-11-11", "https://x.test/blog/b": "2026-11-14", "https://x.test/blog/c": "2026-11-12"}
+        self.assertEqual(indexnow.best_for_google(list(sm), sm), ["https://x.test/blog/b", "https://x.test/blog/c"])
+        self.assertEqual(indexnow.best_for_google(["https://x.test/p/ball", "https://x.test/"], sm, n=1), ["https://x.test/p/ball"])
+        self.assertEqual(indexnow.best_for_google([], sm), [])
+
     def test_payload(self):
         p = indexnow.payload("x.test", "abcdef123456", ["https://x.test/"])
         self.assertEqual(p["keyLocation"], "https://x.test/abcdef123456.txt")
