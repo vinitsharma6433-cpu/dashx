@@ -7,7 +7,9 @@ slip into a story line; the DASHX brand line is added by the adapter, never writ
 
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 
 # Plain-text substrings / words that must never appear in a spoken line or a title.
 _BAD_EN = re.compile(
@@ -206,6 +208,35 @@ _STAKES_HI = {"गायब", "चोरी", "चोर", "झूठ", "झू�
 _STAKE_STEMS = ("फट", "टूट", "भाग", "गिर", "फँस", "फंस", "चोर", "झूठ", "गुम", "खो", "हार", "बिगड़", "छीन", "उड़")
 _ADDRESS_HI = {"अबे", "ओ", "अरे", "सुनो", "ऐ", "तू", "तुम", "आप", "ये", "यह", "ले", "देख", "देखो", "बता", "बोल", "चल", "भैया"}
 _WEIGHTS = {"LENGTH": 15, "SPECIFICITY": 30, "STAKES": 25, "FRONTLOAD": 20, "ADDRESS": 10}
+
+# The vocabulary above is the BUILT-IN default. stories/hook_words.json may replace it (this is the tunable data file the autonomy machine may edit).
+# Only this LOGGED hook score reads it. The safety lists (_BAD_EN, _BAD_HI, _SENSITIVE_*, _BAD_NAMES, _JUNK, the quality checks) are NOT in that file and are never tunable.
+_HOOK_WORDS_FILE = Path(__file__).resolve().parent.parent / "stories" / "hook_words.json"
+
+
+def _apply_hook_words(path: Path | None = None) -> bool:
+    """Replace the hook vocabulary from the data file. Any problem (missing, broken, wrong shape, too big) keeps the built-in lists. Returns True if it was applied."""
+    global _NAMES_HI, _THINGS_HI, _NUMBERS_HI, _STAKES_HI, _STAKE_STEMS, _ADDRESS_HI, _WEIGHTS
+    try:
+        d = json.loads((path or _HOOK_WORDS_FILE).read_text(encoding="utf-8"))
+        lists = {}
+        for k in ("names", "things", "numbers", "stakes", "stake_stems", "address"):
+            v = d[k]
+            if not isinstance(v, list) or not 1 <= len(v) <= 400 or not all(isinstance(x, str) and 1 <= len(x) <= 20 for x in v):
+                return False
+            lists[k] = v
+        w = d["weights"]
+        if set(w) != set(_WEIGHTS) or not all(isinstance(x, int) and 0 <= x <= 50 for x in w.values()) or sum(w.values()) <= 0:
+            return False
+        _NAMES_HI, _THINGS_HI, _NUMBERS_HI = set(lists["names"]), set(lists["things"]), set(lists["numbers"])
+        _STAKES_HI, _STAKE_STEMS, _ADDRESS_HI = set(lists["stakes"]), tuple(lists["stake_stems"]), set(lists["address"])
+        _WEIGHTS = dict(w)
+        return True
+    except Exception:
+        return False
+
+
+_apply_hook_words()
 
 
 def _hi_tokens(text: str) -> list[str]:
