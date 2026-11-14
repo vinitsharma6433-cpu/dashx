@@ -1469,10 +1469,18 @@
           "scheduled": true,
           "publish_at": "2026-11-14T20:30:00+05:30",
           "at": "2026-11-14T06:38:03.141722+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1291592809795372",
+          "scheduled": true,
+          "publish_at": "2026-11-14T20:30:00+05:30",
+          "at": "2026-11-14T06:38:03.141722+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "gpenBUAKsfM"
+        "yt_video_id": "gpenBUAKsfM",
+        "fb_video_id": "1291592809795372"
       }
     },
     {
