@@ -344,9 +344,12 @@ class Steering(unittest.TestCase):
 class RefillHooks(unittest.TestCase):
     def test_default_behaviour_without_learning_data(self):
         import refill_bank as rb
-        self.assertEqual(rb.steer_format("shop"), "shop")
-        cfg = [{"name": "a", "pattern": "p", "example": "x?"}, {"name": "b", "pattern": "p", "example": "y"}]
-        self.assertIn(rb.steer_formula(cfg), cfg)
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as d:     # an empty repo root: the real autonomy/learning.json (written by the live machine) must not decide this test
+            with mock.patch.object(rb, "ROOT", Path(d) / "reelfactory"):
+                self.assertEqual(rb.steer_format("shop"), "shop")
+                cfg = [{"name": "a", "pattern": "p", "example": "x?"}, {"name": "b", "pattern": "p", "example": "y"}]
+                self.assertIn(rb.steer_formula(cfg), cfg)
 
     def test_any_error_means_the_old_choice(self):
         import refill_bank as rb
