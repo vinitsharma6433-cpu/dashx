@@ -192,7 +192,7 @@ def c6_fail_closed_and_waits() -> Result:
         real = _REAL_LOAD()
         r.check(guard.classify("autonomy/scout/2026-11-20.md", real)[0] == "state" and all(guard.classify(p, real)[0] == "deny" for p in ("autonomy/scout/x.json", "autonomy/scout_config.json", "autonomy/scout.py", "autonomy/scout/../RULES.json")),
                 "the sealed RULES.json allows only autonomy/scout/*.md; the scout's config and code stay denied")
-        r.check(not (E.root / "autonomy/scout").exists(), "no folder was created")
+        r.check(not (E.root / f"autonomy/scout/{AT.date().isoformat()}.md").exists(), "no report file was written")        # (the copy may hold the real earlier reports)
         with mock.patch.object(guard, "load_rules", scout_rules):
             for hh, mm in ((11, 0), (12, 30), (19, 30), (20, 30)):
                 o = scout.run(E.root, NOW.replace(hour=hh, minute=mm), force=True, fetch=FakeGitHub())

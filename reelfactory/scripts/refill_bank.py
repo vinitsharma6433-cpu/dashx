@@ -52,7 +52,10 @@ MIN_MEERUT = 6   # the 'Meerut feel' and 'twist' scores of the second-model grad
 MIN_TWIST = 6
 BUDGET_S = 540   # the whole run stops after this many seconds, so the daily job never hangs
 CALLS = {"n": 0, "cap": 12}
-STATE: dict = {"models": [], "idx": 0, "quota_hit": False, "last_raw": ""}
+STATE: dict = {"models": [], "idx": 0, "quota_hit": False, "last_raw": "", "net_retried": False, "native_tried": False}
+NATIVE_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"   # the same free key, the Gemini native endpoint (no new secret)
+SLEEP = time.sleep           # a test replaces this
+BACKOFF_S = 12               # one retry after a network-level failure (HTTP 0) waits this long first
 CAST_HELP = {
     "sachin": "main batter: confident, loves big shots, a little sleepy",
     "surya": "main bowler: boastful, fast, funny when he loses",
@@ -113,11 +116,11 @@ def calls_left() -> int:
 
 
 # ---------------------------------------------------------------------------------------------------
-def http(url: str, body: dict | None, timeout: int) -> tuple[int, str]:
-    """One Gemini HTTP call, counted. (status, text). Never raises."""
+def http(url: str, body: dict | None, timeout: int, headers: dict | None = None) -> tuple[int, str]:
+    """One Gemini HTTP call, counted. (status, text). Never raises. Status 0 = a network-level failure (timeout, reset, DNS): the text is the reason."""
     CALLS["n"] += 1
     data = json.dumps(body).encode("utf-8") if body is not None else None
-    req = urllib.request.Request(url, data=data, headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"})
+    req = urllib.request.Request(url, data=data, headers=headers or {"Authorization": "Bearer " + KEY, "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, r.read().decode("utf-8", "replace")
@@ -134,7 +137,7 @@ def http(url: str, body: dict | None, timeout: int) -> tuple[int, str]:
             msg = raw
         return e.code, scrub(msg)[:240]
     except Exception as e:  # network problem / timeout
-        return 0, scrub(e)[:200]
+        return 0, scrub(f"{type(e).__name__}: {e}")[:200]       # the exception TYPE is kept so the log shows the real cause
 
 
 def gemini_models() -> list[str]:
@@ -174,11 +177,42 @@ def ask(messages: list[dict], temperature: float = 0.9, max_tokens: int = 4000) 
             except Exception:
                 STATE["last_raw"] = scrub(raw)[:300]
                 return 200, ""
+        if code == 0 and not STATE["net_retried"]:
+            STATE["net_retried"] = True               # ONE retry with a back-off for a network-level failure, on the same model
+            print(f"  model {m}: network failure ({clean(raw, 120)}); one retry after {BACKOFF_S}s")
+            SLEEP(BACKOFF_S)
+            continue
         if code in (0, 404, 500, 502, 503, 504) and STATE["idx"] + 1 < len(STATE["models"]):
             STATE["idx"] += 1
-            print(f"  model {m}: HTTP {code}, switching to {STATE['models'][STATE['idx']]}")
+            print(f"  model {m}: HTTP {code} ({clean(raw, 120)}), switching to {STATE['models'][STATE['idx']]}")
             continue
+        if code in (0, 500, 502, 503, 504) and not STATE["native_tried"] and calls_left() > 0:
+            STATE["native_tried"] = True              # last resort, same free key: the native generateContent endpoint, once per run
+            print(f"  model {m}: HTTP {code} ({clean(raw, 120)}), trying the native Gemini endpoint once")
+            ncode, ntxt = native_ask(messages, temperature, max_tokens, STATE["models"][0])
+            if ncode == 200 and ntxt:
+                return 200, ntxt
+            print(f"  native endpoint: HTTP {ncode} {clean(ntxt, 120)}")
+            return (ncode if ncode else code), ntxt
         return code, raw
+
+
+def native_ask(messages: list[dict], temperature: float, max_tokens: int, model: str) -> tuple[int, str]:
+    """The same question through the native endpoint with the SAME key (header x-goog-api-key). Counted like every call. (status, text)."""
+    system = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
+    body = {"contents": [{"role": "user" if m["role"] != "assistant" else "model", "parts": [{"text": m["content"]}]} for m in messages if m["role"] != "system"],
+            "generationConfig": {"temperature": temperature, "maxOutputTokens": max_tokens}}
+    if system:
+        body["systemInstruction"] = {"parts": [{"text": system}]}
+    code, raw = http(NATIVE_URL.format(model=model), body, 100, {"x-goog-api-key": KEY, "Content-Type": "application/json"})
+    if code != 200:
+        return code, raw
+    try:
+        parts = json.loads(raw)["candidates"][0]["content"]["parts"]
+        return 200, "".join(p.get("text", "") for p in parts)
+    except Exception:
+        STATE["last_raw"] = scrub(raw)[:300]
+        return 200, ""
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -232,6 +266,36 @@ FORMAT_HELP = {
 }
 
 
+PROMPT_FILE = ROOT / "stories" / "refill_prompt.json"
+PROMPT_DEFAULT = {
+    "tone": ("Write all spoken lines, the ending, the hook, the card and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. "
+             "Short, simple words, light western-UP flavour (अरे यार, ओ भाई), no heavy dialect."),
+    "voice": ("VOICE: every character sounds like themselves. Use what each character WANTS as their goal in the story, let them reach for their own 'often says' words and phrases, "
+              "and NEVER put a 'never says' word or phrase in their mouth. Pappu, Chhotu and Mintu must not sound alike: Pappu is a loud captain with big promises, "
+              "Chhotu is a quick polite shop boy, Mintu is sweet and innocent while he cheats."),
+    "extras": [],
+}
+_PROMPT_BANNED = re.compile(r"price|discount|dashx|\bbest\b|brand|politic|religio|accident|hospital|police|\bfree\b|\bbuy\b|\bsale\b|offer", re.I)
+
+
+def load_prompt_style() -> dict:
+    """The TUNABLE story-writing wording (stories/refill_prompt.json: tone, voice, up to 5 extra style lines). The format contract, the field order, the spelling,
+    the cold-open / word-limit / card / hook / twist / brand-safety rules stay in this code. Any problem with the file means the built-in wording above."""
+    try:
+        d = json.loads(PROMPT_FILE.read_text(encoding="utf-8"))
+        out = {"tone": d["tone"], "voice": d["voice"], "extras": list(d.get("extras", []))}
+        texts = [out["tone"], out["voice"], *out["extras"]]
+        if not all(isinstance(t, str) and 20 <= len(t) <= 600 for t in texts[:2]) or len(out["extras"]) > 5:
+            raise ValueError("size")
+        if not all(isinstance(t, str) and 10 <= len(t) <= 300 for t in out["extras"]):
+            raise ValueError("size")
+        if any(_PROMPT_BANNED.search(t) for t in texts):
+            raise ValueError("banned word")
+        return out
+    except Exception:
+        return {**PROMPT_DEFAULT, "extras": []}
+
+
 def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "normal", ep: int = 1) -> list[dict]:
     pool = ["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"]
     must = {"rivalry": ["mintu", "pappu"], "shop": ["chhotu"], "series": ["bruno", "golu"]}.get(fmt, [])
@@ -239,16 +303,16 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
     if not set(cast) & {"sachin", "surya", "pappu", "mintu", "chhotu"}:
         cast[-1] = random.choice(["sachin", "surya"])
     hook = seed["formula"]
+    style = load_prompt_style()
     sysmsg = (
         "You write ONE short funny cartoon story for kids, as a 25-second Hindi reel about gully cricket in Meerut, India. "
         "You follow the file format below EXACTLY. Output only the story block, nothing else, no code fence, no explanation.\n\n"
         + bank_header()
         + "\n\nExtra hard rules:\n"
-        "- Write all spoken lines, the ending, the hook, the card and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. Short, simple words, light western-UP flavour (अरे यार, ओ भाई), no heavy dialect.\n"
+        f"- {style['tone']}\n"
         "- English is allowed only in the title before the | and in the plot line. No digits anywhere in Hindi text.\n"
         "- Spell the names exactly: सचिन, सूर्या, दादाजी, आंटी, पिंटू, गोलू, मीना, कोच, ब्रूनो, पप्पू भैया (पप्पू), छोटू, मिंटू.\n"
-        "- VOICE: every character sounds like themselves. Use what each character WANTS as their goal in the story, let them reach for their own 'often says' words and phrases, and NEVER put a 'never says' word or phrase in their mouth. "
-        "Pappu, Chhotu and Mintu must not sound alike: Pappu is a loud captain with big promises, Chhotu is a quick polite shop boy, Mintu is sweet and innocent while he cheats.\n"
+        f"- {style['voice']}\n"
         "- The `plot:` line must describe exactly what the spoken lines show: every character the plot names must appear in the story, and every character who speaks more than once must be named in the plot.\n"
         "- Use at least 3 different templates among the 4 scenes. A story must NOT end in a catch scene unless the joke needs it.\n"
         "- Never mention price, discounts, 'best', brands (also not DASHX), politics, religion, accidents, hospitals or police.\n"
@@ -262,6 +326,7 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
         "- The `ending:` is 2 to 5 Hindi words, a different idea from the punchline.\n"
         "- Give the story a real TWIST: the last scene must flip what the viewer expected. Add ONE real Meerut touch (a place or thing people from Meerut know) in the plot or a line.\n"
         "- Put the field lines in this order: plot, ending, hook, card" + (", series, ep" if fmt == "series" else "") + ", then the four scene rows.\n"
+        + "".join(f"- {x}\n" for x in style["extras"])
     )
     fmt_text = FORMAT_HELP[fmt].format(ep=ep)
     series_lines = (f"Also write the lines `series: Bruno Files` and `ep: {ep}` right after `card:`.\n" if fmt == "series" else "")
@@ -451,7 +516,7 @@ def run(a) -> int:
         code, txt = ask(prompt_for(seed, existing[-40:] + [title_of(b) for b, _ in accepted], endings[-40:], fmt, ep_next))
         if code != 200:
             print(f"  writer HTTP {code}: {clean(txt)}")
-            stop_msg = f" (Gemini answered HTTP {code}: stopped)"
+            stop_msg = f" (Gemini answered HTTP {code}: stopped" + (f"; {clean(txt, 90)}" if code == 0 else "") + ")"      # the reason of a network failure goes into the daily line
             break
         blk = extract_block(txt)
         if not blk:

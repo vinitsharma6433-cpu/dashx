@@ -9,7 +9,8 @@
     "characters_and_voice": ["reelfactory/stories/characters.json"],
     "hook_card_text": ["reelfactory/stories/dialogue_bank.md"],
     "scene_variety": ["reelfactory/stories/situations.json", "reelfactory/stories/dialogue_bank.md"],
-    "caption_and_seo_wording": ["reelfactory/factory/seo.py"]
+    "caption_and_seo_wording": ["reelfactory/factory/seo.py"],
+    "refill_tunables": ["reelfactory/stories/refill_prompt.json", "reelfactory/stories/hook_words.json"]
   },
   "allow_after_owner_extraction": {
     "_about": "Requested as ALLOW, but today these live inside code files that also hold safety checks or the Gemini call cap. Until the owner approves moving them into data files, the machine may NOT edit those code files.",

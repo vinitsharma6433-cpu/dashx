@@ -111,6 +111,8 @@ def build(s: alerts.Signals) -> str:
           f"- Stories left: {left if left is not None else 'unknown'}" + (f" = about {left // REELS_PER_DAY} days at {REELS_PER_DAY} reels a day" if left is not None else ""),
           f"- Gemini calls used in this quota day: {calls}/{int(s.usage.get('cap', 12) or 12)}"]
     L += [""] + ladder.report_lines(s.ladder, s.now)
+    if left is not None and left < alerts.LOW_STOCK:
+        L.append(f"- **{'CRITICAL' if left < alerts.CRITICAL_STOCK else 'LOW'} STOCK**: {left} stories left (alert below {alerts.LOW_STOCK}, loud alert below {alerts.CRITICAL_STOCK}). Posting and the schedule are not changed.")
     if problems:
         L += ["", "### Open alerts (also in the GitHub issue DASHX ALERT)", *(f"- {p.title}" for p in problems)]
     return "\n".join(L) + "\n"

@@ -1,0 +1,6 @@
+{
+ "_about": "Tunable STYLE wording of the story-writing prompt (scripts/refill_bank.py). The format contract, field order, spelling, cold-open, word limits, card, hook, twist and brand-safety rules stay in the code. 'extras' = up to 5 more style lines. The code falls back to its built-in wording if this file is missing or invalid.",
+ "tone": "Write all spoken lines, the ending, the hook, the card and the Hindi title in natural everyday Hindi (Devanagari), the way kids in Meerut talk. Short, simple words, light western-UP flavour (अरे यार, ओ भाई), no heavy dialect.",
+ "voice": "VOICE: every character sounds like themselves. Use what each character WANTS as their goal in the story, let them reach for their own 'often says' words and phrases, and NEVER put a 'never says' word or phrase in their mouth. Pappu, Chhotu and Mintu must not sound alike: Pappu is a loud captain with big promises, Chhotu is a quick polite shop boy, Mintu is sweet and innocent while he cheats.",
+ "extras": []
+}

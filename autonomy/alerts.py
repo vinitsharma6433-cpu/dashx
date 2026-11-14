@@ -31,6 +31,8 @@ ROOT = guard.ROOT
 IST = guard.IST
 TITLE = "DASHX ALERT"
 LABEL = "dashx-alert"
+LOW_STOCK = 12             # below this many stories left: a DASHX ALERT and a line in status/daily.md
+CRITICAL_STOCK = 6         # below this: a LOUD alert (the posting and the schedule are never changed)
 ALLOWED_OUT = {"autonomy/status.json", "status/daily.md"}      # the only files this module (and report.py) writes
 
 META_RE = re.compile(r"token|oauth|expired|cannot call api|\b190\b|code 200|session has expired|permission|secrets missing", re.I)
@@ -162,6 +164,19 @@ def detect(s: Signals) -> list[Problem]:
                            ["GitHub repo → Settings → Secrets and variables → Actions → check karo GEMINI_API_KEY maujood hai.",
                             "GitHub → Actions tab → 'DASHX Story Refill' → dekho koi STOP_REFILL file ya band schedule to nahi.",
                             "Run workflow se ek baar chalao (dry_run ON). Report aate hi alert band ho jayega."], "Story Refill"))
+    lm = re.search(r"(\d+) stories left", s.refill_daily)
+    if lm and int(lm.group(1)) < LOW_STOCK:
+        n = int(lm.group(1))
+        crit = n < CRITICAL_STOCK
+        out.append(Problem("STORY_BANK_CRITICAL" if crit else "STORY_BANK_LOW",
+                           (f"STORY BANK BAHUT KAM HAI: sirf {n} kahaniyan bachi hain" if crit else f"Story bank kam ho raha hai: {n} kahaniyan bachi hain"),
+                           (f"Roz 2 reels banti hain, to ye bank sirf {n // 2} din chalega. Posting nahi rukegi aur machine schedule ya reels ki ginti nahi badlegi, par naye stories jaldi chahiye."
+                            if crit else f"Roz 2 reels banti hain, to ye bank {n // 2} din chalega. Story Refill roz naye stories jodta hai; agar wo fail ho raha hai to bank kam hota jayega."),
+                           ["GitHub → Actions → 'DASHX Story Refill' → latest run → 'Write the daily stories' step kholo aur dekho kya error hai (network, key ya quota).",
+                            "status/daily.md mein 'Story bank and Gemini quota' dekho: kitne Gemini calls use hue.",
+                            "Gemini key ka haal: aistudio.google.com/apikey. Agar key theek hai to Actions → 'DASHX Story Refill' → Run workflow (dry_run OFF) se ek baar chalao.",
+                            "Ye alert tab band hoga jab bank 12 ya usse upar ho jaye."],
+                           f"{n} stories left"))
     if not s.rules_ok:
         out.append(Problem("RULES_TAMPERED", "Autonomy ki rule file badli hui hai, machine ruk gayi hai",
                            "autonomy/RULES.json seal se match nahi karti. Jab tak tum ya koi check na kare, machine kuch nahi badlegi.",
