@@ -1530,10 +1530,18 @@
           "scheduled": true,
           "publish_at": "2026-11-15T12:30:00+05:30",
           "at": "2026-11-14T06:38:03.141722+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1147144954473947",
+          "scheduled": true,
+          "publish_at": "2026-11-15T12:30:00+05:30",
+          "at": "2026-11-14T12:33:23.377828+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "7jhBiLUsthU"
+        "yt_video_id": "7jhBiLUsthU",
+        "fb_video_id": "1147144954473947"
       }
     }
   ]
