@@ -1,6 +1,47 @@
 # DASHX daily report
 Written by the machine every day around 21:00 IST (autonomy/report.py). Newest first.
 
+## 2026-11-15
+<!-- day: 2026-11-15 -->
+Report time: 01:32 IST. Autonomy status: **YELLOW** (Gemini calls used up for today)
+
+### Reels today (3 networks)
+| Reel | Slot | YouTube | Instagram | Facebook |
+|---|---|---|---|---|
+| lucky-cap | 12:30 | scheduled | waiting | scheduled |
+
+### Failures
+None today.
+
+### Fixes the machine made
+None needed.
+
+### Self-changes (made / reverted)
+None today.
+
+### Trends used in the story prompt
+- Children's Day: The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire.
+- Gully cricket house rules: A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument.
+
+### What the learning loop found
+- Reels with data: 12 (need 5). Steering: ON.
+- Best format: normal (average score 51.8, 12 reels).
+- Best hook_type: question (average score 49.7, 11 reels).
+- Data source youtube_statistics: ok
+- Data source instagram_counts: ok
+- Data source facebook_counts: ok
+
+### Story bank and Gemini quota
+- Stories left: 12 = about 6 days at 2 reels a day
+- Gemini calls used in this quota day: 12/12
+
+### Trust Ladder
+- Current: **Step 2 - Careful self-improvement (max 1 change a day, 3 files, allowed files only, auto-revert watch)**
+- Gate to Step 3: 0 of 7 days
+- Gate rule: 7 days with zero harmful reverts and zero missed slots.
+- Blocker: none
+- Last move: 1 -> 2 on 2026-11-15T01:30 (first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball)
+
 ## 2026-11-14
 <!-- day: 2026-11-14 -->
 Report time: 03:02 IST. Autonomy status: **GREEN**
