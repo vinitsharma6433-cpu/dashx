@@ -1,8 +1,64 @@
 {
-  "_about": "Declarative, report-only SEO checks read by tools/seo_checks.py. The weekly SEO Scout may ADD entries from the fixed template list in data/seo_scout_ideas.json (max 2 a week). An entry can only use a fixed type with validated parameters: it can never hold code or a regex. Remove an entry to switch it off.",
-  "checks": [
-    {"id": "viewport", "type": "meta_present", "params": {"attr": "name", "value": "viewport"}, "scope": "all", "level": "WARN", "source": "builtin", "added": "2026-11-14"},
-    {"id": "og-image", "type": "meta_present", "params": {"attr": "property", "value": "og:image"}, "scope": "all", "level": "WARN", "source": "builtin", "added": "2026-11-14"},
-    {"id": "html-lang", "type": "html_lang_present", "params": {}, "scope": "all", "level": "WARN", "source": "builtin", "added": "2026-11-14"}
-  ]
+ "_about": "Declarative, report-only SEO checks read by tools/seo_checks.py. The weekly SEO Scout may ADD entries from the fixed template list in data/seo_scout_ideas.json (max 2 a week). An entry can only use a fixed type with validated parameters: it can never hold code or a regex. Remove an entry to switch it off.",
+ "checks": [
+  {
+   "id": "viewport",
+   "type": "meta_present",
+   "params": {
+    "attr": "name",
+    "value": "viewport"
+   },
+   "scope": "all",
+   "level": "WARN",
+   "source": "builtin",
+   "added": "2026-11-14"
+  },
+  {
+   "id": "og-image",
+   "type": "meta_present",
+   "params": {
+    "attr": "property",
+    "value": "og:image"
+   },
+   "scope": "all",
+   "level": "WARN",
+   "source": "builtin",
+   "added": "2026-11-14"
+  },
+  {
+   "id": "html-lang",
+   "type": "html_lang_present",
+   "params": {},
+   "scope": "all",
+   "level": "WARN",
+   "source": "builtin",
+   "added": "2026-11-14"
+  },
+  {
+   "type": "jsonld_type",
+   "params": {
+    "any_of": [
+     "BreadcrumbList"
+    ]
+   },
+   "scope": "blog",
+   "level": "WARN",
+   "id": "jsonld-breadcrumb",
+   "source": "scout:aksanovdgtl-cmyk/jsonld-schema-check,hustlemarketers-art/hustle-schema-studio,marketing-MEER/schema-markup-checker",
+   "added": "2026-11-14"
+  },
+  {
+   "type": "jsonld_type",
+   "params": {
+    "any_of": [
+     "FAQPage"
+    ]
+   },
+   "scope": "blog",
+   "level": "WARN",
+   "id": "jsonld-faq-blog",
+   "source": "scout:aksanovdgtl-cmyk/jsonld-schema-check,hustlemarketers-art/hustle-schema-studio,marketing-MEER/schema-markup-checker",
+   "added": "2026-11-14"
+  }
+ ]
 }
