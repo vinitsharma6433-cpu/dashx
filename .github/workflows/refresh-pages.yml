@@ -1,0 +1,38 @@
+name: DASHX Refresh loop
+# Weekly (Monday 04:00 IST = Sunday 22:30 UTC), 30 minutes after the Trend Radar. READ-ONLY on the live site.
+# Audits the live blog pages (thin, overlapping, weak links, title/meta) and, if data/gsc_queries.json exists, applies the Search Console rules.
+# It only adds "update" tasks (max 3 a week, one per page) to data/topic_queue.json; Autopilot F2 in dashx-brain does the rewriting.
+# Commits only data/topic_queue.json, data/refresh_report.json and data/variants_log.json. Kill switch: data/PAUSE_AUTOPILOT. No secrets.
+on:
+  schedule:
+    - cron: "30 22 * * 0"
+  workflow_dispatch:
+permissions:
+  contents: write          # only to commit the data files above
+concurrency:
+  group: refresh-pages
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -I -m unittest discover -s tests
+      - name: Run the refresh loop
+        run: python tools/refresh_pages.py
+      - name: Commit the data files
+        run: |
+          if [ -f data/PAUSE_AUTOPILOT ]; then echo "paused: nothing to commit"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/topic_queue.json data/refresh_report.json
+          if [ -f data/variants_log.json ]; then git add data/variants_log.json; fi
+          if git diff --cached --quiet; then echo "no data change"; exit 0; fi
+          git commit -m "Refresh loop: update topic queue and report"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
