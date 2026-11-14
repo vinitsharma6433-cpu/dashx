@@ -1439,7 +1439,13 @@
       },
       "notes": {
         "yt_video_id": "OSiQBV-_fgc",
-        "fb_video_id": "1126448893316369"
+        "fb_video_id": "1126448893316369",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
