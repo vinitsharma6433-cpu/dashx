@@ -1,0 +1,67 @@
+[
+ {
+  "id": "2026-11-14-cricket-tennis-ball-weight",
+  "type": "update",
+  "keyword": "cricket tennis ball weight",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "weight-and-packs",
+  "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
+  "source": "autosuggest",
+  "trend_score": 100,
+  "added": "2026-11-14",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-14-tennis-ball-for-diwali-cricket-match",
+  "type": "new",
+  "keyword": "tennis ball for diwali cricket match",
+  "language": "en",
+  "intent": "commercial-investigation",
+  "cluster": "match-practice",
+  "target_page": "",
+  "source": "seasonal_calendar:diwali",
+  "trend_score": 57,
+  "added": "2026-11-14",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-14-tennis-ball-pack-of-10-for-club",
+  "type": "update",
+  "keyword": "tennis ball pack of 10 for club",
+  "language": "en",
+  "intent": "commercial-investigation",
+  "cluster": "pack-of-10",
+  "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
+  "source": "seasonal_calendar:diwali",
+  "trend_score": 57,
+  "added": "2026-11-14",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-14-cricket-tennis-ball",
+  "type": "update",
+  "keyword": "cricket tennis ball",
+  "language": "en",
+  "intent": "commercial-investigation",
+  "cluster": "general",
+  "target_page": "/blog/cricket-with-tennis-ball-guide",
+  "source": "autosuggest",
+  "trend_score": 54,
+  "added": "2026-11-14",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-14-light-tennis-ball-weight",
+  "type": "update",
+  "keyword": "light tennis ball weight",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "light",
+  "target_page": "/blog/light-tennis-ball-cricket-90g",
+  "source": "autosuggest",
+  "trend_score": 54,
+  "added": "2026-11-14",
+  "status": "queued"
+ }
+]
