@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-14T03:02+05:30",
-  "day": "2026-11-14",
+  "generated": "2026-11-15T01:30+05:30",
+  "day": "2026-11-15",
   "topics": [
     {
       "id": "childrens_day_2026",
@@ -8,7 +8,7 @@
       "why_fits": "Kids are the centre of the day.",
       "story_angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire.",
       "story_situation": "the kids take over the gali for a day and the grown-ups follow the kids' rules",
-      "strength": 10,
+      "strength": 9,
       "sources": [
         "festival calendar"
       ],
@@ -24,7 +24,7 @@
       "sources": [
         "news_gully_cricket"
       ],
-      "expires": "2026-11-17"
+      "expires": "2026-11-18"
     },
     {
       "id": "match_fever",
@@ -39,7 +39,7 @@
         "news_school",
         "news_wedding"
       ],
-      "expires": "2026-11-17"
+      "expires": "2026-11-18"
     },
     {
       "id": "meerut_touch",
@@ -51,7 +51,7 @@
       "sources": [
         "news_meerut"
       ],
-      "expires": "2026-11-17"
+      "expires": "2026-11-18"
     },
     {
       "id": "school_exams",
@@ -66,7 +66,7 @@
         "news_meerut",
         "news_school"
       ],
-      "expires": "2026-11-17"
+      "expires": "2026-11-18"
     },
     {
       "id": "school_holidays",
@@ -78,12 +78,12 @@
       "sources": [
         "news_school"
       ],
-      "expires": "2026-11-17"
+      "expires": "2026-11-18"
     }
   ],
   "stats": {
-    "headlines_seen": 425,
-    "dropped_unsafe": 106,
+    "headlines_seen": 438,
+    "dropped_unsafe": 103,
     "sources_ok": [
       "google_trends_in",
       "news_cricket",

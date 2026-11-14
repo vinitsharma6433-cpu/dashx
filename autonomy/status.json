@@ -1,23 +1,32 @@
 {
-  "level": "green",
-  "reasons": [],
+  "level": "yellow",
+  "reasons": [
+    "Gemini calls used up for today"
+  ],
   "alerts": 0,
   "trend": {
     "topic": "Children's Day",
     "angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire."
   },
   "ladder": {
-    "step": 1,
-    "step_since": "2026-11-14T03:02+05:30",
+    "step": 2,
+    "step_since": "2026-11-15T01:30+05:30",
     "first_run": "2026-11-14T03:02+05:30",
-    "history": [],
+    "history": [
+      {
+        "at": "2026-11-15T01:30+05:30",
+        "from": 1,
+        "to": 2,
+        "why": "first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball"
+      }
+    ],
     "handled": [],
     "drop_alert_until": null,
     "last_drop": "",
     "owner_ready": false,
-    "progress": "1 of 2 clean reels after the first run",
+    "progress": "0 of 7 days",
     "blocker": "",
-    "evidence": "puddle-splash"
+    "evidence": ""
   },
-  "updated": "2026-11-14T20:46+05:30"
+  "updated": "2026-11-15T01:30+05:30"
 }

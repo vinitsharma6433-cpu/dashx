@@ -2,3 +2,6 @@
 - 2026-11-14 03:02 IST | info | learning | 13 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
 - 2026-11-14 03:02 IST scout: injection attempt in san-ratul/panelpop-studio: repo dropped
 - 2026-11-14 03:02 IST | ladder | start | step 1 | first autonomy run succeeded (rule file and ladder file verified)
+- 2026-11-15 01:30 IST | info | trend_radar | top: childrens_day_2026, gully_rules, match_fever; seen 438, dropped 103, failed sources 0 | written
+- 2026-11-15 01:30 IST | info | learning | 12 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-15 01:30 IST | ladder | step_up | 1->2 | first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball
