@@ -63,5 +63,35 @@
   "trend_score": 54,
   "added": "2026-11-14",
   "status": "queued"
+ },
+ {
+  "id": "2026-11-14-refresh-green-tennis-ball-cricket-90g-overlap",
+  "type": "update",
+  "keyword": "green tennis ball weight",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "color-green",
+  "target_page": "/blog/green-tennis-ball-cricket-90g",
+  "source": "refresh:overlap",
+  "trend_score": 76,
+  "added": "2026-11-14",
+  "status": "queued",
+  "note": "shares 86% of its text with blog/yellow-tennis-ball-cricket-90g (differentiate, do not copy)",
+  "differentiate_from": "/blog/yellow-tennis-ball-cricket-90g"
+ },
+ {
+  "id": "2026-11-14-refresh-yellow-tennis-ball-cricket-90g-overlap",
+  "type": "update",
+  "keyword": "yellow ball for tennis",
+  "language": "en",
+  "intent": "commercial-investigation",
+  "cluster": "color-yellow",
+  "target_page": "/blog/yellow-tennis-ball-cricket-90g",
+  "source": "refresh:overlap",
+  "trend_score": 68,
+  "added": "2026-11-14",
+  "status": "queued",
+  "note": "shares 66% of its text with blog/red-tennis-ball-cricket-110g (differentiate, do not copy)",
+  "differentiate_from": "/blog/red-tennis-ball-cricket-110g"
  }
 ]
