@@ -26,12 +26,20 @@ jobs:
           REPORT: seo-health-report.json
           ISSUE_FILE: seo-health-issue.md
         run: python tools/seo_health.py
+      - name: Catalog checks (report only, never fails the run)
+        if: always()
+        continue-on-error: true
+        env:
+          REPORT: seo-checks-report.json
+        run: python tools/seo_checks.py
       - name: Keep the report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: seo-health-report
-          path: seo-health-report.json
+          path: |
+            seo-health-report.json
+            seo-checks-report.json
           retention-days: 30
       - name: Open, update or close the "SEO health FAIL" issue
         if: always()
