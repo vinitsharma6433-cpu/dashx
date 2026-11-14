@@ -11,6 +11,7 @@ Env: SITE, INDEXNOW_KEY, STATE_FILE, DRY_RUN=1 (print only).
 import json
 import os
 import sys
+from datetime import datetime, timezone
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -48,11 +49,32 @@ def load_state(path):
         return {}
 
 
-def save_state(path, state):
+def load_pings(path):
+    """{url: 'YYYY-MM-DD'} of the day each URL was last pinged (a URL is pinged at most once a day)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            d = json.load(f)
+        return d.get("last_ping", {}) if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save_state(path, state, pings=None):
+    if pings is None:
+        pings = load_pings(path)
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"submitted": dict(sorted(state.items()))}, f, indent=1)
+        json.dump({"submitted": dict(sorted(state.items())), "last_ping": dict(sorted(pings.items()))}, f, indent=1)
         f.write("\n")
+
+
+def best_for_google(urls, sitemap, n=2):
+    """The 1-2 URLs worth pressing 'Request indexing' for by hand in Search Console (Google has no safe automatic way):
+    changed blog posts first, newest lastmod first, then other changed pages."""
+    def key(u):
+        lm = sitemap.get(u, "")
+        return (0 if "/blog/" in u else 1, 0 if lm else 1, "".join(chr(255 - ord(c)) for c in lm), u)    # no lastmod sorts last
+    return sorted(urls, key=key)[:n]
 
 
 def payload(host, key, urls):
@@ -79,8 +101,10 @@ def main():
         print("key file at /%s.txt does not match the key" % KEY)
         return 1
     state = load_state(STATE_FILE)
-    todo = pending(sitemap, state)
-    print("sitemap %d URLs, %d new or changed" % (len(sitemap), len(todo)))
+    pings = load_pings(STATE_FILE)
+    today = os.environ.get("TODAY") or datetime.now(timezone.utc).date().isoformat()
+    todo = [u for u in pending(sitemap, state) if pings.get(u) != today]      # max one ping per URL per day
+    print("sitemap %d URLs, %d new or changed (not yet pinged today)" % (len(sitemap), len(todo)))
     if not todo:
         return 0
     if os.environ.get("DRY_RUN") == "1":
@@ -96,12 +120,20 @@ def main():
             code = e.code
         if code not in (200, 202):
             print("IndexNow answered HTTP %s; state not updated for this batch" % code)
-            save_state(STATE_FILE, state)
+            save_state(STATE_FILE, state, pings)
             return 1
         for u in chunk:
             state[u] = sitemap[u]
-        save_state(STATE_FILE, state)
+            pings[u] = today
+        save_state(STATE_FILE, state, pings)
         print("submitted %d URLs (HTTP %s)" % (len(chunk), code))
+    best = best_for_google(todo, sitemap)
+    if best:
+        msg = "REQUEST INDEXING (by hand in Search Console, Google has no safe automatic way): " + " | ".join(best)
+        print(msg)
+        if os.environ.get("GITHUB_STEP_SUMMARY"):
+            with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+                f.write("## IndexNow\n- submitted %d URLs\n- %s\n" % (len(todo), msg))
     return 0
 
 
