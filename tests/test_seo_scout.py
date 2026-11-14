@@ -47,8 +47,10 @@ class Run(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.d = self.tmp.name
-        for f in ("seo_checks.json", "seo_scout_ideas.json"):
-            shutil.copy(os.path.join(DATA_SRC, f), self.d)
+        shutil.copy(os.path.join(DATA_SRC, "seo_scout_ideas.json"), self.d)
+        seed = [c for c in ("viewport", "og-image", "html-lang")]                  # a FIXED seed: the shipped catalog changes every week by design
+        ideas = {i["id"]: i for i in json.load(open(os.path.join(self.d, "seo_scout_ideas.json")))["ideas"]}
+        json.dump({"checks": [dict(ideas[i]["check"], id=i, source="builtin", added="2026-11-14") for i in seed]}, open(os.path.join(self.d, "seo_checks.json"), "w"))
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -89,6 +91,16 @@ class Run(unittest.TestCase):
         code, fake = self.go({"acme/seo-lint": (repo("acme/seo-lint"), "alt text")})
         self.assertEqual(set(os.listdir(self.d)) - before, {"seo_scout_state.json", "seo_scout_report.json"})
         self.assertTrue(all(u.startswith("https://api.github.com/") for u in fake.urls))
+
+    def test_search_asks_for_well_known_repos_and_drops_tiny_ones(self):
+        repos = {"big/seo": (repo("big/seo", stars=900), "alt text"), "tiny/seo": (repo("tiny/seo", stars=1), "alt text breadcrumb favicon")}
+        code, fake = self.go(repos)
+        search_urls = [u for u in fake.urls if "/search/repositories" in u]
+        self.assertTrue(search_urls and all("sort=stars" in u and "stars%3A%3E%3D20" in u for u in search_urls))
+        rep = self.report()
+        self.assertEqual([r["repo"] for r in rep["good_repos"]], ["big/seo"])               # the 1-star repo never counted
+        self.assertEqual(rep["repos_seen"], 1)
+        self.assertEqual(rep["new_checks"], ["img-alt"])
 
     def test_real_api_door_refuses_other_hosts(self):
         cfg = ss.seo_cfg(ss.scout.load_config(), json.load(open(os.path.join(DATA_SRC, "seo_scout_ideas.json"))))

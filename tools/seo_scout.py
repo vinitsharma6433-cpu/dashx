@@ -16,8 +16,9 @@ import copy
 import json
 import os
 import sys
+import urllib.parse
 from collections import Counter
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -28,6 +29,15 @@ import scout             # noqa: E402  (autonomy/scout.py: the vetting code, imp
 DATA = os.environ.get("DATA_DIR", "data")
 MAX_NEW_CHECKS = 2
 MIN_REPOS_PER_IDEA = 1
+MIN_STARS = 20          # a quality signal: ideas only count when a repo other people actually use talks about them
+
+
+def search(query, cfg, fetch):
+    """Like scout.search, but the best-known repos first (sort=stars, at least MIN_STARS) instead of 'recently updated' ones with 0 stars."""
+    pushed_after = (datetime.now(timezone.utc) - timedelta(days=cfg["stale_days"])).strftime("%Y-%m-%d")
+    q = urllib.parse.quote("%s stars:>=%d pushed:>%s fork:false" % (query, MIN_STARS, pushed_after))
+    body, _ = fetch("https://%s/search/repositories?q=%s&sort=stars&per_page=%d" % (cfg["api_host"], q, cfg["results_per_query"]), cfg)
+    return [r for r in json.loads(body).get("items", []) if r.get("stargazers_count", 0) >= MIN_STARS]
 
 
 def load_json(path, default):
@@ -91,7 +101,7 @@ def run(today=None, fetch=scout.api_get, data_dir=None, now=None):
     repos, failed = {}, 0
     for topic, q in queries:
         try:
-            for r in scout.search(q, cfg, fetch):
+            for r in search(q, cfg, fetch):
                 repos.setdefault(r.get("full_name", "?"), r)
         except Exception:
             failed += 1
