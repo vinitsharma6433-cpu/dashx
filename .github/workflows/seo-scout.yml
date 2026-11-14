@@ -1,0 +1,39 @@
+name: DASHX SEO Scout
+# Weekly (Wednesday 04:30 IST = Tuesday 23:00 UTC). Finds good public SEO repos and switches on up to 2 of OUR OWN report-only check templates.
+# It reads repo README/docs text through api.github.com only (read-only token). It never clones, installs, imports or runs anything from a repo,
+# never copies a repo's words, and changes only data/seo_checks.json, data/seo_scout_state.json and data/seo_scout_report.json.
+# Kill switch: data/PAUSE_AUTOPILOT. No secret is used (the workflow's own read-only token goes only to api.github.com).
+on:
+  schedule:
+    - cron: "0 23 * * 2"
+  workflow_dispatch:
+permissions:
+  contents: write          # only to commit the three data files above
+concurrency:
+  group: seo-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -I -m unittest discover -s tests
+      - name: Run the SEO Scout
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/seo_scout.py
+      - name: Commit the data files
+        run: |
+          if [ -f data/PAUSE_AUTOPILOT ]; then echo "paused: nothing to commit"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/seo_checks.json data/seo_scout_state.json data/seo_scout_report.json
+          if git diff --cached --quiet; then echo "no data change"; exit 0; fi
+          git commit -m "SEO Scout: update report-only check catalog"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

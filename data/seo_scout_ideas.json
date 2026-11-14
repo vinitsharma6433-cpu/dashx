@@ -1,0 +1,300 @@
+{
+ "_about": "The FIXED list of safe check templates the SEO Scout may switch on. Each one is a declarative check (no code, no regex). 'keywords' is matched against the README text of a good public SEO repo; the repo's own words are never copied. Adding a new TYPE of check needs code and a human review; adding one of these templates to data/seo_checks.json is automatic.",
+ "query_topics": {
+  "seo audit": [
+   "seo audit tool",
+   "technical seo audit python",
+   "website seo checker"
+  ],
+  "structured data": [
+   "structured data validator",
+   "json-ld schema checker",
+   "schema.org testing tool"
+  ],
+  "on-page checks": [
+   "seo linter html",
+   "on-page seo checklist",
+   "html seo best practices"
+  ],
+  "performance seo": [
+   "core web vitals checker",
+   "lighthouse seo audit",
+   "web performance audit"
+  ],
+  "sitemap and robots": [
+   "sitemap checker",
+   "robots.txt validator",
+   "indexnow tool"
+  ]
+ },
+ "ideas": [
+  {
+   "id": "viewport",
+   "label": "Pages declare a mobile viewport",
+   "keywords": "viewport|mobile[- ]friendly",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "meta_present",
+    "params": {
+     "attr": "name",
+     "value": "viewport"
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "og-image",
+   "label": "Pages have an Open Graph image",
+   "keywords": "open ?graph|og:image|social (media )?(preview|card)",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "meta_present",
+    "params": {
+     "attr": "property",
+     "value": "og:image"
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "html-lang",
+   "label": "The html tag has a lang attribute",
+   "keywords": "<html lang|lang attribute|language attribute",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "html_lang_present",
+    "params": {},
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "twitter-card",
+   "label": "Pages have a twitter:card tag",
+   "keywords": "twitter:card|twitter card",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "meta_present",
+    "params": {
+     "attr": "name",
+     "value": "twitter:card"
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "img-alt",
+   "label": "Every image has alt text",
+   "keywords": "\\balt (text|attribute)|image alt|alt tags?",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "img_attr_ratio",
+    "params": {
+     "attr": "alt",
+     "min": 1
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "img-dimensions",
+   "label": "Images declare width (layout shift)",
+   "keywords": "layout shift|\\bcls\\b|width and height",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "img_attr_ratio",
+    "params": {
+     "attr": "width",
+     "min": 1
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "single-h1",
+   "label": "Each page has exactly one h1",
+   "keywords": "\\bh1\\b|heading (structure|hierarchy|tags)",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "h1_count",
+    "params": {
+     "equals": 1
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "jsonld-breadcrumb",
+   "label": "Blog and product pages have BreadcrumbList data",
+   "keywords": "breadcrumb|structured data|json-?ld|schema\\.org",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "jsonld_type",
+    "params": {
+     "any_of": [
+      "BreadcrumbList"
+     ]
+    },
+    "scope": "blog",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "jsonld-faq-blog",
+   "label": "Blog posts have FAQPage data",
+   "keywords": "\\bfaq\\b|rich (results|snippets)",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "jsonld_type",
+    "params": {
+     "any_of": [
+      "FAQPage"
+     ]
+    },
+    "scope": "blog",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "canonical-present",
+   "label": "Pages have a canonical link",
+   "keywords": "canonical",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "link_rel_present",
+    "params": {
+     "rel": "canonical"
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "favicon",
+   "label": "Pages declare a favicon",
+   "keywords": "favicon",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "link_rel_present",
+    "params": {
+     "rel": "icon"
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "links-related-blog",
+   "label": "Blog posts link to 2+ other guides",
+   "keywords": "internal link|related (posts|articles|content)",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "links_min",
+    "params": {
+     "prefix": "/blog/",
+     "min": 2
+    },
+    "scope": "blog",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "links-product-blog",
+   "label": "Blog posts link to a product page",
+   "keywords": "internal link|link(ing)? to (product|category)",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "links_min",
+    "params": {
+     "prefix": "/p/",
+     "min": 1
+    },
+    "scope": "blog",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "anchor-text",
+   "label": "No 'click here' style link text",
+   "keywords": "anchor text|click here",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "text_absent",
+    "params": {
+     "phrases": [
+      "click here",
+      "read more",
+      "here"
+     ]
+    },
+    "scope": "all",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "security-hsts",
+   "label": "Server sends Strict-Transport-Security",
+   "keywords": "hsts|strict-transport|security headers?",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "header_present",
+    "params": {
+     "name": "Strict-Transport-Security"
+    },
+    "scope": "home",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "security-nosniff",
+   "label": "Server sends X-Content-Type-Options",
+   "keywords": "x-content-type|nosniff|security headers?",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "header_present",
+    "params": {
+     "name": "X-Content-Type-Options"
+    },
+    "scope": "home",
+    "level": "WARN"
+   }
+  },
+  {
+   "id": "referrer-policy",
+   "label": "Server sends Referrer-Policy",
+   "keywords": "referrer-policy|security headers?",
+   "target": "data/seo_checks.json",
+   "kind": "report-only check",
+   "check": {
+    "type": "header_present",
+    "params": {
+     "name": "Referrer-Policy"
+    },
+    "scope": "home",
+    "level": "WARN"
+   }
+  }
+ ]
+}
