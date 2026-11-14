@@ -1,0 +1,11 @@
+{
+  "_about": "Edit me. Months are 1-12 and are APPROXIMATE (match them to your local calendar). The radar adds the modifiers below as keyword ideas when the window is active or starts next month. Keep modifiers about the balls DASHX sells; no bats, kits, prices, competitor names or league names.",
+  "events": [
+    {"id": "ipl-season", "name": "IPL season (cricket fever)", "months": [3, 4, 5], "modifiers": ["tennis ball cricket match", "tennis ball for tournament"]},
+    {"id": "local-tournaments", "name": "Local and box cricket tournaments", "months": [11, 12, 1, 2], "modifiers": ["tennis ball for tournament", "tennis ball pack of 10 for club"]},
+    {"id": "summer-holidays", "name": "Summer holidays", "months": [5, 6], "modifiers": ["tennis ball for summer holidays practice", "tennis ball for gully cricket"]},
+    {"id": "diwali", "name": "Diwali and festival break", "months": [10, 11], "modifiers": ["tennis ball for diwali cricket match", "tennis ball pack of 10 for club"]},
+    {"id": "school-sports-day", "name": "School sports days", "months": [12, 1, 2], "modifiers": ["tennis ball for school sports day", "tennis ball for school cricket"]},
+    {"id": "new-season-start", "name": "New cricket season starts", "months": [10], "modifiers": ["tennis ball for new season practice", "how to choose a tennis ball for cricket"]}
+  ]
+}

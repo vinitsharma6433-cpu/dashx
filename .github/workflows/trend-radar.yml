@@ -1,0 +1,38 @@
+name: DASHX Trend Radar
+# Weekly (Monday 03:30 IST = Sunday 22:00 UTC). Finds keyword ideas (Google autosuggest + data/seasonal_calendar.json),
+# updates data/keywords.json and data/topic_queue.json (max 5 new tasks a week) and commits only those two files.
+# Kill switch: if data/PAUSE_AUTOPILOT exists the job exits without changing anything. No secrets are needed.
+on:
+  schedule:
+    - cron: "0 22 * * 0"
+  workflow_dispatch:
+permissions:
+  contents: write          # only to commit data/keywords.json and data/topic_queue.json
+concurrency:
+  group: trend-radar
+  cancel-in-progress: false
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python -I -m unittest discover -s tests
+      - name: Run the radar
+        env:
+          GSC_SA_JSON: ${{ secrets.GSC_SA_JSON }}   # optional; skipped when empty
+        run: python tools/trend_radar.py
+      - name: Commit the data files
+        run: |
+          if [ -f data/PAUSE_AUTOPILOT ]; then echo "paused: nothing to commit"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/keywords.json data/topic_queue.json
+          if git diff --cached --quiet; then echo "no data change"; exit 0; fi
+          git commit -m "Trend radar: update keywords and topic queue"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
