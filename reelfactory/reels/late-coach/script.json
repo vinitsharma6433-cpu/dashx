@@ -1,0 +1,184 @@
+{
+  "id": "late-coach",
+  "title": "देर से आए कोच",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach arrives late with samosas, the kids are already playing, Meena's shot comes at him, and he catches it with a samosa in the other hand.",
+    "idea": "Late Coach",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "देर से आए कोच, हाथ में समोसा! 😋",
+    "closing": "चटनी के साथ समोसा हिट!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "meena",
+        "boardText": "देर"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "माफ़ करना, समोसे लेने गया था! कोच जी, हम तो खेल चुके!",
+      "subtitle": "माफ़ करना, समोसे लेने गया था! कोच जी, हम तो खेल चुके!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "माफ़ करना, समोसे लेने गया था!",
+          "start": 0.25,
+          "end": 2.6,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "कोच जी, हम तो खेल चुके!",
+          "start": 2.7,
+          "end": 4.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "माफ़ करना, समोसे लेने गया था!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "meena",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "समोसे की ख़ुशबू आ रही है! पहले गेंद, फिर समोसे!",
+      "subtitle": "समोसे की ख़ुशबू आ रही है! पहले गेंद, फिर समोसे!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "समोसे की ख़ुशबू आ रही है!",
+          "start": 0.25,
+          "end": 2.13,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "पहले गेंद, फिर समोसे!",
+          "start": 2.23,
+          "end": 3.74,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "समोसे की ख़ुशबू आ रही है!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "coach",
+        "watchers": [
+          "golu",
+          "meena"
+        ]
+      },
+      "duration": 3.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "एक हाथ में समोसा, दूसरे में कैच!",
+      "subtitle": "एक हाथ में समोसा, दूसरे में कैच!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "एक हाथ में समोसा, दूसरे में कैच!",
+          "start": 0.25,
+          "end": 2.96,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "एक हाथ में समोसा, दूसरे में कैच!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "coach",
+        "boardText": "समोसा"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "कोच जी, समोसा गिरा तो मेरा! कैच पक्का, समोसा आधा-आधा!",
+      "subtitle": "कोच जी, समोसा गिरा तो मेरा! कैच पक्का, समोसा आधा-आधा!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "कोच जी, समोसा गिरा तो मेरा!",
+          "start": 0.25,
+          "end": 2.04,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "coach",
+          "line": "कैच पक्का, समोसा आधा-आधा!",
+          "start": 2.14,
+          "end": 4.64,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "कोच जी, समोसा गिरा तो मेरा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -1,0 +1,183 @@
+{
+  "id": "aunty-keeps-the-ball",
+  "title": "आंटी की ज़ब्ती",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya's shot lands on Aunty's roof and she says the ball is hers now, the boys beg for a chance, and she returns it with an invitation for tea.",
+    "idea": "Aunty Keeps The Ball",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "गेंद गई आंटी की छत पर, अब शर्त क्या? 🏠",
+    "closing": "गेंद मिली, चाय भी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "aunty"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "अरे! गेंद आंटी की छत पर गई! यह गेंद अब मेरी है!",
+      "subtitle": "अरे! गेंद आंटी की छत पर गई! यह गेंद अब मेरी है!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "अरे! गेंद आंटी की छत पर गई!",
+          "start": 0.25,
+          "end": 2.19,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "यह गेंद अब मेरी है!",
+          "start": 2.29,
+          "end": 3.85,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "अरे! गेंद आंटी की छत पर गई!"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "aunty",
+        "boardText": "ज़ब्त"
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, एक मौक़ा दे दो! पहले माफ़ी माँगो!",
+      "subtitle": "आंटी, एक मौक़ा दे दो! पहले माफ़ी माँगो!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "आंटी, एक मौक़ा दे दो!",
+          "start": 0.25,
+          "end": 1.89,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "पहले माफ़ी माँगो!",
+          "start": 1.99,
+          "end": 3.45,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "आंटी, एक मौक़ा दे दो!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "ठीक है, लो गेंद, पर कल चाय मेरे घर!",
+      "subtitle": "ठीक है, लो गेंद, पर कल चाय मेरे घर!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "ठीक है, लो गेंद, पर कल चाय मेरे घर!",
+          "start": 0.25,
+          "end": 2.97,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "ठीक है, लो गेंद, पर कल चाय मेरे घर!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "चाय"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन, गेंद भी मिली, चाय भी! ऐसी ज़ब्ती तो रोज़ होनी चाहिए!",
+      "subtitle": "सचिन, गेंद भी मिली, चाय भी! ऐसी ज़ब्ती तो रोज़ होनी चाहिए!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "सचिन, गेंद भी मिली, चाय भी!",
+          "start": 0.25,
+          "end": 2.2,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "ऐसी ज़ब्ती तो रोज़ होनी चाहिए!",
+          "start": 2.3,
+          "end": 4.62,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "सचिन, गेंद भी मिली, चाय भी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

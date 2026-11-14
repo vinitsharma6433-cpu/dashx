@@ -1,0 +1,184 @@
+{
+  "id": "lucky-cap",
+  "title": "क़िस्मत वाली टोपी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya wears his lucky cap, the wind blows it away, he chases the cap instead of hitting, and Pintu catches the cap instead of the ball.",
+    "idea": "Lucky Cap",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "क़िस्मत वाली टोपी हवा में उड़ गई, अब? 🧢",
+    "closing": "टोपी उड़ी, क़िस्मत भी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "टोपी"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "यह टोपी मेरे लिए शुभ है! हवा को तो पता ही नहीं!",
+      "subtitle": "यह टोपी मेरे लिए शुभ है! हवा को तो पता ही नहीं!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "यह टोपी मेरे लिए शुभ है!",
+          "start": 0.25,
+          "end": 2.07,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "हवा को तो पता ही नहीं!",
+          "start": 2.17,
+          "end": 3.78,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "यह टोपी मेरे लिए शुभ है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गेंद आ रही है! अरे, मेरी टोपी उड़ गई!",
+      "subtitle": "गेंद आ रही है! अरे, मेरी टोपी उड़ गई!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "गेंद आ रही है!",
+          "start": 0.25,
+          "end": 1.49,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "अरे, मेरी टोपी उड़ गई!",
+          "start": 1.59,
+          "end": 3.25,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "गेंद आ रही है!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "pintu",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "मैंने गेंद नहीं, टोपी पकड़ ली!",
+      "subtitle": "मैंने गेंद नहीं, टोपी पकड़ ली!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "मैंने गेंद नहीं, टोपी पकड़ ली!",
+          "start": 0.25,
+          "end": 2.49,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "मैंने गेंद नहीं, टोपी पकड़ ली!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "pintu",
+        "boardText": "क़िस्मत"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू, मेरी टोपी दो! लो, पर क़िस्मत अब भी हवा में!",
+      "subtitle": "पिंटू, मेरी टोपी दो! लो, पर क़िस्मत अब भी हवा में!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "पिंटू, मेरी टोपी दो!",
+          "start": 0.25,
+          "end": 1.74,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "लो, पर क़िस्मत अब भी हवा में!",
+          "start": 1.84,
+          "end": 4.11,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "पिंटू, मेरी टोपी दो!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

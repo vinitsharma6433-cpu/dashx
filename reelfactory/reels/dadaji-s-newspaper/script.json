@@ -1,0 +1,183 @@
+{
+  "id": "dadaji-s-newspaper",
+  "title": "अख़बार वाले दादाजी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya tells everyone to be quiet because Dadaji is reading, Golu's little shot flies into the newspaper, and Dadaji catches it from behind the paper.",
+    "idea": "Dadaji's Newspaper",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "अख़बार पढ़ते दादाजी के पास गेंद आई तो? 📰",
+    "closing": "अख़बार में आज: गेंद!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "surya",
+        "boardText": "श्श"
+      },
+      "duration": 5.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "श्श! अख़बार पढ़ रहा हूँ। सॉरी दादाजी, हम धीरे खेलेंगे!",
+      "subtitle": "श्श! अख़बार पढ़ रहा हूँ। सॉरी दादाजी, हम धीरे खेलेंगे!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "श्श! अख़बार पढ़ रहा हूँ।",
+          "start": 0.25,
+          "end": 2.57,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "सॉरी दादाजी, हम धीरे खेलेंगे!",
+          "start": 2.67,
+          "end": 4.87,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "श्श! अख़बार पढ़ रहा हूँ।"
+    },
+    {
+      "id": 2,
+      "template": "shot",
+      "params": {
+        "batter": "golu",
+        "watcher": "dadaji"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ये मेरा छोटा सा शॉट! अरे, मेरे अख़बार में घुस गया!",
+      "subtitle": "ये मेरा छोटा सा शॉट! अरे, मेरे अख़बार में घुस गया!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "ये मेरा छोटा सा शॉट!",
+          "start": 0.25,
+          "end": 1.84,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "अरे, मेरे अख़बार में घुस गया!",
+          "start": 1.94,
+          "end": 4.83,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "ये मेरा छोटा सा शॉट!"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "golu",
+          "surya"
+        ]
+      },
+      "duration": 3.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "पकड़ ली गेंद, अख़बार के पीछे से!",
+      "subtitle": "पकड़ ली गेंद, अख़बार के पीछे से!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "पकड़ ली गेंद, अख़बार के पीछे से!",
+          "start": 0.25,
+          "end": 3.57,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "पकड़ ली गेंद, अख़बार के पीछे से!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "dadaji",
+        "boardText": "ख़बर"
+      },
+      "duration": 6.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी, आपने कैच कैसे पकड़ा? बेटा, आज की ताज़ा ख़बर, मैं जाग रहा हूँ!",
+      "subtitle": "दादाजी, आपने कैच कैसे पकड़ा? बेटा, आज की ताज़ा ख़बर, मैं जाग रहा हूँ!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "दादाजी, आपने कैच कैसे पकड़ा?",
+          "start": 0.25,
+          "end": 2.42,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "बेटा, आज की ताज़ा ख़बर, मैं जाग रहा हूँ!",
+          "start": 2.52,
+          "end": 6.47,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "दादाजी, आपने कैच कैसे पकड़ा?"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

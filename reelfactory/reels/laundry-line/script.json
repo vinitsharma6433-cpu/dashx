@@ -1,0 +1,183 @@
+{
+  "id": "laundry-line",
+  "title": "कपड़ों की रस्सी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya's shot lands in Aunty's washing, Aunty asks how the ball got on her sheet, Surya hides, and Aunty catches the ball through the sheet.",
+    "idea": "Laundry Line",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "आंटी की चादर पर गेंद, सूर्या कहाँ छुपा? 👀",
+    "closing": "सूर्या चादर में ग़ायब!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "aunty"
+      },
+      "duration": 5.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "छक्का! अरे, गेंद आंटी की चादर में! यह किसकी गेंद है मेरी चादर पर?",
+      "subtitle": "छक्का! अरे, गेंद आंटी की चादर में! यह किसकी गेंद है मेरी चादर पर?",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "छक्का! अरे, गेंद आंटी की चादर में!",
+          "start": 0.25,
+          "end": 2.65,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "यह किसकी गेंद है मेरी चादर पर?",
+          "start": 2.75,
+          "end": 5.23,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "छक्का! अरे, गेंद आंटी की चादर में!"
+    },
+    {
+      "id": 2,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "surya",
+        "boardText": "चादर"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बताओ, मेरी चादर पर गेंद कैसे? आंटी, हवा से आ गई होगी!",
+      "subtitle": "बताओ, मेरी चादर पर गेंद कैसे? आंटी, हवा से आ गई होगी!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "बताओ, मेरी चादर पर गेंद कैसे?",
+          "start": 0.25,
+          "end": 2.63,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "आंटी, हवा से आ गई होगी!",
+          "start": 2.73,
+          "end": 4.57,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "बताओ, मेरी चादर पर गेंद कैसे?"
+    },
+    {
+      "id": 3,
+      "template": "catch",
+      "params": {
+        "catcher": "aunty",
+        "watchers": [
+          "surya",
+          "sachin"
+        ]
+      },
+      "duration": 3.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "हवा से? लो, चादर से ही पकड़ ली!",
+      "subtitle": "हवा से? लो, चादर से ही पकड़ ली!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "हवा से? लो, चादर से ही पकड़ ली!",
+          "start": 0.25,
+          "end": 2.61,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "हवा से? लो, चादर से ही पकड़ ली!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "surya",
+        "boardText": "कहाँ"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सूर्या कहाँ गया? मैं चादर में हूँ, मुझे मत ढूँढो!",
+      "subtitle": "सूर्या कहाँ गया? मैं चादर में हूँ, मुझे मत ढूँढो!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "सूर्या कहाँ गया?",
+          "start": 0.25,
+          "end": 1.42,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "मैं चादर में हूँ, मुझे मत ढूँढो!",
+          "start": 1.52,
+          "end": 3.66,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "सूर्या कहाँ गया?"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

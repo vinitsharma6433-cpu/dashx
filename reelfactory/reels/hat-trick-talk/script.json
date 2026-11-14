@@ -1,0 +1,188 @@
+{
+  "id": "hat-trick-talk",
+  "title": "छक्कों की हैट्रिक",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Surya boasts that he will hit three sixes in a row, his first shot just rolls on the ground, and Dadaji asks him to score one run first.",
+    "idea": "Hat-trick Talk",
+    "generated": "2026-11-14",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "तीन छक्कों का वादा, कितने निकले? 🏏",
+    "closing": "बातें बड़ी, रन छोटे!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "sachin",
+        "boardText": "छक्के"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आज लगातार तीन छक्के मारूँगा! पहले एक तो मारकर दिखा!",
+      "subtitle": "आज लगातार तीन छक्के मारूँगा! पहले एक तो मारकर दिखा!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "आज लगातार तीन छक्के मारूँगा!",
+          "start": 0.25,
+          "end": 2.44,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "पहले एक तो मारकर दिखा!",
+          "start": 2.54,
+          "end": 4.42,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "आज लगातार तीन छक्के मारूँगा!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "ले, पहली गेंद आ रही है! देखता जा, आसमान में जाएगी!",
+      "subtitle": "ले, पहली गेंद आ रही है! देखता जा, आसमान में जाएगी!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ले, पहली गेंद आ रही है!",
+          "start": 0.25,
+          "end": 2.1,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "देखता जा, आसमान में जाएगी!",
+          "start": 2.2,
+          "end": 4.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ले, पहली गेंद आ रही है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "sachin"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "लो, उड़ा दिया छक्का! वो तो ज़मीन पर लुढ़क रही है!",
+      "subtitle": "लो, उड़ा दिया छक्का! वो तो ज़मीन पर लुढ़क रही है!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "लो, उड़ा दिया छक्का!",
+          "start": 0.25,
+          "end": 1.72,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "वो तो ज़मीन पर लुढ़क रही है!",
+          "start": 1.82,
+          "end": 4.04,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "लो, उड़ा दिया छक्का!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "surya",
+        "boardText": "रन"
+      },
+      "duration": 5.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बेटा, पहले एक रन तो बना ले! ठीक है, अगली बार एक रन पक्का!",
+      "subtitle": "बेटा, पहले एक रन तो बना ले! ठीक है, अगली बार एक रन पक्का!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "बेटा, पहले एक रन तो बना ले!",
+          "start": 0.25,
+          "end": 3.26,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "surya",
+          "line": "ठीक है, अगली बार एक रन पक्का!",
+          "start": 3.36,
+          "end": 5.48,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "बेटा, पहले एक रन तो बना ले!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
