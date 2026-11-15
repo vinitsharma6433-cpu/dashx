@@ -1,0 +1,173 @@
+{
+  "id": "bruno-brings-a-friend",
+  "title": "ब्रूनो अपना दोस्त लाया",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Bruno brings a small puppy to the match, Meena says it fields badly but cutely, and Coach agrees to keep both.",
+    "idea": "Bruno Brings a Friend",
+    "generated": "2026-11-15",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "ब्रूनो मैच में किसे साथ ले आया? 🐕",
+    "card": "ब्रूनो का नया दोस्त!",
+    "closing": "दो दोस्त, एक परिवार!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "meena",
+        "right": "coach",
+        "boardText": "पिल्ला"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "कोच जी, ये छोटा पिल्ला कौन है? कोई इसे लाया है!",
+      "subtitle": "कोच जी, ये छोटा पिल्ला कौन है? कोई इसे लाया है!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "कोच जी, ये छोटा पिल्ला कौन है?",
+          "start": 0.25,
+          "end": 2.12,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "coach",
+          "line": "कोई इसे लाया है!",
+          "start": 2.22,
+          "end": 3.71,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "कोच जी, ये छोटा पिल्ला कौन है?"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "meena",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सूर्या, पिल्ले को मत मारना!",
+      "subtitle": "सूर्या, पिल्ले को मत मारना!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "सूर्या, पिल्ले को मत मारना!",
+          "start": 0.25,
+          "end": 1.89,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "सूर्या, पिल्ले को मत मारना!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ये नन्हा तो गेंद के पीछे गिर गया!",
+      "subtitle": "ये नन्हा तो गेंद के पीछे गिर गया!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "ये नन्हा तो गेंद के पीछे गिर गया!",
+          "start": 0.25,
+          "end": 2.46,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "ये नन्हा तो गेंद के पीछे गिर गया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "meena",
+        "boardText": "मंज़ूर"
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दोनों टीम में रहेंगे! कोच जी, आप तो दिलदार निकले!",
+      "subtitle": "दोनों टीम में रहेंगे! कोच जी, आप तो दिलदार निकले!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "दोनों टीम में रहेंगे!",
+          "start": 0.25,
+          "end": 1.97,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "कोच जी, आप तो दिलदार निकले!",
+          "start": 2.07,
+          "end": 3.86,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "दोनों टीम में रहेंगे!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

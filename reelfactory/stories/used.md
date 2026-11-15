@@ -50,3 +50,5 @@
 - 2026-11-14 | laundry-line | कपड़ों की रस्सी (Laundry Line) | Surya's shot lands in Aunty's washing, Aunty asks how the ball got on her sheet, Surya hides, and Aunty catches the ball through the sheet. | सूर्या चादर में ग़ायब!
 - 2026-11-14 | lucky-cap | क़िस्मत वाली टोपी (Lucky Cap) | Surya wears his lucky cap, the wind blows it away, he chases the cap instead of hitting, and Pintu catches the cap instead of the ball. | टोपी उड़ी, क़िस्मत भी!
 - 2026-11-14 | aunty-keeps-the-ball | आंटी की ज़ब्ती (Aunty Keeps The Ball) | Surya's shot lands on Aunty's roof and she says the ball is hers now, the boys beg for a chance, and she returns it with an invitation for tea. | गेंद मिली, चाय भी!
+- 2026-11-15 | bruno-brings-a-friend | ब्रूनो अपना दोस्त लाया (Bruno Brings a Friend) | Bruno brings a small puppy to the match, Meena says it fields badly but cutely, and Coach agrees to keep both. | दो दोस्त, एक परिवार!
+- 2026-11-15 | sankranti-kite-and-ball | संक्रांति की पतंग (Sankranti Kite and Ball) | A kite and a ball collide above the gali, and both land in Dadaji's hands while Golu and Mintu cheer. | आसमान से सीधी झोली!

@@ -1,0 +1,167 @@
+{
+  "id": "sankranti-kite-and-ball",
+  "title": "संक्रांति की पतंग",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "A kite and a ball collide above the gali, and both land in Dadaji's hands while Golu and Mintu cheer.",
+    "idea": "Sankranti Kite and Ball",
+    "generated": "2026-11-15",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "आसमान में पतंग और गेंद टकराई तो क्या हुआ? 🪁",
+    "card": "आसमान में टक्कर!",
+    "closing": "आसमान से सीधी झोली!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "mintu",
+        "boardText": "पतंग"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मिंटू, पतंग और गेंद टकरा गईं!",
+      "subtitle": "मिंटू, पतंग और गेंद टकरा गईं!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "मिंटू, पतंग और गेंद टकरा गईं!",
+          "start": 0.25,
+          "end": 2.53,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "मिंटू, पतंग और गेंद टकरा गईं!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "golu",
+        "bowler": "mintu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "ऊपर देखो, दोनों नीचे आ रही हैं!",
+      "subtitle": "ऊपर देखो, दोनों नीचे आ रही हैं!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "ऊपर देखो, दोनों नीचे आ रही हैं!",
+          "start": 0.25,
+          "end": 2.71,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "ऊपर देखो, दोनों नीचे आ रही हैं!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "golu",
+        "watcher": "dadaji"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दादाजी, ऊपर देखो, कुछ गिर रहा है!",
+      "subtitle": "दादाजी, ऊपर देखो, कुछ गिर रहा है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "दादाजी, ऊपर देखो, कुछ गिर रहा है!",
+          "start": 0.25,
+          "end": 2.67,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "दादाजी, ऊपर देखो, कुछ गिर रहा है!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "golu",
+          "mintu"
+        ]
+      },
+      "duration": 5.7,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "पतंग भी मेरी, गेंद भी मेरी! दादाजी, आपका तो डबल धमाका!",
+      "subtitle": "पतंग भी मेरी, गेंद भी मेरी! दादाजी, आपका तो डबल धमाका!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "पतंग भी मेरी, गेंद भी मेरी!",
+          "start": 0.25,
+          "end": 3.07,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "दादाजी, आपका तो डबल धमाका!",
+          "start": 3.17,
+          "end": 5.33,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "पतंग भी मेरी, गेंद भी मेरी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
