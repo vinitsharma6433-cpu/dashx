@@ -1652,10 +1652,18 @@
           "scheduled": true,
           "publish_at": "2026-11-16T12:30:00+05:30",
           "at": "2026-11-15T05:39:35.137724+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/3268671896661099",
+          "scheduled": true,
+          "publish_at": "2026-11-16T12:30:00+05:30",
+          "at": "2026-11-15T12:34:51.412946+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "mEhJc5_Asmo"
+        "yt_video_id": "mEhJc5_Asmo",
+        "fb_video_id": "3268671896661099"
       }
     }
   ]
