@@ -1629,10 +1629,10 @@
         "yt_video_id": "VwX31nIWItM",
         "fb_video_id": "1141237728272062",
         "yt_comment": [
-          "failed 403 (forbidden)"
+          "ok"
         ],
         "yt_like": "ok",
-        "yt_engage_tries": 1,
+        "yt_engage_tries": 2,
         "ig_media_id": "18290809444288194",
         "ig_comment": [
           "ok"
@@ -1641,7 +1641,8 @@
         "fb_comment": [
           "ok"
         ],
-        "fb_engaged": true
+        "fb_engaged": true,
+        "yt_engaged": true
       }
     },
     {
