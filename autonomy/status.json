@@ -1,12 +1,10 @@
 {
-  "level": "yellow",
-  "reasons": [
-    "Gemini calls used up for today"
-  ],
+  "level": "green",
+  "reasons": [],
   "alerts": 0,
   "trend": {
-    "topic": "Children's Day",
-    "angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire."
+    "topic": "Gully cricket house rules",
+    "angle": "A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument."
   },
   "ladder": {
     "step": 2,
@@ -28,5 +26,5 @@
     "blocker": "",
     "evidence": ""
   },
-  "updated": "2026-11-15T17:38+05:30"
+  "updated": "2026-11-16T00:30+05:30"
 }

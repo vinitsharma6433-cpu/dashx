@@ -1,19 +1,7 @@
 {
-  "generated": "2026-11-15T01:30+05:30",
-  "day": "2026-11-15",
+  "generated": "2026-11-16T00:30+05:30",
+  "day": "2026-11-16",
   "topics": [
-    {
-      "id": "childrens_day_2026",
-      "topic": "Children's Day",
-      "why_fits": "Kids are the centre of the day.",
-      "story_angle": "The kids take over the gali for a day and the grown-ups have to follow the kids' rules, with Bruno as umpire.",
-      "story_situation": "the kids take over the gali for a day and the grown-ups follow the kids' rules",
-      "strength": 9,
-      "sources": [
-        "festival calendar"
-      ],
-      "expires": "2026-11-15"
-    },
     {
       "id": "gully_rules",
       "topic": "Gully cricket house rules",
@@ -24,7 +12,7 @@
       "sources": [
         "news_gully_cricket"
       ],
-      "expires": "2026-11-18"
+      "expires": "2026-11-19"
     },
     {
       "id": "match_fever",
@@ -39,7 +27,7 @@
         "news_school",
         "news_wedding"
       ],
-      "expires": "2026-11-18"
+      "expires": "2026-11-19"
     },
     {
       "id": "meerut_touch",
@@ -51,7 +39,7 @@
       "sources": [
         "news_meerut"
       ],
-      "expires": "2026-11-18"
+      "expires": "2026-11-19"
     },
     {
       "id": "school_exams",
@@ -66,7 +54,7 @@
         "news_meerut",
         "news_school"
       ],
-      "expires": "2026-11-18"
+      "expires": "2026-11-19"
     },
     {
       "id": "school_holidays",
@@ -78,12 +66,26 @@
       "sources": [
         "news_school"
       ],
-      "expires": "2026-11-18"
+      "expires": "2026-11-19"
+    },
+    {
+      "id": "weather_twist",
+      "topic": "Weather changes the game",
+      "why_fits": "Weather is in everyone's day and it changes how kids play.",
+      "story_angle": "Sudden rain, heat or fog changes the match and the characters invent a new rule to keep playing safely.",
+      "story_situation": "sudden rain, heat or fog changes the game and a new rule is invented",
+      "strength": 5,
+      "sources": [
+        "news_school",
+        "news_weather",
+        "news_wedding"
+      ],
+      "expires": "2026-11-19"
     }
   ],
   "stats": {
-    "headlines_seen": 438,
-    "dropped_unsafe": 103,
+    "headlines_seen": 436,
+    "dropped_unsafe": 111,
     "sources_ok": [
       "google_trends_in",
       "news_cricket",
