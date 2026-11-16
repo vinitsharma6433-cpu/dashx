@@ -1,7 +1,7 @@
 {
- "date": "2026-11-14",
- "pages_read": 22,
- "blog_pages": 9,
+ "date": "2026-11-16",
+ "pages_read": 24,
+ "blog_pages": 11,
  "search_console": "no data (data/gsc_queries.json missing)",
  "findings": [
   {
@@ -65,11 +65,10 @@
    "priority": 67
   }
  ],
- "tasks_added": [
-  "2026-11-14-refresh-green-tennis-ball-cricket-90g-overlap",
-  "2026-11-14-refresh-yellow-tennis-ball-cricket-90g-overlap"
- ],
+ "tasks_added": [],
  "skipped": [
+  "green-tennis-ball-cricket-90g (already has a queued task)",
+  "yellow-tennis-ball-cricket-90g (already has a queued task)",
   "light-tennis-ball-cricket-90g (already has a queued task)",
   "cricket-with-tennis-ball-guide (already has a queued task)"
  ],
