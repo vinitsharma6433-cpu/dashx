@@ -351,7 +351,14 @@ def run(root: Path = ROOT, now: datetime | None = None, api=None) -> dict:
     result = sync_issue(api or Issues(), problems, s.now) if (api or os.environ.get("GITHUB_TOKEN")) else "no token: issue not touched"
     st = status_json(s, problems)
     write_status(root, st)
-    return {"problems": [p.id for p in problems], "issue": result, "level": st["level"]}
+    out = {"problems": [p.id for p in problems], "issue": result, "level": st["level"]}
+    try:   # the 21:00 IST report cron is often hours late or skipped: every alerts run also writes the report when it is due
+        import report  # noqa: PLC0415  (report imports this module)
+        if report.due(root, s.now):
+            out["report"] = report.run(root, s.now)
+    except Exception as e:
+        out["report_error"] = type(e).__name__
+    return out
 
 
 if __name__ == "__main__":

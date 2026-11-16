@@ -108,7 +108,67 @@ def load_usage() -> int:
 
 
 def save_usage() -> None:
-    USAGE.write_text(json.dumps({"day": quota_day(), "calls": CALLS["n"], "cap": CALLS["cap"]}) + "\n", encoding="utf-8", newline="\n")
+    data = {"day": quota_day(), "calls": CALLS["n"], "cap": CALLS["cap"]}
+    g = grade_state()
+    if g:
+        data["grade"] = g          # the editor grades of hand-imported stories live in this committed file (no workflow change needed)
+    USAGE.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
+
+
+# ---------------------------------------------------------------------------------------------------
+# GRADE MODE: the same Gemini editor grade that every auto-written story gets (funny, clear, natural Hindi, Meerut feel,
+# twist, plot matches, kid safe, typos), run on hand-imported stories listed in stories/grade_request.json. One call per story,
+# inside the same daily cap. Results go to refill_usage.json ("grade") and one line each to refill_log.md. Nothing is removed.
+GRADE_REQUEST = ROOT / "stories" / "grade_request.json"
+GRADES: dict = {}
+GRADE_NOTE = [""]
+
+
+def grade_state() -> dict:
+    if not GRADES:
+        try:
+            GRADES.update(json.loads(USAGE.read_text(encoding="utf-8")).get("grade", {}))
+        except Exception:
+            pass
+    return GRADES
+
+
+def bank_blocks() -> dict:
+    text = BANK.read_text(encoding="utf-8")
+    return {m.group(1).strip(): m.group(0).strip() for m in re.finditer(r"^## (.+?) \|.*?(?=^## |\Z)", text, re.M | re.S)}
+
+
+def grade_pending() -> list:
+    try:
+        want = json.loads(GRADE_REQUEST.read_text(encoding="utf-8")).get("titles", [])
+    except Exception:
+        return []
+    have, blocks = grade_state(), bank_blocks()
+    return [t for t in want if t not in have and t in blocks]
+
+
+def grade_step() -> tuple:
+    """Grade pending stories while calls are left. (graded now, failed now, still pending). Stops at the first call that does not answer."""
+    done = failed = 0
+    blocks = bank_blocks()
+    for t in grade_pending():
+        if calls_left() < 1:
+            break
+        ok, j = judge(blocks[t])
+        issue = str(j.get("issue", ""))
+        if issue.startswith("judge unavailable") or issue == "judge answer not understood":
+            print(f"  grade stopped: {clean(issue, 80)}")
+            break
+        rec = {"ok": bool(ok), "meerut": j.get("meerut_feel"), "twist": j.get("twist"), "funny": j.get("funny"), "hindi": j.get("natural_hindi"),
+               "kid_safe": j.get("kid_safe"), "typos": len(j.get("typos") or []), "issue": clean(issue, 100), "day": quota_day()}
+        GRADES[t] = rec
+        done += 1
+        failed += 0 if ok else 1
+        print(f"  grade {'PASS' if ok else 'FAIL'} {clean(t, 50)}: meerut {rec['meerut']} twist {rec['twist']} funny {rec['funny']}")
+        with open(LOG, "a", encoding="utf-8", newline="\n") as f:
+            f.write(f"- {quota_day()} grade {'PASS' if ok else 'FAIL'} | {t} | meerut {rec['meerut']} twist {rec['twist']} funny {rec['funny']} hindi {rec['hindi']} typos {rec['typos']} | {rec['issue']}\n")
+    save_usage()
+    return done, failed, len(grade_pending())
 
 
 def calls_left() -> int:
@@ -431,6 +491,7 @@ FIXABLE_NOT = ("too close", "repeats", "same word", "nearly the same", "similari
 
 
 def write_report(left: int, added: int, a, extra: str = "") -> None:
+    extra = extra + GRADE_NOTE[0]
     line = f"Story refill {quota_day()}: {left} stories left in the bank, {added} added today, Gemini calls used {CALLS['n']}/{CALLS['cap']}{extra}"
     print(line)
     if not a.dry_run:
@@ -470,6 +531,10 @@ def run(a) -> int:
     CALLS["n"] = load_usage()
     left, total = usable_count()
     print(f"bank: {total} stories, {left} usable now; Gemini calls used today so far: {CALLS['n']} of {CALLS['cap']}")
+    if grade_pending() and KEY and calls_left() >= 1 and not a.dry_run:      # grade the hand-imported stories first, inside the same cap
+        STATE["models"] = gemini_models()
+        g_done, g_fail, g_left = grade_step()
+        GRADE_NOTE[0] = f" [graded {g_done} imported stories today, {g_fail} below the bar, {g_left} still to grade]"
     if left > a.max_bank:
         write_report(left, 0, a, f" (bank has more than {a.max_bank} usable stories: nothing to write)")
         return 0
@@ -481,7 +546,7 @@ def run(a) -> int:
         print("::warning::the Gemini call limit for today is already used: no story written")
         write_report(left, 0, a, " (daily limit reached)")
         return 0
-    STATE["models"] = gemini_models()
+    STATE["models"] = STATE["models"] or gemini_models()
     if a.probe:
         save_usage()
         return 0
