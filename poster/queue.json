@@ -1774,10 +1774,18 @@
           "scheduled": true,
           "publish_at": "2026-11-17T12:30:00+05:30",
           "at": "2026-11-16T05:45:46.050352+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1014364640948948",
+          "scheduled": true,
+          "publish_at": "2026-11-17T12:30:00+05:30",
+          "at": "2026-11-16T12:31:18.571080+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "UKjrLvzgKts"
+        "yt_video_id": "UKjrLvzgKts",
+        "fb_video_id": "1014364640948948"
       }
     }
   ]
