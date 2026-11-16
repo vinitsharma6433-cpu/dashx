@@ -3,7 +3,7 @@
   "https://dashx-store-api.onrender.com/": "",
   "https://dashx-store-api.onrender.com/blog": "2026-11-16",
   "https://dashx-store-api.onrender.com/blog/cricket-tennis-ball-pack-of-10-munna": "2026-10-21",
-  "https://dashx-store-api.onrender.com/blog/cricket-tennis-ball-weights-packs-variants": "2026-10-15",
+  "https://dashx-store-api.onrender.com/blog/cricket-tennis-ball-weights-packs-variants": "2026-11-16",
   "https://dashx-store-api.onrender.com/blog/cricket-with-tennis-ball-guide": "2026-10-25",
   "https://dashx-store-api.onrender.com/blog/green-tennis-ball-cricket-90g": "2026-11-11",
   "https://dashx-store-api.onrender.com/blog/heavy-tennis-ball-cricket-90g-110g": "2026-10-16",
@@ -33,6 +33,7 @@
  },
  "last_ping": {
   "https://dashx-store-api.onrender.com/blog": "2026-11-16",
+  "https://dashx-store-api.onrender.com/blog/cricket-tennis-ball-weights-packs-variants": "2026-11-16",
   "https://dashx-store-api.onrender.com/blog/sixit-cricket-tennis-ball-heavy": "2026-11-15",
   "https://dashx-store-api.onrender.com/blog/tennis-ball-cricket-heavy": "2026-11-15"
  }
