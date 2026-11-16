@@ -1,1 +1,95 @@
-{"day": "2026-11-14", "calls": 12, "cap": 12}
+{
+ "day": "2026-11-16",
+ "calls": 12,
+ "cap": 12,
+ "grade": {
+  "Bruno the Umpire": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 7,
+   "funny": 7,
+   "hindi": 7,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "Lacks distinct Meerut gully slang/flavor and feels a bit generic.",
+   "day": "2026-11-16"
+  },
+  "Bruno the Detective": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 8,
+   "funny": 7,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The storyline lacks specific Meerut slang and local flavors to give it a strong Meerut feel.",
+   "day": "2026-11-16"
+  },
+  "Bruno vs Pigeon": {
+   "ok": false,
+   "meerut": 2,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 5,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The plot says Bruno scares the pigeon causing the wicket, but Bruno does nothing in the actual dialo",
+   "day": "2026-11-16"
+  },
+  "Bruno Bats": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 5,
+   "funny": 6,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The Meerut local flavor is weak and the visual action of Bruno grabbing the bat isn't shown in the s",
+   "day": "2026-11-16"
+  },
+  "Bruno Hides the Ball": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 6,
+   "funny": 6,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks distinct Meerut local flavor and dialect.",
+   "day": "2026-11-16"
+  },
+  "Bruno and the Cooker Whistle": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story is clear and kid-friendly, but lacks authentic Meerut local slang and a strong final comed",
+   "day": "2026-11-16"
+  },
+  "Bruno Guards the Wicket": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 7,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut local dialect and gully flavor.",
+   "day": "2026-11-16"
+  },
+  "Bruno's Rooftop Rescue": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut slang and local flavor to feel uniquely like Meerut.",
+   "day": "2026-11-16"
+  }
+ }
+}
