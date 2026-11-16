@@ -1683,7 +1683,13 @@
       },
       "notes": {
         "yt_video_id": "mEhJc5_Asmo",
-        "fb_video_id": "3268671896661099"
+        "fb_video_id": "3268671896661099",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
