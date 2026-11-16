@@ -8,7 +8,7 @@
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
   "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 100
  },
  {
@@ -20,7 +20,7 @@
   "target_page": "",
   "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 57
  },
  {
@@ -30,9 +30,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 57
  },
  {
@@ -44,7 +44,7 @@
   "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
   "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 57
  },
  {
@@ -56,7 +56,7 @@
   "target_page": "/blog/cricket-with-tennis-ball-guide",
   "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 54
  },
  {
@@ -68,7 +68,7 @@
   "target_page": "/blog/light-tennis-ball-cricket-90g",
   "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 54
  },
  {
@@ -78,9 +78,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 51
  },
  {
@@ -90,21 +90,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
-  "trend_score": 51
- },
- {
-  "keyword": "red tennis ball weight",
-  "language": "en",
-  "source": "autosuggest",
-  "intent": "informational",
-  "cluster": "color-red",
-  "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
-  "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 51
  },
  {
@@ -114,9 +102,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 51
  },
  {
@@ -126,9 +114,21 @@
   "intent": "commercial-investigation",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
+  "trend_score": 49
+ },
+ {
+  "keyword": "red tennis ball weight",
+  "language": "en",
+  "source": "autosuggest",
+  "intent": "informational",
+  "cluster": "color-red",
+  "target_page": "/blog/red-tennis-ball-cricket-110g",
+  "status": "queued",
+  "first_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 49
  },
  {
@@ -138,9 +138,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 46
  },
  {
@@ -150,9 +150,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 46
  },
  {
@@ -162,9 +162,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 43
  },
  {
@@ -174,9 +174,9 @@
   "intent": "informational",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 43
  },
  {
@@ -186,9 +186,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 40
  },
  {
@@ -198,9 +198,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 37
  },
  {
@@ -210,9 +210,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 34
  },
  {
@@ -222,9 +222,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 34
  },
  {
@@ -234,9 +234,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 34
  },
  {
@@ -246,9 +246,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 34
  },
  {
@@ -258,9 +258,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 34
  },
  {
@@ -270,9 +270,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 31
  },
  {
@@ -282,9 +282,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 31
  },
  {
@@ -294,9 +294,21 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
+  "trend_score": 31
+ },
+ {
+  "keyword": "red tennis ball weight in grams",
+  "language": "en",
+  "source": "autosuggest",
+  "intent": "informational",
+  "cluster": "color-red",
+  "target_page": "/blog/red-tennis-ball-cricket-110g",
+  "status": "active",
+  "first_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 31
  },
  {
@@ -306,9 +318,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -318,9 +330,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -330,9 +342,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -342,9 +354,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -354,9 +366,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -366,9 +378,9 @@
   "intent": "commercial-investigation",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -378,9 +390,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -390,9 +402,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -402,9 +414,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -414,9 +426,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -426,21 +438,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
-  "trend_score": 29
- },
- {
-  "keyword": "red tennis ball weight in grams",
-  "language": "en",
-  "source": "autosuggest",
-  "intent": "informational",
-  "cluster": "color-red",
-  "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
-  "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -450,9 +450,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -462,9 +462,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -474,9 +474,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -486,9 +486,9 @@
   "intent": "commercial-investigation",
   "cluster": "pack-of-10",
   "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -498,9 +498,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -510,9 +510,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -522,9 +522,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -534,9 +534,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -546,9 +546,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 29
  },
  {
@@ -558,9 +558,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -570,9 +570,9 @@
   "intent": "commercial-investigation",
   "cluster": "how-to-choose",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -582,9 +582,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -594,9 +594,9 @@
   "intent": "informational",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -606,9 +606,9 @@
   "intent": "informational",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -618,9 +618,9 @@
   "intent": "informational",
   "cluster": "material-size",
   "target_page": "/blog/tennis-ball-cricket-material-weight-size",
-  "status": "new",
+  "status": "queued",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -630,9 +630,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -642,9 +642,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -654,9 +654,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -666,9 +666,9 @@
   "intent": "commercial-investigation",
   "cluster": "pack-of-10",
   "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -678,9 +678,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 26
  },
  {
@@ -690,9 +690,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -702,9 +702,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -714,9 +714,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -726,9 +726,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -738,9 +738,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -750,9 +750,9 @@
   "intent": "commercial-investigation",
   "cluster": "pack-of-10",
   "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -762,9 +762,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -774,9 +774,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -786,9 +786,9 @@
   "intent": "informational",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -798,9 +798,9 @@
   "intent": "informational",
   "cluster": "how-to-choose",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -810,9 +810,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 23
  },
  {
@@ -822,9 +822,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -834,9 +834,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -846,9 +846,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -858,9 +858,9 @@
   "intent": "informational",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -870,9 +870,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -882,9 +882,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -894,9 +894,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -906,9 +906,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -918,9 +918,9 @@
   "intent": "commercial-investigation",
   "cluster": "pack-of-10",
   "target_page": "/blog/cricket-tennis-ball-pack-of-10-munna",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -930,9 +930,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -942,9 +942,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -954,9 +954,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 20
  },
  {
@@ -966,9 +966,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -978,9 +978,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -990,9 +990,9 @@
   "intent": "informational",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1002,9 +1002,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1014,21 +1014,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
-  "trend_score": 17
- },
- {
-  "keyword": "red tennis ball pack of 12",
-  "language": "en",
-  "source": "autosuggest",
-  "intent": "commercial-investigation",
-  "cluster": "color-red",
-  "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
-  "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1038,9 +1026,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1050,21 +1038,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
-  "trend_score": 17
- },
- {
-  "keyword": "tennis ball cricket tournament",
-  "language": "en",
-  "source": "autosuggest",
-  "intent": "commercial-investigation",
-  "cluster": "match-practice",
-  "target_page": "",
-  "status": "new",
-  "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1074,9 +1050,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1086,9 +1062,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1098,9 +1074,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1110,9 +1086,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 17
  },
  {
@@ -1122,9 +1098,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1134,9 +1110,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1146,9 +1122,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1158,9 +1134,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1170,9 +1146,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1182,9 +1158,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1194,9 +1170,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1206,9 +1182,21 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
+  "trend_score": 14
+ },
+ {
+  "keyword": "red tennis ball cricket",
+  "language": "en",
+  "source": "autosuggest",
+  "intent": "commercial-investigation",
+  "cluster": "color-red",
+  "target_page": "/blog/red-tennis-ball-cricket-110g",
+  "status": "active",
+  "first_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1218,9 +1206,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1230,9 +1218,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1242,9 +1230,21 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
+  "trend_score": 14
+ },
+ {
+  "keyword": "tennis ball cricket tournament",
+  "language": "en",
+  "source": "autosuggest",
+  "intent": "commercial-investigation",
+  "cluster": "match-practice",
+  "target_page": "",
+  "status": "active",
+  "first_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1254,9 +1254,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1266,9 +1266,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 14
  },
  {
@@ -1278,9 +1278,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1290,9 +1290,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1302,9 +1302,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1314,9 +1314,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1326,9 +1326,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1338,9 +1338,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1350,9 +1350,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1362,9 +1362,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1374,9 +1374,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1386,9 +1386,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1398,9 +1398,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1410,9 +1410,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1422,9 +1422,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1434,9 +1434,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1446,9 +1446,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1458,9 +1458,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 11
  },
  {
@@ -1470,9 +1470,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1482,9 +1482,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1494,9 +1494,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1506,9 +1506,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1518,9 +1518,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1530,9 +1530,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1542,21 +1542,21 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
-  "keyword": "red tennis ball cricket",
+  "keyword": "red tennis ball pack of 12",
   "language": "en",
   "source": "autosuggest",
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1566,9 +1566,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1578,9 +1578,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1590,9 +1590,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1602,9 +1602,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1614,9 +1614,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1626,9 +1626,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1638,9 +1638,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 9
  },
  {
@@ -1650,9 +1650,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1662,9 +1662,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1674,9 +1674,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1686,9 +1686,9 @@
   "intent": "informational",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1698,9 +1698,9 @@
   "intent": "commercial-investigation",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1710,9 +1710,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1722,9 +1722,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1734,9 +1734,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1746,9 +1746,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-yellow",
   "target_page": "/blog/yellow-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 6
  },
  {
@@ -1758,9 +1758,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1770,9 +1770,9 @@
   "intent": "commercial-investigation",
   "cluster": "match-practice",
   "target_page": "",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1782,9 +1782,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1794,9 +1794,9 @@
   "intent": "informational",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1806,9 +1806,9 @@
   "intent": "informational",
   "cluster": "heavy",
   "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1818,9 +1818,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-green",
   "target_page": "/blog/green-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1830,9 +1830,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1842,9 +1842,9 @@
   "intent": "commercial-investigation",
   "cluster": "light",
   "target_page": "/blog/light-tennis-ball-cricket-90g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1854,9 +1854,9 @@
   "intent": "commercial-investigation",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1866,9 +1866,9 @@
   "intent": "commercial-investigation",
   "cluster": "general",
   "target_page": "/blog/cricket-with-tennis-ball-guide",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1878,9 +1878,9 @@
   "intent": "informational",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1890,9 +1890,9 @@
   "intent": "commercial-investigation",
   "cluster": "weight-and-packs",
   "target_page": "/blog/cricket-tennis-ball-weights-packs-variants",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  },
  {
@@ -1902,9 +1902,9 @@
   "intent": "informational",
   "cluster": "color-red",
   "target_page": "/blog/red-tennis-ball-cricket-110g",
-  "status": "new",
+  "status": "active",
   "first_seen": "2026-11-14",
-  "last_seen": "2026-11-14",
+  "last_seen": "2026-11-16",
   "trend_score": 3
  }
 ]

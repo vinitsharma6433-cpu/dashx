@@ -93,5 +93,44 @@
   "status": "queued",
   "note": "shares 66% of its text with blog/red-tennis-ball-cricket-110g (differentiate, do not copy)",
   "differentiate_from": "/blog/red-tennis-ball-cricket-110g"
+ },
+ {
+  "id": "2026-11-16-heavy-tennis-ball-weight",
+  "type": "update",
+  "keyword": "heavy tennis ball weight",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "heavy",
+  "target_page": "/blog/heavy-tennis-ball-cricket-90g-110g",
+  "source": "autosuggest",
+  "trend_score": 51,
+  "added": "2026-11-16",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-16-red-tennis-ball-weight",
+  "type": "update",
+  "keyword": "red tennis ball weight",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "color-red",
+  "target_page": "/blog/red-tennis-ball-cricket-110g",
+  "source": "autosuggest",
+  "trend_score": 49,
+  "added": "2026-11-16",
+  "status": "queued"
+ },
+ {
+  "id": "2026-11-16-poop-the-size-of-a-tennis-ball",
+  "type": "update",
+  "keyword": "poop the size of a tennis ball",
+  "language": "en",
+  "intent": "informational",
+  "cluster": "material-size",
+  "target_page": "/blog/tennis-ball-cricket-material-weight-size",
+  "source": "autosuggest",
+  "trend_score": 26,
+  "added": "2026-11-16",
+  "status": "queued"
  }
 ]
