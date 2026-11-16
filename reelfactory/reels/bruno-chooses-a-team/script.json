@@ -1,0 +1,157 @@
+{
+  "id": "bruno-chooses-a-team",
+  "title": "ब्रूनो किसकी टीम",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Both captains Pappu and Sachin call Bruno to their team, and he sits on the line between them until Aunty's samosa plate settles it.",
+    "idea": "Bruno Chooses a Team",
+    "generated": "2026-11-16",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "दोनों टीमों ने बुलाया, ब्रूनो किधर गया? 🥟",
+    "card": "ब्रूनो किसकी टीम में?",
+    "closing": "समोसे ने जिताई टीम!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pappu",
+        "right": "bruno",
+        "boardText": "टीम"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो, तू मेरी टीम में खेलेगा!",
+      "subtitle": "ब्रूनो, तू मेरी टीम में खेलेगा!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "ब्रूनो, तू मेरी टीम में खेलेगा!",
+          "start": 0.25,
+          "end": 2.5,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "ब्रूनो, तू मेरी टीम में खेलेगा!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "pappu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "नहीं पप्पू, वो मेरी टीम में है!",
+      "subtitle": "नहीं पप्पू, वो मेरी टीम में है!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "नहीं पप्पू, वो मेरी टीम में है!",
+          "start": 0.25,
+          "end": 2.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "नहीं पप्पू, वो मेरी टीम में है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ब्रूनो तो लाइन पर बैठा है!",
+      "subtitle": "ब्रूनो तो लाइन पर बैठा है!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ब्रूनो तो लाइन पर बैठा है!",
+          "start": 0.25,
+          "end": 2.13,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ब्रूनो तो लाइन पर बैठा है!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "bruno",
+        "boardText": "समोसा"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ये समोसे किसके लिए हैं?",
+      "subtitle": "ये समोसे किसके लिए हैं?",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "ये समोसे किसके लिए हैं?",
+          "start": 0.25,
+          "end": 1.98,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "ये समोसे किसके लिए हैं?"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

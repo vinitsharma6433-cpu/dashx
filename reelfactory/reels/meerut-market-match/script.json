@@ -1,0 +1,166 @@
+{
+  "id": "meerut-market-match",
+  "title": "बाज़ार का मैच",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "The match goes through the Abu Lane market, and Sachin's ball bounces between shops while each shopkeeper shouts out or four, with Chhotu and Pintu leading the fun.",
+    "idea": "Meerut Market Match",
+    "generated": "2026-11-16",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "अबू लेन में मैच हुआ तो दुकानदार क्या बने? 🏬",
+    "card": "बाज़ार में क्रिकेट!",
+    "closing": "दुकानदारों की अपनी बाज़ी!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "chhotu",
+        "right": "pintu",
+        "boardText": "बाज़ार"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पिंटू भैया, आज बाज़ार में मैच है!",
+      "subtitle": "पिंटू भैया, आज बाज़ार में मैच है!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "पिंटू भैया, आज बाज़ार में मैच है!",
+          "start": 0.25,
+          "end": 2.27,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "पिंटू भैया, आज बाज़ार में मैच है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "chhotu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गेंद दुकानों से टकराकर लौट आई!",
+      "subtitle": "गेंद दुकानों से टकराकर लौट आई!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "गेंद दुकानों से टकराकर लौट आई!",
+          "start": 0.25,
+          "end": 2.87,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "गेंद दुकानों से टकराकर लौट आई!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दुकानदार चिल्ला रहे, चौका, आउट, चौका!",
+      "subtitle": "दुकानदार चिल्ला रहे, चौका, आउट, चौका!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "दुकानदार चिल्ला रहे, चौका, आउट, चौका!",
+          "start": 0.25,
+          "end": 3.0,
+          "width": 740,
+          "lines": 2
+        }
+      ],
+      "speaker": "sachin",
+      "line": "दुकानदार चिल्ला रहे, चौका, आउट, चौका!",
+      "subtitleWidth": 740
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "chhotu",
+        "right": "pintu",
+        "boardText": "अंपायर"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "यहाँ हर दुकानदार अंपायर है! ये तो मेरठ का मैच है!",
+      "subtitle": "यहाँ हर दुकानदार अंपायर है! ये तो मेरठ का मैच है!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "यहाँ हर दुकानदार अंपायर है!",
+          "start": 0.25,
+          "end": 2.26,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "ये तो मेरठ का मैच है!",
+          "start": 2.36,
+          "end": 4.17,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "यहाँ हर दुकानदार अंपायर है!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
