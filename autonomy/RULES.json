@@ -35,7 +35,10 @@
       "autonomy/slot_hints.json",
       "autonomy/status.json",
       "status/daily.md",
-      "autonomy/scout/*.md"
+      "autonomy/scout/*.md",
+      "autonomy/trend_patterns.json",
+      "autonomy/trend_history.json",
+      "autonomy/notebooklm_pack.md"
     ]
   },
   "deny": {

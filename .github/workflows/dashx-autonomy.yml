@@ -98,6 +98,7 @@ jobs:
           git config merge.queuejson.name "DASHX queue.json merge"
           git config merge.queuejson.driver "python poster/merge_queue.py %O %A %B"
           git add autonomy/scout 2>/dev/null || true
+          git add autonomy/trend_patterns.json autonomy/trend_history.json autonomy/notebooklm_pack.md 2>/dev/null || true
           git add autonomy/log.md autonomy/trends.json autonomy/learning.json autonomy/metrics.json autonomy/slot_hints.json autonomy/memory.json autonomy/status.json status/daily.md poster/queue.json
           if ! git diff --cached --quiet; then
             git commit -m "Autonomy: heal log"
