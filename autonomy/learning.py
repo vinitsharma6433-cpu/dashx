@@ -355,3 +355,9 @@ if __name__ == "__main__":
         print(f"reels with data: {d['reels_with_data']} (need {d['need']}); steering {'ON' if d['steer']['active'] else 'OFF'}")
         for k, v in d["availability"].items():
             print(f"  {k}: {v}")
+    try:   # deeper analytics: OFF until the owner adds its own secret (autonomy/analytics.py); never fails the learning loop
+        import analytics  # noqa: PLC0415
+        a = analytics.run()
+        print("insights:", "OFF (no insights secret set)" if a is None else {k: v["status"] for k, v in a.items()})
+    except Exception as e:
+        print(f"insights: skipped ({type(e).__name__})")

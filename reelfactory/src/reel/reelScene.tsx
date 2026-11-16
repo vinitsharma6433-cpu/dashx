@@ -32,9 +32,9 @@ const SUB_Y = 470; // centre of the subtitle box
 const SUB_Y_END = 400; // the end card's call to action is long (up to 3 lines), so its subtitle sits higher: it must stay above the Reels/Shorts bottom UI (factory/qc.py SUB_Y_END)
 const LINE_H = 88; // subtitle line height (px)
 // On-screen hook card (story `card:`, 3-5 Hindi words): top of the frame, first 1.5 s. Position and size are mirrored in factory/qc.py (hook_card).
-const CARD_Y = -660; // centre of the card (px above the frame centre): the box stays below the top safe area (150 px)
+const CARD_Y = -620; // centre of the card (px above the frame centre): the box stays below the top safe area (150 px). Bigger card (owner request): checked on rendered frames, box top ~250 px
 const CARD_W = 900;
-const CARD_FONT = 76;
+const CARD_FONT = 112; // was 76; factory/qc.py still mirrors 76 (qc.py is owner-only, see the report)
 const CARD_HOLD = 1.5; // seconds on screen
 
 // The coloured name tag above each speaker's subtitle: one colour per character, every colour has a contrast of at least 5:1 with the white text.

@@ -1260,3 +1260,39 @@ card: कुल्फ़ी की घंटी!
 - run-up | chhotu | golu | | chhotu: सब चले गए, पिच अकेली है!
 - shot | golu | bruno | | golu: ब्रूनो पिच की रखवाली कर रहा है!
 - face-off | chhotu | bruno | इनाम | chhotu: चल, तुझे भी आइसक्रीम दिलाऊँ!
+
+## Bruno Files Paw Prints | ब्रूनो फ़ाइल्स: अनजान पंजे
+plot: Golu's ball vanishes from the gali every night, and Bruno sniffs out paw prints that are not his own while Sachin watches.
+ending: शक पक्का, सबूत कच्चा!
+hook: रात में गली से गेंद कौन ले जाता है? 🐾
+card: गेंद फिर गायब!
+series: Bruno Files
+ep: 1
+- face-off | golu | sachin | गायब | golu: मेरी गेंद रात में फिर गायब! // sachin: तीसरी बार हुआ है!
+- run-up | sachin | golu | | sachin: आज जासूसी शुरू करते हैं!
+- shot | golu | bruno | | golu: ब्रूनो, ये पंजे तेरे नहीं हैं!
+- face-off | sachin | bruno | सुराग | sachin: तो ये पंजे किसके हैं?
+
+## Bruno Files Bell Trap | ब्रूनो फ़ाइल्स: घंटी का जाल
+plot: Meena and Golu tie a bell to a new ball as a trap, the bell rings at night, and in the morning Bruno finds only a black feather.
+ending: जाल बजा, चोर उड़ा!
+hook: घंटी वाले जाल में सुबह क्या मिला? 🪤
+card: घंटी का जाल!
+series: Bruno Files
+ep: 2
+- face-off | meena | golu | जाल | meena: गेंद पर घंटी बाँध दी है! // golu: अब चोर पकड़ा जाएगा!
+- run-up | golu | meena | | golu: रात में घंटी बजी थी!
+- shot | meena | bruno | | meena: ब्रूनो को सिर्फ़ एक काला पंख मिला!
+- face-off | golu | bruno | पंख | golu: क्या हमारा चोर उड़ता है?
+
+## Bruno Files Tank Thief | ब्रूनो फ़ाइल्स: टंकी वाला चोर
+plot: Bruno leads Sachin and Dadaji to the water tank, where a crow has been hiding every lost ball, and the gali gets all its balls back.
+ending: कौआ पकड़ा, गेंदें लौटीं!
+hook: गली की गेंदें आख़िर कौन चुराता था? 🪶
+card: चोर मिल गया!
+series: Bruno Files
+ep: 3
+- face-off | sachin | bruno | टंकी | sachin: ब्रूनो टंकी की तरफ़ भौंक रहा है!
+- run-up | sachin | golu | | golu: ऊपर एक कौआ बैठा है!
+- shot | golu | dadaji | | dadaji: अरे, यहाँ तो सारी गेंदें रखी हैं!
+- catch | dadaji | sachin | bruno | dadaji: लो, सारी गेंदें वापस! // sachin: ब्रूनो, अगला केस क्या है?
