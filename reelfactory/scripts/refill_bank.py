@@ -356,6 +356,31 @@ def load_prompt_style() -> dict:
         return {**PROMPT_DEFAULT, "extras": []}
 
 
+def _genome():
+    """autonomy/genome.py (the 7-tag story genome). None when it cannot be loaded: then no tags are asked for or written."""
+    try:
+        sys.path.insert(0, str(ROOT.parent / "autonomy"))
+        import genome  # noqa: PLC0415
+        return genome
+    except Exception:
+        return None
+
+
+def _tags_instruction() -> str:
+    g = _genome()
+    return g.tags_prompt_line() if g else ""
+
+
+def tag_block(blk: str, formula_name: str) -> str:
+    """Our own tagging of a story we just wrote: the writer's labels are kept only if every value is an allowed one;
+    hook_type comes from the hook formula WE picked. Any problem leaves the block exactly as it was."""
+    try:
+        g = _genome()
+        return g.finalize_new_story(blk, formula_name).rstrip("\n") if g else blk
+    except Exception:
+        return blk
+
+
 def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "normal", ep: int = 1) -> list[dict]:
     pool = ["sachin", "surya", "dadaji", "aunty", "pintu", "golu", "meena", "coach", "bruno", "pappu", "chhotu", "mintu"]
     must = {"rivalry": ["mintu", "pappu"], "shop": ["chhotu"], "series": ["bruno", "golu"]}.get(fmt, [])
@@ -387,6 +412,7 @@ def prompt_for(seed: dict, titles: list[str], endings: list[str], fmt: str = "no
         "- Give the story a real TWIST: the last scene must flip what the viewer expected. Add ONE real Meerut touch (a place or thing people from Meerut know) in the plot or a line.\n"
         "- Put the field lines in this order: plot, ending, hook, card" + (", series, ep" if fmt == "series" else "") + ", then the four scene rows.\n"
         + "".join(f"- {x}\n" for x in style["extras"])
+        + _tags_instruction()
     )
     fmt_text = FORMAT_HELP[fmt].format(ep=ep)
     series_lines = (f"Also write the lines `series: Bruno Files` and `ep: {ep}` right after `card:`.\n" if fmt == "series" else "")
@@ -426,7 +452,7 @@ def extract_block(text: str) -> str | None:
     block = text[i:].strip()
     block = re.split(r"\n## ", block)[0]
     lines = [ln.rstrip() for ln in block.splitlines() if ln.strip()]
-    keep = [ln for ln in lines if ln.startswith(("## ", "plot:", "ending:", "hook:", "card:", "series:", "ep:", "- "))]
+    keep = [ln for ln in lines if ln.startswith(("## ", "plot:", "ending:", "hook:", "card:", "series:", "ep:", "tags:", "- "))]
     if not keep or not keep[0].startswith("## ") or "|" not in keep[0]:
         return None
     return "\n".join(keep)
@@ -587,6 +613,7 @@ def run(a) -> int:
         if not blk:
             print("  unusable answer:", clean(txt, 200), "| raw:", clean(STATE["last_raw"], 200))
             continue
+        blk = tag_block(blk, str(seed["formula"].get("name", "")))
         prior = [b for b, _ in accepted]
         probs, last = check_block(blk, prior)
         print(f"  . {clean(title_of(blk), 60)}: {hook_log(blk)}")
@@ -599,7 +626,7 @@ def run(a) -> int:
             fixed = extract_block(txt) if code == 200 else None
             if not fixed:
                 continue
-            blk = fixed
+            blk = tag_block(fixed, str(seed["formula"].get("name", "")))
             probs, last = check_block(blk, prior)
         if probs:
             print(f"  x {clean(title_of(blk), 60)}: {clean('; '.join(probs))}")

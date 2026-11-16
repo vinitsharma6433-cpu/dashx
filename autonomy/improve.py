@@ -221,7 +221,6 @@ class Proposal:
     idea: str
     why: str
     files: dict[str, str] = field(default_factory=dict)      # path -> new full text
-    propose_only: bool = False                                 # True: never merged by the machine, always a pull request for the owner
 
 
 def add_situation(text: str, new: str) -> str:
@@ -258,32 +257,7 @@ def situation_from_trend(root: Path, rules: dict, now: datetime, blocked: set[st
     return None
 
 
-PROMPT = "reelfactory/stories/refill_prompt.json"
-
-
-def trend_pattern_proposal(root: Path, rules: dict, now: datetime, blocked: set[str]) -> Proposal | None:
-    """PROPOSE-ONLY: one of our own pre-written style lines (autonomy/trend_study.PHRASES, chosen by the weekly trend study) as an extra
-    line of the story-writing prompt. Always a pull request for the owner, never merged by the machine."""
-    d = _rd(root, "autonomy/trend_patterns.json", {})
-    try:
-        text = (root / PROMPT).read_text(encoding="utf-8")
-        cur = json.loads(text)
-        import trend_study  # noqa: PLC0415
-    except Exception:
-        return None
-    extras = list(cur.get("extras", []))
-    if len(extras) >= 5:
-        return None
-    for prop in d.get("proposals", []):
-        line, idea = trend_study.PHRASES.get(prop.get("id")), f"trendpattern:{prop.get('id')}"
-        if not line or idea in blocked or line in extras:
-            continue
-        new = dict(cur, extras=extras + [line])
-        return Proposal(idea, f"add the niche pattern '{prop.get('id')}' to the story prompt style", {PROMPT: json.dumps(new, ensure_ascii=False, indent=1) + "\n"}, propose_only=True)
-    return None
-
-
-IMPROVERS = {"situation_from_trend": situation_from_trend, "trend_pattern_proposal": trend_pattern_proposal}
+IMPROVERS = {"situation_from_trend": situation_from_trend}
 
 
 def unstable(log_text: str, now: datetime) -> str:
@@ -346,9 +320,9 @@ def improve_step(root: Path, now: datetime, rules: dict, git: Git, gh, checks, n
         changed = git.changed_files(git.main, branch)
         lines = git.diff_lines(git.main, branch)
         d = guard.check_change(changed, now, root, rules)           # the REAL diff decides
-        if d.needs_human or prop.propose_only:
+        if d.needs_human:
             git.push_branch(branch)
-            why = "; ".join(d.reasons) if d.needs_human else "propose-only idea from the weekly trend study: the owner decides"
+            why = "; ".join(d.reasons)
             url = gh.open_pr(branch, f"DASHX autonomy: {prop.why}", "Needs the owner: " + why)
             log(root, now, "pr_for_owner", f"{prop.why}: {why}", url)
             git.run("checkout", "-q", git.main)

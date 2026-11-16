@@ -113,8 +113,8 @@ def build(s: alerts.Signals, root: Path = ROOT) -> str:
           f"- Gemini calls used in this quota day: {calls}/{int(s.usage.get('cap', 12) or 12)}"]
     L += [""] + ladder.report_lines(s.ladder, s.now)
     try:
-        import trend_study  # noqa: PLC0415
-        L += [""] + trend_study.niche_lines(root)
+        import pattern_engine  # noqa: PLC0415
+        L += [""] + pattern_engine.brief(root)
     except Exception:
         pass
     g = s.usage.get("grade") if isinstance(s.usage.get("grade"), dict) else {}
@@ -214,12 +214,11 @@ def run(root: Path = ROOT, now: datetime | None = None) -> str:
     p.parent.mkdir(parents=True, exist_ok=True)
     assert OUT in alerts.ALLOWED_OUT
     p.write_text(merge_into_file(p.read_text(encoding="utf-8") if p.exists() else "", section, day), encoding="utf-8", newline="\n")
-    for mod in ("notebooklm", "trend_study"):        # weekly study helpers: each decides by itself if it is due; never breaks the report
-        try:
-            m = __import__(mod)
-            print(f"{mod}:", m.run(root, now))
-        except Exception as e:
-            print(f"{mod}: skipped ({type(e).__name__})")
+    try:                                              # the weekly Pattern Engine decides by itself if it is due; it never breaks the report
+        import pattern_engine  # noqa: PLC0415
+        print("pattern_engine:", pattern_engine.run(root, now))
+    except Exception as e:
+        print(f"pattern_engine: skipped ({type(e).__name__})")
     return day
 
 

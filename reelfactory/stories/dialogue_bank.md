@@ -99,6 +99,7 @@ hook: गेंद अटकी आम के पेड़ में, फिर 
 plot: Surya tells Bruno to drop the ball, Sachin's shot sends Bruno running after it, and Bruno tosses the ball straight into Dadaji's hands.
 ending: ब्रूनो की शरारत रंग लाई!
 hook: गेंद लेकर भागा ब्रूनो, अब कौन रोकेगा? 🐕
+tags: shareable_because=cute_bruno_moment
 - face-off | surya | bruno | छोड़ो | surya: ब्रूनो, मेरी गेंद वापस दो! // bruno: भौं भौं!
 - shot | surya | bruno | | surya: रुक जा चोर, मैं बल्ला उठाता हूँ! // bruno: भौं भौं भौं!
 - catch | dadaji | sachin | bruno | dadaji: अरे वाह, गेंद सीधी मेरे हाथ में!
@@ -356,6 +357,7 @@ plot: Mintu claims the ball touched the Begum Bridge wall for a four, but Golu s
 ending: चौके का लालच पड़ा भारी!
 hook: मिंटू का बेगम पुल वाला प्लान उल्टा पड़ गया! 😜
 card: चौका या आउट?
+tags: first_3s=bold_text_question
 - face-off | mintu | pintu | नियम | mintu: बेगम पुल की दीवार छुई, चौका हुआ!
 - shot | mintu | golu | | mintu: हमारी गली का नियम है! // golu: गेंद वहाँ नहीं गई!
 - catch | pintu | golu | bruno | bruno: भौं भौं! // golu: देखो! गेंद पर ब्रूनो बैठा है!
@@ -366,6 +368,7 @@ plot: With the umpire's stool empty, Bruno sits on it and signals out at every s
 ending: अंपायर ब्रूनो ज़िंदाबाद!
 hook: ब्रूनो ने किसे आउट दे दिया? 🐶
 card: ब्रूनो का आउट!
+tags: shareable_because=cute_bruno_moment
 - face-off | sachin | bruno | आउट | sachin: ब्रूनो, मैं आउट नहीं हूँ!
 - run-up | surya | sachin | | surya: देख, ये मेरी रफ़्तार!
 - shot | sachin | bruno | | sachin: ये छक्का, अब मत कहना आउट!
@@ -376,6 +379,7 @@ plot: The ball is lost in a storm, Bruno sniffs his way to Aunty's kitchen, and 
 ending: आटे की गेंद, रोटी रानी!
 hook: तूफ़ान में खोई गेंद कहाँ मिली? 🔍
 card: गेंद कहाँ गई?
+tags: first_3s=bold_text_question
 - face-off | golu | aunty | गेंद | golu: आंटी, हमारी गेंद आपके घर में है! // aunty: यहाँ कुछ नहीं है!
 - run-up | meena | golu | | meena: तूफ़ान में गेंद गुम हुई!
 - shot | golu | bruno | | golu: ब्रूनो सूँघता रसोई चला!
@@ -386,6 +390,7 @@ plot: A pigeon sits on the stumps and Bruno scares it away just as Surya bowls, 
 ending: कबूतर की मेहरबानी से आउट!
 hook: कबूतर की वजह से कौन आउट हुआ? 🐦
 card: स्टंप्स पर कबूतर!
+tags: shareable_because=cute_bruno_moment
 - face-off | sachin | bruno | कबूतर | sachin: स्टंप पर कबूतर बैठा है!
 - run-up | surya | sachin | | surya: कबूतर उड़ा, अब मेरी गेंद!
 - shot | sachin | bruno | | sachin: अरे, गिल्लियाँ उड़ गईं!
@@ -416,6 +421,7 @@ plot: Every cooker whistle from Aunty's kitchen makes Bruno run to the pitch thi
 ending: कुकर की सीटी, ब्रूनो हाज़िर!
 hook: कुकर की आवाज़ पर ब्रूनो क्यों भागा? 🍲
 card: सीटी बजी, ब्रूनो भागा!
+tags: shareable_because=cute_bruno_moment
 - face-off | pintu | bruno | सीटी | pintu: ब्रूनो, ये मेरी सीटी नहीं थी!
 - run-up | surya | sachin | | surya: कुकर फिर बजा, कुत्ता फिर आया!
 - shot | sachin | aunty | | aunty: मेरा कुकर बजा, मैदान भर गया! // sachin: आंटी, आपकी सीटी भारी है!
@@ -426,6 +432,7 @@ plot: Bruno lies in front of the stumps so no one can bowl, and when Surya bribe
 ending: बिस्कुट लिया, जगह नहीं छोड़ी!
 hook: बिस्कुट लेकर भी ब्रूनो क्यों नहीं हिला? 🍪
 card: ब्रूनो हटता ही नहीं!
+tags: shareable_because=cute_bruno_moment
 - face-off | surya | bruno | बिस्कुट | surya: ब्रूनो, स्टंप के सामने से हटो!
 - run-up | surya | golu | | surya: ये बिस्कुट ले, रास्ता छोड़!
 - shot | golu | bruno | | golu: बिस्कुट खा गया, फिर भी जमा!
@@ -446,6 +453,7 @@ plot: Both captains Pappu and Sachin call Bruno to their team, and he sits on th
 ending: समोसे ने जिताई टीम!
 hook: दोनों टीमों ने बुलाया, ब्रूनो किधर गया? 🥟
 card: ब्रूनो किसकी टीम में?
+tags: first_3s=bold_text_question; shareable_because=cute_bruno_moment
 - face-off | pappu | bruno | टीम | pappu: ब्रूनो, तू मेरी टीम में खेलेगा!
 - run-up | pappu | sachin | | sachin: नहीं पप्पू, वो मेरी टीम में है!
 - shot | sachin | bruno | | sachin: ब्रूनो तो लाइन पर बैठा है!
@@ -456,6 +464,7 @@ plot: Bruno fetches every ball so fast that the match ends in five minutes, and 
 ending: मैच पाँच मिनट में खत्म!
 hook: ब्रूनो ने मैच इतनी जल्दी क्यों निपटाया? 🏃
 card: मैच जल्दी खत्म हुआ!
+tags: shareable_because=cute_bruno_moment
 - face-off | coach | sachin | मैच | coach: सचिन, मैच खत्म कैसे हो गया?
 - run-up | coach | sachin | | coach: ये गेंद फेंक रहा हूँ!
 - shot | sachin | bruno | | sachin: ब्रूनो हर गेंद फ़ौरन ले आता है!
@@ -496,6 +505,7 @@ plot: Bruno brings a lemon instead of the ball, nobody notices until Surya bowls
 ending: गेंद की जगह नींबू!
 hook: ब्रूनो ने गेंद की जगह क्या रख दिया? 🍋
 card: गेंद नहीं, नींबू है!
+tags: shareable_because=cute_bruno_moment
 - face-off | chhotu | bruno | नींबू | chhotu: ब्रूनो, ये गेंद हरी-पीली क्यों है?
 - run-up | surya | chhotu | | surya: चलो, ये गेंद फेंकता हूँ!
 - shot | chhotu | surya | | chhotu: अरे, रस मेरे मुँह पर गिरा! // surya: ये तो नींबू निकला!
@@ -526,6 +536,7 @@ plot: Bruno stands in the slips and catches the ball in his mouth, so Sachin is 
 ending: कुत्ते को मिला इनाम!
 hook: स्लिप में खड़े ब्रूनो ने क्या पकड़ा? 🧤
 card: ब्रूनो स्लिप में खड़ा!
+tags: shareable_because=cute_bruno_moment
 - face-off | coach | bruno | स्लिप | coach: ब्रूनो स्लिप में खड़ा है, संभलकर!
 - run-up | coach | sachin | | coach: ध्यान रखना, गेंद तेज़ आ रही है!
 - shot | sachin | bruno | | sachin: ये लो चौका!
@@ -546,6 +557,7 @@ plot: The gali plans a surprise party for Bruno, Bruno finds the cake early, and
 ending: केक पप्पू की शर्ट पर!
 hook: सरप्राइज़ पार्टी में असली सरप्राइज़ क्या निकला? 🎉
 card: ब्रूनो का केक गायब!
+tags: shareable_because=cute_bruno_moment
 - face-off | meena | pappu | केक | meena: पप्पू भैया, जन्मदिन का केक कहाँ गया?
 - run-up | meena | sachin | | meena: सचिन, पार्टी की गेंद फेंक!
 - shot | pappu | bruno | | pappu: अरे, मेरी शर्ट पर केक लग गया!
@@ -556,6 +568,7 @@ plot: It starts raining, and Bruno shakes the water off his coat onto Pintu just
 ending: ब्रूनो ने किया छिड़काव!
 hook: बारिश में ब्रूनो ने पिंटू को क्या किया? 🌧
 card: बारिश और ब्रूनो!
+tags: shareable_because=cute_bruno_moment
 - face-off | surya | pintu | बारिश | surya: पिंटू, बारिश आ गई, फ़ैसला दो! // pintu: ठहरो, पहले सोचने दो!
 - run-up | surya | golu | | surya: गोलू, गेंद संभालकर रखना!
 - shot | golu | bruno | | golu: ब्रूनो, तू तो पूरा भीग गया!
@@ -566,6 +579,7 @@ plot: The only bat is missing, so Bruno brings Dadaji's walking stick and Sachin
 ending: लाठी ने सँभाली पारी!
 hook: बल्ला गुम हुआ तो ब्रूनो क्या लाया? 🦯
 card: बल्ला कहाँ गया?
+tags: first_3s=bold_text_question
 - face-off | sachin | dadaji | लाठी | sachin: दादाजी, हमारा बल्ला खो गया! // dadaji: ये लो, मेरी लाठी!
 - run-up | surya | sachin | | surya: अब इस लाठी से खेलो!
 - shot | sachin | bruno | | sachin: लाठी से भी छक्का!
@@ -586,6 +600,7 @@ plot: Bruno steals Golu's tiffin, and when Aunty opens it she finds the cricket 
 ending: टिफ़िन खुला, पोल खुली!
 hook: गोलू के टिफ़िन में क्या छुपा था? 🍱
 card: टिफ़िन में क्या है?
+tags: first_3s=bold_text_question
 - face-off | golu | bruno | टिफ़िन | golu: ब्रूनो, ये मेरा खाना है!
 - run-up | surya | golu | | surya: जल्दी कर!
 - shot | golu | aunty | | golu: आंटी, मेरा टिफ़िन किसी ने उठा लिया! // aunty: ला, मैं देखूँ इसमें क्या है!
@@ -646,6 +661,7 @@ plot: Dadaji and Aunty argue over whose chair the ball hit, until Bruno sits dow
 ending: दोनों कुर्सी, एक कुत्ता!
 hook: कुर्सी की लड़ाई कौन जीता? 🪑
 card: कुर्सी किसकी है?
+tags: first_3s=bold_text_question
 - face-off | dadaji | aunty | कुर्सी | dadaji: आंटी, गेंद मेरी कुर्सी पर लगी! // aunty: नहीं दादाजी, मेरी कुर्सी पर!
 - run-up | golu | sachin | | golu: अब दोनों में झगड़ा हो गया!
 - shot | sachin | bruno | | sachin: ब्रूनो दोनों कुर्सी पर चढ़ गया!
@@ -966,6 +982,7 @@ plot: Mintu spies on the gali, and Bruno finds him hiding inside a drum while Pa
 ending: ड्रम में जासूस पकड़ा!
 hook: ड्रम में छुपा जासूस कौन निकला? 🛢
 card: ड्रम में कौन है?
+tags: first_3s=bold_text_question
 - face-off | pappu | bruno | ड्रम | pappu: ब्रूनो, उस ड्रम में कोई है!
 - run-up | surya | sachin | | surya: कोई हमारी बातें सुन रहा है!
 - shot | sachin | mintu | | sachin: मिंटू, तू ड्रम में क्या कर रहा है?
@@ -1006,6 +1023,7 @@ plot: Surya says it was his ball and Sachin says it was his shot, and they both 
 ending: दोनों झगड़ते रहे, ब्रूनो भागा!
 hook: गेंद के झगड़े में असली जीत किसकी हुई? 🐕
 card: गेंद किसकी थी?
+tags: first_3s=bold_text_question
 - face-off | surya | sachin | झगड़ा | surya: ये मेरी गेंद थी, मैंने डाली!
 - run-up | surya | sachin | | sachin: नहीं, मैंने शॉट मारा था!
 - shot | sachin | bruno | | sachin: देखो, कुत्ता गेंद दबाए भाग रहा!
@@ -1166,6 +1184,7 @@ plot: Mintu and Meena fight over a boundary, and Bruno drops the ball exactly on
 ending: लाइन पर इंसाफ़ हुआ!
 hook: बाउंड्री के झगड़े का फ़ैसला किसने किया? 🧐
 card: सीमा का झगड़ा!
+tags: shareable_because=cute_bruno_moment
 - face-off | mintu | meena | सीमा | mintu: ये गेंद सीमा के अंदर गिरी! // meena: नहीं, बाहर गिरी थी!
 - run-up | mintu | meena | | meena: ठीक है, फिर से डालो!
 - shot | meena | bruno | | meena: ब्रूनो, तू ही फ़ैसला कर!
@@ -1186,6 +1205,7 @@ plot: The ball hits Bruno's back and bounces over the wall, Pintu signals a six,
 ending: पीठ का छक्का, ग़ज़ब!
 hook: ब्रूनो की पीठ से छक्का कैसे बना? 🏏
 card: पीठ से छक्का!
+tags: shareable_because=cute_bruno_moment
 - face-off | sachin | bruno | पीठ | sachin: गेंद ब्रूनो की पीठ से टकराई!
 - run-up | surya | sachin | | surya: अब ये गेंद देखो!
 - shot | sachin | pintu | | sachin: सीधी दीवार के उस पार! // pintu: छह रन, पूरा छक्का!
@@ -1196,6 +1216,7 @@ plot: Everyone plays badly without Bruno, and Coach and Pappu find him asleep on
 ending: सोता ब्रूनो, घूमता मैच!
 hook: ब्रूनो के बिना मैच का क्या हुआ? 😪
 card: ब्रूनो कहाँ है?
+tags: first_3s=bold_text_question
 - face-off | coach | pappu | ग़ायब | coach: आज हमारा खिलाड़ी ग़ायब है!
 - run-up | pappu | sachin | | pappu: आज सबका खेल बिगड़ा है!
 - shot | sachin | bruno | | sachin: ब्रूनो तो पिच पर सो रहा है!
@@ -1226,6 +1247,7 @@ plot: A cat steals the ball at night, and Bruno stays awake and wins it back by 
 ending: रात भर जागा पहरेदार!
 hook: रात में बिल्ली ने गेंद कहाँ छुपाई? 🐈
 card: बिल्ली गेंद ले गई!
+tags: shareable_because=cute_bruno_moment
 - face-off | dadaji | bruno | रात | dadaji: ब्रूनो, बिल्ली गेंद ले गई!
 - run-up | golu | sachin | | golu: रात भर कोई जागता रहा!
 - shot | sachin | bruno | | sachin: ब्रूनो की आँखें कितनी लाल हैं!
@@ -1236,6 +1258,7 @@ plot: Aunty sweeps and Bruno thinks the broom is the enemy, and the broom sends 
 ending: झाड़ू बनी खिलाड़ी!
 hook: झाड़ू लगी तो गेंद कहाँ उड़ गई? 🧹
 card: झाड़ू से गेंद उड़ी!
+tags: shareable_because=cute_bruno_moment
 - face-off | aunty | bruno | झाड़ू | aunty: ब्रूनो, झाड़ू से मत डर!
 - run-up | sachin | surya | | sachin: गेंद आँगन में चली गई!
 - shot | surya | aunty | | aunty: मेरी झाड़ू से गेंद उछल गई!
@@ -1246,6 +1269,7 @@ plot: The match is tied, both captains Pappu and Mintu give Bruno a biscuit, and
 ending: बिस्कुट ने तय किया फ़ैसला!
 hook: बराबरी का मैच ब्रूनो ने कैसे जिताया? 🍪
 card: बराबर मैच, ब्रूनो जज!
+tags: shareable_because=cute_bruno_moment
 - face-off | pappu | mintu | बराबरी | pappu: मैच बराबर है, मैं नहीं हारूँगा!
 - run-up | pappu | mintu | | mintu: ये लो बिस्कुट, इधर आओ!
 - shot | mintu | bruno | | mintu: मेरा बिस्कुट बड़ा है, देख!
@@ -1256,6 +1280,7 @@ plot: The kulfi bell rings and Golu and the whole team run, but Bruno stays and 
 ending: वफ़ादार ब्रूनो, ठंडा तोहफ़ा!
 hook: घंटी सुनकर ब्रूनो पहरे पर क्यों रहा? 🍦
 card: कुल्फ़ी की घंटी!
+tags: shareable_because=cute_bruno_moment
 - face-off | golu | chhotu | कुल्फ़ी | golu: कुल्फ़ी वाले की घंटी बजी, दौड़ो!
 - run-up | chhotu | golu | | chhotu: सब चले गए, पिच अकेली है!
 - shot | golu | bruno | | golu: ब्रूनो पिच की रखवाली कर रहा है!
@@ -1268,6 +1293,7 @@ hook: रात में गली से गेंद कौन ले जा�
 card: गेंद फिर गायब!
 series: Bruno Files
 ep: 1
+tags: shareable_because=cute_bruno_moment
 - face-off | golu | sachin | गायब | golu: मेरी गेंद रात में फिर गायब! // sachin: तीसरी बार हुआ है!
 - run-up | sachin | golu | | sachin: आज जासूसी शुरू करते हैं!
 - shot | golu | bruno | | golu: ब्रूनो, ये पंजे तेरे नहीं हैं!
@@ -1280,6 +1306,7 @@ hook: घंटी वाले जाल में सुबह क्या �
 card: घंटी का जाल!
 series: Bruno Files
 ep: 2
+tags: shareable_because=cute_bruno_moment
 - face-off | meena | golu | जाल | meena: गेंद पर घंटी बाँध दी है! // golu: अब चोर पकड़ा जाएगा!
 - run-up | golu | meena | | golu: रात में घंटी बजी थी!
 - shot | meena | bruno | | meena: ब्रूनो को सिर्फ़ एक काला पंख मिला!

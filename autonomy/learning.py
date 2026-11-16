@@ -41,6 +41,14 @@ def slug(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+def _genome_tags(blk: str) -> dict:
+    try:
+        import genome  # noqa: PLC0415
+        return genome.parse_tags(blk)
+    except Exception:
+        return {}
+
+
 def parse_bank(text: str) -> dict[str, dict]:
     """slug of the English title -> {format, cast, hook, first_line}. Never raises."""
     out = {}
@@ -61,7 +69,7 @@ def parse_bank(text: str) -> dict[str, dict]:
                 fmt = "rivalry"
             else:
                 fmt = "normal"
-            out[slug(en)] = {"format": fmt, "cast": cast, "hook": hook, "first_line": first}
+            out[slug(en)] = {"format": fmt, "cast": cast, "hook": hook, "first_line": first, "tags": _genome_tags(blk)}
         except Exception:
             continue
     return out
@@ -253,6 +261,7 @@ def score_reels(posts: list[dict], metrics: dict, bank: dict, now: datetime, rul
         rows.append({"title": p["title"], "views_per_day": round(views / days, 2), "reactions_per_day": round(react / days, 2),
                      "format": feat.get("format"), "cast": feat.get("cast", []), "slot": slot,
                      "hook_type": hook_type(feat.get("hook", "")),
+                     "tags": feat.get("tags", {}), "posted": datetime.fromisoformat(p["when"]).date().isoformat(),
                      "hook_score": first_line_score(feat.get("first_line", ""))})
     if len(rows) < L["min_reels_with_data"]:
         return rows
