@@ -1866,7 +1866,13 @@
       },
       "notes": {
         "yt_video_id": "GEoTMIYnzRA",
-        "fb_video_id": "1455242516041111"
+        "fb_video_id": "1455242516041111",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
