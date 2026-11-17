@@ -1835,10 +1835,18 @@
           "scheduled": true,
           "publish_at": "2026-11-17T20:30:00+05:30",
           "at": "2026-11-17T08:37:25.772875+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1455242516041111",
+          "scheduled": true,
+          "publish_at": "2026-11-17T20:30:00+05:30",
+          "at": "2026-11-17T08:37:25.772875+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "GEoTMIYnzRA"
+        "yt_video_id": "GEoTMIYnzRA",
+        "fb_video_id": "1455242516041111"
       }
     },
     {
