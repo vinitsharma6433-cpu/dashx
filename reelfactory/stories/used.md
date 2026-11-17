@@ -54,3 +54,5 @@
 - 2026-11-15 | sankranti-kite-and-ball | संक्रांति की पतंग (Sankranti Kite and Ball) | A kite and a ball collide above the gali, and both land in Dadaji's hands while Golu and Mintu cheer. | आसमान से सीधी झोली!
 - 2026-11-16 | meerut-market-match | बाज़ार का मैच (Meerut Market Match) | The match goes through the Abu Lane market, and Sachin's ball bounces between shops while each shopkeeper shouts out or four, with Chhotu and Pintu leading the fun. | दुकानदारों की अपनी बाज़ी!
 - 2026-11-16 | bruno-chooses-a-team | ब्रूनो किसकी टीम (Bruno Chooses a Team) | Both captains Pappu and Sachin call Bruno to their team, and he sits on the line between them until Aunty's samosa plate settles it. | समोसे ने जिताई टीम!
+- 2026-11-17 | bruno-bats | ब्रूनो की बल्लेबाज़ी (Bruno Bats) | Bruno grabs the dropped bat to chase the ball and accidentally hits a six, and then Coach and Meena both claim it was their coaching. | छक्का ब्रूनो का, श्रेय कोच!
+- 2026-11-17 | bruno-the-night-guard | ब्रूनो रात का पहरेदार (Bruno the Night Guard) | A cat steals the ball at night, and Bruno stays awake and wins it back by morning while Dadaji praises him. | रात भर जागा पहरेदार!
