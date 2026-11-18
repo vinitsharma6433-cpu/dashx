@@ -38,7 +38,7 @@ jobs:
       run:
         working-directory: reelfactory
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Pause switch
         id: stop
         working-directory: .
