@@ -254,7 +254,12 @@ class Engine(unittest.TestCase):
             return eng.run(self.root, NOW, env=kw.pop("env", {}), **kw)
 
     def test_fails_closed_until_the_owner_lists_the_three_files(self):
-        out = eng.run(self.root, NOW, env={})
+        def without():                                                                       # the rule file as it was BEFORE the owner approved the 3 paths
+            r = json.loads(json.dumps(REAL()))
+            r["state_files"]["paths"] = [p for p in r["state_files"]["paths"] if p not in eng.OUTPUTS]
+            return r
+        with mock.patch.object(guard, "load_rules", without):
+            out = eng.run(self.root, NOW, env={})
         self.assertTrue(out.startswith("refused"))
         for p in eng.OUTPUTS:
             self.assertIn(p, out)

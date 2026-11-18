@@ -54,8 +54,17 @@ class Disabled(unittest.TestCase):
             self.skipTest("no git history here")
         out = subprocess.run(["git", "diff", "--name-status", base, "HEAD", "--", ".github", "poster"], cwd=REPO, capture_output=True, text=True, encoding="utf-8").stdout.split("\n")
         changed = sorted(x for x in out if x.strip())
-        # before the merge: exactly the two new files; after the merge into main the diff is empty. Either way no poster file and no old workflow is in it.
-        self.assertTrue(set(changed) <= {"A\t.github/workflows/dashx-autonomy-improve.yml", "A\t.github/workflows/dashx-autonomy.yml"}, changed)
+        # no poster file and no old workflow is ever in it. The two autonomy workflows may be added (A) and dashx-autonomy.yml may carry
+        # exactly the ONE owner-approved line (git add of the 3 pattern pipeline files): nothing else.
+        ok = {"A\t.github/workflows/dashx-autonomy-improve.yml", "A\t.github/workflows/dashx-autonomy.yml", "M\t.github/workflows/dashx-autonomy.yml"}
+        self.assertTrue(set(changed) <= ok, changed)
+        if "M\t.github/workflows/dashx-autonomy.yml" in changed:
+            num = subprocess.run(["git", "diff", "--numstat", base, "HEAD", "--", ".github/workflows/dashx-autonomy.yml"], cwd=REPO, capture_output=True, text=True, encoding="utf-8").stdout.split()
+            self.assertEqual(num[:2], ["1", "0"])                                           # one added line, nothing removed or changed
+            added = subprocess.run(["git", "diff", "-U0", base, "HEAD", "--", ".github/workflows/dashx-autonomy.yml"], cwd=REPO, capture_output=True, text=True, encoding="utf-8").stdout
+            self.assertIn("+          git add autonomy/trend_patterns.json autonomy/trend_history.json autonomy/notebooklm_pack.md 2>/dev/null || true", added)
+            self.assertNotIn("YT_API_KEY", added)
+            self.assertNotIn("GEMINI_API_KEY", added)
 
 
 if __name__ == "__main__":

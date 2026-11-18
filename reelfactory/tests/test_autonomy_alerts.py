@@ -216,7 +216,7 @@ class Run(unittest.TestCase):
         out = A.run(self.root, NOW, api)
         self.assertEqual((out["problems"], out["issue"], out["level"]), (["META_TOKEN"], "created", "red"))
         self.assertEqual(json.loads((self.root / "autonomy/status.json").read_text(encoding="utf-8"))["level"], "red")
-        self.assertEqual(sorted(p.name for p in (self.root / "autonomy").iterdir()), ["TRUST_LADDER.md", "log.md", "status.json"])       # + the ladder's start line
+        self.assertEqual(sorted(p.name for p in (self.root / "autonomy").iterdir()), ["TRUST_LADDER.md", "log.md", "notebooklm_pack.md", "status.json", "trend_history.json", "trend_patterns.json"])       # + the ladder's start line + the 3 owner-approved pattern pipeline files (the due report runs the weekly engine)
 
     def test_kill_switch_does_nothing(self):
         (self.root / "STOP_AUTONOMY").write_text("", encoding="utf-8")
@@ -346,7 +346,8 @@ class Report(unittest.TestCase):
             R.run(root, NOW + timedelta(minutes=30))
             txt = (root / "status" / "daily.md").read_text(encoding="utf-8")
             self.assertEqual(txt.count("## 2026-11-13\n"), 1)
-            self.assertEqual(sorted(p.name for p in root.iterdir()), ["poster", "status"])
+            self.assertEqual(sorted(p.name for p in root.iterdir()), ["autonomy", "poster", "status"])
+            self.assertEqual(sorted(p.name for p in (root / "autonomy").iterdir()), ["notebooklm_pack.md", "trend_history.json", "trend_patterns.json"])      # only the 3 approved pipeline files
             (root / "STOP_AUTONOMY").write_text("", encoding="utf-8")
             (root / "status" / "daily.md").unlink()
             self.assertEqual(R.run(root, NOW), "halted")
