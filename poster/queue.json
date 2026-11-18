@@ -1957,10 +1957,18 @@
           "scheduled": true,
           "publish_at": "2026-11-18T20:30:00+05:30",
           "at": "2026-11-18T08:08:58.556777+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1688125745994507",
+          "scheduled": true,
+          "publish_at": "2026-11-18T20:30:00+05:30",
+          "at": "2026-11-18T08:08:58.556777+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "QOGnwHXiduA"
+        "yt_video_id": "QOGnwHXiduA",
+        "fb_video_id": "1688125745994507"
       }
     },
     {
