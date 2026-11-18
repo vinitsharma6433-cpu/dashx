@@ -1,0 +1,52 @@
+{
+ "niche": [],
+ "own": [
+  {
+   "week": "2026-W46",
+   "stats": {
+    "reels": 12,
+    "tagged": 2,
+    "all": {
+     "n": 12,
+     "sum": 1283.9
+    },
+    "pat": {
+     "shareable_because=cute_bruno_moment": {
+      "n": 1,
+      "sum": 236.9
+     },
+     "first_3s=bold_text_question": {
+      "n": 1,
+      "sum": 56.3
+     }
+    }
+   }
+  },
+  {
+   "week": "2026-W47",
+   "stats": {
+    "reels": 5,
+    "tagged": 2,
+    "all": {
+     "n": 5,
+     "sum": 974.6
+    },
+    "pat": {
+     "first_3s=bold_text_question": {
+      "n": 1,
+      "sum": 101.6
+     },
+     "shareable_because=cute_bruno_moment": {
+      "n": 2,
+      "sum": 339.5
+     },
+     "first_3s=bold_text_question+shareable_because=cute_bruno_moment": {
+      "n": 1,
+      "sum": 101.6
+     }
+    }
+   }
+  }
+ ],
+ "quarantine": []
+}
