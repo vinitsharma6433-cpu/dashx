@@ -1,108 +1,18 @@
 {
- "date": "2026-11-14",
+ "date": "2026-11-18",
  "queries": [
-  "json-ld schema checker",
-  "web performance audit",
-  "seo audit tool"
+  "html seo best practices",
+  "sitemap checker",
+  "json-ld schema checker"
  ],
- "repos_seen": 24,
- "repos_vetted": 12,
+ "repos_seen": 1,
+ "repos_vetted": 1,
  "verdicts": {
-  "candidate": 7,
-  "skip": 3,
-  "injection": 2
+  "skip": 1
  },
- "injection_repos": [
-  "oubpa/themestar-rich-snippet",
-  "AndriyKhamar/Pagespeed-Tracker"
- ],
- "good_repos": [
-  {
-   "repo": "saizul/schema-markup-generator",
-   "stars": 0,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "jsonld-breadcrumb",
-    "jsonld-faq-blog"
-   ]
-  },
-  {
-   "repo": "pigfox/browser-extensions",
-   "stars": 0,
-   "license": "MIT",
-   "score": 5.0,
-   "ideas": [
-    "jsonld-breadcrumb"
-   ]
-  },
-  {
-   "repo": "marketing-MEER/schema-markup-checker",
-   "stars": 0,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "jsonld-breadcrumb",
-    "jsonld-faq-blog"
-   ]
-  },
-  {
-   "repo": "hustlemarketers-art/hustle-schema-studio",
-   "stars": 0,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "jsonld-breadcrumb",
-    "jsonld-faq-blog",
-    "canonical-present"
-   ]
-  },
-  {
-   "repo": "taismo-gmbh/geo-schema-checker",
-   "stars": 0,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "og-image",
-    "single-h1",
-    "jsonld-breadcrumb",
-    "jsonld-faq-blog",
-    "canonical-present"
-   ]
-  },
-  {
-   "repo": "aksanovdgtl-cmyk/jsonld-schema-check",
-   "stars": 0,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "single-h1",
-    "jsonld-breadcrumb",
-    "jsonld-faq-blog",
-    "canonical-present"
-   ]
-  },
-  {
-   "repo": "nucliweb/agent-first-perf-audits",
-   "stars": 1,
-   "license": "MIT",
-   "score": 4.0,
-   "ideas": [
-    "img-dimensions"
-   ]
-  }
- ],
- "idea_counts": {
-  "jsonld-breadcrumb": 6,
-  "jsonld-faq-blog": 5,
-  "canonical-present": 3,
-  "single-h1": 2,
-  "og-image": 1,
-  "img-dimensions": 1
- },
- "new_checks": [
-  "jsonld-breadcrumb",
-  "jsonld-faq-blog"
- ],
+ "injection_repos": [],
+ "good_repos": [],
+ "idea_counts": {},
+ "new_checks": [],
  "rejected_now": []
 }
