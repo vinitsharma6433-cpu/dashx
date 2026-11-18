@@ -1988,7 +1988,13 @@
       },
       "notes": {
         "yt_video_id": "QOGnwHXiduA",
-        "fb_video_id": "1688125745994507"
+        "fb_video_id": "1688125745994507",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
