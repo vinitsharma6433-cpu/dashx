@@ -126,8 +126,8 @@ class GradeMode(unittest.TestCase):
         good = (True, {"meerut_feel": 8, "twist": 7, "funny": 8, "natural_hindi": 8, "kid_safe": True, "typos": [], "issue": "ok"})
         low = (False, {"meerut_feel": 3, "twist": 4, "funny": 5, "natural_hindi": 7, "kid_safe": True, "typos": ["x"], "issue": "weak twist"})
         with mock.patch.object(rb, "judge", self.judge([good, low, good])):
-            done, failed, left = rb.grade_step()
-        self.assertEqual((done, failed, left), (2, 1, 1))                                     # Missing is not in the bank: never asked
+            done, failed, left, why = rb.grade_step()
+        self.assertEqual((done, failed, left, why), (2, 1, 1, ""))                                     # Missing is not in the bank: never asked
         self.assertLessEqual(rb.CALLS["n"], 12)
         saved = json.loads(self.usage.read_text(encoding="utf-8"))
         self.assertEqual(saved["grade"]["Alpha"]["ok"], True)
@@ -139,7 +139,7 @@ class GradeMode(unittest.TestCase):
     def test_an_unavailable_judge_stops_and_records_nothing(self):
         rb = self.rb
         with mock.patch.object(rb, "judge", self.judge([(False, {"issue": "judge unavailable (HTTP 0)"})])):
-            self.assertEqual(rb.grade_step(), (0, 0, 3))
+            self.assertEqual(rb.grade_step(), (0, 0, 3, "judge unavailable (HTTP 0)"))              # the reason is returned and goes into the daily line
         self.assertNotIn("grade", json.loads(self.usage.read_text(encoding="utf-8")))
 
     def test_a_later_save_keeps_the_grades(self):

@@ -121,6 +121,7 @@ def save_usage() -> None:
 # inside the same daily cap. Results go to refill_usage.json ("grade") and one line each to refill_log.md. Nothing is removed.
 GRADE_REQUEST = ROOT / "stories" / "grade_request.json"
 GRADES: dict = {}
+DRY_GRADES: dict = {}     # grades of a DRY RUN: printed and counted in the cap, never saved
 GRADE_NOTE = [""]
 
 
@@ -147,9 +148,12 @@ def grade_pending() -> list:
     return [t for t in want if t not in have and t in blocks]
 
 
-def grade_step() -> tuple:
-    """Grade pending stories while calls are left. (graded now, failed now, still pending). Stops at the first call that does not answer."""
+def grade_step(persist: bool = True) -> tuple:
+    """Grade pending stories while calls are left. (graded now, failed now, still pending, why it stopped). Stops at the first call that does not answer.
+    persist=False (a dry run): the grades are only printed; nothing is written to refill_usage.json or refill_log.md."""
     done = failed = 0
+    reason = ""
+    store = GRADES if persist else DRY_GRADES
     blocks = bank_blocks()
     for t in grade_pending():
         if calls_left() < 1:
@@ -157,18 +161,20 @@ def grade_step() -> tuple:
         ok, j = judge(blocks[t])
         issue = str(j.get("issue", ""))
         if issue.startswith("judge unavailable") or issue == "judge answer not understood":
-            print(f"  grade stopped: {clean(issue, 80)}")
+            reason = clean(issue, 80)
+            print(f"  grade stopped: {reason}")
             break
         rec = {"ok": bool(ok), "meerut": j.get("meerut_feel"), "twist": j.get("twist"), "funny": j.get("funny"), "hindi": j.get("natural_hindi"),
                "kid_safe": j.get("kid_safe"), "typos": len(j.get("typos") or []), "issue": clean(issue, 100), "day": quota_day()}
-        GRADES[t] = rec
+        store[t] = rec
         done += 1
         failed += 0 if ok else 1
         print(f"  grade {'PASS' if ok else 'FAIL'} {clean(t, 50)}: meerut {rec['meerut']} twist {rec['twist']} funny {rec['funny']}")
-        with open(LOG, "a", encoding="utf-8", newline="\n") as f:
-            f.write(f"- {quota_day()} grade {'PASS' if ok else 'FAIL'} | {t} | meerut {rec['meerut']} twist {rec['twist']} funny {rec['funny']} hindi {rec['hindi']} typos {rec['typos']} | {rec['issue']}\n")
-    save_usage()
-    return done, failed, len(grade_pending())
+        if persist:
+            with open(LOG, "a", encoding="utf-8", newline="\n") as f:
+                f.write(f"- {quota_day()} grade {'PASS' if ok else 'FAIL'} | {t} | meerut {rec['meerut']} twist {rec['twist']} funny {rec['funny']} hindi {rec['hindi']} typos {rec['typos']} | {rec['issue']}\n")
+    save_usage()          # always: the calls of a dry run are real Gemini calls and must be counted in the daily cap (the dry-run grades themselves are not saved)
+    return done, failed, len(grade_pending()) - (0 if persist else done), reason
 
 
 def calls_left() -> int:
@@ -557,10 +563,11 @@ def run(a) -> int:
     CALLS["n"] = load_usage()
     left, total = usable_count()
     print(f"bank: {total} stories, {left} usable now; Gemini calls used today so far: {CALLS['n']} of {CALLS['cap']}")
-    if grade_pending() and KEY and calls_left() >= 1 and not a.dry_run:      # grade the hand-imported stories first, inside the same cap
+    if grade_pending() and KEY and calls_left() >= 1:      # grade the hand-imported stories first, inside the same cap (a dry run grades too, but saves nothing)
         STATE["models"] = gemini_models()
-        g_done, g_fail, g_left = grade_step()
-        GRADE_NOTE[0] = f" [graded {g_done} imported stories today, {g_fail} below the bar, {g_left} still to grade]"
+        g_done, g_fail, g_left, g_why = grade_step(persist=not a.dry_run)
+        GRADE_NOTE[0] = (f" [graded {g_done} imported stories today, {g_fail} below the bar, {g_left} still to grade"
+                         + (f"; grading stopped: {g_why}" if g_why else "") + (" (dry run: grades not saved)" if a.dry_run else "") + "]")
     if left > a.max_bank:
         write_report(left, 0, a, f" (bank has more than {a.max_bank} usable stories: nothing to write)")
         return 0

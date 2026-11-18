@@ -58,3 +58,6 @@
 - 2026-11-17 | bruno-the-night-guard | ब्रूनो रात का पहरेदार (Bruno the Night Guard) | A cat steals the ball at night, and Bruno stays awake and wins it back by morning while Dadaji praises him. | रात भर जागा पहरेदार!
 - 2026-11-18 | chhotu-weighs-the-ball | छोटू का वज़न (Chhotu Weighs the Ball) | Chhotu can tell by weight that the ball has been swapped, and the team checks and finds Mintu's ball while Surya looks on. | तराज़ू ने पकड़ा बेईमान!
 - 2026-11-18 | bruno-and-the-cooker-whistle | ब्रूनो और कुकर सीटी (Bruno and the Cooker Whistle) | Every cooker whistle from Aunty's kitchen makes Bruno run to the pitch thinking it is Pintu's whistle, and Pintu tells him it was not his. | कुकर की सीटी, ब्रूनो हाज़िर!
+- HOLD 2026-11-18 (editor grade FAIL) | bruno-the-umpire | ब्रूनो अंपायर (Bruno the Umpire) | With the umpire's stool empty, Bruno sits on it and signals out at every swing.
+- HOLD 2026-11-18 (editor grade FAIL) | bruno-vs-pigeon | ब्रूनो और कबूतर (Bruno vs Pigeon) | A pigeon sits on the stumps and Bruno scares it away just as Surya bowls.
+- HOLD 2026-11-18 (editor grade FAIL) | bruno-hides-the-ball | ब्रूनो ने गेंद छुपाई (Bruno Hides the Ball) | Bruno buries the ball in Aunty's flower pot.
