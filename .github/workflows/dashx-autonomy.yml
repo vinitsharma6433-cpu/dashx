@@ -41,7 +41,7 @@ jobs:
         id: stop
         run: |
           if [ -e STOP_AUTONOMY ] || [ -e reelfactory/STOP_AUTONOMY ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::warning::paused by STOP_AUTONOMY"; fi
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.stop.outputs.skip != 'true'
         with:
           python-version: "3.12"
