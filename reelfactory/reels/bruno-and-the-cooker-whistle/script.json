@@ -1,0 +1,165 @@
+{
+  "id": "bruno-and-the-cooker-whistle",
+  "title": "ब्रूनो और कुकर सीटी",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Every cooker whistle from Aunty's kitchen makes Bruno run to the pitch thinking it is Pintu's whistle, and Pintu tells him it was not his.",
+    "idea": "Bruno and the Cooker Whistle",
+    "generated": "2026-11-18",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "कुकर की आवाज़ पर ब्रूनो क्यों भागा? 🍲",
+    "card": "सीटी बजी, ब्रूनो भागा!",
+    "closing": "कुकर की सीटी, ब्रूनो हाज़िर!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "bruno",
+        "boardText": "सीटी"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो, ये मेरी सीटी नहीं थी!",
+      "subtitle": "ब्रूनो, ये मेरी सीटी नहीं थी!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "ब्रूनो, ये मेरी सीटी नहीं थी!",
+          "start": 0.25,
+          "end": 2.27,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "ब्रूनो, ये मेरी सीटी नहीं थी!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "कुकर फिर बजा, कुत्ता फिर आया!",
+      "subtitle": "कुकर फिर बजा, कुत्ता फिर आया!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "कुकर फिर बजा, कुत्ता फिर आया!",
+          "start": 0.25,
+          "end": 2.23,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "कुकर फिर बजा, कुत्ता फिर आया!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "aunty"
+      },
+      "duration": 5.0,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "मेरा कुकर बजा, मैदान भर गया! आंटी, आपकी सीटी भारी है!",
+      "subtitle": "मेरा कुकर बजा, मैदान भर गया! आंटी, आपकी सीटी भारी है!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "मेरा कुकर बजा, मैदान भर गया!",
+          "start": 0.25,
+          "end": 2.61,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "आंटी, आपकी सीटी भारी है!",
+          "start": 2.71,
+          "end": 4.58,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "मेरा कुकर बजा, मैदान भर गया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "bruno",
+        "right": "pintu",
+        "boardText": "मैदान"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अब बाहर जा, फ़ील्डिंग मत कर!",
+      "subtitle": "अब बाहर जा, फ़ील्डिंग मत कर!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "अब बाहर जा, फ़ील्डिंग मत कर!",
+          "start": 0.25,
+          "end": 2.37,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "अब बाहर जा, फ़ील्डिंग मत कर!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
