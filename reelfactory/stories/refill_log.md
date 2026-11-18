@@ -1,2 +1,10 @@
 - 2026-11-10 | gemini/gemini-3.5-flash | Dog Coaching | कुत्ते की कोचिंग | {"funny": 7, "clear": 8, "natural_hindi": 9, "kid_safe": true, "issue": "The punchline is cute, but Bruno's motivation for picking Aunty over Surya could be clearer for a stronger comedic payoff."}
 - 2026-11-12 | gemini/gemini-3.5-flash | Begum Bridge Four | बेगम पुल का चौका | {"funny": 7, "clear": 9, "natural_hindi": 9, "meerut_feel": 7, "twist": 8, "plot_matches": 10, "complete_alone": 10, "kid_safe": true, "typos": [], "issue": "The Meerut local flavor could be strengthened with more specific local slang."} | hook score 54 OK (weakest: STAKES)
+- 2026-11-16 grade FAIL | Bruno the Umpire | meerut 4 twist 7 funny 7 hindi 7 typos 0 | Lacks distinct Meerut gully slang/flavor and feels a bit generic.
+- 2026-11-16 grade PASS | Bruno the Detective | meerut 6 twist 8 funny 7 hindi 8 typos 0 | The storyline lacks specific Meerut slang and local flavors to give it a strong Meerut feel.
+- 2026-11-16 grade FAIL | Bruno vs Pigeon | meerut 2 twist 3 funny 4 hindi 5 typos 0 | The plot says Bruno scares the pigeon causing the wicket, but Bruno does nothing in the actual dialo
+- 2026-11-16 grade FAIL | Bruno Bats | meerut 4 twist 5 funny 6 hindi 8 typos 0 | The Meerut local flavor is weak and the visual action of Bruno grabbing the bat isn't shown in the s
+- 2026-11-16 grade FAIL | Bruno Hides the Ball | meerut 4 twist 6 funny 6 hindi 9 typos 0 | The story lacks distinct Meerut local flavor and dialect.
+- 2026-11-16 grade PASS | Bruno and the Cooker Whistle | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story is clear and kid-friendly, but lacks authentic Meerut local slang and a strong final comed
+- 2026-11-16 grade PASS | Bruno Guards the Wicket | meerut 6 twist 7 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut local dialect and gully flavor.
+- 2026-11-16 grade PASS | Bruno's Rooftop Rescue | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut slang and local flavor to feel uniquely like Meerut.

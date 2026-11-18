@@ -7,3 +7,7 @@
 - 2026-11-15 01:30 IST | ladder | step_up | 1->2 | first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball
 - 2026-11-16 00:30 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 436, dropped 111, failed sources 0 | written
 - 2026-11-16 00:30 IST | info | learning | 12 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-17 02:18 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 472, dropped 145, failed sources 0 | written
+- 2026-11-17 02:18 IST | info | learning | 13 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-18 02:41 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 484, dropped 155, failed sources 0 | written
+- 2026-11-18 02:41 IST | info | learning | 16 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written

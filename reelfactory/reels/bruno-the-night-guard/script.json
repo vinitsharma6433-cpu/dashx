@@ -1,0 +1,157 @@
+{
+  "id": "bruno-the-night-guard",
+  "title": "ब्रूनो रात का पहरेदार",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "A cat steals the ball at night, and Bruno stays awake and wins it back by morning while Dadaji praises him.",
+    "idea": "Bruno the Night Guard",
+    "generated": "2026-11-17",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "रात में बिल्ली ने गेंद कहाँ छुपाई? 🐈",
+    "card": "बिल्ली गेंद ले गई!",
+    "closing": "रात भर जागा पहरेदार!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "bruno",
+        "boardText": "रात"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो, बिल्ली गेंद ले गई!",
+      "subtitle": "ब्रूनो, बिल्ली गेंद ले गई!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "ब्रूनो, बिल्ली गेंद ले गई!",
+          "start": 0.25,
+          "end": 2.6,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "ब्रूनो, बिल्ली गेंद ले गई!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "रात भर कोई जागता रहा!",
+      "subtitle": "रात भर कोई जागता रहा!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "रात भर कोई जागता रहा!",
+          "start": 0.25,
+          "end": 2.0,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "रात भर कोई जागता रहा!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ब्रूनो की आँखें कितनी लाल हैं!",
+      "subtitle": "ब्रूनो की आँखें कितनी लाल हैं!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ब्रूनो की आँखें कितनी लाल हैं!",
+          "start": 0.25,
+          "end": 2.22,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ब्रूनो की आँखें कितनी लाल हैं!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "bruno",
+        "boardText": "सुबह"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गेंद वापस आ गई, शाबाश!",
+      "subtitle": "गेंद वापस आ गई, शाबाश!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "गेंद वापस आ गई, शाबाश!",
+          "start": 0.25,
+          "end": 3.1,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "गेंद वापस आ गई, शाबाश!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

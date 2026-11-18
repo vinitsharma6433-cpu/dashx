@@ -1,0 +1,165 @@
+{
+  "id": "chhotu-weighs-the-ball",
+  "title": "छोटू का वज़न",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Chhotu can tell by weight that the ball has been swapped, and the team checks and finds Mintu's ball while Surya looks on.",
+    "idea": "Chhotu Weighs the Ball",
+    "generated": "2026-11-18",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "छोटू ने गेंद का वज़न देखकर क्या पकड़ा? ⚖",
+    "card": "छोटू की तराज़ू!",
+    "closing": "तराज़ू ने पकड़ा बेईमान!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "chhotu",
+        "right": "mintu",
+        "boardText": "वज़न"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ये गेंद तो हल्की निकली, मिंटू!",
+      "subtitle": "ये गेंद तो हल्की निकली, मिंटू!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "ये गेंद तो हल्की निकली, मिंटू!",
+          "start": 0.25,
+          "end": 2.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "ये गेंद तो हल्की निकली, मिंटू!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "chhotu",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "छोटू, वज़न कैसे पता चला?",
+      "subtitle": "छोटू, वज़न कैसे पता चला?",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "छोटू, वज़न कैसे पता चला?",
+          "start": 0.25,
+          "end": 2.2,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "छोटू, वज़न कैसे पता चला?"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "chhotu",
+        "watcher": "surya"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दुकान में रोज़ तौलता हूँ!",
+      "subtitle": "दुकान में रोज़ तौलता हूँ!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "दुकान में रोज़ तौलता हूँ!",
+          "start": 0.25,
+          "end": 1.92,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "दुकान में रोज़ तौलता हूँ!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "mintu",
+        "right": "chhotu",
+        "boardText": "बदली"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मैंने गेंद बदल दी थी! बेईमानी नहीं चलेगी, मिंटू!",
+      "subtitle": "मैंने गेंद बदल दी थी! बेईमानी नहीं चलेगी, मिंटू!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "मैंने गेंद बदल दी थी!",
+          "start": 0.25,
+          "end": 2.1,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "chhotu",
+          "line": "बेईमानी नहीं चलेगी, मिंटू!",
+          "start": 2.2,
+          "end": 4.08,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "मैंने गेंद बदल दी थी!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
