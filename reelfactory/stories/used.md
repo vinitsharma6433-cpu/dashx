@@ -58,3 +58,5 @@
 - 2026-11-17 | bruno-the-night-guard | ब्रूनो रात का पहरेदार (Bruno the Night Guard) | A cat steals the ball at night, and Bruno stays awake and wins it back by morning while Dadaji praises him. | रात भर जागा पहरेदार!
 - 2026-11-18 | chhotu-weighs-the-ball | छोटू का वज़न (Chhotu Weighs the Ball) | Chhotu can tell by weight that the ball has been swapped, and the team checks and finds Mintu's ball while Surya looks on. | तराज़ू ने पकड़ा बेईमान!
 - 2026-11-18 | bruno-and-the-cooker-whistle | ब्रूनो और कुकर सीटी (Bruno and the Cooker Whistle) | Every cooker whistle from Aunty's kitchen makes Bruno run to the pitch thinking it is Pintu's whistle, and Pintu tells him it was not his. | कुकर की सीटी, ब्रूनो हाज़िर!
+- 2026-11-19 | coach-s-late-day | कोच देर से (Coach's Late Day) | Coach arrives late and Pappu and Meena have already made their own rules and refuse to change them. | देर से आए, नियम गँवाए!
+- 2026-11-19 | dadaji-sleeps | दादाजी सो गए (Dadaji Sleeps) | Dadaji sleeps in his chair and every ball lands softly in his lap, and when he wakes he says it is his ball while Golu and Sachin laugh. | खर्राटे वाला कैच!
