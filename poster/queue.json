@@ -2110,7 +2110,13 @@
       },
       "notes": {
         "yt_video_id": "gILXES26Q1Y",
-        "fb_video_id": "978747268227534"
+        "fb_video_id": "978747268227534",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
