@@ -1,0 +1,167 @@
+{
+  "id": "dadaji-sleeps",
+  "title": "दादाजी सो गए",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Dadaji sleeps in his chair and every ball lands softly in his lap, and when he wakes he says it is his ball while Golu and Sachin laugh.",
+    "idea": "Dadaji Sleeps",
+    "generated": "2026-11-19",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "खर्राटों के बीच गेंद दादाजी तक कैसे पहुँची? 😴",
+    "card": "दादाजी सो गए!",
+    "closing": "खर्राटे वाला कैच!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "dadaji",
+        "boardText": "नींद"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी सो गए, गेंद उनकी गोद में!",
+      "subtitle": "दादाजी सो गए, गेंद उनकी गोद में!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "दादाजी सो गए, गेंद उनकी गोद में!",
+          "start": 0.25,
+          "end": 2.62,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "दादाजी सो गए, गेंद उनकी गोद में!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "golu",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गोलू, धीरे से गेंद उठा ला!",
+      "subtitle": "गोलू, धीरे से गेंद उठा ला!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "गोलू, धीरे से गेंद उठा ला!",
+          "start": 0.25,
+          "end": 2.39,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "गोलू, धीरे से गेंद उठा ला!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "golu",
+        "watcher": "dadaji"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "दादाजी तो खर्राटे ले रहे हैं!",
+      "subtitle": "दादाजी तो खर्राटे ले रहे हैं!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "दादाजी तो खर्राटे ले रहे हैं!",
+          "start": 0.25,
+          "end": 2.24,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "दादाजी तो खर्राटे ले रहे हैं!"
+    },
+    {
+      "id": 4,
+      "template": "catch",
+      "params": {
+        "catcher": "dadaji",
+        "watchers": [
+          "golu",
+          "sachin"
+        ]
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.15
+      },
+      "voice": "ये गेंद तो मेरी है! दादाजी, आप जाग गए?",
+      "subtitle": "ये गेंद तो मेरी है! दादाजी, आप जाग गए?",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "ये गेंद तो मेरी है!",
+          "start": 0.25,
+          "end": 2.24,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "दादाजी, आप जाग गए?",
+          "start": 2.34,
+          "end": 3.89,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "ये गेंद तो मेरी है!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -61,3 +61,5 @@
 - HOLD 2026-11-18 (editor grade FAIL) | bruno-the-umpire | ब्रूनो अंपायर (Bruno the Umpire) | With the umpire's stool empty, Bruno sits on it and signals out at every swing.
 - HOLD 2026-11-18 (editor grade FAIL) | bruno-vs-pigeon | ब्रूनो और कबूतर (Bruno vs Pigeon) | A pigeon sits on the stumps and Bruno scares it away just as Surya bowls.
 - HOLD 2026-11-18 (editor grade FAIL) | bruno-hides-the-ball | ब्रूनो ने गेंद छुपाई (Bruno Hides the Ball) | Bruno buries the ball in Aunty's flower pot.
+- 2026-11-19 | coach-s-late-day | कोच देर से (Coach's Late Day) | Coach arrives late and Pappu and Meena have already made their own rules and refuse to change them. | देर से आए, नियम गँवाए!
+- 2026-11-19 | dadaji-sleeps | दादाजी सो गए (Dadaji Sleeps) | Dadaji sleeps in his chair and every ball lands softly in his lap, and when he wakes he says it is his ball while Golu and Sachin laugh. | खर्राटे वाला कैच!

@@ -1,0 +1,61 @@
+{
+  "week": "2026-W47",
+  "updated": "2026-11-19T00:59+05:30",
+  "reels_with_data": 17,
+  "tagged_reels": 4,
+  "score_mode": "views and reactions per day",
+  "phase2": "off",
+  "max_combination": 2,
+  "external": {
+    "status": "skipped: no YouTube Data API key (secret YT_API_KEY) exists"
+  },
+  "niche": null,
+  "rising": [],
+  "niche_proposals": [],
+  "patterns": {
+    "shareable_because=cute_bruno_moment": {
+      "n": 3,
+      "mean": 189.6,
+      "baseline": 123.7,
+      "lift": 1.53,
+      "verdict": "keep"
+    },
+    "first_3s=bold_text_question": {
+      "n": 2,
+      "mean": 80.9,
+      "baseline": 143.8,
+      "lift": 0.56,
+      "verdict": "wait"
+    },
+    "first_3s=bold_text_question+shareable_because=cute_bruno_moment": {
+      "n": 1,
+      "mean": 101.6,
+      "baseline": 138.6,
+      "lift": 0.73,
+      "verdict": "wait"
+    }
+  },
+  "experiments": [],
+  "blueprint": {
+    "proven": [
+      {
+        "key": "shareable_because=cute_bruno_moment",
+        "lift": 1.53,
+        "n": 3
+      }
+    ],
+    "proven_stories": 12,
+    "experiments": [
+      {
+        "key": "shareable_because=childhood_memory",
+        "why": "never or rarely tried"
+      },
+      {
+        "key": "first_3s=character_closeup",
+        "why": "never or rarely tried"
+      }
+    ],
+    "experiment_stories": 2,
+    "mutate": []
+  }
+}

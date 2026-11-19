@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-18T02:41+05:30",
-  "day": "2026-11-18",
+  "generated": "2026-11-19T00:59+05:30",
+  "day": "2026-11-19",
   "topics": [
     {
       "id": "gully_rules",
@@ -10,10 +10,9 @@
       "story_situation": "a house-rule argument: one-tip-one-hand and the wall is a six",
       "strength": 5,
       "sources": [
-        "news_cricket",
         "news_gully_cricket"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     },
     {
       "id": "match_fever",
@@ -25,10 +24,9 @@
       "sources": [
         "news_cricket",
         "news_gully_cricket",
-        "news_school",
-        "news_weather"
+        "news_school"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     },
     {
       "id": "meerut_touch",
@@ -40,7 +38,7 @@
       "sources": [
         "news_meerut"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     },
     {
       "id": "school_exams",
@@ -54,7 +52,7 @@
         "news_gully_cricket",
         "news_school"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     },
     {
       "id": "school_holidays",
@@ -66,7 +64,7 @@
       "sources": [
         "news_school"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     },
     {
       "id": "weather_twist",
@@ -81,12 +79,12 @@
         "news_weather",
         "news_wedding"
       ],
-      "expires": "2026-11-21"
+      "expires": "2026-11-22"
     }
   ],
   "stats": {
-    "headlines_seen": 484,
-    "dropped_unsafe": 155,
+    "headlines_seen": 491,
+    "dropped_unsafe": 143,
     "sources_ok": [
       "google_trends_in",
       "news_cricket",
