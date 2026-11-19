@@ -134,5 +134,46 @@ class PatchC(unittest.TestCase):
                 self.assertEqual(ln.count("|"), 3)                                             # date | slug | title | plot: the endings list is not touched
 
 
+class FactoryPickerSkipsHeldStories(unittest.TestCase):
+    """The FACTORY picker (factory/pipeline.py StoryWriterAgent._bank, line `if b["title_hi"] in done or b["title_en"] in done: continue`),
+    run for real against the real stories/used.md and the real stories/dialogue_bank.md. Only the story builder is replaced, by a recorder,
+    so we can see which stories the picker even looks at."""
+    HELD = ("Bruno the Umpire", "Bruno vs Pigeon", "Bruno Hides the Ball")
+
+    @staticmethod
+    def considered(history):
+        from types import SimpleNamespace
+        from factory import pipeline
+        import daily
+        seen = []
+
+        def builder(data, i, mins):
+            seen.append(data["title_en"])
+            return None, ["recorded only"]                      # reject everything: we only want the list of stories the picker reached
+        mgr = SimpleNamespace(history=history, batch_titles=[], batch_casts=[], cfg=SimpleNamespace(ALLOW_NARRATION=False, MIN_STORY_SCORE=0), mins={}, closings=[], ref={})
+        agent = pipeline.StoryWriterAgent.__new__(pipeline.StoryWriterAgent)
+        agent.m = mgr
+        with mock.patch.object(pipeline.daily, "from_dialogue_data", builder), mock.patch.object(pipeline.daily, "recent_cast", lambda *a, **k: set()):
+            agent._bank({"usage": {}, "season_word": ""}, [])
+        return seen
+
+    def test_the_real_picker_never_reaches_the_three_held_stories(self):
+        import daily
+        seen = self.considered(daily.History(daily.ms.USED))
+        self.assertGreater(len(seen), 20)                        # the picker really looked at the bank
+        for t in self.HELD:
+            self.assertNotIn(t, seen, t)
+
+    def test_control_without_the_hold_rows_the_picker_does_reach_them(self):
+        """Proves the test above can fail: take used.md WITHOUT the HOLD rows and the same three stories are reached."""
+        import daily
+        d = Path(tempfile.mkdtemp())
+        lines = (ROOT / "stories/used.md").read_text(encoding="utf-8").splitlines(keepends=True)
+        (d / "used.md").write_text("".join(x for x in lines if not x.startswith("- HOLD ")), encoding="utf-8")
+        seen = self.considered(daily.History(d / "used.md"))
+        for t in self.HELD:
+            self.assertIn(t, seen, t)
+
+
 if __name__ == "__main__":
     unittest.main()

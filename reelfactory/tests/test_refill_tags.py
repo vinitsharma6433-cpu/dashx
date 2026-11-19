@@ -90,9 +90,19 @@ class RefillWithTags(unittest.TestCase):
         self.assertEqual((t["emotion"], t["structure"], t["shareable_because"]), ("laughter", "twist_ending", "tag_a_friend"))
 
     def test_a_tags_line_never_changes_the_checker_result(self):
-        for tags in ("", GOOD_TAGS, BAD_TAGS):
-            probs, _ = rb.check_block(STORY.format(tags=tags).strip(), [])
-            self.assertEqual(probs, [], tags)
+        # The REAL checker runs, but on a 2-story bank instead of the 130-story one: the checker compares every story with every other story and
+        # with every reel (minutes per run), and what is proved here (a tags line does not change the result for the new story) does not need it.
+        small = Path(tempfile.mkdtemp()) / "small_bank.md"
+        head, *stories = (ROOT / "stories/dialogue_bank.md").read_text(encoding="utf-8").split("\n## ")
+        small.write_text(head.rstrip() + "".join("\n\n## " + s.rstrip() for s in stories[:2]) + "\n", encoding="utf-8")
+        results = []
+        with mock.patch.object(rb, "BANK", small):
+            for tags in ("", GOOD_TAGS, BAD_TAGS):
+                probs, _ = rb.check_block(STORY.format(tags=tags).strip(), [])
+                self.assertEqual(probs, [], tags)
+                results.append(probs)
+        self.assertEqual(results[0], results[1])
+        self.assertEqual(results[0], results[2])
 
     def test_the_writer_prompt_grows_by_only_a_few_lines(self):
         seed = {"situation": "a house-rule argument", "formula": {"name": "guess", "pattern": "p", "example": "e"}}
