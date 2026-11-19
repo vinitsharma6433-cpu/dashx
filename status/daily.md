@@ -3,7 +3,7 @@ Written by the machine every day around 21:00 IST (autonomy/report.py). Newest f
 
 ## 2026-11-19
 <!-- day: 2026-11-19 -->
-Report time: 23:57 IST. Autonomy status: **GREEN**
+Report time: 23:59 IST. Autonomy status: **GREEN**
 
 ### Reels today (3 networks)
 | Reel | Slot | YouTube | Instagram | Facebook |
@@ -41,7 +41,7 @@ None today.
 
 ### Trust Ladder
 - Current: **Step 2 - Careful self-improvement (max 1 change a day, 3 files, allowed files only, auto-revert watch)**
-- Gate to Step 3: 4 of 7 days
+- Gate to Step 3: 5 of 7 days
 - Gate rule: 7 days with zero harmful reverts and zero missed slots.
 - Blocker: none
 - Last move: 1 -> 2 on 2026-11-15T01:30 (first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball)
