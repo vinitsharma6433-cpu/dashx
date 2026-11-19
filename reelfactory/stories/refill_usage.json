@@ -1,6 +1,6 @@
 {
- "day": "2026-11-18",
- "calls": 7,
+ "day": "2026-11-19",
+ "calls": 9,
  "cap": 12,
  "grade": {
   "Bruno the Umpire": {
@@ -90,6 +90,28 @@
    "typos": 0,
    "issue": "The story lacks authentic Meerut slang and local flavor to feel uniquely like Meerut.",
    "day": "2026-11-16"
+  },
+  "Bruno Chooses a Team": {
+   "ok": false,
+   "meerut": 6,
+   "twist": 4,
+   "funny": 5,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story cuts off abruptly before showing how the samosas actually settle Bruno's team choice.",
+   "day": "2026-11-19"
+  },
+  "Bruno the Ball Boy": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a proper comedic punchline/twist and misses authentic Meerut dialect and local vibe.",
+   "day": "2026-11-19"
   }
  }
 }

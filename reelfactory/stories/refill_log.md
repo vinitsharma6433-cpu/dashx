@@ -8,3 +8,5 @@
 - 2026-11-16 grade PASS | Bruno and the Cooker Whistle | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story is clear and kid-friendly, but lacks authentic Meerut local slang and a strong final comed
 - 2026-11-16 grade PASS | Bruno Guards the Wicket | meerut 6 twist 7 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut local dialect and gully flavor.
 - 2026-11-16 grade PASS | Bruno's Rooftop Rescue | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut slang and local flavor to feel uniquely like Meerut.
+- 2026-11-19 grade FAIL | Bruno Chooses a Team | meerut 6 twist 4 funny 5 hindi 9 typos 0 | The story cuts off abruptly before showing how the samosas actually settle Bruno's team choice.
+- 2026-11-19 grade FAIL | Bruno the Ball Boy | meerut 3 twist 3 funny 4 hindi 8 typos 0 | The story lacks a proper comedic punchline/twist and misses authentic Meerut dialect and local vibe.
