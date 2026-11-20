@@ -1,0 +1,173 @@
+{
+  "id": "bruno-steals-mintu-s-ball",
+  "title": "ब्रूनो ने मिंटू की गेंद उड़ाई",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Mintu sneaks a better ball into the game, Bruno sniffs it as not ours, and takes it back to Chhotu's shop.",
+    "idea": "Bruno Steals Mintu's Ball",
+    "generated": "2026-11-20",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "मिंटू की चोरी की गेंद कहाँ गई? 🕵",
+    "card": "मिंटू की गेंद उड़ी!",
+    "closing": "बेईमानी की गेंद दुकान पहुँची!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "chhotu",
+        "right": "mintu",
+        "boardText": "गेंद"
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मिंटू, ये गेंद मेरी दुकान की है! नहीं, ये हमारी है!",
+      "subtitle": "मिंटू, ये गेंद मेरी दुकान की है! नहीं, ये हमारी है!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "मिंटू, ये गेंद मेरी दुकान की है!",
+          "start": 0.25,
+          "end": 2.34,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "mintu",
+          "line": "नहीं, ये हमारी है!",
+          "start": 2.44,
+          "end": 3.87,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "मिंटू, ये गेंद मेरी दुकान की है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "mintu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "चलो, इसी गेंद से खेलो!",
+      "subtitle": "चलो, इसी गेंद से खेलो!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "चलो, इसी गेंद से खेलो!",
+          "start": 0.25,
+          "end": 2.06,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "चलो, इसी गेंद से खेलो!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "अरे, ब्रूनो गेंद ले गया!",
+      "subtitle": "अरे, ब्रूनो गेंद ले गया!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "अरे, ब्रूनो गेंद ले गया!",
+          "start": 0.25,
+          "end": 1.84,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "अरे, ब्रूनो गेंद ले गया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "mintu",
+        "right": "chhotu",
+        "boardText": "दुकान"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गेंद वापस दुकान पहुँच गई! अब पता चला किसकी है!",
+      "subtitle": "गेंद वापस दुकान पहुँच गई! अब पता चला किसकी है!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "गेंद वापस दुकान पहुँच गई!",
+          "start": 0.25,
+          "end": 2.47,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "chhotu",
+          "line": "अब पता चला किसकी है!",
+          "start": 2.57,
+          "end": 4.12,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "गेंद वापस दुकान पहुँच गई!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

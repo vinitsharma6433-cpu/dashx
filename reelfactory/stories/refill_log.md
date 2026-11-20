@@ -8,3 +8,12 @@
 - 2026-11-16 grade PASS | Bruno and the Cooker Whistle | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story is clear and kid-friendly, but lacks authentic Meerut local slang and a strong final comed
 - 2026-11-16 grade PASS | Bruno Guards the Wicket | meerut 6 twist 7 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut local dialect and gully flavor.
 - 2026-11-16 grade PASS | Bruno's Rooftop Rescue | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut slang and local flavor to feel uniquely like Meerut.
+- 2026-11-19 grade FAIL | Bruno Chooses a Team | meerut 6 twist 4 funny 5 hindi 9 typos 0 | The story cuts off abruptly before showing how the samosas actually settle Bruno's team choice.
+- 2026-11-19 grade FAIL | Bruno the Ball Boy | meerut 3 twist 3 funny 4 hindi 8 typos 0 | The story lacks a proper comedic punchline/twist and misses authentic Meerut dialect and local vibe.
+- 2026-11-20 grade FAIL | Bruno and the Kite | meerut 4 twist 5 funny 6 hindi 9 typos 0 | The story lacks distinct local Meerut slang/setting and the comic punchline is quite predictable.
+- 2026-11-20 grade FAIL | Bruno Learns Howzat | meerut 4 twist 6 funny 6 hindi 8 typos 0 | Lacks authentic Meerut slang and missing a clear frame showing Bruno actually barking during the sho
+- 2026-11-20 grade FAIL | Bruno at the Power Cut | meerut 3 twist 3 funny 4 hindi 8 typos 0 | The story lacks a strong comedic punchline, a surprising twist, and distinct Meerut local flavor.
+- 2026-11-20 grade PASS | Bruno Swaps the Ball | meerut 6 twist 8 funny 8 hindi 9 typos 0 | The story is clear and funny, but lacks distinct Meerut slang or local references.
+- 2026-11-20 grade FAIL | Bruno Steals Mintu's Ball | meerut 4 twist 6 funny 6 hindi 8 typos 0 | The story lacks authentic Meerut local dialect/slang and the middle transition showing Bruno sniffin
+- 2026-11-20 grade PASS | Bruno on the Scoreboard | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks specific Meerut slang or local references to feel authentically rooted in Meerut.
+- 2026-11-20 grade FAIL | Bruno the Slip Fielder | meerut 4 twist 3 funny 6 hindi 9 typos 0 | The actual catch and wicket mentioned in the plot are completely missing from the dialogue scenes, r
