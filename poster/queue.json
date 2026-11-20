@@ -2171,7 +2171,13 @@
       },
       "notes": {
         "yt_video_id": "FISbg-TME9I",
-        "fb_video_id": "1125075090495763"
+        "fb_video_id": "1125075090495763",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
