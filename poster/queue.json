@@ -2201,10 +2201,18 @@
           "scheduled": true,
           "publish_at": "2026-11-20T20:30:00+05:30",
           "at": "2026-11-20T07:25:50.909464+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1435969635365329",
+          "scheduled": true,
+          "publish_at": "2026-11-20T20:30:00+05:30",
+          "at": "2026-11-20T07:25:50.909464+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "6l-7fNILAP8"
+        "yt_video_id": "6l-7fNILAP8",
+        "fb_video_id": "1435969635365329"
       }
     },
     {
