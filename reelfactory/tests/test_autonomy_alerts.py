@@ -114,6 +114,20 @@ class Detect(unittest.TestCase):
         self.assertEqual(ids(sig(refill_daily="Story refill 2026-11-01: 21 stories left, 0 added today, Gemini calls used 2/12 (Gemini answered HTTP 403: stopped)")), ["GEMINI_KEY"])  # silent 12 days
         self.assertEqual(ids(sig(refill_daily="")), [])                                      # no report at all yet: not an alert
 
+    def test_refill_errors_needs_two_consecutive_days(self):
+        line = "Story refill 2026-11-13: 92 stories left in the bank, 0 added today, Gemini calls used 9/12 (bank has more than 60 usable stories: nothing to write) [graded 2 imported stories today, 2 below the bar, 80 still to grade; grading stopped: judge unavailable (HTTP 503)]"
+        self.assertEqual(ids(sig(refill_daily=line, refill_errors={"day": "2026-11-13", "error": True, "before": 0, "streak": 1})), [])     # one bad day: quiet
+        p = A.detect(sig(refill_daily=line, refill_errors={"day": "2026-11-13", "error": True, "before": 1, "streak": 2}))
+        self.assertEqual([x.id for x in p], ["REFILL_ERRORS"])
+        self.assertIn("2 din", p[0].title)
+        self.assertNotIn("503", p[0].evidence)                                               # no error text copied, only the day
+        old = line.replace("2026-11-13", "2026-11-01")
+        self.assertNotIn("REFILL_ERRORS", ids(sig(refill_daily=old, refill_errors={"day": "2026-11-01", "streak": 5})))   # an old report: the 'silent' alert, not this one
+
+    def test_a_bad_key_stays_gemini_key_not_refill_errors(self):
+        line = "Story refill 2026-11-13: 21 stories left, 0 added today, Gemini calls used 2/12 (Gemini answered HTTP 403: stopped)"
+        self.assertEqual(ids(sig(refill_daily=line, refill_errors={"day": "2026-11-13", "streak": 3})), ["GEMINI_KEY"])
+
     def test_rules_tampered_and_revert_stuck(self):
         self.assertEqual(ids(sig(rules_ok=False, rules_why="x")), ["RULES_TAMPERED"])
         self.assertEqual(ids(sig(watch={"status": "revert_failed", "idea": "situation:x", "files": ["a.json"]})), ["REVERT_STUCK"])
@@ -199,6 +213,58 @@ class Status(unittest.TestCase):
             self.assertIn('"red"', (root / "autonomy/status.json").read_text(encoding="utf-8"))
 
 
+def refill(day, tail):
+    return f"Story refill {day}: 92 stories left in the bank, 0 added today, Gemini calls used 9/12{tail}"
+
+
+STOP503 = " [graded 0 imported stories today, 0 below the bar, 80 still to grade; grading stopped: judge unavailable (HTTP 503)]"
+
+
+class RefillStreak(unittest.TestCase):
+    """refill_streak counts CONSECUTIVE refill days that ended with grading stopped or a Gemini HTTP 0/5xx. Pure."""
+
+    def walk(self, *lines, prev=None):
+        st = prev or {}
+        for ln in lines:
+            st = A.refill_streak(st, ln)
+        return st
+
+    def test_what_counts_as_an_error(self):
+        for tail in (STOP503, " [graded 0 ..., 3 still to grade; grading stopped: judge unavailable (HTTP 0)]", " (Gemini answered HTTP 0: stopped)",
+                     " (Gemini answered HTTP 500: stopped)", " (Gemini answered HTTP 503: stopped)"):
+            self.assertTrue(A.refill_streak({}, refill("2026-11-13", tail))["error"], tail)
+        for tail in (" (call limit reached)", " (bank has more than 60 usable stories: nothing to write) [graded 0 imported stories today, 0 below the bar, 82 still to grade]",
+                     " (Gemini answered HTTP 403: stopped)", " (Gemini quota answer: stopped for the day)", ""):
+            self.assertFalse(A.refill_streak({}, refill("2026-11-13", tail))["error"], tail)
+
+    def test_consecutive_days_add_up_and_a_clean_day_resets(self):
+        st = self.walk(refill("2026-11-17", STOP503), refill("2026-11-18", STOP503))
+        self.assertEqual(st["streak"], 2)
+        self.assertEqual(self.walk(refill("2026-11-19", STOP503), prev=st)["streak"], 3)
+        self.assertEqual(self.walk(refill("2026-11-19", ""), prev=st)["streak"], 0)
+
+    def test_many_runs_on_one_day_count_that_day_once(self):
+        st = self.walk(*[refill("2026-11-17", STOP503)] * 5)
+        self.assertEqual(st["streak"], 1)
+        st = self.walk(*[refill("2026-11-18", STOP503)] * 4, prev=st)
+        self.assertEqual(st["streak"], 2)
+
+    def test_a_clean_rerun_on_the_same_day_drops_the_streak(self):
+        st = self.walk(refill("2026-11-17", STOP503), refill("2026-11-18", STOP503))
+        st = self.walk(refill("2026-11-18", ""), prev=st)                                   # owner re-ran the refill the same day and it worked
+        self.assertEqual((st["streak"], st["before"]), (0, 1))
+        self.assertEqual(self.walk(refill("2026-11-18", STOP503), prev=st)["streak"], 2)    # and failing again that day goes back to 2, never 3
+
+    def test_a_gap_restarts_the_streak(self):
+        st = self.walk(refill("2026-11-15", STOP503), refill("2026-11-17", STOP503))          # 16 Nov never seen
+        self.assertEqual(st["streak"], 1)
+
+    def test_no_report_or_broken_state_never_raises(self):
+        self.assertEqual(A.refill_streak({"day": "x"}, ""), {"day": "x"})
+        self.assertEqual(A.refill_streak("junk", refill("2026-11-13", STOP503))["streak"], 1)
+        self.assertEqual(A.refill_streak({"day": "bad", "streak": "?"}, refill("2026-11-13", STOP503))["streak"], 1)
+
+
 class Run(unittest.TestCase):
     def setUp(self):
         self.root = Path(tempfile.mkdtemp())
@@ -217,6 +283,26 @@ class Run(unittest.TestCase):
         self.assertEqual((out["problems"], out["issue"], out["level"]), (["META_TOKEN"], "created", "red"))
         self.assertEqual(json.loads((self.root / "autonomy/status.json").read_text(encoding="utf-8"))["level"], "red")
         self.assertEqual(sorted(p.name for p in (self.root / "autonomy").iterdir()), ["TRUST_LADDER.md", "log.md", "notebooklm_pack.md", "status.json", "trend_history.json", "trend_patterns.json"])       # + the ladder's start line + the 3 owner-approved pattern pipeline files (the due report runs the weekly engine)
+
+    def test_two_bad_refill_days_open_the_alert_and_a_clean_day_closes_it(self):
+        (self.root / "poster" / "queue.json").write_text(json.dumps({"posts": [post("a", 5)]}), encoding="utf-8")
+        (self.root / "autonomy").mkdir()
+        (self.root / "autonomy/TRUST_LADDER.md").write_bytes((REPO / "autonomy/TRUST_LADDER.md").read_bytes())
+        (self.root / "reelfactory/stories").mkdir(parents=True)
+        daily = self.root / "reelfactory/stories/refill_daily.txt"
+        api = FakeIssues()
+        steps = []
+        for d, tail in ((12, STOP503), (13, STOP503), (14, "")):
+            now = datetime(2026, 11, d, 23, 0, tzinfo=g.IST)
+            daily.write_text(refill(f"2026-11-{d}", tail) + "\n", encoding="utf-8")
+            for _ in range(3):                                                               # several alerts runs on one day count it once
+                out = A.run(self.root, now, api)
+            st = json.loads((self.root / "autonomy/status.json").read_text(encoding="utf-8"))["refill_errors"]
+            steps.append(("REFILL_ERRORS" in out["problems"], st["streak"]))
+        self.assertEqual(steps, [(False, 1), (True, 2), (False, 0)])
+        self.assertEqual(len(api.items), 1)                                                  # ONE issue, opened on the 2nd bad day ...
+        self.assertIn("Story Refill 2 din se Gemini errors", api.items[0]["body"])
+        self.assertEqual(api.items[0]["state"], "closed")                                    # ... and closed by itself after the clean day
 
     def test_kill_switch_does_nothing(self):
         (self.root / "STOP_AUTONOMY").write_text("", encoding="utf-8")

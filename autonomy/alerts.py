@@ -2,7 +2,7 @@
 
 ONLY for what the machine cannot fix by itself (it never fixes a token, an account or a key):
   Meta token expired / permission, YouTube token / secret, an account flagged or restricted, Gemini key invalid or the refill silent,
-  the rule file changed, an auto-revert that could not finish.
+  Story Refill stopped by Gemini server / network errors on 2 consecutive refill days, the rule file changed, an auto-revert that could not finish.
 It keeps exactly ONE open GitHub Issue titled "DASHX ALERT" with the exact steps in simple Hinglish (the Settings page and the secret NAME, never a
 value). No duplicates: an open one is updated, extra open ones are closed, a new one is made only when none is open. When the problem is gone
 the issue is closed by itself. A problem counts as gone when the NEWEST attempt of that network worked, so an old failure never keeps it open.
@@ -39,6 +39,9 @@ META_RE = re.compile(r"token|oauth|expired|cannot call api|\b190\b|code 200|sess
 YT_RE = re.compile(r"google token error|invalid_grant|invalid_client|unauthorized_client|secrets missing|invalid_request", re.I)
 FLAG_RE = re.compile(r"flagged|restricted|suspend|disabled|checkpoint|action blocked|spam|violat|community guidelines|account (is )?(locked|limited)", re.I)
 GEMINI_RE = re.compile(r"Gemini answered HTTP (400|401|403)")
+# grading stopped (any reason) or the writer got a Gemini server / network error (HTTP 0 or 5xx). 400/401/403 stay GEMINI_KEY.
+REFILL_ERR_RE = re.compile(r"grading stopped:|Gemini answered HTTP (0|5\d\d)\b")
+REFILL_ERR_DAYS = 2        # alert only after this many CONSECUTIVE refill days with such an error (one bad day is usually a busy Gemini server)
 
 
 @dataclass
@@ -66,6 +69,7 @@ class Signals:
     ladder: dict = field(default_factory=dict)        # Trust Ladder state (autonomy/ladder.py), kept inside autonomy/status.json
     ladder_ok: bool = True                            # TRUST_LADDER.md still matches the hash sealed in RULES.json
     ladder_why: str = ""
+    refill_errors: dict = field(default_factory=dict)  # error streak of the refill days, kept inside autonomy/status.json (see refill_streak)
 
 
 def _rd(root: Path, rel: str, default):
@@ -93,7 +97,35 @@ def load_signals(root: Path = ROOT, now: datetime | None = None) -> Signals:
     return Signals(now, _rd(root, "poster/queue.json", {"posts": []}).get("posts", []), text("reelfactory/stories/refill_daily.txt"),
                    _rd(root, "reelfactory/stories/refill_usage.json", {}), text("autonomy/log.md"), _rd(root, "autonomy/learning.json", {}),
                    _rd(root, "autonomy/trends.json", {}), _rd(root, "autonomy/watch.json", {}), ok, why, stops,
-                   ladder.load(root), lok, lwhy)
+                   ladder.load(root), lok, lwhy, _rd(root, "autonomy/status.json", {}).get("refill_errors", {}) or {})
+
+
+def _refill_day(line: str):
+    m = re.search(r"Story refill (\d{4}-\d\d-\d\d)", line or "")
+    return datetime.fromisoformat(m.group(1)).date() if m else None
+
+
+def refill_streak(prev: dict, refill_daily: str) -> dict:
+    """How many CONSECUTIVE refill days ended with grading stopped or a Gemini HTTP 0/5xx. Pure.
+    Keyed by the refill day, not by the run, so running alerts many times on one day never counts that day twice.
+    `before` = the streak up to the previous refill day, so a re-run of the same day that comes out clean drops the streak to 0.
+    A refill day the machine never saw (a gap of more than one day) starts the streak again at this day."""
+    prev = prev if isinstance(prev, dict) else {}
+    day = _refill_day(refill_daily)
+    if not day:
+        return dict(prev)
+    err = bool(REFILL_ERR_RE.search(refill_daily))
+    try:
+        pday = datetime.fromisoformat(str(prev.get("day", ""))).date()
+    except ValueError:
+        pday = None
+    if pday == day:
+        before = int(prev.get("before", 0) or 0)
+    elif pday and (day - pday).days == 1:
+        before = int(prev.get("streak", 0) or 0)
+    else:
+        before = 0
+    return {"day": day.isoformat(), "error": err, "before": before, "streak": before + 1 if err else 0}
 
 
 # ---------------------------------------------------------------- what is wrong (pure)
@@ -164,6 +196,17 @@ def detect(s: Signals) -> list[Problem]:
                            ["GitHub repo → Settings → Secrets and variables → Actions → check karo GEMINI_API_KEY maujood hai.",
                             "GitHub → Actions tab → 'DASHX Story Refill' → dekho koi STOP_REFILL file ya band schedule to nahi.",
                             "Run workflow se ek baar chalao (dry_run ON). Report aate hi alert band ho jayega."], "Story Refill"))
+    streak = int((s.refill_errors or {}).get("streak", 0) or 0)
+    if streak >= REFILL_ERR_DAYS and refill_day and (s.now.date() - refill_day).days <= 3 and not GEMINI_RE.search(s.refill_daily):
+        out.append(Problem("REFILL_ERRORS", f"Story Refill {streak} din se Gemini errors par ruk raha hai",
+                           f"Lagatar {streak} refill din: grading ya likhna Gemini ke server/network error (HTTP 0 ya 5xx) par ruka. Purani kahaniyan chalti rahengi, "
+                           "par naye stories grade ya likhe nahi ja rahe, aur roz ke Gemini calls bekaar ja rahe hain. Key galat hone ka error (400/401/403) ye nahi hai.",
+                           ["GitHub → Actions → 'DASHX Story Refill' → latest run → 'Write the daily stories' step kholo aur dekho kaun sa HTTP code aaya (503, 500, 0...).",
+                            "503 / 500 = Gemini ka server busy. Kuch karna nahi, agle din apne aap theek ho sakta hai.",
+                            "0 / timeout = network. Agar 3 din se zyada chale to aistudio.google.com/apikey par key aur quota check karo.",
+                            "Key kabhi chat ya issue mein paste mat karna.",
+                            "Jis din refill bina error ke chalega, ye alert apne aap band ho jayega."],
+                           f"refill {refill_day.isoformat()}"))
     lm = re.search(r"(\d+) stories left", s.refill_daily)
     if lm and int(lm.group(1)) < LOW_STOCK:
         n = int(lm.group(1))
@@ -322,7 +365,8 @@ def status_json(s: Signals, problems: list[Problem]) -> dict:
     lv, why = level(s, problems)
     topics = [t for t in s.trends.get("topics", []) if str(t.get("expires", "")) >= s.now.date().isoformat()]
     trend = {"topic": topics[0]["topic"], "angle": topics[0].get("story_angle", "")[:160]} if topics else None
-    return {"level": lv, "reasons": why[:5], "alerts": len(problems), "trend": trend, "ladder": s.ladder or ladder.new_state(), "updated": s.now.isoformat(timespec="minutes")}
+    return {"level": lv, "reasons": why[:5], "alerts": len(problems), "trend": trend, "ladder": s.ladder or ladder.new_state(),
+            "refill_errors": s.refill_errors or {}, "updated": s.now.isoformat(timespec="minutes")}
 
 
 def write_status(root: Path, data: dict) -> None:
@@ -330,7 +374,7 @@ def write_status(root: Path, data: dict) -> None:
     assert rel in ALLOWED_OUT
     try:   # unchanged for under 2 hours: do not write (no commit every 30 minutes)
         cur = json.loads((root / rel).read_text(encoding="utf-8"))
-        same = all(cur.get(k) == data.get(k) for k in ("level", "reasons", "alerts", "trend", "ladder"))
+        same = all(cur.get(k) == data.get(k) for k in ("level", "reasons", "alerts", "trend", "ladder", "refill_errors"))
         if same and datetime.fromisoformat(data["updated"]) - datetime.fromisoformat(cur["updated"]) < timedelta(hours=2):
             return
     except Exception:
@@ -347,6 +391,7 @@ def run(root: Path = ROOT, now: datetime | None = None, api=None) -> dict:
     if s.rules_ok:                                           # the Trust Ladder moves (or drops) first, so a drop raises its alert in this very run
         s.ladder, lines = ladder.evaluate(s.ladder, s.posts, s.log_text, s.learning, s.now, s.rules_ok, s.ladder_ok, s.ladder_why)
         ladder.write_log(root, lines)
+    s.refill_errors = refill_streak(s.refill_errors, s.refill_daily)
     problems = detect(s)
     result = sync_issue(api or Issues(), problems, s.now) if (api or os.environ.get("GITHUB_TOKEN")) else "no token: issue not touched"
     st = status_json(s, problems)
