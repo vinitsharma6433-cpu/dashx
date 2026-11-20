@@ -2232,7 +2232,13 @@
       },
       "notes": {
         "yt_video_id": "6l-7fNILAP8",
-        "fb_video_id": "1435969635365329"
+        "fb_video_id": "1435969635365329",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
