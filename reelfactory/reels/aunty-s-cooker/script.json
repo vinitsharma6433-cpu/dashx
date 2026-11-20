@@ -1,0 +1,177 @@
+{
+  "id": "aunty-s-cooker",
+  "title": "आंटी का कुकर",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty's cooker whistles at the exact moment of the last ball and Pintu stops the game while Surya complains.",
+    "idea": "Aunty's Cooker",
+    "generated": "2026-11-20",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "आख़िरी गेंद पर किसने सीटी बजा दी? 🔔",
+    "card": "आख़िरी गेंद पर सीटी!",
+    "closing": "खाना तैयार, खेल बंद!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "aunty",
+        "boardText": "कुकर",
+        "sunset": true
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, आपके कुकर ने सीटी बजा दी!",
+      "subtitle": "आंटी, आपके कुकर ने सीटी बजा दी!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "आंटी, आपके कुकर ने सीटी बजा दी!",
+          "start": 0.25,
+          "end": 2.78,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "आंटी, आपके कुकर ने सीटी बजा दी!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "sunset": true,
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "आख़िरी गेंद अब आ रही है!",
+      "subtitle": "आख़िरी गेंद अब आ रही है!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "आख़िरी गेंद अब आ रही है!",
+          "start": 0.25,
+          "end": 2.1,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "आख़िरी गेंद अब आ रही है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "pintu",
+        "sunset": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "रुको, सीटी बजी है! पिंटू, ये कुकर था!",
+      "subtitle": "रुको, सीटी बजी है! पिंटू, ये कुकर था!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "रुको, सीटी बजी है!",
+          "start": 0.25,
+          "end": 1.92,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "पिंटू, ये कुकर था!",
+          "start": 2.02,
+          "end": 3.38,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "रुको, सीटी बजी है!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "surya",
+        "right": "aunty",
+        "boardText": "सीटी",
+        "sunset": true
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, कुकर थोड़ी देर रुको! बेटा, खाना भी तो चाहिए!",
+      "subtitle": "आंटी, कुकर थोड़ी देर रुको! बेटा, खाना भी तो चाहिए!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "आंटी, कुकर थोड़ी देर रुको!",
+          "start": 0.25,
+          "end": 2.11,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "बेटा, खाना भी तो चाहिए!",
+          "start": 2.21,
+          "end": 4.02,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "आंटी, कुकर थोड़ी देर रुको!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

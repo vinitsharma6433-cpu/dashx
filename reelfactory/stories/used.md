@@ -63,3 +63,5 @@
 - HOLD 2026-11-18 (editor grade FAIL) | bruno-hides-the-ball | ब्रूनो ने गेंद छुपाई (Bruno Hides the Ball) | Bruno buries the ball in Aunty's flower pot.
 - 2026-11-19 | coach-s-late-day | कोच देर से (Coach's Late Day) | Coach arrives late and Pappu and Meena have already made their own rules and refuse to change them. | देर से आए, नियम गँवाए!
 - 2026-11-19 | dadaji-sleeps | दादाजी सो गए (Dadaji Sleeps) | Dadaji sleeps in his chair and every ball lands softly in his lap, and when he wakes he says it is his ball while Golu and Sachin laugh. | खर्राटे वाला कैच!
+- 2026-11-20 | bruno-steals-mintu-s-ball | ब्रूनो ने मिंटू की गेंद उड़ाई (Bruno Steals Mintu's Ball) | Mintu sneaks a better ball into the game, Bruno sniffs it as not ours, and takes it back to Chhotu's shop. | बेईमानी की गेंद दुकान पहुँची!
+- 2026-11-20 | aunty-s-cooker | आंटी का कुकर (Aunty's Cooker) | Aunty's cooker whistles at the exact moment of the last ball and Pintu stops the game while Surya complains. | खाना तैयार, खेल बंद!
