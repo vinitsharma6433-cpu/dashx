@@ -17,3 +17,5 @@
 - 2026-11-19 23:57 IST | info | learning | 19 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
 - 2026-11-20 22:16 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 514, dropped 179, failed sources 0 | written
 - 2026-11-20 22:16 IST | info | learning | 21 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-21 03:49 IST scout: injection attempt in FURUYAN1234/story-maker: repo dropped
+- 2026-11-21 03:49 IST scout: injection attempt in kirankumarduddu/multimodal-video-generator-gemini: repo dropped
