@@ -1,6 +1,6 @@
 {
- "day": "2026-11-19",
- "calls": 9,
+ "day": "2026-11-20",
+ "calls": 12,
  "cap": 12,
  "grade": {
   "Bruno the Umpire": {
@@ -112,6 +112,83 @@
    "typos": 0,
    "issue": "The story lacks a proper comedic punchline/twist and misses authentic Meerut dialect and local vibe.",
    "day": "2026-11-19"
+  },
+  "Bruno and the Kite": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 5,
+   "funny": 6,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks distinct local Meerut slang/setting and the comic punchline is quite predictable.",
+   "day": "2026-11-20"
+  },
+  "Bruno Learns Howzat": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 6,
+   "funny": 6,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "Lacks authentic Meerut slang and missing a clear frame showing Bruno actually barking during the sho",
+   "day": "2026-11-20"
+  },
+  "Bruno at the Power Cut": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a strong comedic punchline, a surprising twist, and distinct Meerut local flavor.",
+   "day": "2026-11-20"
+  },
+  "Bruno Swaps the Ball": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 8,
+   "funny": 8,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story is clear and funny, but lacks distinct Meerut slang or local references.",
+   "day": "2026-11-20"
+  },
+  "Bruno Steals Mintu's Ball": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 6,
+   "funny": 6,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut local dialect/slang and the middle transition showing Bruno sniffin",
+   "day": "2026-11-20"
+  },
+  "Bruno on the Scoreboard": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks specific Meerut slang or local references to feel authentically rooted in Meerut.",
+   "day": "2026-11-20"
+  },
+  "Bruno the Slip Fielder": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 3,
+   "funny": 6,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The actual catch and wicket mentioned in the plot are completely missing from the dialogue scenes, r",
+   "day": "2026-11-20"
   }
  }
 }
