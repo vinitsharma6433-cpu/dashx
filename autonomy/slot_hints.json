@@ -2,12 +2,12 @@
   "best_slot": "20:30",
   "slots": {
     "12:30": {
-      "avg": 51.7,
-      "n": 11
+      "avg": 53.0,
+      "n": 12
     },
     "20:30": {
-      "avg": 58.3,
-      "n": 10
+      "avg": 56.1,
+      "n": 11
     }
   },
   "note": "A suggestion only. The two slots (12:30 and 20:30) are fixed in queue_config.json and the machine never changes them."
