@@ -70,7 +70,9 @@ class Env:
     """A temporary copy of the files the machine works with + a local bare 'origin'. Deleted by close()."""
     COPY = ["autonomy", "poster", ".github/workflows", "status/index.html", "reelfactory/stories", "reelfactory/factory", "reelfactory/scripts", "reelfactory/queue_config.json"]
 
-    def __init__(self):
+    def __init__(self, without: tuple[str, ...] = ()):
+        """without: folders of the copy that are emptied BEFORE the test commit, so a scenario starts from a fixed fixture
+        instead of whatever real data the repo holds today (the scout scenarios pass ("autonomy/scout",))."""
         self.tmp = Path(tempfile.mkdtemp(prefix="dashx-sim-"))
         self.root, self.origin = self.tmp / "work", self.tmp / "origin.git"
         for rel in self.COPY:
@@ -81,6 +83,8 @@ class Env:
                 shutil.copytree(src, dst, ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "upgrade_test", "STOP_*"))
             elif src.exists():
                 shutil.copy2(src, dst)
+        for rel in without:
+            shutil.rmtree(self.root / rel, ignore_errors=True)
         for stale in ("autonomy/log.md", "autonomy/trends.json", "autonomy/learning.json", "autonomy/metrics.json", "autonomy/memory.json", "autonomy/status.json", "autonomy/watch.json",
                       "autonomy/blocked_ideas.json", "autonomy/changes.jsonl", "autonomy/slot_hints.json"):
             (self.root / stale).unlink(missing_ok=True)
