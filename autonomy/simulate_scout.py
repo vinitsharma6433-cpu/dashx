@@ -13,7 +13,8 @@ from unittest import mock
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import guard  # noqa: E402
 import scout  # noqa: E402
-from simulate import NOW, REPO, Env, Result, sh  # noqa: E402
+from simulate import NOW, REPO, Result, sh  # noqa: E402
+from simulate import Env as _Env  # noqa: E402
 
 
 _REAL_LOAD = guard.load_rules      # kept before any patching, so the patched version can call the real one
@@ -75,6 +76,10 @@ def scout_rules():
 
 
 AT = NOW.replace(hour=15, minute=30)
+
+
+def Env():  # noqa: N802  (the scout scenarios' fixture: the real weekly reports in autonomy/scout/ are NOT copied, so the dates in
+    return _Env(without=("autonomy/scout",))   # these scenarios never collide with a real report written on a later day)
 
 
 def c1_five_checks() -> Result:
@@ -192,7 +197,8 @@ def c6_fail_closed_and_waits() -> Result:
         real = _REAL_LOAD()
         r.check(guard.classify("autonomy/scout/2026-11-20.md", real)[0] == "state" and all(guard.classify(p, real)[0] == "deny" for p in ("autonomy/scout/x.json", "autonomy/scout_config.json", "autonomy/scout.py", "autonomy/scout/../RULES.json")),
                 "the sealed RULES.json allows only autonomy/scout/*.md; the scout's config and code stay denied")
-        r.check(not (E.root / f"autonomy/scout/{AT.date().isoformat()}.md").exists(), "no report file was written")        # (the copy may hold the real earlier reports)
+        r.check(not (E.root / f"autonomy/scout/{AT.date().isoformat()}.md").exists(), "no report file was written")
+        r.check(not list((E.root / "autonomy/scout").glob("*.md")), "the fixture holds no real scout report")
         with mock.patch.object(guard, "load_rules", scout_rules):
             for hh, mm in ((11, 0), (12, 30), (19, 30), (20, 30)):
                 o = scout.run(E.root, NOW.replace(hour=hh, minute=mm), force=True, fetch=FakeGitHub())
