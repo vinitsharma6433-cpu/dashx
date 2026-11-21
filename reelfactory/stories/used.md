@@ -65,3 +65,5 @@
 - 2026-11-19 | dadaji-sleeps | दादाजी सो गए (Dadaji Sleeps) | Dadaji sleeps in his chair and every ball lands softly in his lap, and when he wakes he says it is his ball while Golu and Sachin laugh. | खर्राटे वाला कैच!
 - 2026-11-20 | bruno-steals-mintu-s-ball | ब्रूनो ने मिंटू की गेंद उड़ाई (Bruno Steals Mintu's Ball) | Mintu sneaks a better ball into the game, Bruno sniffs it as not ours, and takes it back to Chhotu's shop. | बेईमानी की गेंद दुकान पहुँची!
 - 2026-11-20 | aunty-s-cooker | आंटी का कुकर (Aunty's Cooker) | Aunty's cooker whistles at the exact moment of the last ball and Pintu stops the game while Surya complains. | खाना तैयार, खेल बंद!
+- 2026-11-21 | new-neighbour | नया पड़ोसी (New Neighbour) | A new boy joins the match and hits the first ball over everyone, so Sachin, Meena and Coach make him a friend. | नया छक्का, नया दोस्त!
+- 2026-11-21 | bruno-at-the-wedding-band | ब्रूनो और बैंड (Bruno at the Wedding Band) | A baraat band passes, Bruno follows the drum with the ball, and the groom's party ends up playing gali cricket with Pappu and Dadaji. | शहनाई में चौका!
