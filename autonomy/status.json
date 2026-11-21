@@ -7,8 +7,8 @@
     "angle": "A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument."
   },
   "ladder": {
-    "step": 2,
-    "step_since": "2026-11-15T01:30+05:30",
+    "step": 3,
+    "step_since": "2026-11-22T02:30+05:30",
     "first_run": "2026-11-14T03:02+05:30",
     "history": [
       {
@@ -16,13 +16,19 @@
         "from": 1,
         "to": 2,
         "why": "first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball"
+      },
+      {
+        "at": "2026-11-22T02:30+05:30",
+        "from": 2,
+        "to": 3,
+        "why": "7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings"
       }
     ],
     "handled": [],
     "drop_alert_until": null,
     "last_drop": "",
     "owner_ready": false,
-    "progress": "6 of 7 days",
+    "progress": "0 of 30 days",
     "blocker": "",
     "evidence": ""
   },
@@ -32,5 +38,5 @@
     "before": 0,
     "streak": 1
   },
-  "updated": "2026-11-22T00:21+05:30"
+  "updated": "2026-11-22T02:30+05:30"
 }

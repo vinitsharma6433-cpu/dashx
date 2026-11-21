@@ -21,3 +21,4 @@
 - 2026-11-21 03:49 IST scout: injection attempt in kirankumarduddu/multimodal-video-generator-gemini: repo dropped
 - 2026-11-22 00:20 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 483, dropped 124, failed sources 0 | written
 - 2026-11-22 00:20 IST | info | learning | 23 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-22 02:30 IST | ladder | step_up | 2->3 | 7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings

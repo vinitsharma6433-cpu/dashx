@@ -40,11 +40,11 @@ None today.
 - Gemini calls used in this quota day: 6/12
 
 ### Trust Ladder
-- Current: **Step 2 - Careful self-improvement (max 1 change a day, 3 files, allowed files only, auto-revert watch)**
-- Gate to Step 3: 6 of 7 days
-- Gate rule: 7 days with zero harmful reverts and zero missed slots.
+- Current: **Step 3 - Wider self-improvement (same allowed files and blocked windows)**
+- Gate to Step 4 (owner's yes in chat): 0 of 30 days
+- Gate rule: 30 days, zero missed slots, zero Meta warnings, reel views not falling; then the owner says yes in chat.
 - Blocker: none
-- Last move: 1 -> 2 on 2026-11-15T01:30 (first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball)
+- Last move: 2 -> 3 on 2026-11-22T02:30 (7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings)
 
 ## Niche and genome brief (proposals only, nothing is applied)
 - Top combo: shareable_because=cute_bruno_moment (lift 1.53x on 3 reels, newer weeks count more).
