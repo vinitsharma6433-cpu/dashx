@@ -3,7 +3,7 @@ Written by the machine every day around 21:00 IST (autonomy/report.py). Newest f
 
 ## 2026-11-20
 <!-- day: 2026-11-20 -->
-Report time: 22:16 IST. Autonomy status: **GREEN**
+Report time: 23:59 IST. Autonomy status: **GREEN**
 
 ### Reels today (3 networks)
 | Reel | Slot | YouTube | Instagram | Facebook |
@@ -36,12 +36,12 @@ None today.
 - Data source facebook_counts: ok
 
 ### Story bank and Gemini quota
-- Stories left: 92 = about 46 days at 2 reels a day
-- Gemini calls used in this quota day: 0/12
+- Stories left: 90 = about 45 days at 2 reels a day
+- Gemini calls used in this quota day: 12/12
 
 ### Trust Ladder
 - Current: **Step 2 - Careful self-improvement (max 1 change a day, 3 files, allowed files only, auto-revert watch)**
-- Gate to Step 3: 5 of 7 days
+- Gate to Step 3: 6 of 7 days
 - Gate rule: 7 days with zero harmful reverts and zero missed slots.
 - Blocker: none
 - Last move: 1 -> 2 on 2026-11-15T01:30 (first autonomy run succeeded and 2 reels posted cleanly after it (no new failure, no duplicate): puddle-splash, aunty-keeps-the-ball)
@@ -54,7 +54,7 @@ None today.
 - Active experiments: none with data yet.
 - Next week 80/20: 12 stories on proven combos or the normal mix, 2 micro-experiments: shareable_because=childhood_memory, first_3s=character_closeup.
 - Retention metrics are not available yet: scores use views and reactions per day (phase 2 is off).
-- Editor grade of the hand-imported stories: 10 graded so far, 6 below the bar (Bruno the Umpire, Bruno vs Pigeon, Bruno Bats, Bruno Hides the Ball, Bruno Chooses a Team, Bruno the Ball Boy). They stay in the bank until the owner decides.
+- Editor grade of the hand-imported stories: 17 graded so far, 11 below the bar (Bruno the Umpire, Bruno vs Pigeon, Bruno Bats, Bruno Hides the Ball, Bruno Chooses a Team, Bruno the Ball Boy...). They stay in the bank until the owner decides.
 
 ## 2026-11-19
 <!-- day: 2026-11-19 -->

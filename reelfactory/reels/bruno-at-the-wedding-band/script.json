@@ -1,0 +1,165 @@
+{
+  "id": "bruno-at-the-wedding-band",
+  "title": "ब्रूनो और बैंड",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "A baraat band passes, Bruno follows the drum with the ball, and the groom's party ends up playing gali cricket with Pappu and Dadaji.",
+    "idea": "Bruno at the Wedding Band",
+    "generated": "2026-11-21",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "ढोल के पीछे ब्रूनो गेंद लेकर कहाँ गया? 🥁",
+    "card": "बैंड वाला मैच!",
+    "closing": "शहनाई में चौका!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pappu",
+        "right": "dadaji",
+        "boardText": "बैंड"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "दादाजी, बारात का बैंड आ गया!",
+      "subtitle": "दादाजी, बारात का बैंड आ गया!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "दादाजी, बारात का बैंड आ गया!",
+          "start": 0.25,
+          "end": 2.68,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "दादाजी, बारात का बैंड आ गया!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "ढोल की आवाज़ पर गेंद आई!",
+      "subtitle": "ढोल की आवाज़ पर गेंद आई!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ढोल की आवाज़ पर गेंद आई!",
+          "start": 0.25,
+          "end": 2.08,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ढोल की आवाज़ पर गेंद आई!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ब्रूनो ढोल के पीछे भाग गया!",
+      "subtitle": "ब्रूनो ढोल के पीछे भाग गया!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "ब्रूनो ढोल के पीछे भाग गया!",
+          "start": 0.25,
+          "end": 2.24,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "ब्रूनो ढोल के पीछे भाग गया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "pappu",
+        "boardText": "बाराती"
+      },
+      "duration": 5.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बाराती भी बल्ला उठा लाए! गली में शादी का मैच!",
+      "subtitle": "बाराती भी बल्ला उठा लाए! गली में शादी का मैच!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "बाराती भी बल्ला उठा लाए!",
+          "start": 0.25,
+          "end": 3.24,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pappu",
+          "line": "गली में शादी का मैच!",
+          "start": 3.34,
+          "end": 5.04,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "बाराती भी बल्ला उठा लाए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
