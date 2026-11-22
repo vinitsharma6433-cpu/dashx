@@ -1,8 +1,8 @@
 {
-  "week": "2026-W47",
-  "updated": "2026-11-19T00:59+05:30",
-  "reels_with_data": 17,
-  "tagged_reels": 4,
+  "week": "2026-W48",
+  "updated": "2026-11-23T01:44+05:30",
+  "reels_with_data": 25,
+  "tagged_reels": 5,
   "score_mode": "views and reactions per day",
   "phase2": "off",
   "max_combination": 2,
@@ -14,44 +14,51 @@
   "niche_proposals": [],
   "patterns": {
     "shareable_because=cute_bruno_moment": {
-      "n": 3,
-      "mean": 189.6,
-      "baseline": 123.7,
-      "lift": 1.53,
-      "verdict": "keep"
+      "n": 4,
+      "mean": 119.3,
+      "baseline": 119.7,
+      "lift": 1.0,
+      "verdict": "wait"
     },
     "first_3s=bold_text_question": {
       "n": 2,
-      "mean": 80.9,
-      "baseline": 143.8,
-      "lift": 0.56,
+      "mean": 56.4,
+      "baseline": 125.1,
+      "lift": 0.45,
       "verdict": "wait"
     },
     "first_3s=bold_text_question+shareable_because=cute_bruno_moment": {
       "n": 1,
-      "mean": 101.6,
-      "baseline": 138.6,
-      "lift": 0.73,
+      "mean": 57.2,
+      "baseline": 122.4,
+      "lift": 0.47,
       "verdict": "wait"
     }
   },
-  "experiments": [],
+  "experiments": [
+    {
+      "key": "shareable_because=childhood_memory",
+      "n": 0,
+      "lift": null,
+      "status": "WAIT (needs 3 reels)"
+    },
+    {
+      "key": "first_3s=character_closeup",
+      "n": 0,
+      "lift": null,
+      "status": "WAIT (needs 3 reels)"
+    }
+  ],
   "blueprint": {
-    "proven": [
-      {
-        "key": "shareable_because=cute_bruno_moment",
-        "lift": 1.53,
-        "n": 3
-      }
-    ],
+    "proven": [],
     "proven_stories": 12,
     "experiments": [
       {
-        "key": "shareable_because=childhood_memory",
+        "key": "hook_type=curiosity_gap",
         "why": "never or rarely tried"
       },
       {
-        "key": "first_3s=character_closeup",
+        "key": "first_3s=sound_effect_drop",
         "why": "never or rarely tried"
       }
     ],

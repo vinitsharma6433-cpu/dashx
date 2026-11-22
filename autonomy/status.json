@@ -1,7 +1,9 @@
 {
-  "level": "green",
-  "reasons": [],
-  "alerts": 0,
+  "level": "red",
+  "reasons": [
+    "Story Refill 2 din se Gemini errors par ruk raha hai"
+  ],
+  "alerts": 1,
   "trend": {
     "topic": "Gully cricket house rules",
     "angle": "A house-rule fight: one-tip-one-hand, the wall is a six, the ball is lost on Aunty's balcony. The whole joke is the rule argument."
@@ -33,10 +35,10 @@
     "evidence": ""
   },
   "refill_errors": {
-    "day": "2026-11-21",
+    "day": "2026-11-22",
     "error": true,
-    "before": 0,
-    "streak": 1
+    "before": 1,
+    "streak": 2
   },
-  "updated": "2026-11-22T18:29+05:30"
+  "updated": "2026-11-23T01:44+05:30"
 }

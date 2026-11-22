@@ -8,16 +8,16 @@
     "tagged": 2,
     "all": {
      "n": 12,
-     "sum": 1283.9
+     "sum": 1257.4
     },
     "pat": {
      "shareable_because=cute_bruno_moment": {
       "n": 1,
-      "sum": 236.9
+      "sum": 237.7
      },
      "first_3s=bold_text_question": {
       "n": 1,
-      "sum": 56.3
+      "sum": 55.5
      }
     }
    }
@@ -25,24 +25,24 @@
   {
    "week": "2026-W47",
    "stats": {
-    "reels": 5,
-    "tagged": 2,
+    "reels": 13,
+    "tagged": 3,
     "all": {
-     "n": 5,
-     "sum": 974.6
+     "n": 13,
+     "sum": 1704.8
     },
     "pat": {
      "first_3s=bold_text_question": {
       "n": 1,
-      "sum": 101.6
+      "sum": 57.2
      },
      "shareable_because=cute_bruno_moment": {
-      "n": 2,
-      "sum": 339.5
+      "n": 3,
+      "sum": 258.5
      },
      "first_3s=bold_text_question+shareable_because=cute_bruno_moment": {
       "n": 1,
-      "sum": 101.6
+      "sum": 57.2
      }
     }
    }

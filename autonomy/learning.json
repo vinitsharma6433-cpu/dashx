@@ -1,7 +1,7 @@
 {
-  "updated": "2026-11-22T00:20+05:30",
+  "updated": "2026-11-23T01:44+05:30",
   "enough_data": true,
-  "reels_with_data": 23,
+  "reels_with_data": 25,
   "need": 5,
   "availability": {
     "youtube_statistics": "ok",
@@ -17,8 +17,8 @@
   "reels": [
     {
       "title": "golu-s-commentary DASHX",
-      "views_per_day": 4.0,
-      "reactions_per_day": 0.17,
+      "views_per_day": 3.66,
+      "reactions_per_day": 0.16,
       "format": "normal",
       "cast": [
         "aunty",
@@ -31,12 +31,12 @@
       "tags": {},
       "posted": "2026-11-10",
       "hook_score": 15.0,
-      "score": 10.0
+      "score": 10.4
     },
     {
       "title": "bruno-steals DASHX",
-      "views_per_day": 84.68,
-      "reactions_per_day": 1.16,
+      "views_per_day": 77.34,
+      "reactions_per_day": 1.06,
       "format": "normal",
       "cast": [
         "bruno",
@@ -51,12 +51,12 @@
       },
       "posted": "2026-11-10",
       "hook_score": 75.0,
-      "score": 77.7
+      "score": 78.4
     },
     {
       "title": "two-whistles-talk DASHX",
-      "views_per_day": 11.24,
-      "reactions_per_day": 0.67,
+      "views_per_day": 10.22,
+      "reactions_per_day": 0.61,
       "format": "normal",
       "cast": [
         "aunty",
@@ -70,12 +70,12 @@
       "tags": {},
       "posted": "2026-11-11",
       "hook_score": 70.5,
-      "score": 31.1
+      "score": 32.0
     },
     {
       "title": "dog-coaching DASHX",
-      "views_per_day": 19.29,
-      "reactions_per_day": 0.49,
+      "views_per_day": 17.47,
+      "reactions_per_day": 0.45,
       "format": "normal",
       "cast": [
         "aunty",
@@ -89,12 +89,12 @@
       "tags": {},
       "posted": "2026-11-11",
       "hook_score": 15.0,
-      "score": 43.4
+      "score": 44.4
     },
     {
       "title": "meena-s-rule DASHX",
-      "views_per_day": 1.58,
-      "reactions_per_day": 0.53,
+      "views_per_day": 1.42,
+      "reactions_per_day": 0.47,
       "format": "normal",
       "cast": [
         "meena",
@@ -106,12 +106,12 @@
       "tags": {},
       "posted": "2026-11-12",
       "hook_score": 15.0,
-      "score": 11.0
+      "score": 11.1
     },
     {
       "title": "golu-s-counting DASHX",
-      "views_per_day": 33.08,
-      "reactions_per_day": 1.31,
+      "views_per_day": 29.65,
+      "reactions_per_day": 1.17,
       "format": "normal",
       "cast": [
         "coach",
@@ -124,12 +124,12 @@
       "tags": {},
       "posted": "2026-11-12",
       "hook_score": 65.0,
-      "score": 80.0
+      "score": 80.3
     },
     {
       "title": "power-cut DASHX",
-      "views_per_day": 16.13,
-      "reactions_per_day": 1.3,
+      "views_per_day": 14.34,
+      "reactions_per_day": 1.15,
       "format": "normal",
       "cast": [
         "dadaji",
@@ -141,12 +141,12 @@
       "tags": {},
       "posted": "2026-11-13",
       "hook_score": 25.0,
-      "score": 49.8
+      "score": 50.0
     },
     {
       "title": "begum-bridge-four DASHX",
-      "views_per_day": 7.48,
-      "reactions_per_day": 0.98,
+      "views_per_day": 6.73,
+      "reactions_per_day": 0.87,
       "format": "normal",
       "cast": [
         "golu",
@@ -160,12 +160,12 @@
       },
       "posted": "2026-11-13",
       "hook_score": 54.5,
-      "score": 28.9
+      "score": 29.2
     },
     {
       "title": "puddle-splash DASHX",
-      "views_per_day": 10.54,
-      "reactions_per_day": 1.07,
+      "views_per_day": 9.24,
+      "reactions_per_day": 0.94,
       "format": "normal",
       "cast": [
         "aunty",
@@ -178,12 +178,12 @@
       "tags": {},
       "posted": "2026-11-14",
       "hook_score": 79.2,
-      "score": 35.9
+      "score": 35.7
     },
     {
       "title": "aunty-keeps-the-ball DASHX",
-      "views_per_day": 33.94,
-      "reactions_per_day": 1.82,
+      "views_per_day": 29.57,
+      "reactions_per_day": 1.58,
       "format": "normal",
       "cast": [
         "aunty",
@@ -195,12 +195,12 @@
       "tags": {},
       "posted": "2026-11-14",
       "hook_score": 75.0,
-      "score": 87.8
+      "score": 87.5
     },
     {
       "title": "lucky-cap DASHX",
-      "views_per_day": 36.65,
-      "reactions_per_day": 0.92,
+      "views_per_day": 31.52,
+      "reactions_per_day": 0.79,
       "format": "normal",
       "cast": [
         "pintu",
@@ -212,12 +212,12 @@
       "tags": {},
       "posted": "2026-11-15",
       "hook_score": 63.0,
-      "score": 74.0
+      "score": 73.7
     },
     {
       "title": "bruno-brings-a-friend DASHX",
-      "views_per_day": 8.93,
-      "reactions_per_day": 0.81,
+      "views_per_day": 7.62,
+      "reactions_per_day": 0.69,
       "format": "normal",
       "cast": [
         "bruno",
@@ -230,12 +230,12 @@
       "tags": {},
       "posted": "2026-11-15",
       "hook_score": 79.2,
-      "score": 29.0
+      "score": 27.9
     },
     {
       "title": "sankranti-kite-and-ball DASHX",
-      "views_per_day": 19.66,
-      "reactions_per_day": 1.46,
+      "views_per_day": 16.48,
+      "reactions_per_day": 1.22,
       "format": "normal",
       "cast": [
         "dadaji",
@@ -247,12 +247,12 @@
       "tags": {},
       "posted": "2026-11-16",
       "hook_score": 75.0,
-      "score": 58.9
+      "score": 55.7
     },
     {
       "title": "bruno-chooses-a-team DASHX",
-      "views_per_day": 7.95,
-      "reactions_per_day": 1.16,
+      "views_per_day": 6.59,
+      "reactions_per_day": 0.96,
       "format": "normal",
       "cast": [
         "aunty",
@@ -268,12 +268,12 @@
       },
       "posted": "2026-11-16",
       "hook_score": 63.0,
-      "score": 32.5
+      "score": 30.5
     },
     {
       "title": "meerut-market-match DASHX",
-      "views_per_day": 31.6,
-      "reactions_per_day": 1.34,
+      "views_per_day": 25.58,
+      "reactions_per_day": 1.08,
       "format": "normal",
       "cast": [
         "bruno",
@@ -286,12 +286,12 @@
       "tags": {},
       "posted": "2026-11-17",
       "hook_score": 75.0,
-      "score": 79.2
+      "score": 72.3
     },
     {
       "title": "bruno-bats DASHX",
-      "views_per_day": 13.7,
-      "reactions_per_day": 1.44,
+      "views_per_day": 10.92,
+      "reactions_per_day": 1.15,
       "format": "normal",
       "cast": [
         "bruno",
@@ -304,12 +304,12 @@
       "tags": {},
       "posted": "2026-11-17",
       "hook_score": 86.8,
-      "score": 47.5
+      "score": 42.8
     },
     {
       "title": "bruno-the-night-guard DASHX",
-      "views_per_day": 10.88,
-      "reactions_per_day": 1.72,
+      "views_per_day": 8.35,
+      "reactions_per_day": 1.32,
       "format": "normal",
       "cast": [
         "bruno",
@@ -324,12 +324,12 @@
       },
       "posted": "2026-11-18",
       "hook_score": 70.5,
-      "score": 46.5
+      "score": 40.4
     },
     {
       "title": "bruno-and-the-cooker-whistle DASHX",
-      "views_per_day": 24.68,
-      "reactions_per_day": 1.9,
+      "views_per_day": 18.25,
+      "reactions_per_day": 1.42,
       "format": "normal",
       "cast": [
         "aunty",
@@ -345,12 +345,12 @@
       },
       "posted": "2026-11-18",
       "hook_score": 86.8,
-      "score": 74.9
+      "score": 62.9
     },
     {
       "title": "chhotu-weighs-the-ball DASHX",
-      "views_per_day": 1.6,
-      "reactions_per_day": 2.41,
+      "views_per_day": 0.28,
+      "reactions_per_day": 1.69,
       "format": "normal",
       "cast": [
         "chhotu",
@@ -362,12 +362,12 @@
       "tags": {},
       "posted": "2026-11-19",
       "hook_score": 70.5,
-      "score": 39.8
+      "score": 30.0
     },
     {
       "title": "coach-s-late-day DASHX",
       "views_per_day": 0.0,
-      "reactions_per_day": 3.24,
+      "reactions_per_day": 2.18,
       "format": "normal",
       "cast": [
         "coach",
@@ -379,12 +379,12 @@
       "tags": {},
       "posted": "2026-11-19",
       "hook_score": 55.2,
-      "score": 40.0
+      "score": 37.9
     },
     {
       "title": "dadaji-sleeps DASHX",
-      "views_per_day": 59.59,
-      "reactions_per_day": 4.69,
+      "views_per_day": 35.27,
+      "reactions_per_day": 2.74,
       "format": "normal",
       "cast": [
         "dadaji",
@@ -400,8 +400,8 @@
     },
     {
       "title": "aunty-s-cooker DASHX",
-      "views_per_day": 18.96,
-      "reactions_per_day": 5.17,
+      "views_per_day": 15.78,
+      "reactions_per_day": 2.7,
       "format": "normal",
       "cast": [
         "aunty",
@@ -414,12 +414,12 @@
       "tags": {},
       "posted": "2026-11-20",
       "hook_score": 70.5,
-      "score": 75.3
+      "score": 73.0
     },
     {
       "title": "bruno-steals-mintu-s-ball DASHX",
-      "views_per_day": 149.91,
-      "reactions_per_day": 12.16,
+      "views_per_day": 87.01,
+      "reactions_per_day": 3.87,
       "format": "normal",
       "cast": [
         "bruno",
@@ -433,19 +433,55 @@
       "posted": "2026-11-21",
       "hook_score": 75.0,
       "score": 100.0
+    },
+    {
+      "title": "bruno-at-the-wedding-band DASHX",
+      "views_per_day": 25.45,
+      "reactions_per_day": 5.75,
+      "format": "normal",
+      "cast": [
+        "bruno",
+        "dadaji",
+        "pappu",
+        "sachin",
+        "surya"
+      ],
+      "slot": "20:30",
+      "hook_type": "question",
+      "tags": {},
+      "posted": "2026-11-21",
+      "hook_score": 63.0,
+      "score": 93.2
+    },
+    {
+      "title": "new-neighbour DASHX",
+      "views_per_day": 0.0,
+      "reactions_per_day": 9.06,
+      "format": "normal",
+      "cast": [
+        "coach",
+        "meena",
+        "sachin"
+      ],
+      "slot": "12:30",
+      "hook_type": "question",
+      "tags": {},
+      "posted": "2026-11-22",
+      "hook_score": 79.2,
+      "score": 40.0
     }
   ],
   "groups": {
     "format": {
       "normal": {
-        "avg": 54.5,
-        "n": 23
+        "avg": 53.6,
+        "n": 25
       }
     },
     "hook_type": {
       "question": {
-        "avg": 55.6,
-        "n": 22
+        "avg": 54.6,
+        "n": 24
       },
       "exclaim": {
         "avg": null,
@@ -454,62 +490,62 @@
     },
     "character": {
       "aunty": {
-        "avg": 48.9,
+        "avg": 47.0,
         "n": 8
       },
       "golu": {
-        "avg": 49.9,
+        "avg": 49.0,
         "n": 8
       },
       "meena": {
-        "avg": 36.2,
-        "n": 6
+        "avg": 35.8,
+        "n": 7
       },
       "sachin": {
-        "avg": 60.5,
-        "n": 13
+        "avg": 59.5,
+        "n": 15
       },
       "bruno": {
-        "avg": 59.0,
-        "n": 9
+        "avg": 59.3,
+        "n": 10
       },
       "dadaji": {
-        "avg": 66.6,
-        "n": 5
+        "avg": 69.6,
+        "n": 6
       },
       "surya": {
-        "avg": 55.5,
-        "n": 14
+        "avg": 56.2,
+        "n": 15
       },
       "coach": {
-        "avg": 45.5,
-        "n": 5
+        "avg": 43.5,
+        "n": 6
       },
       "pintu": {
-        "avg": 54.5,
+        "avg": 52.2,
         "n": 9
       },
       "mintu": {
-        "avg": 56.9,
+        "avg": 53.7,
         "n": 4
       },
       "pappu": {
-        "avg": 36.2,
-        "n": 2
+        "avg": 53.9,
+        "n": 3
       },
       "chhotu": {
-        "avg": 73.0,
+        "avg": 67.4,
         "n": 3
       }
     },
     "slot": {
       "12:30": {
-        "avg": 53.0,
-        "n": 12
+        "avg": 50.1,
+        "n": 13
       },
       "20:30": {
-        "avg": 56.1,
-        "n": 11
+        "avg": 57.3,
+        "n": 12
       }
     }
   },
