@@ -41,18 +41,18 @@ None today.
 
 ### Trust Ladder
 - Current: **Step 3 - Wider self-improvement (same allowed files and blocked windows)**
-- Gate to Step 4 (owner's yes in chat): 0 of 30 days
+- Gate to Step 4 (owner's yes in chat): 1 of 30 days
 - Gate rule: 30 days, zero missed slots, zero Meta warnings, reel views not falling; then the owner says yes in chat.
 - Blocker: none
 - Last move: 2 -> 3 on 2026-11-22T02:30 (7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings)
 
 ## Niche and genome brief (proposals only, nothing is applied)
-- Top combo: shareable_because=cute_bruno_moment (lift 1.53x on 3 reels, newer weeks count more).
-- Why: it beat the average reel in the same window; each reel is scored from views and reactions per day.
+- Top combo: none proven yet (5 tagged reels; a pattern needs 3+ reels and 1.2x the average).
 - Weak reel golu-s-commentary (score 3.7): likely weak part the first line (hook score is low).
 - Weak reel meena-s-rule (score 1.4): likely weak part the first line (hook score is low).
-- Active experiments: none with data yet.
-- Next week 80/20: 12 stories on proven combos or the normal mix, 2 micro-experiments: shareable_because=childhood_memory, first_3s=character_closeup.
+- Experiment shareable_because=childhood_memory: n=0, lift n/a, WAIT (needs 3 reels).
+- Experiment first_3s=character_closeup: n=0, lift n/a, WAIT (needs 3 reels).
+- Next week 80/20: 12 stories on proven combos or the normal mix, 2 micro-experiments: hook_type=curiosity_gap, first_3s=sound_effect_drop.
 - Retention metrics are not available yet: scores use views and reactions per day (phase 2 is off).
 - Editor grade of the hand-imported stories: 23 graded so far, 17 below the bar (Bruno the Umpire, Bruno vs Pigeon, Bruno Bats, Bruno Hides the Ball, Bruno Chooses a Team, Bruno the Ball Boy...). They stay in the bank until the owner decides.
 

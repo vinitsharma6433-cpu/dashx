@@ -30,7 +30,7 @@
     "drop_alert_until": null,
     "last_drop": "",
     "owner_ready": false,
-    "progress": "0 of 30 days",
+    "progress": "1 of 30 days",
     "blocker": "",
     "evidence": ""
   },
@@ -40,5 +40,5 @@
     "before": 1,
     "streak": 2
   },
-  "updated": "2026-11-23T01:44+05:30"
+  "updated": "2026-11-23T02:40+05:30"
 }
