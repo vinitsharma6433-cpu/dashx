@@ -17,3 +17,9 @@
 - 2026-11-20 grade FAIL | Bruno Steals Mintu's Ball | meerut 4 twist 6 funny 6 hindi 8 typos 0 | The story lacks authentic Meerut local dialect/slang and the middle transition showing Bruno sniffin
 - 2026-11-20 grade PASS | Bruno on the Scoreboard | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks specific Meerut slang or local references to feel authentically rooted in Meerut.
 - 2026-11-20 grade FAIL | Bruno the Slip Fielder | meerut 4 twist 3 funny 6 hindi 9 typos 0 | The actual catch and wicket mentioned in the plot are completely missing from the dialogue scenes, r
+- 2026-11-22 grade FAIL | Bruno vs the Auto | meerut 3 twist 2 funny 4 hindi 8 typos 0 | The story lacks a surprising twist or a satisfying comedic payoff at the end.
+- 2026-11-22 grade FAIL | Bruno's Birthday | meerut 2 twist 3 funny 3 hindi 7 typos 0 | The scene sequence is chaotic and fails to deliver the plot promised in the setup.
+- 2026-11-22 grade FAIL | Bruno and the Rain | meerut 5 twist 4 funny 6 hindi 9 typos 0 | The actual shake-off event described in the plot line is completely missing from the script lines.
+- 2026-11-22 grade FAIL | Bruno Finds the Bat | meerut 4 twist 4 funny 5 hindi 8 typos 0 | Plot states Bruno brings the stick, but the dialogue shows Dadaji giving it himself.
+- 2026-11-22 grade FAIL | Bruno Teaches Surya | meerut 3 twist 5 funny 4 hindi 6 typos 0 | The plot line mentions Bruno running along the pitch, but the spoken dialogue completely skips Bruno
+- 2026-11-22 grade FAIL | Bruno and the Tiffin | meerut 3 twist 7 funny 6 hindi 8 typos 0 | The script misses showing how Aunty got the tiffin back from Bruno, creating a gap in the plot.

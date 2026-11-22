@@ -1,6 +1,6 @@
 {
- "day": "2026-11-21",
- "calls": 6,
+ "day": "2026-11-22",
+ "calls": 12,
  "cap": 12,
  "grade": {
   "Bruno the Umpire": {
@@ -189,6 +189,72 @@
    "typos": 0,
    "issue": "The actual catch and wicket mentioned in the plot are completely missing from the dialogue scenes, r",
    "day": "2026-11-20"
+  },
+  "Bruno vs the Auto": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 2,
+   "funny": 4,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a surprising twist or a satisfying comedic payoff at the end.",
+   "day": "2026-11-22"
+  },
+  "Bruno's Birthday": {
+   "ok": false,
+   "meerut": 2,
+   "twist": 3,
+   "funny": 3,
+   "hindi": 7,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The scene sequence is chaotic and fails to deliver the plot promised in the setup.",
+   "day": "2026-11-22"
+  },
+  "Bruno and the Rain": {
+   "ok": false,
+   "meerut": 5,
+   "twist": 4,
+   "funny": 6,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The actual shake-off event described in the plot line is completely missing from the script lines.",
+   "day": "2026-11-22"
+  },
+  "Bruno Finds the Bat": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 4,
+   "funny": 5,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "Plot states Bruno brings the stick, but the dialogue shows Dadaji giving it himself.",
+   "day": "2026-11-22"
+  },
+  "Bruno Teaches Surya": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 5,
+   "funny": 4,
+   "hindi": 6,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The plot line mentions Bruno running along the pitch, but the spoken dialogue completely skips Bruno",
+   "day": "2026-11-22"
+  },
+  "Bruno and the Tiffin": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 7,
+   "funny": 6,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The script misses showing how Aunty got the tiffin back from Bruno, creating a gap in the plot.",
+   "day": "2026-11-22"
   }
  }
 }
