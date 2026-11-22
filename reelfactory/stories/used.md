@@ -67,3 +67,5 @@
 - 2026-11-20 | aunty-s-cooker | आंटी का कुकर (Aunty's Cooker) | Aunty's cooker whistles at the exact moment of the last ball and Pintu stops the game while Surya complains. | खाना तैयार, खेल बंद!
 - 2026-11-21 | new-neighbour | नया पड़ोसी (New Neighbour) | A new boy joins the match and hits the first ball over everyone, so Sachin, Meena and Coach make him a friend. | नया छक्का, नया दोस्त!
 - 2026-11-21 | bruno-at-the-wedding-band | ब्रूनो और बैंड (Bruno at the Wedding Band) | A baraat band passes, Bruno follows the drum with the ball, and the groom's party ends up playing gali cricket with Pappu and Dadaji. | शहनाई में चौका!
+- 2026-11-22 | golu-s-spy | गोलू का जासूस (Golu's Spy) | Golu tells Mintu and Pappu that the other gali is practicing in secret, but it turns out they are practicing a dance. | मैदान में नाच चल रहा!
+- 2026-11-22 | meena-fixes-the-score | मीना ने बताया (Meena Fixes the Score) | Pintu counts the score wrongly, and Meena proves it with chalk marks while Golu keeps quiet. | छत्तीस सही, चालीस ग़लत!

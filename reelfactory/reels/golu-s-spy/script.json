@@ -1,0 +1,165 @@
+{
+  "id": "golu-s-spy",
+  "title": "गोलू का जासूस",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu tells Mintu and Pappu that the other gali is practicing in secret, but it turns out they are practicing a dance.",
+    "idea": "Golu's Spy",
+    "generated": "2026-11-22",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "दूसरी गली के राज़ में क्या निकला? 💃",
+    "card": "दूसरी गली का राज़!",
+    "closing": "मैदान में नाच चल रहा!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "pappu",
+        "boardText": "राज़"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पप्पू भैया, उनकी गली में गुप्त अभ्यास है!",
+      "subtitle": "पप्पू भैया, उनकी गली में गुप्त अभ्यास है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "पप्पू भैया, उनकी गली में गुप्त अभ्यास है!",
+          "start": 0.25,
+          "end": 2.85,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "पप्पू भैया, उनकी गली में गुप्त अभ्यास है!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "golu",
+        "bowler": "mintu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "मैं झाँककर देखता हूँ!",
+      "subtitle": "मैं झाँककर देखता हूँ!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "मैं झाँककर देखता हूँ!",
+          "start": 0.25,
+          "end": 2.01,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "मैं झाँककर देखता हूँ!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "golu",
+        "watcher": "mintu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "उनके पास गेंद ही नहीं है!",
+      "subtitle": "उनके पास गेंद ही नहीं है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "उनके पास गेंद ही नहीं है!",
+          "start": 0.25,
+          "end": 1.91,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "उनके पास गेंद ही नहीं है!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "mintu",
+        "right": "pappu",
+        "boardText": "नाच"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ये तो नाच की तैयारी है! जासूस साहब ग़लत निकले!",
+      "subtitle": "ये तो नाच की तैयारी है! जासूस साहब ग़लत निकले!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "ये तो नाच की तैयारी है!",
+          "start": 0.25,
+          "end": 1.99,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pappu",
+          "line": "जासूस साहब ग़लत निकले!",
+          "start": 2.09,
+          "end": 4.09,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "ये तो नाच की तैयारी है!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -1,0 +1,173 @@
+{
+  "id": "meena-fixes-the-score",
+  "title": "मीना ने बताया",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Pintu counts the score wrongly, and Meena proves it with chalk marks while Golu keeps quiet.",
+    "idea": "Meena Fixes the Score",
+    "generated": "2026-11-22",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "स्कोर की गलती किसने पकड़ ली? 📝",
+    "card": "स्कोर गलत गिना गया!",
+    "closing": "छत्तीस सही, चालीस ग़लत!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pintu",
+        "right": "meena",
+        "boardText": "स्कोर"
+      },
+      "duration": 4.2,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "स्कोर चालीस है, मैंने गिना! पिंटू, ये चालीस नहीं है!",
+      "subtitle": "स्कोर चालीस है, मैंने गिना! पिंटू, ये चालीस नहीं है!",
+      "dialogue": [
+        {
+          "speaker": "pintu",
+          "line": "स्कोर चालीस है, मैंने गिना!",
+          "start": 0.25,
+          "end": 2.25,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "पिंटू, ये चालीस नहीं है!",
+          "start": 2.35,
+          "end": 3.85,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pintu",
+      "line": "स्कोर चालीस है, मैंने गिना!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "वो तो चाक लेकर आई है!",
+      "subtitle": "वो तो चाक लेकर आई है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "वो तो चाक लेकर आई है!",
+          "start": 0.25,
+          "end": 2.04,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "वो तो चाक लेकर आई है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "meena"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "चाक से गिनती करके दिखा!",
+      "subtitle": "चाक से गिनती करके दिखा!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "चाक से गिनती करके दिखा!",
+          "start": 0.25,
+          "end": 2.1,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "चाक से गिनती करके दिखा!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "meena",
+        "right": "pintu",
+        "boardText": "पोल"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "देखो, ये तो छत्तीस निकला! ओह, गिनती में मैं हार गया!",
+      "subtitle": "देखो, ये तो छत्तीस निकला! ओह, गिनती में मैं हार गया!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "देखो, ये तो छत्तीस निकला!",
+          "start": 0.25,
+          "end": 2.04,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "ओह, गिनती में मैं हार गया!",
+          "start": 2.14,
+          "end": 4.04,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "देखो, ये तो छत्तीस निकला!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
