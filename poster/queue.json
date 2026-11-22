@@ -2445,10 +2445,18 @@
           "scheduled": true,
           "publish_at": "2026-11-22T20:30:00+05:30",
           "at": "2026-11-22T06:09:00.357865+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1892534048403241",
+          "scheduled": true,
+          "publish_at": "2026-11-22T20:30:00+05:30",
+          "at": "2026-11-22T06:09:00.357865+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "PJPvD8U8L3k"
+        "yt_video_id": "PJPvD8U8L3k",
+        "fb_video_id": "1892534048403241"
       }
     },
     {
