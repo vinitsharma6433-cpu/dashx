@@ -1,0 +1,173 @@
+{
+  "id": "coach-s-diet",
+  "title": "कोच की डाइट",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach says no sweets for the players, then Aunty brings jalebi and Coach is first in the line while Golu watches.",
+    "idea": "Coach's Diet",
+    "generated": "2026-11-23",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "मिठाई मना थी, कोच कहाँ पहुँचे? 🍥",
+    "card": "कोच की डाइट टूटी!",
+    "closing": "डाइट गई, जलेबी आई!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "golu",
+        "boardText": "मिठाई"
+      },
+      "duration": 3.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आज से सबकी मिठाई बंद! जी कोच जी!",
+      "subtitle": "आज से सबकी मिठाई बंद! जी कोच जी!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "आज से सबकी मिठाई बंद!",
+          "start": 0.25,
+          "end": 2.19,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "golu",
+          "line": "जी कोच जी!",
+          "start": 2.29,
+          "end": 3.21,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "आज से सबकी मिठाई बंद!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "गरम जलेबी लेकर कोई आ रही है!",
+      "subtitle": "गरम जलेबी लेकर कोई आ रही है!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "गरम जलेबी लेकर कोई आ रही है!",
+          "start": 0.25,
+          "end": 2.5,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "गरम जलेबी लेकर कोई आ रही है!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "aunty"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "गरम जलेबी, पहले मैं किसे दूँ?",
+      "subtitle": "गरम जलेबी, पहले मैं किसे दूँ?",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गरम जलेबी, पहले मैं किसे दूँ?",
+          "start": 0.25,
+          "end": 2.37,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गरम जलेबी, पहले मैं किसे दूँ?"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "aunty",
+        "boardText": "जलेबी"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "आंटी, पहले मुझे दीजिए! कोच जी, आपकी डाइट कहाँ गई?",
+      "subtitle": "आंटी, पहले मुझे दीजिए! कोच जी, आपकी डाइट कहाँ गई?",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "आंटी, पहले मुझे दीजिए!",
+          "start": 0.25,
+          "end": 1.97,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "aunty",
+          "line": "कोच जी, आपकी डाइट कहाँ गई?",
+          "start": 2.07,
+          "end": 4.06,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "आंटी, पहले मुझे दीजिए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -69,3 +69,5 @@
 - 2026-11-21 | bruno-at-the-wedding-band | ब्रूनो और बैंड (Bruno at the Wedding Band) | A baraat band passes, Bruno follows the drum with the ball, and the groom's party ends up playing gali cricket with Pappu and Dadaji. | शहनाई में चौका!
 - 2026-11-22 | golu-s-spy | गोलू का जासूस (Golu's Spy) | Golu tells Mintu and Pappu that the other gali is practicing in secret, but it turns out they are practicing a dance. | मैदान में नाच चल रहा!
 - 2026-11-22 | meena-fixes-the-score | मीना ने बताया (Meena Fixes the Score) | Pintu counts the score wrongly, and Meena proves it with chalk marks while Golu keeps quiet. | छत्तीस सही, चालीस ग़लत!
+- 2026-11-23 | coach-s-diet | कोच की डाइट (Coach's Diet) | Coach says no sweets for the players, then Aunty brings jalebi and Coach is first in the line while Golu watches. | डाइट गई, जलेबी आई!
+- 2026-11-23 | sachin-one-more-six | सचिन का एक और छक्का (Sachin One More Six) | Sachin says one more six and that is all four times, and finally falls asleep on the pitch while Dadaji and Bruno watch. | नींद जीती, सचिन सोया!

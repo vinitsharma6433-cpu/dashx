@@ -1,0 +1,157 @@
+{
+  "id": "sachin-one-more-six",
+  "title": "सचिन का एक और छक्का",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin says one more six and that is all four times, and finally falls asleep on the pitch while Dadaji and Bruno watch.",
+    "idea": "Sachin One More Six",
+    "generated": "2026-11-23",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "सचिन का एक और छक्का कहाँ अटका? 😴",
+    "card": "बस एक और छक्का!",
+    "closing": "नींद जीती, सचिन सोया!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "dadaji",
+        "boardText": "छक्का"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "बस एक और छक्का, फिर बंद!",
+      "subtitle": "बस एक और छक्का, फिर बंद!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "बस एक और छक्का, फिर बंद!",
+          "start": 0.25,
+          "end": 2.27,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "बस एक और छक्का, फिर बंद!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "surya",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "चौथी बार वही रट लगा रहा!",
+      "subtitle": "चौथी बार वही रट लगा रहा!",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "चौथी बार वही रट लगा रहा!",
+          "start": 0.25,
+          "end": 2.17,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "चौथी बार वही रट लगा रहा!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ये आख़िरी, बिल्कुल आख़िरी छक्का!",
+      "subtitle": "ये आख़िरी, बिल्कुल आख़िरी छक्का!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "ये आख़िरी, बिल्कुल आख़िरी छक्का!",
+          "start": 0.25,
+          "end": 2.45,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "ये आख़िरी, बिल्कुल आख़िरी छक्का!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "dadaji",
+        "right": "sachin",
+        "boardText": "नींद"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "अरे, ये तो पिच पर सो गया!",
+      "subtitle": "अरे, ये तो पिच पर सो गया!",
+      "dialogue": [
+        {
+          "speaker": "dadaji",
+          "line": "अरे, ये तो पिच पर सो गया!",
+          "start": 0.25,
+          "end": 2.7,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "dadaji",
+      "line": "अरे, ये तो पिच पर सो गया!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
