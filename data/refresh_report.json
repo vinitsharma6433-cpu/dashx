@@ -1,127 +1,61 @@
 {
- "date": "2026-11-16",
- "pages_read": 24,
- "blog_pages": 11,
+ "date": "2026-11-23",
+ "pages_read": 28,
+ "blog_pages": 15,
  "search_console": "no data (data/gsc_queries.json missing)",
- "findings": [
-  {
-   "rule": "meta",
-   "page": "https://dashx-store-api.onrender.com/blog/green-tennis-ball-cricket-90g",
-   "detail": "description is 166 chars (want 120-155)",
-   "priority": 20
-  },
-  {
-   "rule": "meta",
-   "page": "https://dashx-store-api.onrender.com/blog/light-tennis-ball-cricket-90g",
-   "detail": "description is 162 chars (want 120-155)",
-   "priority": 20
-  },
-  {
-   "rule": "meta",
-   "page": "https://dashx-store-api.onrender.com/blog/cricket-with-tennis-ball-guide",
-   "detail": "description is 173 chars (want 120-155)",
-   "priority": 20
-  },
-  {
-   "rule": "meta",
-   "page": "https://dashx-store-api.onrender.com/blog/yellow-tennis-ball-cricket-90g",
-   "detail": "description is 162 chars (want 120-155)",
-   "priority": 20
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/yellow-tennis-ball-cricket-90g",
-   "detail": "shares 66% of its text with blog/red-tennis-ball-cricket-110g (differentiate, do not copy)",
-   "priority": 68
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/light-tennis-ball-cricket-90g",
-   "detail": "shares 53% of its text with blog/red-tennis-ball-cricket-110g (differentiate, do not copy)",
-   "priority": 63
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/green-tennis-ball-cricket-90g",
-   "detail": "shares 64% of its text with blog/red-tennis-ball-cricket-110g (differentiate, do not copy)",
-   "priority": 68
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/light-tennis-ball-cricket-90g",
-   "detail": "shares 62% of its text with blog/yellow-tennis-ball-cricket-90g (differentiate, do not copy)",
-   "priority": 67
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/green-tennis-ball-cricket-90g",
-   "detail": "shares 86% of its text with blog/yellow-tennis-ball-cricket-90g (differentiate, do not copy)",
-   "priority": 76
-  },
-  {
-   "rule": "overlap",
-   "page": "https://dashx-store-api.onrender.com/blog/green-tennis-ball-cricket-90g",
-   "detail": "shares 62% of its text with blog/light-tennis-ball-cricket-90g (differentiate, do not copy)",
-   "priority": 67
-  }
- ],
+ "findings": [],
  "tasks_added": [],
- "skipped": [
-  "green-tennis-ball-cricket-90g (already has a queued task)",
-  "yellow-tennis-ball-cricket-90g (already has a queued task)",
-  "light-tennis-ball-cricket-90g (already has a queued task)",
-  "cricket-with-tennis-ball-guide (already has a queued task)"
- ],
+ "skipped": [],
  "overlap_top": [
   {
-   "a": "green-tennis-ball-cricket-90g",
-   "b": "yellow-tennis-ball-cricket-90g",
-   "overlap": 0.86
+   "a": "cricket-tennis-ball-weights-packs-variants",
+   "b": "heavy-tennis-ball-cricket-ball-pack-of-12",
+   "overlap": 0.44
   },
   {
-   "a": "red-tennis-ball-cricket-110g",
-   "b": "yellow-tennis-ball-cricket-90g",
-   "overlap": 0.66
+   "a": "heavy-tennis-ball-cricket-ball-pack-of-12",
+   "b": "tennis-ball-for-diwali-cricket-match",
+   "overlap": 0.42
   },
   {
-   "a": "green-tennis-ball-cricket-90g",
+   "a": "cricket-tennis-ball-weights-packs-variants",
+   "b": "tennis-ball-for-diwali-cricket-match",
+   "overlap": 0.36
+  },
+  {
+   "a": "heavy-tennis-ball-cricket-ball-pack-of-12",
+   "b": "tennis-ball-cricket-heavy",
+   "overlap": 0.33
+  },
+  {
+   "a": "heavy-tennis-cricket-ball-weight",
+   "b": "tennis-ball-cricket-for-kids",
+   "overlap": 0.33
+  },
+  {
+   "a": "heavy-tennis-ball-cricket-ball-pack-of-12",
    "b": "red-tennis-ball-cricket-110g",
-   "overlap": 0.64
+   "overlap": 0.32
+  },
+  {
+   "a": "cricket-with-tennis-ball-guide",
+   "b": "heavy-tennis-ball-cricket-90g-110g",
+   "overlap": 0.31
+  },
+  {
+   "a": "heavy-tennis-ball-cricket-90g-110g",
+   "b": "tennis-ball-cricket-for-kids",
+   "overlap": 0.31
   },
   {
    "a": "green-tennis-ball-cricket-90g",
    "b": "light-tennis-ball-cricket-90g",
-   "overlap": 0.62
+   "overlap": 0.3
   },
   {
-   "a": "light-tennis-ball-cricket-90g",
-   "b": "yellow-tennis-ball-cricket-90g",
-   "overlap": 0.62
-  },
-  {
-   "a": "light-tennis-ball-cricket-90g",
+   "a": "heavy-tennis-cricket-ball-weight",
    "b": "red-tennis-ball-cricket-110g",
-   "overlap": 0.53
-  },
-  {
-   "a": "cricket-with-tennis-ball-guide",
-   "b": "yellow-tennis-ball-cricket-90g",
-   "overlap": 0.41
-  },
-  {
-   "a": "cricket-tennis-ball-pack-of-10-munna",
-   "b": "green-tennis-ball-cricket-90g",
-   "overlap": 0.4
-  },
-  {
-   "a": "cricket-tennis-ball-pack-of-10-munna",
-   "b": "red-tennis-ball-cricket-110g",
-   "overlap": 0.4
-  },
-  {
-   "a": "cricket-tennis-ball-pack-of-10-munna",
-   "b": "yellow-tennis-ball-cricket-90g",
-   "overlap": 0.4
+   "overlap": 0.3
   }
  ]
 }
