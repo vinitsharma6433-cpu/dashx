@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-23T01:44+05:30",
-  "day": "2026-11-23",
+  "generated": "2026-11-24T03:06+05:30",
+  "day": "2026-11-24",
   "topics": [
     {
       "id": "gully_rules",
@@ -12,7 +12,7 @@
       "sources": [
         "news_gully_cricket"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     },
     {
       "id": "match_fever",
@@ -22,11 +22,13 @@
       "story_situation": "the kids copy a big-match mood in the gali with commentary and a replay argument",
       "strength": 5,
       "sources": [
+        "google_trends_in",
         "news_cricket",
         "news_gully_cricket",
-        "news_school"
+        "news_school",
+        "news_wedding"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     },
     {
       "id": "meerut_touch",
@@ -38,7 +40,7 @@
       "sources": [
         "news_meerut"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     },
     {
       "id": "school_exams",
@@ -52,7 +54,7 @@
         "news_gully_cricket",
         "news_school"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     },
     {
       "id": "school_holidays",
@@ -64,7 +66,7 @@
       "sources": [
         "news_school"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     },
     {
       "id": "weather_twist",
@@ -79,12 +81,12 @@
         "news_weather",
         "news_wedding"
       ],
-      "expires": "2026-11-26"
+      "expires": "2026-11-27"
     }
   ],
   "stats": {
-    "headlines_seen": 467,
-    "dropped_unsafe": 113,
+    "headlines_seen": 463,
+    "dropped_unsafe": 130,
     "sources_ok": [
       "google_trends_in",
       "news_cricket",
