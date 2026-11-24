@@ -2750,10 +2750,18 @@
           "scheduled": true,
           "publish_at": "2026-11-25T12:30:00+05:30",
           "at": "2026-11-24T10:32:15.522936+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1181033724445877",
+          "scheduled": true,
+          "publish_at": "2026-11-25T12:30:00+05:30",
+          "at": "2026-11-24T12:32:41.676370+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "59erfzOZhnY"
+        "yt_video_id": "59erfzOZhnY",
+        "fb_video_id": "1181033724445877"
       }
     }
   ]
