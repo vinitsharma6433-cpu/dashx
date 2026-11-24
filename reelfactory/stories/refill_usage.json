@@ -1,6 +1,6 @@
 {
- "day": "2026-11-23",
- "calls": 6,
+ "day": "2026-11-24",
+ "calls": 12,
  "cap": 12,
  "grade": {
   "Bruno the Umpire": {
@@ -255,6 +255,105 @@
    "typos": 0,
    "issue": "The script misses showing how Aunty got the tiffin back from Bruno, creating a gap in the plot.",
    "day": "2026-11-22"
+  },
+  "Bruno Brings a Friend": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 3,
+   "funny": 5,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks local Meerut slang/flavour and missing punchy comedic twist.",
+   "day": "2026-11-24"
+  },
+  "Dadaji's Catch Rule": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks specific local Meerut dialect/slang and the ending twist feels slightly predictable.",
+   "day": "2026-11-24"
+  },
+  "Dadaji Sleeps": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 5,
+   "funny": 5,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The reel lacks local Meeruti dialect and the setup doesn't deliver a strong comedic punchline.",
+   "day": "2026-11-24"
+  },
+  "Dadaji's Old Bat": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 5,
+   "funny": 7,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut local dialect/flavor and a strong surprising twist at the end.",
+   "day": "2026-11-24"
+  },
+  "Dadaji Keeps Score": {
+   "ok": false,
+   "meerut": 2,
+   "twist": 1,
+   "funny": 2,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a real comic twist and has no authentic Meerut street flavor or funny punchline.",
+   "day": "2026-11-24"
+  },
+  "Dadaji vs Aunty": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 6,
+   "funny": 5,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut dialect and local slang, feeling too generic.",
+   "day": "2026-11-24"
+  },
+  "Coach's Whistle Mistake": {
+   "ok": false,
+   "meerut": 2,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 6,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks Meerut flavor, a proper hilarious twist, and strong punchlines suitable for a comedy",
+   "day": "2026-11-24"
+  },
+  "Coach Demonstrates": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 5,
+   "funny": 4,
+   "hindi": 6,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The dialogue misses the plot's 10-miss buildup, lacks genuine Meerut dialect, and the punchline feel",
+   "day": "2026-11-24"
+  },
+  "Coach's Big Laugh": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 6,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The plot says the ball bounced off the wall because of coach's laugh, but the dialogue just shows a ",
+   "day": "2026-11-24"
   }
  }
 }

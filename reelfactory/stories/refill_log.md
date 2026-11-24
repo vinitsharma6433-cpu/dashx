@@ -23,3 +23,12 @@
 - 2026-11-22 grade FAIL | Bruno Finds the Bat | meerut 4 twist 4 funny 5 hindi 8 typos 0 | Plot states Bruno brings the stick, but the dialogue shows Dadaji giving it himself.
 - 2026-11-22 grade FAIL | Bruno Teaches Surya | meerut 3 twist 5 funny 4 hindi 6 typos 0 | The plot line mentions Bruno running along the pitch, but the spoken dialogue completely skips Bruno
 - 2026-11-22 grade FAIL | Bruno and the Tiffin | meerut 3 twist 7 funny 6 hindi 8 typos 0 | The script misses showing how Aunty got the tiffin back from Bruno, creating a gap in the plot.
+- 2026-11-24 grade FAIL | Bruno Brings a Friend | meerut 4 twist 3 funny 5 hindi 8 typos 0 | The story lacks local Meerut slang/flavour and missing punchy comedic twist.
+- 2026-11-24 grade PASS | Dadaji's Catch Rule | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks specific local Meerut dialect/slang and the ending twist feels slightly predictable.
+- 2026-11-24 grade FAIL | Dadaji Sleeps | meerut 4 twist 5 funny 5 hindi 8 typos 0 | The reel lacks local Meeruti dialect and the setup doesn't deliver a strong comedic punchline.
+- 2026-11-24 grade FAIL | Dadaji's Old Bat | meerut 4 twist 5 funny 7 hindi 8 typos 0 | The story lacks authentic Meerut local dialect/flavor and a strong surprising twist at the end.
+- 2026-11-24 grade FAIL | Dadaji Keeps Score | meerut 2 twist 1 funny 2 hindi 8 typos 0 | The story lacks a real comic twist and has no authentic Meerut street flavor or funny punchline.
+- 2026-11-24 grade FAIL | Dadaji vs Aunty | meerut 3 twist 6 funny 5 hindi 8 typos 0 | The story lacks authentic Meerut dialect and local slang, feeling too generic.
+- 2026-11-24 grade FAIL | Coach's Whistle Mistake | meerut 2 twist 3 funny 4 hindi 6 typos 0 | The story lacks Meerut flavor, a proper hilarious twist, and strong punchlines suitable for a comedy
+- 2026-11-24 grade FAIL | Coach Demonstrates | meerut 3 twist 5 funny 4 hindi 6 typos 0 | The dialogue misses the plot's 10-miss buildup, lacks genuine Meerut dialect, and the punchline feel
+- 2026-11-24 grade FAIL | Coach's Big Laugh | meerut 3 twist 3 funny 4 hindi 6 typos 0 | The plot says the ball bounced off the wall because of coach's laugh, but the dialogue just shows a 
