@@ -2659,7 +2659,13 @@
       },
       "notes": {
         "yt_video_id": "CQ8X8XfAdKU",
-        "fb_video_id": "1707516510727333"
+        "fb_video_id": "1707516510727333",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
