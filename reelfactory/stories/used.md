@@ -71,3 +71,5 @@
 - 2026-11-22 | meena-fixes-the-score | मीना ने बताया (Meena Fixes the Score) | Pintu counts the score wrongly, and Meena proves it with chalk marks while Golu keeps quiet. | छत्तीस सही, चालीस ग़लत!
 - 2026-11-23 | coach-s-diet | कोच की डाइट (Coach's Diet) | Coach says no sweets for the players, then Aunty brings jalebi and Coach is first in the line while Golu watches. | डाइट गई, जलेबी आई!
 - 2026-11-23 | sachin-one-more-six | सचिन का एक और छक्का (Sachin One More Six) | Sachin says one more six and that is all four times, and finally falls asleep on the pitch while Dadaji and Bruno watch. | नींद जीती, सचिन सोया!
+- 2026-11-24 | mintu-caught | मिंटू पकड़ा गया (Mintu Caught) | Mintu spies on the gali, and Bruno finds him hiding inside a drum while Pappu laughs. | ड्रम में जासूस पकड़ा!
+- 2026-11-24 | coach-vs-meena | कोच बनाम मीना (Coach vs Meena) | Coach says girls cannot hit sixes, Meena hits two in a row, and he claims he only said it to motivate her. | मीना जीती, हौसला बढ़ा!

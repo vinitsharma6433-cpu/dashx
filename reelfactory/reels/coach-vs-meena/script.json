@@ -1,0 +1,181 @@
+{
+  "id": "coach-vs-meena",
+  "title": "कोच बनाम मीना",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach says girls cannot hit sixes, Meena hits two in a row, and he claims he only said it to motivate her.",
+    "idea": "Coach vs Meena",
+    "generated": "2026-11-24",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "कोच की बात पर मीना ने क्या किया? 🏆",
+    "card": "मीना बनाम कोच!",
+    "closing": "मीना जीती, हौसला बढ़ा!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "meena",
+        "boardText": "चुनौती"
+      },
+      "duration": 4.3,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मीना, तू छक्का नहीं मार सकती! कोच जी, देखते रहिए!",
+      "subtitle": "मीना, तू छक्का नहीं मार सकती! कोच जी, देखते रहिए!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "मीना, तू छक्का नहीं मार सकती!",
+          "start": 0.25,
+          "end": 2.45,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "कोच जी, देखते रहिए!",
+          "start": 2.55,
+          "end": 3.92,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "मीना, तू छक्का नहीं मार सकती!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "meena",
+        "bowler": "coach",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "लो, खेलकर दिखाओ!",
+      "subtitle": "लो, खेलकर दिखाओ!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "लो, खेलकर दिखाओ!",
+          "start": 0.25,
+          "end": 1.76,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "लो, खेलकर दिखाओ!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "meena",
+        "watcher": "pintu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "पहला छक्का! दूसरा भी गया!",
+      "subtitle": "पहला छक्का! दूसरा भी गया!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "पहला छक्का!",
+          "start": 0.25,
+          "end": 1.27,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "दूसरा भी गया!",
+          "start": 1.37,
+          "end": 2.55,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "पहला छक्का!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "meena",
+        "boardText": "हौसला"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मैंने तो बस हौसला बढ़ाया था! हाँ कोच जी, समझ गए!",
+      "subtitle": "मैंने तो बस हौसला बढ़ाया था! हाँ कोच जी, समझ गए!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "मैंने तो बस हौसला बढ़ाया था!",
+          "start": 0.25,
+          "end": 2.77,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "हाँ कोच जी, समझ गए!",
+          "start": 2.87,
+          "end": 4.24,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "मैंने तो बस हौसला बढ़ाया था!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
