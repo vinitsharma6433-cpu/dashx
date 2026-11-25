@@ -33,10 +33,10 @@
     "evidence": ""
   },
   "refill_errors": {
-    "day": "2026-11-24",
-    "error": false,
-    "before": 3,
-    "streak": 0
+    "day": "2026-11-25",
+    "error": true,
+    "before": 0,
+    "streak": 1
   },
-  "updated": "2026-11-25T15:34+05:30"
+  "updated": "2026-11-26T01:31+05:30"
 }
