@@ -1,18 +1,63 @@
 {
- "date": "2026-11-18",
+ "date": "2026-11-25",
  "queries": [
-  "html seo best practices",
-  "sitemap checker",
-  "json-ld schema checker"
+  "core web vitals checker",
+  "technical seo audit python",
+  "html seo best practices"
  ],
- "repos_seen": 1,
- "repos_vetted": 1,
+ "repos_seen": 2,
+ "repos_vetted": 2,
  "verdicts": {
-  "skip": 1
+  "candidate": 2
  },
  "injection_repos": [],
- "good_repos": [],
- "idea_counts": {},
- "new_checks": [],
+ "good_repos": [
+  {
+   "repo": "puneetindersingh/open-seo-crawler",
+   "stars": 88,
+   "license": "MIT",
+   "score": 4.0,
+   "ideas": [
+    "og-image",
+    "img-alt",
+    "single-h1",
+    "jsonld-breadcrumb",
+    "canonical-present",
+    "links-related-blog",
+    "links-product-blog"
+   ]
+  },
+  {
+   "repo": "IliasSami/scrawly-seo-crawler",
+   "stars": 24,
+   "license": "MIT",
+   "score": 4.0,
+   "ideas": [
+    "img-alt",
+    "img-dimensions",
+    "single-h1",
+    "jsonld-breadcrumb",
+    "jsonld-faq-blog",
+    "canonical-present",
+    "links-related-blog",
+    "links-product-blog"
+   ]
+  }
+ ],
+ "idea_counts": {
+  "img-alt": 2,
+  "single-h1": 2,
+  "jsonld-breadcrumb": 2,
+  "canonical-present": 2,
+  "links-related-blog": 2,
+  "links-product-blog": 2,
+  "og-image": 1,
+  "img-dimensions": 1,
+  "jsonld-faq-blog": 1
+ },
+ "new_checks": [
+  "canonical-present",
+  "img-alt"
+ ],
  "rejected_now": []
 }

@@ -59,6 +59,29 @@
    "id": "jsonld-faq-blog",
    "source": "scout:aksanovdgtl-cmyk/jsonld-schema-check,hustlemarketers-art/hustle-schema-studio,marketing-MEER/schema-markup-checker",
    "added": "2026-11-14"
+  },
+  {
+   "type": "link_rel_present",
+   "params": {
+    "rel": "canonical"
+   },
+   "scope": "all",
+   "level": "WARN",
+   "id": "canonical-present",
+   "source": "scout:IliasSami/scrawly-seo-crawler,puneetindersingh/open-seo-crawler",
+   "added": "2026-11-25"
+  },
+  {
+   "type": "img_attr_ratio",
+   "params": {
+    "attr": "alt",
+    "min": 1
+   },
+   "scope": "all",
+   "level": "WARN",
+   "id": "img-alt",
+   "source": "scout:IliasSami/scrawly-seo-crawler,puneetindersingh/open-seo-crawler",
+   "added": "2026-11-25"
   }
  ]
 }
