@@ -1,0 +1,165 @@
+{
+  "id": "aunty-s-pakoras",
+  "title": "आंटी के पकोड़े",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty sends pakoras for the players, Golu and the others forget the match, and Bruno eats them all.",
+    "idea": "Aunty's Pakoras",
+    "generated": "2026-11-25",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "पकोड़ों के चक्कर में मैच का क्या हुआ? 🥘",
+    "card": "आंटी के पकोड़े!",
+    "closing": "थाली सफ़ाचट, खेल चटपट!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "golu",
+        "boardText": "पकोड़े"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "गोलू, ये गरम पकोड़े सबके लिए!",
+      "subtitle": "गोलू, ये गरम पकोड़े सबके लिए!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "गोलू, ये गरम पकोड़े सबके लिए!",
+          "start": 0.25,
+          "end": 2.53,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "गोलू, ये गरम पकोड़े सबके लिए!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "मैच बाद में, पहले खाना!",
+      "subtitle": "मैच बाद में, पहले खाना!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "मैच बाद में, पहले खाना!",
+          "start": 0.25,
+          "end": 2.03,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "मैच बाद में, पहले खाना!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "अरे, थाली तो खाली हो गई!",
+      "subtitle": "अरे, थाली तो खाली हो गई!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "अरे, थाली तो खाली हो गई!",
+          "start": 0.25,
+          "end": 1.98,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "अरे, थाली तो खाली हो गई!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "bruno",
+        "boardText": "थाली"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो ने सब खा लिए! भौं भौं!",
+      "subtitle": "ब्रूनो ने सब खा लिए! भौं भौं!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "ब्रूनो ने सब खा लिए!",
+          "start": 0.25,
+          "end": 1.64,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "bruno",
+          "line": "भौं भौं!",
+          "start": 1.74,
+          "end": 2.23,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "ब्रूनो ने सब खा लिए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
