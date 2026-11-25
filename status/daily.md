@@ -29,8 +29,8 @@ None today.
 
 ### What the learning loop found
 - Reels with data: 28 (need 5). Steering: ON.
-- Best format: normal (average score 55.2, 27 reels).
-- Best hook_type: question (average score 56.8, 27 reels).
+- Best format: rivalry (average score 57.8, 2 reels).
+- Best hook_type: question (average score 55.6, 27 reels).
 - Data source youtube_statistics: ok
 - Data source instagram_counts: ok
 - Data source facebook_counts: ok
@@ -41,15 +41,15 @@ None today.
 
 ### Trust Ladder
 - Current: **Step 3 - Wider self-improvement (same allowed files and blocked windows)**
-- Gate to Step 4 (owner's yes in chat): 3 of 30 days
+- Gate to Step 4 (owner's yes in chat): 4 of 30 days
 - Gate rule: 30 days, zero missed slots, zero Meta warnings, reel views not falling; then the owner says yes in chat.
 - Blocker: none
 - Last move: 2 -> 3 on 2026-11-22T02:30 (7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings)
 
 ## Niche and genome brief (proposals only, nothing is applied)
 - Top combo: none proven yet (5 tagged reels; a pattern needs 3+ reels and 1.2x the average).
-- Weak reel meena-s-rule (score 1.2): likely weak part the first line (hook score is low).
-- Weak reel bruno-brings-a-friend (score 5.9): likely weak part no tag data yet.
+- Weak reel meena-s-rule (score 1.1): likely weak part the first line (hook score is low).
+- Weak reel bruno-brings-a-friend (score 5.3): likely weak part no tag data yet.
 - Experiment shareable_because=childhood_memory: n=0, lift n/a, WAIT (needs 3 reels).
 - Experiment first_3s=character_closeup: n=0, lift n/a, WAIT (needs 3 reels).
 - Next week 80/20: 12 stories on proven combos or the normal mix, 2 micro-experiments: hook_type=curiosity_gap, first_3s=sound_effect_drop.

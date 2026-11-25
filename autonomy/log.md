@@ -28,3 +28,5 @@
 - 2026-11-24 03:06 IST | info | learning | 28 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
 - 2026-11-25 05:32 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 551, dropped 187, failed sources 0 | written
 - 2026-11-25 05:32 IST | info | learning | 28 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
+- 2026-11-26 05:14 IST | info | trend_radar | top: gully_rules, match_fever, meerut_touch; seen 480, dropped 149, failed sources 0 | written
+- 2026-11-26 05:14 IST | info | learning | 28 reels with data (need 5), steering ON; availability: youtube_statistics=ok, instagram_counts=ok, facebook_counts=ok | written
