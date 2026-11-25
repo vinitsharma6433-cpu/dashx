@@ -3,7 +3,7 @@ Written by the machine every day around 21:00 IST (autonomy/report.py). Newest f
 
 ## 2026-11-24
 <!-- day: 2026-11-24 -->
-Report time: 22:20 IST. Autonomy status: **RED** (Story Refill 3 din se Gemini errors par ruk raha hai)
+Report time: 23:59 IST. Autonomy status: **GREEN**
 
 ### Reels today (3 networks)
 | Reel | Slot | YouTube | Instagram | Facebook |
@@ -15,7 +15,7 @@ Report time: 22:20 IST. Autonomy status: **RED** (Story Refill 3 din se Gemini e
 None today.
 
 ### Post-mortem
-- Needs the owner: Story Refill 3 din se Gemini errors par ruk raha hai (see the DASHX ALERT issue).
+Nothing went wrong today.
 
 ### Fixes the machine made
 None needed.
@@ -29,35 +29,32 @@ None today.
 
 ### What the learning loop found
 - Reels with data: 28 (need 5). Steering: ON.
-- Best format: normal (average score 53.5, 27 reels).
-- Best hook_type: question (average score 55.5, 27 reels).
+- Best format: normal (average score 55.2, 27 reels).
+- Best hook_type: question (average score 56.8, 27 reels).
 - Data source youtube_statistics: ok
 - Data source instagram_counts: ok
 - Data source facebook_counts: ok
 
 ### Story bank and Gemini quota
-- Stories left: 83 = about 41 days at 2 reels a day
-- Gemini calls used in this quota day: 0/12
+- Stories left: 81 = about 40 days at 2 reels a day
+- Gemini calls used in this quota day: 12/12
 
 ### Trust Ladder
 - Current: **Step 3 - Wider self-improvement (same allowed files and blocked windows)**
-- Gate to Step 4 (owner's yes in chat): 2 of 30 days
+- Gate to Step 4 (owner's yes in chat): 3 of 30 days
 - Gate rule: 30 days, zero missed slots, zero Meta warnings, reel views not falling; then the owner says yes in chat.
 - Blocker: none
 - Last move: 2 -> 3 on 2026-11-22T02:30 (7 days on step 2 with zero harmful reverts, zero missed slots, zero Meta warnings)
 
 ## Niche and genome brief (proposals only, nothing is applied)
 - Top combo: none proven yet (5 tagged reels; a pattern needs 3+ reels and 1.2x the average).
-- Weak reel golu-s-commentary (score 3.4): likely weak part the first line (hook score is low).
-- Weak reel meena-s-rule (score 1.3): likely weak part the first line (hook score is low).
+- Weak reel meena-s-rule (score 1.2): likely weak part the first line (hook score is low).
+- Weak reel bruno-brings-a-friend (score 5.9): likely weak part no tag data yet.
 - Experiment shareable_because=childhood_memory: n=0, lift n/a, WAIT (needs 3 reels).
 - Experiment first_3s=character_closeup: n=0, lift n/a, WAIT (needs 3 reels).
 - Next week 80/20: 12 stories on proven combos or the normal mix, 2 micro-experiments: hook_type=curiosity_gap, first_3s=sound_effect_drop.
 - Retention metrics are not available yet: scores use views and reactions per day (phase 2 is off).
-- Editor grade of the hand-imported stories: 23 graded so far, 17 below the bar (Bruno the Umpire, Bruno vs Pigeon, Bruno Bats, Bruno Hides the Ball, Bruno Chooses a Team, Bruno the Ball Boy...). They stay in the bank until the owner decides.
-
-### Open alerts (also in the GitHub issue DASHX ALERT)
-- Story Refill 3 din se Gemini errors par ruk raha hai
+- Editor grade of the hand-imported stories: 32 graded so far, 25 below the bar (Bruno the Umpire, Bruno vs Pigeon, Bruno Bats, Bruno Hides the Ball, Bruno Chooses a Team, Bruno the Ball Boy...). They stay in the bank until the owner decides.
 
 ## 2026-11-23
 <!-- day: 2026-11-23 -->
