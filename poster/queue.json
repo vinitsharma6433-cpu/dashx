@@ -2781,7 +2781,13 @@
       },
       "notes": {
         "yt_video_id": "59erfzOZhnY",
-        "fb_video_id": "1181033724445877"
+        "fb_video_id": "1181033724445877",
+        "yt_comment": [
+          "ok"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1,
+        "yt_engaged": true
       }
     },
     {
