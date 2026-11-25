@@ -32,3 +32,9 @@
 - 2026-11-24 grade FAIL | Coach's Whistle Mistake | meerut 2 twist 3 funny 4 hindi 6 typos 0 | The story lacks Meerut flavor, a proper hilarious twist, and strong punchlines suitable for a comedy
 - 2026-11-24 grade FAIL | Coach Demonstrates | meerut 3 twist 5 funny 4 hindi 6 typos 0 | The dialogue misses the plot's 10-miss buildup, lacks genuine Meerut dialect, and the punchline feel
 - 2026-11-24 grade FAIL | Coach's Big Laugh | meerut 3 twist 3 funny 4 hindi 6 typos 0 | The plot says the ball bounced off the wall because of coach's laugh, but the dialogue just shows a 
+- 2026-11-25 grade FAIL | Coach's Diet | meerut 3 twist 5 funny 6 hindi 9 typos 0 | The story lacks authentic Meerut local dialect and the punchline is too predictable.
+- 2026-11-25 grade FAIL | Coach vs Meena | meerut 5 twist 6 funny 7 hindi 10 typos 0 | The story lacks authentic Meerut dialect and local slang, making it feel too generic.
+- 2026-11-25 grade PASS | Coach's Net Practice | meerut 6 twist 6 funny 7 hindi 9 typos 0 | The story lacks authentic Meerut local dialect and the punchline twist is a bit mild.
+- 2026-11-25 grade FAIL | Coach's Late Day | meerut 3 twist 3 funny 4 hindi 8 typos 0 | The story lacks a genuine Meerut flavor and a funny punchline twist where the kids refuse to change 
+- 2026-11-25 grade FAIL | Coach's Motivation | meerut 4 twist 8 funny 7 hindi 9 typos 0 | The story lacks specific local Meerut slang, landmarks, or cultural references to give it a authenti
+- 2026-11-25 grade FAIL | Dadaji and Coach Duel | meerut 5 twist 5 funny 5 hindi 8 typos 0 | Golu does not count catches in the dialogue as promised in the plot, and the scene lacks local Meeru

@@ -1,5 +1,5 @@
 {
- "day": "2026-11-24",
+ "day": "2026-11-25",
  "calls": 12,
  "cap": 12,
  "grade": {
@@ -354,6 +354,72 @@
    "typos": 0,
    "issue": "The plot says the ball bounced off the wall because of coach's laugh, but the dialogue just shows a ",
    "day": "2026-11-24"
+  },
+  "Coach's Diet": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 5,
+   "funny": 6,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut local dialect and the punchline is too predictable.",
+   "day": "2026-11-25"
+  },
+  "Coach vs Meena": {
+   "ok": false,
+   "meerut": 5,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 10,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut dialect and local slang, making it feel too generic.",
+   "day": "2026-11-25"
+  },
+  "Coach's Net Practice": {
+   "ok": true,
+   "meerut": 6,
+   "twist": 6,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks authentic Meerut local dialect and the punchline twist is a bit mild.",
+   "day": "2026-11-25"
+  },
+  "Coach's Late Day": {
+   "ok": false,
+   "meerut": 3,
+   "twist": 3,
+   "funny": 4,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a genuine Meerut flavor and a funny punchline twist where the kids refuse to change ",
+   "day": "2026-11-25"
+  },
+  "Coach's Motivation": {
+   "ok": false,
+   "meerut": 4,
+   "twist": 8,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks specific local Meerut slang, landmarks, or cultural references to give it a authenti",
+   "day": "2026-11-25"
+  },
+  "Dadaji and Coach Duel": {
+   "ok": false,
+   "meerut": 5,
+   "twist": 5,
+   "funny": 5,
+   "hindi": 8,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "Golu does not count catches in the dialogue as promised in the plot, and the scene lacks local Meeru",
+   "day": "2026-11-25"
   }
  }
 }
