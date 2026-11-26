@@ -1,0 +1,165 @@
+{
+  "id": "mela-day",
+  "title": "मेले का दिन",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "The match is played between two stalls at the fair, and the ball lands on a balloon seller while Chhotu and Pappu run after it.",
+    "idea": "Mela Day",
+    "generated": "2026-11-26",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "गुब्बारे वाला मैच के बीच में क्यों आया? 🎈",
+    "card": "मेले में मैच!",
+    "closing": "गुब्बारे फूटे, मेला जमा!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "chhotu",
+        "right": "pappu",
+        "boardText": "मेला"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "पप्पू भैया, मेले में मैच खेलेंगे!",
+      "subtitle": "पप्पू भैया, मेले में मैच खेलेंगे!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "पप्पू भैया, मेले में मैच खेलेंगे!",
+          "start": 0.25,
+          "end": 2.24,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "पप्पू भैया, मेले में मैच खेलेंगे!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "chhotu",
+        "bowler": "pappu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "दो दुकानों के बीच गेंद फेंकता हूँ!",
+      "subtitle": "दो दुकानों के बीच गेंद फेंकता हूँ!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "दो दुकानों के बीच गेंद फेंकता हूँ!",
+          "start": 0.25,
+          "end": 2.77,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "दो दुकानों के बीच गेंद फेंकता हूँ!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "chhotu",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "अरे, गेंद गुब्बारे वाले पर गिरी!",
+      "subtitle": "अरे, गेंद गुब्बारे वाले पर गिरी!",
+      "dialogue": [
+        {
+          "speaker": "chhotu",
+          "line": "अरे, गेंद गुब्बारे वाले पर गिरी!",
+          "start": 0.25,
+          "end": 2.38,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "chhotu",
+      "line": "अरे, गेंद गुब्बारे वाले पर गिरी!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "pappu",
+        "right": "chhotu",
+        "boardText": "गुब्बारा"
+      },
+      "duration": 4.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सारे गुब्बारे फूट गए! अब पैसे हमें देने पड़ेंगे!",
+      "subtitle": "सारे गुब्बारे फूट गए! अब पैसे हमें देने पड़ेंगे!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "सारे गुब्बारे फूट गए!",
+          "start": 0.25,
+          "end": 2.07,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "chhotu",
+          "line": "अब पैसे हमें देने पड़ेंगे!",
+          "start": 2.18,
+          "end": 4.03,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "सारे गुब्बारे फूट गए!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

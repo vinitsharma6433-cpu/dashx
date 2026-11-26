@@ -1,0 +1,173 @@
+{
+  "id": "coach-demonstrates",
+  "title": "कोच दिखाए",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Coach shows Sachin and Meena how to bat and misses ten times in a row, then hits a six and pretends he planned it.",
+    "idea": "Coach Demonstrates",
+    "generated": "2026-11-26",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "कोच ने बल्लेबाज़ी कैसे सिखाई? 🎓",
+    "card": "कोच ने दिखाया बल्ला!",
+    "closing": "कोच का छक्का, पक्की प्लानिंग!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "meena",
+        "boardText": "सबक"
+      },
+      "duration": 4.8,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "देखो मीना, ऐसे बल्ला घुमाते हैं! कोच जी, गेंद निकल गई!",
+      "subtitle": "देखो मीना, ऐसे बल्ला घुमाते हैं! कोच जी, गेंद निकल गई!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "देखो मीना, ऐसे बल्ला घुमाते हैं!",
+          "start": 0.25,
+          "end": 2.8,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "कोच जी, गेंद निकल गई!",
+          "start": 2.9,
+          "end": 4.39,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "देखो मीना, ऐसे बल्ला घुमाते हैं!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "meena",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन, गेंद डाल, मैं देखूँगी!",
+      "subtitle": "सचिन, गेंद डाल, मैं देखूँगी!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "सचिन, गेंद डाल, मैं देखूँगी!",
+          "start": 0.25,
+          "end": 2.05,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "सचिन, गेंद डाल, मैं देखूँगी!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "coach"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "कोच जी का बल्ला खाली गया!",
+      "subtitle": "कोच जी का बल्ला खाली गया!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "कोच जी का बल्ला खाली गया!",
+          "start": 0.25,
+          "end": 2.22,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "कोच जी का बल्ला खाली गया!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "coach",
+        "right": "sachin",
+        "boardText": "प्लान"
+      },
+      "duration": 3.9,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "छक्का भी मैंने सोचा था! हाँ कोच जी, बिल्कुल!",
+      "subtitle": "छक्का भी मैंने सोचा था! हाँ कोच जी, बिल्कुल!",
+      "dialogue": [
+        {
+          "speaker": "coach",
+          "line": "छक्का भी मैंने सोचा था!",
+          "start": 0.25,
+          "end": 2.12,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "हाँ कोच जी, बिल्कुल!",
+          "start": 2.22,
+          "end": 3.54,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "coach",
+      "line": "छक्का भी मैंने सोचा था!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

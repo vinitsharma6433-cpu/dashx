@@ -75,3 +75,5 @@
 - 2026-11-24 | coach-vs-meena | कोच बनाम मीना (Coach vs Meena) | Coach says girls cannot hit sixes, Meena hits two in a row, and he claims he only said it to motivate her. | मीना जीती, हौसला बढ़ा!
 - 2026-11-25 | aunty-s-pakoras | आंटी के पकोड़े (Aunty's Pakoras) | Aunty sends pakoras for the players, Golu and the others forget the match, and Bruno eats them all. | थाली सफ़ाचट, खेल चटपट!
 - 2026-11-25 | last-ball-of-the-day | दिन की आख़िरी गेंद (Last Ball of the Day) | The sun sets, everyone is tired, Dadaji says one more, and the last ball lands in his hands while Sachin and Surya cheer. | शाम ढली, मैच मुकम्मल!
+- 2026-11-26 | mela-day | मेले का दिन (Mela Day) | The match is played between two stalls at the fair, and the ball lands on a balloon seller while Chhotu and Pappu run after it. | गुब्बारे फूटे, मेला जमा!
+- 2026-11-26 | coach-demonstrates | कोच दिखाए (Coach Demonstrates) | Coach shows Sachin and Meena how to bat and misses ten times in a row, then hits a six and pretends he planned it. | कोच का छक्का, पक्की प्लानिंग!
