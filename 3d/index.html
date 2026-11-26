@@ -133,7 +133,7 @@ footer{padding-block:30px calc(30px + 70px);border-top:1px solid var(--line);col
 </head>
 <body>
 
-<div id="load" role="status"><div class="ball"></div><div class="txt" id="loadtxt">FACTORY SHURU HO RAHI HAI</div></div>
+<div id="load" role="status"><div class="ball"></div><div class="txt" id="loadtxt">FACTORY LOADING</div></div>
 <canvas id="stage" aria-hidden="true"></canvas>
 
 <header>
@@ -152,7 +152,7 @@ footer{padding-block:30px calc(30px + 70px);border-top:1px solid var(--line);col
       <p class="sub">Nav Durga Sports, Meerut. 20+ years of making cricket tennis balls. The shutter is still down. Scroll, and DASH X will open it.</p>
       <div class="btns">
         <a class="btn btn-flip" href="https://dl.flipkart.com/dl/product/p/itme?pid=BALHZ5DAYUNTZD82&lid=LSTBALHZ5DAYUNTZD82W6Z0R4" target="_blank" rel="noopener">Buy on Flipkart</a>
-        <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASH%20X%2C%20mujhe%20cricket%20tennis%20ball%20order%20karni%20hai" target="_blank" rel="noopener">WhatsApp Order</a>
+        <a class="btn btn-wa" href="https://wa.me/919837821341?text=Hi%20DASH%20X%2C%20I%20want%20to%20order%20cricket%20tennis%20balls" target="_blank" rel="noopener">WhatsApp Order</a>
       </div>
       <div class="chips" role="group" aria-label="Mascot colour"><span>MASCOT</span>
         <button class="chip" id="cGreen" aria-pressed="true" type="button">Green</button>
@@ -207,7 +207,7 @@ footer{padding-block:30px calc(30px + 70px);border-top:1px solid var(--line);col
     </div>
     <div class="chap wide" data-i="8">
       <div class="eyebrow">09 · Visit</div>
-      <h2>Hamari factory, <span>Meerut.</span></h2>
+      <h2>Our factory, <span>Meerut.</span></h2>
       <p class="sub">Bulk or dealer order? Talk to us directly. Email: vinitsharma6433@gmail.com</p>
       <div class="btns">
         <a class="btn btn-amz" href="https://www.google.com/maps/search/?api=1&query=Nav+Durga+Sports+Meerut" target="_blank" rel="noopener">Show me the way</a>
@@ -279,7 +279,7 @@ document.addEventListener('keydown', function (e) { if (!lb.classList.contains('
 var qty = 1, PRICE = 242;
 function bill() {
   document.getElementById('qn').textContent = qty; document.getElementById('qt').textContent = '₹' + (qty * PRICE);
-  document.getElementById('qwa').href = 'https://wa.me/919837821341?text=' + encodeURIComponent('Hi DASH X, mujhe Heavy Cricket Tennis Ball (Pack of 6) x ' + qty + ' order karna hai. Total Rs ' + (qty * PRICE));
+  document.getElementById('qwa').href = 'https://wa.me/919837821341?text=' + encodeURIComponent('Hi DASH X, I want to order Heavy Cricket Tennis Ball (Pack of 6) x ' + qty + '. Total Rs ' + (qty * PRICE));
 }
 document.getElementById('qm').onclick = function () { qty = Math.max(1, qty - 1); bill(); };
 document.getElementById('qp').onclick = function () { qty = Math.min(50, qty + 1); bill(); };
@@ -323,7 +323,7 @@ try {
   var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 140);
 
   var manager = new THREE.LoadingManager();
-  manager.onProgress = function (u, d, t) { document.getElementById('loadtxt').textContent = 'FACTORY SHURU HO RAHI HAI ' + Math.round(d / t * 100) + '%'; };
+  manager.onProgress = function (u, d, t) { document.getElementById('loadtxt').textContent = 'FACTORY LOADING ' + Math.round(d / t * 100) + '%'; };
   var loader = new THREE.TextureLoader(manager);
 
   function canvasTex(w, h, draw) { var c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); var t = new THREE.CanvasTexture(c); t.anisotropy = 4; return t; }
