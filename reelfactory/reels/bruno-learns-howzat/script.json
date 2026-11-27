@@ -1,0 +1,173 @@
+{
+  "id": "bruno-learns-howzat",
+  "title": "ब्रूनो का हाउज़ैट",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Golu teaches Bruno to say howzat, but at the worst moment Bruno barks and Pintu takes it as an appeal and gives Sachin out.",
+    "idea": "Bruno Learns Howzat",
+    "generated": "2026-11-27",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "ब्रूनो के भौंकने पर सचिन आउट क्यों हुआ? 🙋",
+    "card": "ब्रूनो की अपील!",
+    "closing": "भौंकने पर आउट दे दिया!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "golu",
+        "right": "bruno",
+        "boardText": "अपील"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ब्रूनो, ज़ोर से बोलो हाउज़ैट!",
+      "subtitle": "ब्रूनो, ज़ोर से बोलो हाउज़ैट!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "ब्रूनो, ज़ोर से बोलो हाउज़ैट!",
+          "start": 0.25,
+          "end": 2.28,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "ब्रूनो, ज़ोर से बोलो हाउज़ैट!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "golu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "सचिन, ये गेंद संभालना!",
+      "subtitle": "सचिन, ये गेंद संभालना!",
+      "dialogue": [
+        {
+          "speaker": "golu",
+          "line": "सचिन, ये गेंद संभालना!",
+          "start": 0.25,
+          "end": 1.99,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "golu",
+      "line": "सचिन, ये गेंद संभालना!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "pintu"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "देखो, मेरा ज़ोरदार शॉट! आउट! अपील हुई है!",
+      "subtitle": "देखो, मेरा ज़ोरदार शॉट! आउट! अपील हुई है!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "देखो, मेरा ज़ोरदार शॉट!",
+          "start": 0.25,
+          "end": 2.11,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "आउट! अपील हुई है!",
+          "start": 2.21,
+          "end": 3.6,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "देखो, मेरा ज़ोरदार शॉट!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "pintu",
+        "boardText": "फ़ैसला"
+      },
+      "duration": 4.0,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "वो तो भौंका था! मुझे हाउज़ैट सुनाई दिया!",
+      "subtitle": "वो तो भौंका था! मुझे हाउज़ैट सुनाई दिया!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "वो तो भौंका था!",
+          "start": 0.25,
+          "end": 1.52,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "pintu",
+          "line": "मुझे हाउज़ैट सुनाई दिया!",
+          "start": 1.62,
+          "end": 3.63,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "वो तो भौंका था!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

@@ -77,3 +77,5 @@
 - 2026-11-25 | last-ball-of-the-day | दिन की आख़िरी गेंद (Last Ball of the Day) | The sun sets, everyone is tired, Dadaji says one more, and the last ball lands in his hands while Sachin and Surya cheer. | शाम ढली, मैच मुकम्मल!
 - 2026-11-26 | mela-day | मेले का दिन (Mela Day) | The match is played between two stalls at the fair, and the ball lands on a balloon seller while Chhotu and Pappu run after it. | गुब्बारे फूटे, मेला जमा!
 - 2026-11-26 | coach-demonstrates | कोच दिखाए (Coach Demonstrates) | Coach shows Sachin and Meena how to bat and misses ten times in a row, then hits a six and pretends he planned it. | कोच का छक्का, पक्की प्लानिंग!
+- 2026-11-27 | bruno-learns-howzat | ब्रूनो का हाउज़ैट (Bruno Learns Howzat) | Golu teaches Bruno to say howzat, but at the worst moment Bruno barks and Pintu takes it as an appeal and gives Sachin out. | भौंकने पर आउट दे दिया!
+- 2026-11-27 | aunty-joins-the-match | आंटी भी खेलीं (Aunty Joins the Match) | Aunty takes the bat from Sachin for a moment, the next shot flies far, and she tells everyone she was only beating dough. | आटे वाला शॉट!

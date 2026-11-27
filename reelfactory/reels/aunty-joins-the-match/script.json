@@ -1,0 +1,173 @@
+{
+  "id": "aunty-joins-the-match",
+  "title": "आंटी भी खेलीं",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Aunty takes the bat from Sachin for a moment, the next shot flies far, and she tells everyone she was only beating dough.",
+    "idea": "Aunty Joins the Match",
+    "generated": "2026-11-27",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "आंटी ने बल्ले से क्या कमाल दिखाया? 🏏",
+    "card": "आंटी ने बल्ला उठाया!",
+    "closing": "आटे वाला शॉट!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "sachin",
+        "boardText": "बल्ला"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "सचिन, ज़रा मुझे बल्ला दे दो!",
+      "subtitle": "सचिन, ज़रा मुझे बल्ला दे दो!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "सचिन, ज़रा मुझे बल्ला दे दो!",
+          "start": 0.25,
+          "end": 2.42,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "सचिन, ज़रा मुझे बल्ला दे दो!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "surya",
+        "bowler": "sachin",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "बड़े बल्लेबाज़ आए हैं, धीरे डालना!",
+      "subtitle": "बड़े बल्लेबाज़ आए हैं, धीरे डालना!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "बड़े बल्लेबाज़ आए हैं, धीरे डालना!",
+          "start": 0.25,
+          "end": 2.74,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "बड़े बल्लेबाज़ आए हैं, धीरे डालना!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "surya",
+        "watcher": "dadaji"
+      },
+      "duration": 4.6,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "वाह, शॉट आसमान में पहुँचा! ये किसका शॉट था?",
+      "subtitle": "वाह, शॉट आसमान में पहुँचा! ये किसका शॉट था?",
+      "dialogue": [
+        {
+          "speaker": "surya",
+          "line": "वाह, शॉट आसमान में पहुँचा!",
+          "start": 0.25,
+          "end": 2.24,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "dadaji",
+          "line": "ये किसका शॉट था?",
+          "start": 2.34,
+          "end": 4.24,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "surya",
+      "line": "वाह, शॉट आसमान में पहुँचा!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "sachin",
+        "boardText": "आटा"
+      },
+      "duration": 4.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मैंने तो बस आटा गूँथा! आंटी, आपने कमाल कर दिया!",
+      "subtitle": "मैंने तो बस आटा गूँथा! आंटी, आपने कमाल कर दिया!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "मैंने तो बस आटा गूँथा!",
+          "start": 0.25,
+          "end": 2.19,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "sachin",
+          "line": "आंटी, आपने कमाल कर दिया!",
+          "start": 2.29,
+          "end": 4.15,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "मैंने तो बस आटा गूँथा!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
