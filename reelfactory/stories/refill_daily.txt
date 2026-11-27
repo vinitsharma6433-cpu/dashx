@@ -1,1 +1,1 @@
-Story refill 2026-11-26: 77 stories left in the bank, 0 added today, Gemini calls used 6/12 (bank has more than 60 usable stories: nothing to write) [graded 0 imported stories today, 0 below the bar, 52 still to grade; grading stopped: judge unavailable (HTTP 503)]
+Story refill 2026-11-27: 75 stories left in the bank, 0 added today, Gemini calls used 9/12 (bank has more than 60 usable stories: nothing to write) [graded 2 imported stories today, 1 below the bar, 50 still to grade; grading stopped: judge unavailable (HTTP 503)]

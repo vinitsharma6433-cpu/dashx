@@ -1,6 +1,6 @@
 {
- "day": "2026-11-26",
- "calls": 6,
+ "day": "2026-11-27",
+ "calls": 9,
  "cap": 12,
  "grade": {
   "Bruno the Umpire": {
@@ -420,6 +420,28 @@
    "typos": 0,
    "issue": "Golu does not count catches in the dialogue as promised in the plot, and the scene lacks local Meeru",
    "day": "2026-11-25"
+  },
+  "Meena's Captain Day": {
+   "ok": false,
+   "meerut": 6,
+   "twist": 4,
+   "funny": 7,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story lacks a surprising twist at the end and needs more authentic Meerut slang or atmosphere.",
+   "day": "2026-11-27"
+  },
+  "Meena's Secret Bat": {
+   "ok": true,
+   "meerut": 7,
+   "twist": 8,
+   "funny": 8,
+   "hindi": 9,
+   "kid_safe": true,
+   "typos": 0,
+   "issue": "The story works well and lands the joke, though adding more local Meerut slang could enhance the reg",
+   "day": "2026-11-27"
   }
  }
 }

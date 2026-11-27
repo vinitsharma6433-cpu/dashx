@@ -38,3 +38,5 @@
 - 2026-11-25 grade FAIL | Coach's Late Day | meerut 3 twist 3 funny 4 hindi 8 typos 0 | The story lacks a genuine Meerut flavor and a funny punchline twist where the kids refuse to change 
 - 2026-11-25 grade FAIL | Coach's Motivation | meerut 4 twist 8 funny 7 hindi 9 typos 0 | The story lacks specific local Meerut slang, landmarks, or cultural references to give it a authenti
 - 2026-11-25 grade FAIL | Dadaji and Coach Duel | meerut 5 twist 5 funny 5 hindi 8 typos 0 | Golu does not count catches in the dialogue as promised in the plot, and the scene lacks local Meeru
+- 2026-11-27 grade FAIL | Meena's Captain Day | meerut 6 twist 4 funny 7 hindi 9 typos 0 | The story lacks a surprising twist at the end and needs more authentic Meerut slang or atmosphere.
+- 2026-11-27 grade PASS | Meena's Secret Bat | meerut 7 twist 8 funny 8 hindi 9 typos 0 | The story works well and lands the joke, though adding more local Meerut slang could enhance the reg
