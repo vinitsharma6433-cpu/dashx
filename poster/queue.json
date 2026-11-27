@@ -3050,14 +3050,20 @@
       "status": "scheduled",
       "results": {
         "youtube": {
-          "ok": false,
-          "error": "404 Client Error: Not Found for url: https://vinitsharma6433-cpu.github.io/dashx/social/aunty-joins-the-match.mp4"
+          "ok": true,
+          "link": "https://www.youtube.com/shorts/KUhdAuilr24",
+          "scheduled": true,
+          "publish_at": "2026-11-27T20:30:00+05:30",
+          "at": "2026-11-27T08:42:49.694498+05:30"
         },
         "facebook": {
           "ok": false,
           "sched_failed": true,
           "error": "scheduling failed: video URL is not public (HTTP 404): https://vinitsharma6433-cpu.github.io/dashx/social/aunty-joins-the-match.mp4"
         }
+      },
+      "notes": {
+        "yt_video_id": "KUhdAuilr24"
       }
     },
     {
