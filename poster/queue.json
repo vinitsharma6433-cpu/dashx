@@ -3077,9 +3077,9 @@
           "at": "2026-11-27T08:42:49.694498+05:30"
         },
         "facebook": {
-          "ok": false,
-          "sched_failed": true,
-          "error": "scheduling failed: video URL is not public (HTTP 404): https://vinitsharma6433-cpu.github.io/dashx/social/aunty-joins-the-match.mp4"
+          "ok": true,
+          "link": "https://www.facebook.com/reel/1189802040243735",
+          "at": "2026-11-27T20:33:45.940102+05:30"
         },
         "instagram": {
           "ok": true,
@@ -3097,6 +3097,11 @@
         "yt_engaged": true,
         "ig_media_id": "18109158281353923",
         "ig_comment": [
+          "ok"
+        ],
+        "fb_video_id": "1189802040243735",
+        "fb_status": "ready",
+        "fb_comment": [
           "ok"
         ]
       }
