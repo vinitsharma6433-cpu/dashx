@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-27T02:32+05:30",
-  "day": "2026-11-27",
+  "generated": "2026-11-28T03:43+05:30",
+  "day": "2026-11-28",
   "topics": [
     {
       "id": "gully_rules",
@@ -12,7 +12,7 @@
       "sources": [
         "news_gully_cricket"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     },
     {
       "id": "match_fever",
@@ -24,9 +24,10 @@
       "sources": [
         "news_cricket",
         "news_gully_cricket",
-        "news_school"
+        "news_school",
+        "news_wedding"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     },
     {
       "id": "meerut_touch",
@@ -38,7 +39,7 @@
       "sources": [
         "news_meerut"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     },
     {
       "id": "school_exams",
@@ -48,11 +49,10 @@
       "story_situation": "a kid sneaks one over while he should be studying and a parent spots the ball",
       "strength": 5,
       "sources": [
-        "news_cricket",
         "news_gully_cricket",
         "news_school"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     },
     {
       "id": "school_holidays",
@@ -64,7 +64,7 @@
       "sources": [
         "news_school"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     },
     {
       "id": "weather_twist",
@@ -78,12 +78,12 @@
         "news_weather",
         "news_wedding"
       ],
-      "expires": "2026-11-30"
+      "expires": "2026-12-01"
     }
   ],
   "stats": {
-    "headlines_seen": 560,
-    "dropped_unsafe": 154,
+    "headlines_seen": 513,
+    "dropped_unsafe": 143,
     "sources_ok": [
       "google_trends_in",
       "news_cricket",

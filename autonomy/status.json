@@ -1,7 +1,7 @@
 {
   "level": "red",
   "reasons": [
-    "Story Refill 2 din se Gemini errors par ruk raha hai"
+    "Story Refill 3 din se Gemini errors par ruk raha hai"
   ],
   "alerts": 1,
   "trend": {
@@ -30,15 +30,15 @@
     "drop_alert_until": null,
     "last_drop": "",
     "owner_ready": false,
-    "progress": "5 of 30 days",
+    "progress": "6 of 30 days",
     "blocker": "",
     "evidence": ""
   },
   "refill_errors": {
-    "day": "2026-11-26",
+    "day": "2026-11-27",
     "error": true,
-    "before": 1,
-    "streak": 2
+    "before": 2,
+    "streak": 3
   },
-  "updated": "2026-11-27T18:54+05:30"
+  "updated": "2026-11-28T03:43+05:30"
 }
