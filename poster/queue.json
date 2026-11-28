@@ -3144,7 +3144,12 @@
       },
       "notes": {
         "yt_video_id": "i17fTBiavmc",
-        "fb_video_id": "2091381681513770"
+        "fb_video_id": "2091381681513770",
+        "yt_comment": [
+          "failed 403 (forbidden)"
+        ],
+        "yt_like": "ok",
+        "yt_engage_tries": 1
       }
     },
     {
