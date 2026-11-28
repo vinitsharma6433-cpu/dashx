@@ -1,0 +1,165 @@
+{
+  "id": "winter-morning",
+  "title": "सर्दी की सुबह",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "Sachin and Meena play in blankets and the bat is the hardest thing to hold, while Aunty brings hot tea.",
+    "idea": "Winter Morning",
+    "generated": "2026-11-28",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "सर्दी की सुबह कंबल में क्रिकेट कैसे हुआ? 🧣",
+    "card": "सर्दी में कंबल क्रिकेट!",
+    "closing": "कंबल में क्रिकेट, ठिठुरन!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "sachin",
+        "right": "meena",
+        "boardText": "सर्दी"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मीना, मेरा बल्ला पकड़ ही नहीं आता!",
+      "subtitle": "मीना, मेरा बल्ला पकड़ ही नहीं आता!",
+      "dialogue": [
+        {
+          "speaker": "sachin",
+          "line": "मीना, मेरा बल्ला पकड़ ही नहीं आता!",
+          "start": 0.25,
+          "end": 2.73,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "sachin",
+      "line": "मीना, मेरा बल्ला पकड़ ही नहीं आता!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "sachin",
+        "bowler": "meena",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "कंबल में हाथ फँस गए!",
+      "subtitle": "कंबल में हाथ फँस गए!",
+      "dialogue": [
+        {
+          "speaker": "meena",
+          "line": "कंबल में हाथ फँस गए!",
+          "start": 0.25,
+          "end": 1.76,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "meena",
+      "line": "कंबल में हाथ फँस गए!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "sachin",
+        "watcher": "aunty"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "ठंड में भी मैच नहीं छोड़ते!",
+      "subtitle": "ठंड में भी मैच नहीं छोड़ते!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "ठंड में भी मैच नहीं छोड़ते!",
+          "start": 0.25,
+          "end": 2.27,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "ठंड में भी मैच नहीं छोड़ते!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "aunty",
+        "right": "meena",
+        "boardText": "चाय"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "लो, ये गरम चाय पी लो! आंटी, अब हाथ में जान आई!",
+      "subtitle": "लो, ये गरम चाय पी लो! आंटी, अब हाथ में जान आई!",
+      "dialogue": [
+        {
+          "speaker": "aunty",
+          "line": "लो, ये गरम चाय पी लो!",
+          "start": 0.25,
+          "end": 1.94,
+          "width": 900,
+          "lines": 1
+        },
+        {
+          "speaker": "meena",
+          "line": "आंटी, अब हाथ में जान आई!",
+          "start": 2.04,
+          "end": 3.7,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "aunty",
+      "line": "लो, ये गरम चाय पी लो!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}

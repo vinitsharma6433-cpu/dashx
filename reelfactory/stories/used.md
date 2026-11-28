@@ -79,3 +79,5 @@
 - 2026-11-26 | coach-demonstrates | कोच दिखाए (Coach Demonstrates) | Coach shows Sachin and Meena how to bat and misses ten times in a row, then hits a six and pretends he planned it. | कोच का छक्का, पक्की प्लानिंग!
 - 2026-11-27 | bruno-learns-howzat | ब्रूनो का हाउज़ैट (Bruno Learns Howzat) | Golu teaches Bruno to say howzat, but at the worst moment Bruno barks and Pintu takes it as an appeal and gives Sachin out. | भौंकने पर आउट दे दिया!
 - 2026-11-27 | aunty-joins-the-match | आंटी भी खेलीं (Aunty Joins the Match) | Aunty takes the bat from Sachin for a moment, the next shot flies far, and she tells everyone she was only beating dough. | आटे वाला शॉट!
+- 2026-11-28 | bruno-picks-the-winner | ब्रूनो ने जिताया (Bruno Picks the Winner) | The match is tied, both captains Pappu and Mintu give Bruno a biscuit, and he drops the ball into the team that gave the bigger one. | बिस्कुट ने तय किया फ़ैसला!
+- 2026-11-28 | winter-morning | सर्दी की सुबह (Winter Morning) | Sachin and Meena play in blankets and the bat is the hardest thing to hold, while Aunty brings hot tea. | कंबल में क्रिकेट, ठिठुरन!

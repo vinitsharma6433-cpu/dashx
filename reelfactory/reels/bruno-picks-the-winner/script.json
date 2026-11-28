@@ -1,0 +1,157 @@
+{
+  "id": "bruno-picks-the-winner",
+  "title": "ब्रूनो ने जिताया",
+  "language": "hi",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "brand": {
+    "spelling": "DASHX",
+    "line": "DASHX by Nav Durga Sports, Meerut",
+    "notes": "Generated story. No price, no 'best/no.1/premium/guaranteed' claim, no other brands, no sensitive news."
+  },
+  "story": {
+    "plot": "The match is tied, both captains Pappu and Mintu give Bruno a biscuit, and he drops the ball into the team that gave the bigger one.",
+    "idea": "Bruno Picks the Winner",
+    "generated": "2026-11-28",
+    "writer": "hand-written story bank (stories/dialogue_bank.md)",
+    "durations_are_estimates": "scripts/fit_reel.py sets the real durations after the voice is made.",
+    "hook": "बराबरी का मैच ब्रूनो ने कैसे जिताया? 🍪",
+    "card": "बराबर मैच, ब्रूनो जज!",
+    "closing": "बिस्कुट ने तय किया फ़ैसला!"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "template": "face-off",
+      "params": {
+        "left": "pappu",
+        "right": "mintu",
+        "boardText": "बराबरी"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "मैच बराबर है, मैं नहीं हारूँगा!",
+      "subtitle": "मैच बराबर है, मैं नहीं हारूँगा!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "मैच बराबर है, मैं नहीं हारूँगा!",
+          "start": 0.25,
+          "end": 2.69,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "मैच बराबर है, मैं नहीं हारूँगा!"
+    },
+    {
+      "id": 2,
+      "template": "run-up",
+      "params": {
+        "batter": "mintu",
+        "bowler": "pappu",
+        "near": true
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "pan-left",
+        "zoom": 1.1
+      },
+      "voice": "ये लो बिस्कुट, इधर आओ!",
+      "subtitle": "ये लो बिस्कुट, इधर आओ!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "ये लो बिस्कुट, इधर आओ!",
+          "start": 0.25,
+          "end": 2.07,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "ये लो बिस्कुट, इधर आओ!"
+    },
+    {
+      "id": 3,
+      "template": "shot",
+      "params": {
+        "batter": "mintu",
+        "watcher": "bruno"
+      },
+      "duration": 4.1,
+      "camera": {
+        "move": "tilt-up",
+        "zoom": 1.1
+      },
+      "voice": "मेरा बिस्कुट बड़ा है, देख!",
+      "subtitle": "मेरा बिस्कुट बड़ा है, देख!",
+      "dialogue": [
+        {
+          "speaker": "mintu",
+          "line": "मेरा बिस्कुट बड़ा है, देख!",
+          "start": 0.25,
+          "end": 2.35,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "mintu",
+      "line": "मेरा बिस्कुट बड़ा है, देख!"
+    },
+    {
+      "id": 4,
+      "template": "face-off",
+      "params": {
+        "left": "pappu",
+        "right": "bruno",
+        "boardText": "जीत"
+      },
+      "duration": 3.5,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.12
+      },
+      "voice": "ये बिस्कुट बड़ा है, इधर आ!",
+      "subtitle": "ये बिस्कुट बड़ा है, इधर आ!",
+      "dialogue": [
+        {
+          "speaker": "pappu",
+          "line": "ये बिस्कुट बड़ा है, इधर आ!",
+          "start": 0.25,
+          "end": 2.5,
+          "width": 900,
+          "lines": 1
+        }
+      ],
+      "speaker": "pappu",
+      "line": "ये बिस्कुट बड़ा है, इधर आ!"
+    },
+    {
+      "id": 5,
+      "template": "end-card",
+      "params": {},
+      "duration": 6.4,
+      "camera": {
+        "move": "zoom-in",
+        "from": 1.0,
+        "to": 1.05
+      },
+      "voice": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitle": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "speaker": "narrator",
+      "line": "अमेज़न, फ्लिपकार्ट या मीशो पर डैश एक्स क्रिकेट टेनिस बॉल सर्च करो और ले लो।",
+      "subtitleWidth": 850
+    }
+  ],
+  "dialogue_format": 2
+}
