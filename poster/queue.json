@@ -3234,10 +3234,18 @@
           "scheduled": true,
           "publish_at": "2026-11-29T12:30:00+05:30",
           "at": "2026-11-28T08:29:47.067160+05:30"
+        },
+        "facebook": {
+          "ok": true,
+          "link": "https://www.facebook.com/reel/5582788301945237",
+          "scheduled": true,
+          "publish_at": "2026-11-29T12:30:00+05:30",
+          "at": "2026-11-28T12:30:07.430383+05:30"
         }
       },
       "notes": {
-        "yt_video_id": "kn7UrFeekAQ"
+        "yt_video_id": "kn7UrFeekAQ",
+        "fb_video_id": "5582788301945237"
       }
     }
   ]
